@@ -11,6 +11,7 @@ Activity {
         asynchronous: true
         anchors.fill: actionBar
         depth: 1
+        z: actionBar.z - 1
     }
 
     ActionBar {

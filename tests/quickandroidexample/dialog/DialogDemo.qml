@@ -42,7 +42,7 @@ Activity {
     AlertDialog {
         id: dialog
         anchors.centerIn: parent
-        message: "What do think about QuickAndroid?"
+        message: "What do you think about QuickAndroid?"
         z: 20
     }
 }
