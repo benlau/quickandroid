@@ -50,6 +50,7 @@ Drawable {
         opacity: 0.5
         width: Screen.width
         height: Screen.height
+        scale : 1 / dialog.scale
         z: -10000
         color : "#000000"
 

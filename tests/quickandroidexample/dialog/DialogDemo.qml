@@ -43,5 +43,6 @@ Activity {
         id: dialog
         anchors.centerIn: parent
         message: "What do think about QuickAndroid?"
+        z: 20
     }
 }
