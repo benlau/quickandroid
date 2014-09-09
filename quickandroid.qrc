@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/quickandroid">
+        <file>ActionBar.qml</file>
+        <file>Activity.qml</file>
+        <file>android.js</file>
+        <file>AnimationLoader.qml</file>
+        <file>Application.qml</file>
+        <file>Drawable.qml</file>
+        <file>DrawableGrowBehaviour.qml</file>
+        <file>InverseMouseArea.qml</file>
+        <file>MaterialShadow.qml</file>
+        <file>PopupArea.qml</file>
+        <file>PopupMenu.qml</file>
+        <file>QueuedSignal.qml</file>
+        <file>quickandroid.qrc</file>
+        <file>QuickButton.qml</file>
+        <file>README.md</file>
+        <file>RectToRectMatrix.qml</file>
+        <file>res.js</file>
+        <file>Shadow.qml</file>
+        <file>Spinner.qml</file>
+        <file>StateListDrawable.qml</file>
+        <file>util.js</file>
+        <file>Dialog.qml</file>
+        <file>anim/ActivityEnter.qml</file>
+        <file>anim/ActivityExit.qml</file>
+        <file>anim/GrowFadeIn.qml</file>
+        <file>anim/ShrinkFadeOut.qml</file>
+        <file>drawable/ActionBarBackground.qml</file>
+        <file>drawable/BackgroundHoloLight.qml</file>
+        <file>drawable/BtnDefault.qml</file>
+        <file>drawable/BtnDropdown.qml</file>
+        <file>drawable/DividerHorizontalHoloLight.qml</file>
+        <file>drawable/ic_ab_back_holo_light_am.png</file>
+        <file>drawable/ItemBackgroundHoloLight.qml</file>
+        <file>drawable/ListSelectorHoloLight.qml</file>
+        <file>drawable/MenuDropdownPanelHoloLight.qml</file>
+        <file>drawable/SpinnerAbHoloLight.qml</file>
+        <file>drawable/SpinnerDropdownBackground.qml</file>
+        <file>drawable/Triangle.qml</file>
+        <file>drawable-xxhdpi/ic_ab_back_holo_light_am.png</file>
+        <file>drawable-xxhdpi/menu_dropdown_panel_holo_light.png</file>
+        <file>item/DropDownList.qml</file>
+    </qresource>
+</RCC>
