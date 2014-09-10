@@ -30,4 +30,6 @@ Under Development Components
 Demonstration & Instruction of use
 ----------------------------------
 
-Please refer to the example program in the folder of tests/quickandroidexample
+Please refer to the example program in the folder of [tests/quickandroidexample](tests/quickandroidexample)
+
+![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/tests/quickandroidexample/docs/screenshot.png)
