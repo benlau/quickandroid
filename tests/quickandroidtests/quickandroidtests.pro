@@ -6,7 +6,8 @@ TARGET = quickandroidtests
 TEMPLATE = app
 
 SOURCES += main.cpp
-QML_IMPORT_PATH = ../../
+
+include(../../quickandroid.pri)
 
 OTHER_FILES += \
     tst_Drawable.qml \

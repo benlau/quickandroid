@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtTest 1.0
-import "../../item"
-import "../.."
+import QuickAndroid 0.1
+import QuickAndroid.item 0.1
 
 Rectangle {
     id : rect
