@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/quickandroid">
+    <qresource prefix="/QuickAndroid">
         <file>ActionBar.qml</file>
         <file>Activity.qml</file>
         <file>android.js</file>
@@ -14,7 +14,6 @@
         <file>QueuedSignal.qml</file>
         <file>quickandroid.qrc</file>
         <file>QuickButton.qml</file>
-        <file>README.md</file>
         <file>RectToRectMatrix.qml</file>
         <file>res.js</file>
         <file>Shadow.qml</file>
@@ -41,5 +40,7 @@
         <file>drawable-xxhdpi/ic_ab_back_holo_light_am.png</file>
         <file>drawable-xxhdpi/menu_dropdown_panel_holo_light.png</file>
         <file>item/DropDownList.qml</file>
+        <file>item/qmldir</file>
+        <file>qmldir</file>
     </qresource>
 </RCC>
