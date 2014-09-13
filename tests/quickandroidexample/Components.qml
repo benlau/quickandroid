@@ -1,9 +1,6 @@
 import QtQuick 2.2
 import QtQuick.Window 2.1
-
-import "qrc:/quickandroid"
-import "qrc:/quickandroid/android.js" as A
-import "qrc:/quickandroid/res.js" as Res
+import QuickAndroid 0.1
 
 Activity {
 

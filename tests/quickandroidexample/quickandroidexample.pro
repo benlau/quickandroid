@@ -5,10 +5,11 @@ QT += qml quick
 SOURCES += main.cpp
 
 RESOURCES += qml.qrc
-RESOURCES += ../../quickandroid.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH = ../../
+# QML_IMPORT_PATH += ../..
+
+include(../../quickandroid.pri)
 
 android {
     QT += androidextras

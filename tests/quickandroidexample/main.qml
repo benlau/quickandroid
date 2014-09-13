@@ -1,5 +1,5 @@
 import QtQuick 2.2
-import "qrc:/quickandroid"
+import QuickAndroid 0.1
 
 Application {
     width: 480

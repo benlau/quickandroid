@@ -1,7 +1,5 @@
 import QtQuick 2.0
-import "qrc:/quickandroid"
-import "qrc:/quickandroid/android.js" as A
-import "qrc:/quickandroid/res.js" as Res
+import QuickAndroid 0.1
 
 Activity {
     MaterialShadow {

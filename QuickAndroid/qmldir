@@ -1,0 +1,21 @@
+module QuickAndroid
+ActionBar 0.1 ActionBar.qml
+Activity 0.1 Activity.qml
+AnimationLoader 0.1 AnimationLoader.qml
+Application 0.1 Application.qml
+Dialog 0.1 Dialog.qml
+Drawable 0.1 Drawable.qml
+DrawableGrowBehaviour 0.1 DrawableGrowBehaviour.qml
+InverseMouseArea 0.1 InverseMouseArea.qml
+MaterialShadow 0.1 MaterialShadow.qml
+PopupArea 0.1 PopupArea.qml
+PopupMenu 0.1 PopupMenu.qml
+QueuedSignal 0.1 QueuedSignal.qml
+QuickButton 0.1 QuickButton.qml
+RectToRectMatrix 0.1 RectToRectMatrix.qml
+Shadow 0.1 Shadow.qml
+Spinner 0.1 Spinner.qml
+StateListDrawable 0.1 StateListDrawable.qml
+A 0.1 android.js
+Res 0.1 res.js
+Util 0.1 util.js
