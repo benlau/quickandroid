@@ -1,0 +1,19 @@
+language : cpp
+env:
+  - DISPLAY=:99.0
+compiler:
+  - gcc
+before_install:
+    - sudo add-apt-repository --yes ppa:beineri/opt-qt531
+    - sudo apt-get update -qq
+    - apt-cache search qt5
+    - sudo apt-get install -qq qt53quickcontrols  qt53declarative qt53script qt53graphicaleffects
+
+    - sh -e /etc/init.d/xvfb start
+script:
+    - source /opt/qt53/bin/qt53-env.sh 
+    - cd tests/quickandroidtests
+    - qmake
+    - make
+    - ls
+    - ./quickandroidtests
