@@ -2,7 +2,6 @@
 import QtQuick 2.2
 import QtQuick.Window 2.1
 import QuickAndroid 0.1
-
 import "theme.js" as Theme
 
 Rectangle {

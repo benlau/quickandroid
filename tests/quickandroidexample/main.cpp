@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickView>
 #include <QQuickItem>
+#include "quickandroid.h"
 
 #ifdef Q_OS_ANDROID
 #include <QtAndroidExtras/QAndroidJniObject>
@@ -14,6 +15,7 @@ int main(int argc, char *argv[])
 
     QQuickView view;
     view.engine()->addImportPath("qrc:///");
+    QuickAndroid::registerTypes();
 
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl(QStringLiteral("qrc:///splash.qml")));

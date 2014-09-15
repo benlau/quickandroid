@@ -44,5 +44,4 @@
         <file>qmldir</file>
         <file>global.js</file>
     </qresource>
-    <qresource prefix="/"/>
 </RCC>

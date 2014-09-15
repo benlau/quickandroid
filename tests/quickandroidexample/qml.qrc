@@ -15,5 +15,6 @@
         <file>dialog/AlertDialog.qml</file>
         <file>dialog/DialogPreview.qml</file>
         <file>dialog/DialogDemo.qml</file>
+        <file>dummydata/A.qml</file>
     </qresource>
 </RCC>
