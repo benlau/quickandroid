@@ -16,6 +16,5 @@ RectToRectMatrix 0.1 RectToRectMatrix.qml
 Shadow 0.1 Shadow.qml
 Spinner 0.1 Spinner.qml
 StateListDrawable 0.1 StateListDrawable.qml
-A 0.1 android.js
 Res 0.1 res.js
 Util 0.1 util.js

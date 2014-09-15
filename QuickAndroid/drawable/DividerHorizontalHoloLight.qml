@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "../android.js" as A
+import QuickAndroid 0.1
 
 Rectangle {
     // @TODO : Change to load divider_horizontal_holo_light.9.png

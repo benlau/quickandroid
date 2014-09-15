@@ -2,7 +2,6 @@
     <qresource prefix="/QuickAndroid">
         <file>ActionBar.qml</file>
         <file>Activity.qml</file>
-        <file>android.js</file>
         <file>AnimationLoader.qml</file>
         <file>Application.qml</file>
         <file>Drawable.qml</file>

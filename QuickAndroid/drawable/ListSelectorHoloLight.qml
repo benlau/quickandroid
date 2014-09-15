@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "../android.js" as A
+import QuickAndroid 0.1
 
 // Ref: list_selector_holo_light.xml
 

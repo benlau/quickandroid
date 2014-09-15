@@ -1,6 +1,6 @@
 // Drawable resource(image/qml) loader
 import QtQuick 2.0
-import "./android.js" as A
+import QuickAndroid 0.1
 
 Rectangle {
     id : drawable

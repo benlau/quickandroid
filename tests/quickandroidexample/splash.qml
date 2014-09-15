@@ -12,7 +12,6 @@ Rectangle {
     color: "#000000"
 
     function init(context) {
-        A.init(context);
         Res.load(Theme)
         mainLoader.source = "main.qml"
     }

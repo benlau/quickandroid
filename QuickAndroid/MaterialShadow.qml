@@ -1,6 +1,6 @@
 // Create shadow defined by Google's Material Design
 import QtQuick 2.0
-import "./android.js" as A
+import QuickAndroid 0.1
 
 Item {
     id : shadow
