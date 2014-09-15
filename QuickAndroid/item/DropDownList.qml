@@ -3,7 +3,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import "../res.js" as Res
-import "../"
 
 Item {
     id : dropDownList

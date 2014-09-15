@@ -11,11 +11,6 @@ Rectangle {
     height: 640
     color: "#000000"
 
-    function init(context) {
-        Res.load(Theme)
-        mainLoader.source = "main.qml"
-    }
-
     Loader { // this component performs deferred loading.
         id: mainLoader
         visible: status == Loader.Ready
@@ -28,5 +23,11 @@ Rectangle {
             });
         }
         focus : true
+    }
+
+    Component.onCompleted: {
+        // Load your custom theme before the main scene
+        Res.load(Theme);
+        mainLoader.source = "main.qml"
     }
 }

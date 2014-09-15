@@ -2,10 +2,13 @@
 #include <QtQuickTest/quicktest.h>
 #include <QFileInfo>
 #include <QtCore>
+#include "quickandroid.h"
 
 int main(int argc, char **argv)
 {
     QApplication a(argc, argv);
+    QuickAndroid::registerTypes();
+
     QStringList args = a.arguments();
     QString executable = args.at(0);
 

@@ -14,9 +14,7 @@ static qreal dpi = 72;
 static QJSValue aProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine);
-    qDebug() << "aProvider";
 
-//    QJSValue value = scriptEngine->toScriptValue<qreal>(dp);
     QJSValue value = scriptEngine->newObject();
     value.setProperty("dp",dp);
     value.setProperty("dpi",dpi);
