@@ -1,13 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
-#include <QQuickItem>
 #include "quickandroid.h"
-
-#ifdef Q_OS_ANDROID
-#include <QtAndroidExtras/QAndroidJniObject>
-#include <QtAndroidExtras/QAndroidJniEnvironment>
-#endif
 
 int main(int argc, char *argv[])
 {
@@ -16,8 +10,10 @@ int main(int argc, char *argv[])
     QQuickView view;
 
     /* QuickAndroid Initialization */
-    view.engine()->addImportPath("qrc:///");
-    QuickAndroid::registerTypes(); // It must be called before
+
+    view.engine()->addImportPath("qrc:///"); // Add QuickAndroid into the import path
+    QuickAndroid::registerTypes(); // It must be called before loaded any scene
+
     /* End of QuickAndroid Initialization */
 
     view.setResizeMode(QQuickView::SizeRootObjectToView);

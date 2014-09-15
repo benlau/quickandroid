@@ -30,31 +30,55 @@ Under Development Components
 Instruction of use
 ------------------
 
-*1. Using QML Component*
-
-a. Clone this repository and bundle the folder within your source tree.
+1. Clone this repository and bundle the folder within your source tree.
 
 (It is recommended to use `git subdmoule` to embed this repository)
 
-b. Add this line to your profile file(.pro):
+2. Add this line to your profile file(.pro):
 
     include(quickandroid/quickandroid.pri) # You should modify the path by yourself
-    
-c. Import the package within your QML file by :
+
+3. Modify your main.cpp
+
+
+```
+
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQuickView>
+#include "quickandroid.h"
+
+int main(int argc, char *argv[])
+{
+    QGuiApplication app(argc, argv);
+
+    QQuickView view;
+
+    /* QuickAndroid Initialization */
+
+    view.engine()->addImportPath("qrc:///"); // Add QuickAndroid into the import path
+    QuickAndroid::registerTypes(); // It must be called before loaded any scene
+
+    /* End of QuickAndroid Initialization */
+
+    view.setResizeMode(QQuickView::SizeRootObjectToView);
+    view.setSource(QUrl(QStringLiteral("qrc:///splash.qml")));
+    view.show();
+
+    return app.exec();
+}
+
+
+```
+
+4. Import the package within your QML file by :
 
     import QuickAndroid 0.1
 
-d. Setup the import path in your main.cpp:
+Notes of using DP
+-----------------
 
-    engine->addImportPath("qrc:///"); // engine is an instance of QQmlEngine for your project. Check out Qt doc or check our example program
-
-Remarks: In case that your Qt Creator can not recognize QuickAndroid package, you may try to solve it by Tool -> QML/JS -> Reset Code Model
-
-*2. Using DP Unit *
-
-QML can not retrieve the DP unit by itself. Therefore you need to pass the value from C++ source code to QML program.
-
-Please refer to the example program in the folder of [tests/quickandroidexample](tests/quickandroidexample).
+You may get the DP/density value from the global variable "A.dp" after you have called the `QuickAndroid::RegisterTypes()` in your code. However, Qt Creator don't know the value and threfore the UI will be broken. In make it works , you have to declare a dummy data in your project. Check the example code: [dummydata/A.qml](tests/quickandroidexample/dummydata/A.qml)
 
 Demonstration
 -------------
