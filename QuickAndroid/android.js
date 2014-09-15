@@ -48,5 +48,3 @@ function resolve(resource) {
 
     return token.join("/");
 }
-
-var application = null;

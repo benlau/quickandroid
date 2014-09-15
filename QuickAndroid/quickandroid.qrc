@@ -42,5 +42,7 @@
         <file>item/DropDownList.qml</file>
         <file>item/qmldir</file>
         <file>qmldir</file>
+        <file>global.js</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

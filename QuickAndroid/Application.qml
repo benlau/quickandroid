@@ -2,8 +2,9 @@
 // transition and application configuration
 
 import QtQuick 2.0
-import "./android.js" as A
-import "./res.js" as Res
+import "android.js" as A
+import "res.js" as Res
+import "global.js" as Global
 
 FocusScope {
     id : application
@@ -152,7 +153,7 @@ FocusScope {
     }
 
     Component.onCompleted: {
-        A.application = application
+        Global.application = application
     }
 
 }

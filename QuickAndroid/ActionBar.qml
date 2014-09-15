@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import "android.js" as A
 import "res.js" as Res
+import "global.js" as Global
 
 Item {
     id: actionBar
@@ -154,9 +155,9 @@ Item {
 
     Component.onCompleted: {
         if (!actionBar.icon &&
-             A.application &&
-             A.application.icon) {
-            actionBar.icon = A.application.icon
+             Global.application &&
+             Global.application.icon) {
+            actionBar.icon = Global.application.icon
         }
         Res.extend(_style,Res.Style.ActionBar);
         Res.extend(_style,style);
