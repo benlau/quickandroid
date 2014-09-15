@@ -30,15 +30,15 @@ Under Development Components
 Instruction of use
 ------------------
 
-1. Clone this repository and bundle the folder within your source tree.
+ 1) Clone this repository and bundle the folder within your source tree.
 
 (It is recommended to use `git subdmoule` to embed this repository)
 
-2. Add this line to your profile file(.pro):
+ 2) Add this line to your profile file(.pro):
 
     include(quickandroid/quickandroid.pri) # You should modify the path by yourself
 
-3. Modify your main.cpp
+ 3) Modify your main.cpp
 
 
 ```
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 
 ```
 
-4. Import the package within your QML file by :
+ 4) Import the package within your QML file by :
 
     import QuickAndroid 0.1
 
