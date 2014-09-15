@@ -42,5 +42,6 @@
         <file>item/qmldir</file>
         <file>qmldir</file>
         <file>global.js</file>
+        <file>drawable/qmldir</file>
     </qresource>
 </RCC>

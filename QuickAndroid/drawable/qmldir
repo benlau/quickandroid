@@ -1,0 +1,10 @@
+module QuickAndroid.drawable
+BtnDefault 0.1 BtnDefault.qml
+BtnDropdown 0.1 BtnDropdown.qml
+DividerHorizontalHoloLight 0.1 DividerHorizontalHoloLight.qml
+ItemBackgroundHoloLight 0.1 ItemBackgroundHoloLight.qml
+ListSelectorHoloLight 0.1 ListSelectorHoloLight.qml
+MenuDropdownPanelHoloLight 0.1 MenuDropdownPanelHoloLight.qml
+SpinnerAbHoloLight 0.1 SpinnerAbHoloLight.qml
+SpinnerDropdownBackground 0.1 SpinnerDropdownBackground.qml
+Triangle 0.1 Triangle.qml
