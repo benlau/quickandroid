@@ -86,3 +86,8 @@ Demonstration
 Please refer to the example program in the folder of [tests/quickandroidexample](tests/quickandroidexample)
 
 ![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/tests/quickandroidexample/docs/screenshot.png)
+
+License
+-------
+
+The license of this project has been changed to Apache License 2.0
