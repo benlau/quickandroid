@@ -6,7 +6,8 @@ Features
 
  1. Provides “DP” unit
  2. Page transition management
- 3. Multiple type “Drawable” component
+  1. "Back" to previous page by the hardware back button
+ 3. “Drawable” component
   1. A single component that supports color , image , QML component , simulated nine patch image as input source
   2. Auto scale image to fit current screen resolution
   3. Derived StateListDrawable for animated drawable like button
