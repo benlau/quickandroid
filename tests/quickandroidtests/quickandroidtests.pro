@@ -23,4 +23,5 @@ OTHER_FILES += \
     tst_Shadow.qml \
     tst_Dialog.qml \
     tst_res.qml \
-    tst_DrawableGravityBehaviour.qml
+    tst_DrawableGravityBehaviour.qml \
+    tst_QATextInput.qml

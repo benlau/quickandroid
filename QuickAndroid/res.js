@@ -166,6 +166,11 @@ Style.Widget.DropDown = {
     button : "drawable/BtnDropdown.qml"
 }
 
+Style.Widget.TextInput = {
+    background : "",
+    textStyle : extend({},Style.TextAppearance.Medium),
+}
+
 Style.Animation = {}
 
 Style.Animation.Activity = {
