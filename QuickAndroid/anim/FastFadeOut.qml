@@ -6,5 +6,5 @@ PropertyAnimation {
     from : 1.0
     to : 0.0
     duration: 140
-    Easing.type: Easing.InQuad
+    easing.type: Easing.InQuad
 }
