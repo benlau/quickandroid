@@ -18,3 +18,4 @@ Spinner 0.1 Spinner.qml
 StateListDrawable 0.1 StateListDrawable.qml
 Res 0.1 res.js
 Util 0.1 util.js
+DrawableGravityBehaviour 0.1 DrawableGravityBehaviour.qml

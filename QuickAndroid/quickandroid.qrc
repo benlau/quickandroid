@@ -45,5 +45,6 @@
         <file>drawable/qmldir</file>
         <file>anim/FastFadeIn.qml</file>
         <file>anim/FastFadeOut.qml</file>
+        <file>DrawableGravityBehaviour.qml</file>
     </qresource>
 </RCC>
