@@ -25,6 +25,21 @@ function extend() {
     return target;
 }
 
+// Deep copy of attributes that is existed on dst only.
+function copy(dst,src) {
+    for (var i in dst) {
+        if (src.hasOwnProperty(i)) {
+            if (typeof src[i] === "object") {
+                dst[i] = extend({},src[i]);
+            } else {
+                dst[i] = src[i];
+            }
+        }
+    }
+
+    return dst;
+}
+
 /* Style */
 
 // values/styles.xml
