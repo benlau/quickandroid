@@ -67,23 +67,23 @@ Item {
 
     Drawable {
         id: textSelectHandleItem
-       parent: component
-       width: 100
-       height: 100
-       source : "#000000"
-       opacity: 0.0
+        parent: component
+        width: 100
+        height: 100
+        source : "#000000"
+        opacity: 0.0
 
-       anchors.top: cursorRectangle.bottom
-       anchors.horizontalCenter: cursorRectangle.horizontalCenter
+        anchors.top: cursorRectangle.bottom
+        anchors.horizontalCenter: cursorRectangle.horizontalCenter
 
-       MouseArea {
+        MouseArea {
            anchors.fill: parent
            id : textSelectHandleMouseArea
            drag.target: textSelectHandleItem
            drag.axis: Drag.XAxis
-       }
+        }
 
-       states : [
+        states : [
            State {
                when: textSelectHandleMouseArea.drag.active
 
@@ -92,14 +92,14 @@ Item {
                    anchors.top : undefined
                    anchors.horizontalCenter: undefined
                }
-
-               PropertyChanges {
-                   target: textInputItem
-                   //TODO: Update the cursor position
-               }
            }
-       ]
+        ]
     }
+
+    Binding { target: textInputItem; property: "cursorPosition"; when: true;
+        value: textInputItem.positionAt(textInputItem.mapFromItem(component,
+                                        textSelectHandleItem.x + textSelectHandleItem.width / 2,
+                                        textSelectHandleItem.y).x ,0); }
 
     Binding { target: textSelectHandleEntryAnim.item; property : "target" ; value: textSelectHandleItem ; when: true }
     Binding { target: textSelectHandleEntryAnim.item; property : "running" ; value: true ; when: textInput.activeFocus }
