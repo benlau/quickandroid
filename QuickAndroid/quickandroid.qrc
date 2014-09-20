@@ -43,5 +43,7 @@
         <file>qmldir</file>
         <file>global.js</file>
         <file>drawable/qmldir</file>
+        <file>anim/FastFadeIn.qml</file>
+        <file>anim/FastFadeOut.qml</file>
     </qresource>
 </RCC>

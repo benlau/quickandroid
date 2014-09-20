@@ -8,7 +8,7 @@ QT       += qml quick testlib
 
 QT       -= gui
 
-TARGET = tst_quickandroidtests
+TARGET = quickandroidtests
 CONFIG   += console
 CONFIG   -= app_bundle
 
