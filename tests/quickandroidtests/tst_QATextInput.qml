@@ -16,7 +16,19 @@ Rectangle {
             width: 100
             height: 40
             text: "Text Input 1.............."
+            z: 100
+
         }
+
+        QATextInput {
+            x: 100
+            id : textInput2
+            width: 100
+            height: 40
+            text: "Text Input 2.............."
+            z: 99
+        }
+
     }
 
     TestCase {

@@ -188,6 +188,11 @@ Style.Animation.Dialog = {
     windowExitAnimation: "anim/ShrinkFadeOut.qml"
 }
 
+Style.Animation.TextInput = {
+    textSelectHandleEnter : Qt.resolvedUrl("./anim/FastFadeIn.qml"),
+    textSelectHandleExit : Qt.resolvedUrl("./anim/FastFadeOut.qml")
+}
+
 /* Material Design */
 
 // colors_material.xml
