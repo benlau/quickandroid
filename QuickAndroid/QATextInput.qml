@@ -109,6 +109,7 @@ Item {
         ]
     }
 
+    /*
     // Move cursorPosition on dragging
     Item { // It don't use Binding as it will restore the value
         enabled : !stepBack.running && !stepForward.running && textSelectHandleMouseArea.drag.active
@@ -120,6 +121,17 @@ Item {
                 return;
             textInputItem.cursorPosition = value;
         }
+    }
+    */
+
+    Modifier {
+        // Move cursorPosition when dragging
+        target: textInputItem
+        property: "cursorPosition"
+        when: !stepBack.running && !stepForward.running && textSelectHandleMouseArea.drag.active
+        value :  textInputItem.positionAt(textInputItem.mapFromItem(component,
+                                                                     textSelectHandleItem.x + textSelectHandleItem.width / 2,
+                                                                     textSelectHandleItem.y).x ,0);
     }
 
     Timer {

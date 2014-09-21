@@ -49,5 +49,6 @@
         <file>QATextInput.qml</file>
         <file>drawable-xxhdpi/text_select_handle_middle.png</file>
         <file>TextGravityBehaviour.qml</file>
+        <file>Modifier.qml</file>
     </qresource>
 </RCC>
