@@ -109,23 +109,8 @@ Item {
         ]
     }
 
-    /*
-    // Move cursorPosition on dragging
-    Item { // It don't use Binding as it will restore the value
-        enabled : !stepBack.running && !stepForward.running && textSelectHandleMouseArea.drag.active
-        property int value :  textInputItem.positionAt(textInputItem.mapFromItem(component,
-                                                                                 textSelectHandleItem.x + textSelectHandleItem.width / 2,
-                                                                                 textSelectHandleItem.y).x ,0);
-        onValueChanged: {
-            if (!enabled)
-                return;
-            textInputItem.cursorPosition = value;
-        }
-    }
-    */
-
     Modifier {
-        // Move cursorPosition when dragging
+        // Let's cursor follow dragging textSelectHandle
         target: textInputItem
         property: "cursorPosition"
         when: !stepBack.running && !stepForward.running && textSelectHandleMouseArea.drag.active
@@ -156,6 +141,7 @@ Item {
         }
     }
 
+    /*
     PropertyAnimation {
         id : cursorVisibleAnimation
         target: flickableItem
@@ -168,6 +154,23 @@ Item {
             textInput.cursorRectangle.x + textInput.cursorRectangle.width
 
         running: textSelectHandleRunning &&
+                 (textInput.cursorRectangle.x <  flickableItem.contentX ||
+                 textInput.cursorRectangle.x >= flickableItem.contentX + backgroundItem.fillArea.width)
+    }
+    */
+
+    AnimatedModifier {
+        // Flick the content if cursor is not in range
+        target: flickableItem
+
+        property: "contentX"
+        duration: 300
+
+        value: textInput.cursorRectangle.x < flickableItem.contentX ?
+            textInput.cursorRectangle.x :
+            textInput.cursorRectangle.x + textInput.cursorRectangle.width
+
+        when: textSelectHandleRunning &&
                  (textInput.cursorRectangle.x <  flickableItem.contentX ||
                  textInput.cursorRectangle.x >= flickableItem.contentX + backgroundItem.fillArea.width)
     }

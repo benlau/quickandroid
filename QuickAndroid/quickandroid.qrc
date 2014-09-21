@@ -50,5 +50,6 @@
         <file>drawable-xxhdpi/text_select_handle_middle.png</file>
         <file>TextGravityBehaviour.qml</file>
         <file>Modifier.qml</file>
+        <file>AnimatedModifier.qml</file>
     </qresource>
 </RCC>
