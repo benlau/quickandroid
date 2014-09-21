@@ -10,6 +10,7 @@ Rectangle {
 
     Column {
         y: 10
+
         QATextInput {
             x: 100
             id : textInput1
@@ -23,10 +24,12 @@ Rectangle {
         QATextInput {
             x: 100
             id : textInput2
-            width: 100
+            width: 150
             height: 40
             text: "Text Input 2......................................."
             z: 99
+            gravity: "bottom"
+            background: "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
         }
 
     }

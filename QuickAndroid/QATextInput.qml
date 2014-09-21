@@ -33,6 +33,7 @@ Item {
 
         source: component.background ? component.background : _style.background
 
+        selected: textInput.activeFocus
         fillArea.clip : true
 
         content: Flickable {
@@ -41,7 +42,7 @@ Item {
             implicitWidth: textInputItem.contentWidth
             implicitHeight: textInputItem.contentHeight
             contentWidth: textInputItem.contentWidth
-            contentHeight: textInputItem.contentHeight
+            contentHeight: parent.height
             flickableDirection : Flickable.HorizontalFlick
 
             TextInput {
@@ -49,6 +50,7 @@ Item {
                 focus: true
                 font.pixelSize: _style.textStyle.textSize * A.dp
                 color: _style.textStyle.textColor.color
+                height: flickableItem.height
 
                 onActiveFocusChanged: {
                     if (!activeFocus)
@@ -57,9 +59,8 @@ Item {
 
                 TextGravityBehaviour {
                     id : gravityBehaviour
-                    gravity: "down"
+                    gravity: "bottom"
                 }
-
             }
 
             onFlickingChanged: {
