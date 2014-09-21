@@ -169,7 +169,7 @@ Style.Widget.DropDown = {
 }
 
 Style.Widget.TextInput = {
-    background : "",
+    background : "#00000000",
     textStyle : extend({},Style.TextAppearance.Medium),
     textSelectHandle : Qt.resolvedUrl("drawable-xxhdpi/text_select_handle_middle.png")
 }

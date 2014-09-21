@@ -63,8 +63,8 @@ Item {
                 }
             }
 
-            onFlickingChanged: {
-                if (flicking)
+            onDraggingChanged: {
+                if (dragging)
                     component.textSelectHandleRunning = false;
             }
         }
@@ -168,12 +168,10 @@ Item {
     }
 
     Binding { target: textSelectHandleEntryAnim.item; property : "target" ; value: textSelectHandleItem ; when: true }
-    Binding { target: textSelectHandleEntryAnim.item; property : "running" ; value: true ; when: textSelectHandleRunning }
-    Binding { target: textSelectHandleEntryAnim.item; property : "running" ; value: false ; when: !textSelectHandleRunning}
+    Modifier { target: textSelectHandleEntryAnim.item; property : "running" ; value: true ; when: textSelectHandleRunning }
 
     Binding { target: textSelectHandleExitAnim.item;  property : "target" ; value: textSelectHandleItem ; when: true }
-    Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: true; when: !textSelectHandleRunning }
-    Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: false; when: textSelectHandleRunning}
+    Modifier { target: textSelectHandleExitAnim.item;  property : "running" ; value: true; when: !textSelectHandleRunning }
 
     Loader {
         id : textSelectHandleEntryAnim
