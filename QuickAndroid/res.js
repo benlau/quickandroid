@@ -30,7 +30,9 @@ function copy(dst,src) {
     for (var i in dst) {
         if (src.hasOwnProperty(i)) {
             if (typeof src[i] === "object") {
-                dst[i] = extend(dst[i] || {},src[i]);
+                if (typeof dst[i] !== "object")
+                    dst[i] = {}
+                dst[i] = extend(dst[i],src[i]);
             } else {
                 dst[i] = src[i];
             }

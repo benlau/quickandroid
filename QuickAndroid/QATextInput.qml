@@ -18,6 +18,7 @@ Item {
     property alias textSelectHandle: textSelectHandleItem
     property alias _style : styleItem
 
+    property bool textSelectHandleRunning : false
 
     Item {
         id : styleItem
@@ -50,8 +51,19 @@ Item {
 
             TextInput {
                 id : textInputItem
+                focus: true
                 font.pixelSize: _style.textStyle.textSize * A.dp
                 color: _style.textStyle.textColor.color
+
+                onActiveFocusChanged: {
+                    if (!activeFocus)
+                        textSelectHandleRunning = false;
+                }
+            }
+
+            onFlickingChanged: {
+                if (flicking)
+                    component.textSelectHandleRunning = false;
             }
         }
     }
@@ -75,6 +87,7 @@ Item {
 
         MouseArea {
            anchors.fill: parent
+           enabled: textSelectHandleRunning
            id : textSelectHandleMouseArea
            drag.target: textSelectHandleItem
            drag.axis: Drag.XAxis
@@ -96,7 +109,7 @@ Item {
     }
 
     // Move cursorPosition on dragging
-    Item { // It don't use Binding as Binding will restore the value
+    Item { // It don't use Binding as it will restore the value
         enabled : !stepBack.running && !stepForward.running && textSelectHandleMouseArea.drag.active
         property int value :  textInputItem.positionAt(textInputItem.mapFromItem(component,
                                                                                  textSelectHandleItem.x + textSelectHandleItem.width / 2,
@@ -108,19 +121,11 @@ Item {
         }
     }
 
-    Binding { target: textSelectHandleEntryAnim.item; property : "target" ; value: textSelectHandleItem ; when: true }
-    Binding { target: textSelectHandleEntryAnim.item; property : "running" ; value: true ; when: textInput.activeFocus }
-    Binding { target: textSelectHandleEntryAnim.item; property : "running" ; value: false ; when: !textInput.activeFocus }
-
-    Binding { target: textSelectHandleExitAnim.item;  property : "target" ; value: textSelectHandleItem ; when: true }
-    Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: true; when: !textInput.activeFocus }
-    Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: false; when: textInput.activeFocus }
-
     Timer {
         id: stepBack
         repeat: true
         interval : 100
-        running: textSelectHandle.x === textSelectHandleMouseArea.drag.minimumX
+        running: textSelectHandleRunning && textSelectHandle.x === textSelectHandleMouseArea.drag.minimumX
         onTriggered: {
             if (textInput.cursorPosition !== 0)
                 textInput.cursorPosition = textInput.cursorPosition - 1
@@ -131,7 +136,7 @@ Item {
         id: stepForward
         repeat: true
         interval : 100
-        running: textSelectHandle.x === textSelectHandleMouseArea.drag.maximumX
+        running: textSelectHandleRunning && textSelectHandle.x === textSelectHandleMouseArea.drag.maximumX
         onTriggered: {
             if (textInput.cursorPosition !== textInput.length - 1)
                 textInput.cursorPosition = textInput.cursorPosition + 1
@@ -141,6 +146,7 @@ Item {
     PropertyAnimation {
         id : cursorVisibleAnimation
         target: flickableItem
+
         property: "contentX"
         duration: 300
         from: flickableItem.contentX
@@ -148,9 +154,18 @@ Item {
             textInput.cursorRectangle.x :
             textInput.cursorRectangle.x + textInput.cursorRectangle.width
 
-        running: textInput.cursorRectangle.x <  flickableItem.contentX ||
-                 textInput.cursorRectangle.x >= flickableItem.contentX + backgroundItem.fillArea.width
+        running: textSelectHandleRunning &&
+                 (textInput.cursorRectangle.x <  flickableItem.contentX ||
+                 textInput.cursorRectangle.x >= flickableItem.contentX + backgroundItem.fillArea.width)
     }
+
+    Binding { target: textSelectHandleEntryAnim.item; property : "target" ; value: textSelectHandleItem ; when: true }
+    Binding { target: textSelectHandleEntryAnim.item; property : "running" ; value: true ; when: textSelectHandleRunning }
+    Binding { target: textSelectHandleEntryAnim.item; property : "running" ; value: false ; when: !textSelectHandleRunning}
+
+    Binding { target: textSelectHandleExitAnim.item;  property : "target" ; value: textSelectHandleItem ; when: true }
+    Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: true; when: !textSelectHandleRunning }
+    Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: false; when: textSelectHandleRunning}
 
     Loader {
         id : textSelectHandleEntryAnim
@@ -164,12 +179,26 @@ Item {
         source : Res.Style.Animation.TextInput.textSelectHandleExit
     }
 
+
+    MouseArea {
+        anchors.fill : parent
+        propagateComposedEvents: true
+        onPressed: {
+            textSelectHandleRunning = true;
+            mouse.accepted = false;
+        }
+    }
+
     function _updateStyle() {
         Res.copy(_style,Res.Style.Widget.TextInput);
         Res.copy(_style,style);
         _styleChanged();
     }
 
-    Component.onCompleted: _updateStyle();
+    Component.onCompleted: {
+        _updateStyle();
+        if (textInput.activeFocus)
+            component.textSelectHandleRunning = textInput.activeFocus;
+    }
     onStyleChanged: _updateStyle();
 }
