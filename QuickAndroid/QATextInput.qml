@@ -73,8 +73,17 @@ Item {
         id : cursorRectangle
         property var rect : component.mapFromItem(textInputItem,
                                                         textInput.cursorRectangle.x,textInput.cursorRectangle.y,
-                                                        textInput.cursorRectangle.width,textInput.cursorRectangle.height);
-        x: rect.x;y : rect.y; width: rect.width;height: rect.height
+                                                        textInput.cursorRectangle.width,textInput.cursorRectangle.height);                
+        x: limit(rect.x,0,backgroundItem.fillArea.x + backgroundItem.fillArea.width)
+        y: rect.y; width: rect.width;height: rect.height
+
+        function limit(input , min ,max) {
+            if (input < min)
+                return min;
+            if (input > max)
+                return max;
+            return input;
+        }
     }
 
     Drawable {
@@ -140,24 +149,6 @@ Item {
                 textInput.cursorPosition = textInput.cursorPosition + 1
         }
     }
-
-    /*
-    PropertyAnimation {
-        id : cursorVisibleAnimation
-        target: flickableItem
-
-        property: "contentX"
-        duration: 300
-        from: flickableItem.contentX
-        to: textInput.cursorRectangle.x < flickableItem.contentX ?
-            textInput.cursorRectangle.x :
-            textInput.cursorRectangle.x + textInput.cursorRectangle.width
-
-        running: textSelectHandleRunning &&
-                 (textInput.cursorRectangle.x <  flickableItem.contentX ||
-                 textInput.cursorRectangle.x >= flickableItem.contentX + backgroundItem.fillArea.width)
-    }
-    */
 
     AnimatedModifier {
         // Flick the content if cursor is not in range
