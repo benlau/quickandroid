@@ -36,14 +36,15 @@ Item {
             gravity: "down"
         }
 
+        fillArea.clip : true
 
         content: Flickable {
             id: flickableItem
-            implicitWidth: textInputItem.implicitWidth
-            implicitHeight: textInputItem.implicitHeight
-            contentWidth: textInputItem.implicitWidth
-            contentHeight: textInputItem.implicitHeight
-            clip: true
+            anchors.fill: parent
+            implicitWidth: textInputItem.contentWidth
+            implicitHeight: textInputItem.contentHeight
+            contentWidth: textInputItem.contentWidth
+            contentHeight: textInputItem.contentHeight
             flickableDirection : Flickable.HorizontalFlick
 
             TextInput {
@@ -59,10 +60,7 @@ Item {
         property var rect : component.mapFromItem(textInputItem,
                                                         textInput.cursorRectangle.x,textInput.cursorRectangle.y,
                                                         textInput.cursorRectangle.width,textInput.cursorRectangle.height);
-        x: rect.x
-        y : rect.y
-        width: rect.width
-        height: rect.height
+        x: rect.x;y : rect.y; width: rect.width;height: rect.height
     }
 
     Drawable {
@@ -81,6 +79,8 @@ Item {
            id : textSelectHandleMouseArea
            drag.target: textSelectHandleItem
            drag.axis: Drag.XAxis
+           drag.minimumX: backgroundItem.fillArea.x - textSelectHandleItem.width / 2
+           drag.maximumX: backgroundItem.fillArea.x + backgroundItem.fillArea.width - textSelectHandleItem.width / 2
         }
 
         states : [
@@ -96,6 +96,7 @@ Item {
         ]
     }
 
+    // Move cursorPosition on dragging
     Binding { target: textInputItem; property: "cursorPosition"; when: true;
         value: textInputItem.positionAt(textInputItem.mapFromItem(component,
                                         textSelectHandleItem.x + textSelectHandleItem.width / 2,

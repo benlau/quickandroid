@@ -15,7 +15,7 @@ Rectangle {
             id : textInput1
             width: 100
             height: 40
-            text: "Text Input 1.............."
+            text: "Text Input 1......................................"
             z: 100
 
         }
@@ -25,7 +25,7 @@ Rectangle {
             id : textInput2
             width: 100
             height: 40
-            text: "Text Input 2.............."
+            text: "Text Input 2......................................."
             z: 99
         }
 
