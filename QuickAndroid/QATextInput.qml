@@ -79,8 +79,8 @@ Item {
            id : textSelectHandleMouseArea
            drag.target: textSelectHandleItem
            drag.axis: Drag.XAxis
-           drag.minimumX: backgroundItem.fillArea.x - textSelectHandleItem.width / 2
-           drag.maximumX: backgroundItem.fillArea.x + backgroundItem.fillArea.width - textSelectHandleItem.width / 2
+           drag.minimumX: backgroundItem.fillArea.x - textSelectHandleItem.width / 2 - 8 * A.dp
+           drag.maximumX: backgroundItem.fillArea.x + backgroundItem.fillArea.width - textSelectHandleItem.width / 2 + 8 * A.dp
         }
 
         states : [
@@ -97,10 +97,23 @@ Item {
     }
 
     // Move cursorPosition on dragging
+    /*
     Binding { target: textInputItem; property: "cursorPosition"; when: true;
         value: textInputItem.positionAt(textInputItem.mapFromItem(component,
                                         textSelectHandleItem.x + textSelectHandleItem.width / 2,
                                         textSelectHandleItem.y).x ,0); }
+    */
+    Item { // It don't use Binding as Binding will restore the value
+        enabled : !stepBack.running && !stepForward.running && textSelectHandleMouseArea.drag.active
+        property int value :  textInputItem.positionAt(textInputItem.mapFromItem(component,
+                                                                                 textSelectHandleItem.x + textSelectHandleItem.width / 2,
+                                                                                 textSelectHandleItem.y).x ,0);
+        onValueChanged: {
+            if (!enabled)
+                return;
+            textInputItem.cursorPosition = value;
+        }
+    }
 
     Binding { target: textSelectHandleEntryAnim.item; property : "target" ; value: textSelectHandleItem ; when: true }
     Binding { target: textSelectHandleEntryAnim.item; property : "running" ; value: true ; when: textInput.activeFocus }
@@ -110,6 +123,28 @@ Item {
     Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: true; when: !textInput.activeFocus }
     Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: false; when: textInput.activeFocus }
 
+    Timer {
+        id: stepBack
+        repeat: true
+        interval : 100
+        running: textSelectHandle.x === textSelectHandleMouseArea.drag.minimumX
+        onTriggered: {
+            if (textInput.cursorPosition !== 0)
+                textInput.cursorPosition = textInput.cursorPosition - 1
+        }
+    }
+
+    Timer {
+        id: stepForward
+        repeat: true
+        interval : 100
+        running: textSelectHandle.x === textSelectHandleMouseArea.drag.maximumX
+        onTriggered: {
+            if (textInput.cursorPosition !== textInput.length - 1)
+                textInput.cursorPosition = textInput.cursorPosition + 1
+        }
+    }
+
     PropertyAnimation {
         id : cursorVisibleAnimation
         target: flickableItem
@@ -117,10 +152,10 @@ Item {
         duration: 300
         from: flickableItem.contentX
         to: textInput.cursorRectangle.x < flickableItem.contentX ?
-            textInput.cursorRectangle.x - textInput.cursorRectangle.width :
+            textInput.cursorRectangle.x :
             textInput.cursorRectangle.x + textInput.cursorRectangle.width
 
-        running: textInput.cursorRectangle.x <  flickableItem.contentX + textInput.cursorRectangle.width ||
+        running: textInput.cursorRectangle.x <  flickableItem.contentX ||
                  textInput.cursorRectangle.x >= flickableItem.contentX + backgroundItem.fillArea.width
     }
 
