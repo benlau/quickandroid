@@ -110,6 +110,20 @@ Item {
     Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: true; when: !textInput.activeFocus }
     Binding { target: textSelectHandleExitAnim.item;  property : "running" ; value: false; when: textInput.activeFocus }
 
+    PropertyAnimation {
+        id : cursorVisibleAnimation
+        target: flickableItem
+        property: "contentX"
+        duration: 300
+        from: flickableItem.contentX
+        to: textInput.cursorRectangle.x < flickableItem.contentX ?
+            textInput.cursorRectangle.x - textInput.cursorRectangle.width :
+            textInput.cursorRectangle.x + textInput.cursorRectangle.width
+
+        running: textInput.cursorRectangle.x <  flickableItem.contentX + textInput.cursorRectangle.width ||
+                 textInput.cursorRectangle.x >= flickableItem.contentX + backgroundItem.fillArea.width
+    }
+
     Loader {
         id : textSelectHandleEntryAnim
         asynchronous: true
