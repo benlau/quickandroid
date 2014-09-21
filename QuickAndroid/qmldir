@@ -20,3 +20,4 @@ Res 0.1 res.js
 Util 0.1 util.js
 DrawableGravityBehaviour 0.1 DrawableGravityBehaviour.qml
 QATextInput 0.1 QATextInput.qml
+TextGravityBehaviour 0.1 TextGravityBehaviour.qml

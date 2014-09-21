@@ -33,11 +33,6 @@ Item {
 
         source: component.background ? component.background : _style.background
 
-        DrawableGravityBehaviour {
-            id : gravityBehaviour
-            gravity: "down"
-        }
-
         fillArea.clip : true
 
         content: Flickable {
@@ -59,6 +54,12 @@ Item {
                     if (!activeFocus)
                         textSelectHandleRunning = false;
                 }
+
+                TextGravityBehaviour {
+                    id : gravityBehaviour
+                    gravity: "down"
+                }
+
             }
 
             onFlickingChanged: {
