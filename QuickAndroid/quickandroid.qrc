@@ -47,5 +47,6 @@
         <file>anim/FastFadeOut.qml</file>
         <file>DrawableGravityBehaviour.qml</file>
         <file>QATextInput.qml</file>
+        <file>drawable-xxhdpi/text_select_handle_middle.png</file>
     </qresource>
 </RCC>

@@ -23,6 +23,7 @@ Item {
         id : styleItem
         property string background
         property var textStyle
+        property var textSelectHandle
     }
 
     StateListDrawable {
@@ -55,7 +56,7 @@ Item {
         }
     }
 
-    Item { // The cursor rectangle
+    Item { // The cursor rectangle mapped
         id : cursorRectangle
         property var rect : component.mapFromItem(textInputItem,
                                                         textInput.cursorRectangle.x,textInput.cursorRectangle.y,
@@ -66,10 +67,8 @@ Item {
     Drawable {
         id: textSelectHandleItem
         parent: component
-        width: 100
-        height: 100
-        source : "#000000"
         opacity: 0.0
+        source: _style.textSelectHandle
 
         anchors.top: cursorRectangle.bottom
         anchors.horizontalCenter: cursorRectangle.horizontalCenter
@@ -79,8 +78,8 @@ Item {
            id : textSelectHandleMouseArea
            drag.target: textSelectHandleItem
            drag.axis: Drag.XAxis
-           drag.minimumX: backgroundItem.fillArea.x - textSelectHandleItem.width / 2 - 8 * A.dp
-           drag.maximumX: backgroundItem.fillArea.x + backgroundItem.fillArea.width - textSelectHandleItem.width / 2 + 8 * A.dp
+           drag.minimumX: backgroundItem.fillArea.x - textSelectHandleItem.width / 2
+           drag.maximumX: backgroundItem.fillArea.x + backgroundItem.fillArea.width - textSelectHandleItem.width / 2
         }
 
         states : [
@@ -97,12 +96,6 @@ Item {
     }
 
     // Move cursorPosition on dragging
-    /*
-    Binding { target: textInputItem; property: "cursorPosition"; when: true;
-        value: textInputItem.positionAt(textInputItem.mapFromItem(component,
-                                        textSelectHandleItem.x + textSelectHandleItem.width / 2,
-                                        textSelectHandleItem.y).x ,0); }
-    */
     Item { // It don't use Binding as Binding will restore the value
         enabled : !stepBack.running && !stepForward.running && textSelectHandleMouseArea.drag.active
         property int value :  textInputItem.positionAt(textInputItem.mapFromItem(component,

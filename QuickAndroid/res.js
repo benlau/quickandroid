@@ -30,7 +30,7 @@ function copy(dst,src) {
     for (var i in dst) {
         if (src.hasOwnProperty(i)) {
             if (typeof src[i] === "object") {
-                dst[i] = extend({},src[i]);
+                dst[i] = extend(dst[i] || {},src[i]);
             } else {
                 dst[i] = src[i];
             }
@@ -169,6 +169,7 @@ Style.Widget.DropDown = {
 Style.Widget.TextInput = {
     background : "",
     textStyle : extend({},Style.TextAppearance.Medium),
+    textSelectHandle : Qt.resolvedUrl("drawable-xxhdpi/text_select_handle_middle.png")
 }
 
 Style.Animation = {}
