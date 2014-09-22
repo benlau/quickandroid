@@ -21,7 +21,7 @@ Item {
         id: _styleItem
         property var track
         property var thumb
-        property var switchTextAppearence
+        property var switchTextAppearance
         property int thumbTextPadding
         property int switchMinWidth
         property int switchPadding
@@ -68,8 +68,8 @@ Item {
             content: Text {
                 id: label
                 text: _inLeft ? textOff : textOn
-                font.pixelSize: _style.switchTextAppearence.textSize * A.dp
-                color : _style.switchTextAppearence.textColor.color
+                font.pixelSize: _style.switchTextAppearance.textSize * A.dp
+                color : _style.switchTextAppearance.textColor.color
                 TextGravityBehaviour { gravity : "center" }
             }
 
@@ -94,11 +94,12 @@ Item {
         value: !_inLeft
     }
 
+    /* Find out the best size for thumb item */
     property real _textWidth: Math.max(textOffItem.contentWidth,textOnItem.contentWidth)
     property real _textHeight: Math.max(textOffItem.contentHeight,textOnItem.contentHeight)
 
-    Text {id: textOffItem;text: textOff;font.pixelSize: _style.switchTextAppearence.textSize * A.dp;visible: false;}
-    Text {id: textOnItem; text: textOn; font.pixelSize: _style.switchTextAppearence.textSize * A.dp;visible: false;}
+    Text {id: textOffItem;text: textOff;font.pixelSize: _style.switchTextAppearance.textSize * A.dp;visible: false;}
+    Text {id: textOnItem; text: textOn; font.pixelSize: _style.switchTextAppearance.textSize * A.dp;visible: false;}
 
     function _updateStyle() {
         Res.copy(_style,Res.Style.Widget.CompoundButton.Switch);

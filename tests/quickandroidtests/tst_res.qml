@@ -35,7 +35,18 @@ TestCase {
         src.b.b1 = "b1"
         compare(src.b.b1,"b1");
         compare(dst.b.b1,2.1);
-
-
     }
+
+    function test_extend() {
+
+        var dst = Res.extend({},Res.Style.TextAppearance.Small,{
+                             textColor : {
+                                 color : "#ffffff"
+                             }
+                         });
+        compare(dst.textSize,14)
+        compare(dst.textColor !== undefined,true);
+        compare(dst.textColor.color,"#ffffff");
+    }
+
 }
