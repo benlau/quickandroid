@@ -30,14 +30,14 @@ BorderImage {
     }
 
     states: [
-        State {
-            when: pressed
+//        State {
+//            when: pressed
 
-            PropertyChanges {
-                target: borderImage
-                source : Qt.resolvedUrl("../drawable-xxhdpi/switch_thumb_pressed_holo_light.png")
-            }
-        },
+//            PropertyChanges {
+//                target: borderImage
+//                source : Qt.resolvedUrl("../drawable-xxhdpi/switch_thumb_pressed_holo_light.png")
+//            }
+//        },
         State {
             when: !enabled
 
@@ -47,7 +47,7 @@ BorderImage {
             }
         },
         State {
-            when: checked
+            when: checked || pressed
 
             PropertyChanges {
                 target: borderImage

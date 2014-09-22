@@ -222,7 +222,8 @@ Rectangle {
             canvas = null;
         }
 
-        fillArea.target = drawable
+        // Reset fillArea.target here may generate a lot of loop detected warning message
+//        fillArea.target = drawable
         fillArea.zoom = 1
 
         drawable.color = "#00000000"

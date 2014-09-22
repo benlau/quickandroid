@@ -36,15 +36,34 @@ Item {
         height: _textHeight + thumbItem.fillArea.y +
                 thumbItem.fillArea.bottomMargin + 8 * A.dp
 
+        MouseArea {
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            width: parent.width / 2
+            onClicked: component.checked = false;
+            z: -1
+        }
+
+        MouseArea {
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            width: parent.width / 2
+            onClicked: component.checked = true;
+            z: -1
+        }
+
         content: StateListDrawable {
             id: thumbItem
             source: _style.thumb
             anchors.verticalCenter: parent.verticalCenter
             x: -thumbItem.fillArea.x
             height: parent.height
-            width: _textWidth+ _style.thumbTextPadding * 2 * A.dp +
+            width: _textWidth + _style.thumbTextPadding * 2 * A.dp +
                    thumbItem.fillArea.x + thumbItem.fillArea.rightMargin
-            checked: !_inLeft
+            checked: component.checked
+            pressed: mouseArea.pressed
 
             content: Text {
                 id: label
@@ -75,8 +94,8 @@ Item {
         value: !_inLeft
     }
 
-    property real _textWidth: Math.max(textOffItem.width,textOnItem.width)
-    property real _textHeight: Math.max(textOffItem.height,textOnItem.height)
+    property real _textWidth: Math.max(textOffItem.contentWidth,textOnItem.contentWidth)
+    property real _textHeight: Math.max(textOffItem.contentHeight,textOnItem.contentHeight)
 
     Text {id: textOffItem;text: textOff;font.pixelSize: _style.switchTextAppearence.textSize * A.dp;visible: false;}
     Text {id: textOnItem; text: textOn; font.pixelSize: _style.switchTextAppearence.textSize * A.dp;visible: false;}
