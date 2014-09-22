@@ -63,5 +63,6 @@
         <file>drawable-xxhdpi/switch_thumb_disabled_holo_light.png</file>
         <file>drawable-xxhdpi/switch_thumb_holo_light.png</file>
         <file>drawable-xxhdpi/switch_thumb_pressed_holo_light.png</file>
+        <file>Switch.qml</file>
     </qresource>
 </RCC>

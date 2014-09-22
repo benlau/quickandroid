@@ -174,6 +174,21 @@ Style.Widget.TextInput = {
     textSelectHandle : Qt.resolvedUrl("drawable-xxhdpi/text_select_handle_middle.png")
 }
 
+Style.Widget.CompoundButton = {};
+
+Style.Widget.CompoundButton.Switch = {
+    track: Qt.resolvedUrl("drawable/SwitchBgHoloLight.qml"),
+    thumb: Qt.resolvedUrl("drawable/SwitchThumbHoloLight.qml"),
+    switchTextAppearance: extend({},Style.TextAppearance.Small,{
+                                     textColor : {
+                                         color : "#ffffff"
+                                     }
+                                 }),
+    thumbTextPadding: 12,
+    switchMinWidth: 96,
+    switchPadding: 16
+}
+
 Style.Animation = {}
 
 Style.Animation.Activity = {

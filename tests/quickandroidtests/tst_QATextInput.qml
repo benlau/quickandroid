@@ -42,7 +42,7 @@ Rectangle {
 
         function test_basic() {
             console.log(textInput1.textInput.implicitWidth,textInput1.flickable.contentX);
-            wait(60000);
+//            wait(60000);
         }
     }
 

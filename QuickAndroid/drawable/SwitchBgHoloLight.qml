@@ -22,6 +22,10 @@ BorderImage {
         anchors.rightMargin: 6
         anchors.topMargin: 6
         anchors.bottomMargin: 6
+
+        property int rightMargin: 6
+        property int bottomMargin: 6
+
     }
 
 

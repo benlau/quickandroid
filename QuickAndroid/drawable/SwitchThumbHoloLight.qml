@@ -25,6 +25,8 @@ BorderImage {
         anchors.rightMargin: 42
         anchors.topMargin: 6
         anchors.bottomMargin: 6
+        property int rightMargin: 42
+        property int bottomMargin: 6
     }
 
     states: [

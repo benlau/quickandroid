@@ -23,3 +23,4 @@ QATextInput 0.1 QATextInput.qml
 TextGravityBehaviour 0.1 TextGravityBehaviour.qml
 Modifier 0.1 Modifier.qml
 AnimatedModifier 0.1 AnimatedModifier.qml
+Switch 0.1 Switch.qml
