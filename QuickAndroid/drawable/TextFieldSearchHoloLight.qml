@@ -35,6 +35,7 @@ BorderImage {
             PropertyChanges {
                 target: borderImage
                 source: "../drawable-xxhdpi/textfield_search_selected_holo_light.png"
+                verticalTileMode: BorderImage.Repeat
             }
         }
     ]

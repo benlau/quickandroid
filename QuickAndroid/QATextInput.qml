@@ -81,6 +81,7 @@ Item {
     Drawable {
         id: textSelectHandleItem
         opacity: 0.0
+        asynchronous: true
         source: _style.textSelectHandle
         anchors.top: cursorRectangle.bottom
         anchors.horizontalCenter: cursorRectangle.horizontalCenter
@@ -162,10 +163,10 @@ Item {
     }
 
     Binding { target: textSelectHandleEntryAnim.item; property : "target" ; value: textSelectHandleItem ; when: true }
-    Modifier { target: textSelectHandleEntryAnim.item; property : "running" ; value: true ; when: textSelectHandleRunning }
+    Modifier { target: textSelectHandleEntryAnim.item; property : "running" ; value: textSelectHandleRunning ; when: true }
 
     Binding { target: textSelectHandleExitAnim.item;  property : "target" ; value: textSelectHandleItem ; when: true }
-    Modifier { target: textSelectHandleExitAnim.item;  property : "running" ; value: true; when: !textSelectHandleRunning }
+    Modifier { target: textSelectHandleExitAnim.item;  property : "running" ; value: !textSelectHandleRunning; when: true }
 
     Modifier { target: component; property : "textSelectHandleRunning";
                 when: flickableItem.dragging
