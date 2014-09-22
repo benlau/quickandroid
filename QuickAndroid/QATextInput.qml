@@ -18,7 +18,7 @@ Item {
     property alias textSelectHandle: textSelectHandleItem
     property alias _style : styleItem
 
-    property bool textSelectHandleRunning : false
+    property alias textSelectHandleRunning : textSelectHandlePopup.active
 
     Item {
         id : styleItem
@@ -52,20 +52,10 @@ Item {
                 color: _style.textStyle.textColor.color
                 height: flickableItem.height
 
-                onActiveFocusChanged: {
-                    if (!activeFocus)
-                        textSelectHandleRunning = false;
-                }
-
                 TextGravityBehaviour {
                     id : gravityBehaviour
                     gravity: "bottom"
                 }
-            }
-
-            onDraggingChanged: {
-                if (dragging)
-                    component.textSelectHandleRunning = false;
             }
         }
     }
@@ -87,14 +77,18 @@ Item {
         }
     }
 
+
     Drawable {
         id: textSelectHandleItem
-        parent: component
         opacity: 0.0
         source: _style.textSelectHandle
-
         anchors.top: cursorRectangle.bottom
         anchors.horizontalCenter: cursorRectangle.horizontalCenter
+
+        PopupArea {
+            id: textSelectHandlePopup
+            anchors.fill: parent
+        }
 
         MouseArea {
            anchors.fill: parent
@@ -172,6 +166,11 @@ Item {
 
     Binding { target: textSelectHandleExitAnim.item;  property : "target" ; value: textSelectHandleItem ; when: true }
     Modifier { target: textSelectHandleExitAnim.item;  property : "running" ; value: true; when: !textSelectHandleRunning }
+
+    Modifier { target: component; property : "textSelectHandleRunning";
+                when: flickableItem.dragging
+                value: false}
+
 
     Loader {
         id : textSelectHandleEntryAnim
