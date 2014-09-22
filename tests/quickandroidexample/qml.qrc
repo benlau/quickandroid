@@ -16,5 +16,7 @@
         <file>dialog/DialogPreview.qml</file>
         <file>dialog/DialogDemo.qml</file>
         <file>dummydata/A.qml</file>
+        <file>textinput/TextInputPreview.qml</file>
+        <file>textinput/TextInputDemo.qml</file>
     </qresource>
 </RCC>
