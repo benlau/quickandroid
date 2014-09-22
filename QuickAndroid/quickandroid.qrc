@@ -54,5 +54,9 @@
         <file>drawable/TextFieldSearchHoloLight.qml</file>
         <file>drawable-xxhdpi/textfield_search_default_holo_light.png</file>
         <file>drawable-xxhdpi/textfield_search_selected_holo_light.png</file>
+        <file>drawable/SwitchBgHoloLight.qml</file>
+        <file>drawable-xxhdpi/switch_bg_holo_light.png</file>
+        <file>drawable-xxhdpi/switch_bg_focused_holo_light.png</file>
+        <file>drawable-xxhdpi/switch_bg_disabled_holo_light.png</file>
     </qresource>
 </RCC>
