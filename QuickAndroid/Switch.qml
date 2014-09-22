@@ -34,7 +34,7 @@ Item {
         source: _style.track
         width: thumbItem.fillArea.width * 2
         height: _textHeight + thumbItem.fillArea.y +
-                thumbItem.fillArea.bottomMargin + 8 * A.dp
+                thumbItem.fillArea.bottomMargin + 16 * A.dp
 
         MouseArea {
             anchors.left: parent.left

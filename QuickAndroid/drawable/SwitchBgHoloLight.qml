@@ -18,7 +18,7 @@ BorderImage {
     Item {
         id : fillAreaItem
         anchors.fill: parent
-        anchors.leftMargin: 6
+        anchors.leftMargin: 9
         anchors.rightMargin: 6
         anchors.topMargin: 6
         anchors.bottomMargin: 6
