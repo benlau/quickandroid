@@ -11,7 +11,7 @@ Activity {
     ActionBar {
         id: actionBar
         upEnabled: true
-        title: qsTr("Dialog Demo")
+        title: qsTr("Switch Demo")
         showTitle: true
 
         onActionButtonClicked: back();

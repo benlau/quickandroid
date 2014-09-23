@@ -32,9 +32,8 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         enabled: component.enabled
         source: _style.track
-        width: thumbItem.fillArea.width * 2
-        height: _textHeight + thumbItem.fillArea.y +
-                thumbItem.fillArea.bottomMargin + 16 * A.dp
+        width: _trackWidth
+        height: _thumbHeight
 
         MouseArea {
             anchors.left: parent.left
@@ -59,9 +58,8 @@ Item {
             source: _style.thumb
             anchors.verticalCenter: parent.verticalCenter
             x: -thumbItem.fillArea.x
-            height: parent.height
-            width: _textWidth + _style.thumbTextPadding * 2 * A.dp +
-                   thumbItem.fillArea.x + thumbItem.fillArea.rightMargin
+            height: _thumbHeight
+            width: _thumbWidth
             checked: component.checked
             pressed: mouseArea.pressed
 
@@ -79,7 +77,7 @@ Item {
 
             MouseArea {
                 id: mouseArea
-                anchors.fill: parent
+                anchors.fill: thumbItem.fillArea
                 drag.target: thumbItem
                 drag.minimumX: -thumbItem.fillArea.x
                 drag.maximumX: trackItem.fillArea.width - thumbItem.width + thumbItem.fillArea.x
@@ -94,12 +92,19 @@ Item {
         value: !_inLeft
     }
 
-    /* Find out the best size for thumb item */
+    /* Load a set of dummy components for calculate the dimen of other visible component.
+       It could avoid "Binding loop detected" warning
+     */
     property real _textWidth: Math.max(textOffItem.contentWidth,textOnItem.contentWidth)
     property real _textHeight: Math.max(textOffItem.contentHeight,textOnItem.contentHeight)
-
+    property real _thumbMinWidth:  _textWidth + _style.thumbTextPadding * 2 * A.dp
+    property real _thumbWidth: _thumbMinWidth + thumbDummy.fillArea.x + thumbDummy.fillArea.rightMargin
+    property real _thumbHeight: _textHeight + 16 * A.dp + thumbDummy.fillArea.y + thumbDummy.fillArea.bottomMargin
+    property real _trackWidth : _thumbMinWidth * 2
     Text {id: textOffItem;text: textOff;font.pixelSize: _style.switchTextAppearance.textSize * A.dp;visible: false;}
     Text {id: textOnItem; text: textOn; font.pixelSize: _style.switchTextAppearance.textSize * A.dp;visible: false;}
+    Drawable{id: thumbDummy ;source: _style.thumb;visible: false}
+
 
     function _updateStyle() {
         Res.copy(_style,Res.Style.Widget.CompoundButton.Switch);
