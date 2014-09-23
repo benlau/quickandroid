@@ -5,6 +5,8 @@ import "../global.js" as Global
 
 Item {
     z: 100000
+    width: parent.width
+    height: parent.height
 
     function placeToTop() {
         if (Global.application) {

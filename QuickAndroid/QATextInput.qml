@@ -53,6 +53,10 @@ Item {
                 color: _style.textStyle.textColor.color
                 height: flickableItem.height
 
+                // In nexus 5, the default keyboard with predictive text will modify the input value
+                // when user is dragging the text select handle. No solution yet. Just disable it.
+                inputMethodHints: Qt.ImhNoPredictiveText
+
                 TextGravityBehaviour {
                     id : gravityBehaviour
                     gravity: "bottom"
@@ -93,7 +97,9 @@ Item {
     }
 
     Overlay {
+        id : overlay
         Ghost {
+            id: textSelectHandleGhost
             target: textSelectHandleItem
 
             Drawable {
@@ -115,7 +121,7 @@ Item {
 
                    states : [
                       State {
-                          when: textSelectHandleMouseArea.drag.active
+                          when: textSelectHandleMouseArea.pressed
 
                           AnchorChanges {
                               target: textSelectHandleItem
@@ -143,7 +149,9 @@ Item {
         id: stepBack
         repeat: true
         interval : 100
-        running: textSelectHandleRunning && textSelectHandleMouseArea.drag.active && Math.abs(textSelectHandle.x - textSelectHandleMouseArea.drag.minimumX) < 24 * A.dp
+        running: textSelectHandleRunning &&
+                 textSelectHandleMouseArea.pressed &&
+                 textSelectHandle.x === textSelectHandleMouseArea.drag.minimumX
         onTriggered: {
             if (textInput.cursorPosition !== 0)
                 textInput.cursorPosition = textInput.cursorPosition - 1
@@ -154,7 +162,8 @@ Item {
         id: stepForward
         repeat: true
         interval : 100
-        running: textSelectHandleRunning && textSelectHandleMouseArea.drag.active && Math.abs(textSelectHandle.x - textSelectHandleMouseArea.drag.maximumX) < 24 * A.dp
+        running: textSelectHandleRunning && textSelectHandleMouseArea.pressed &&
+                 textSelectHandle.x === textSelectHandleMouseArea.drag.maximumX
         onTriggered: {
             if (textInput.cursorPosition !== textInput.length)
                 textInput.cursorPosition = textInput.cursorPosition + 1
@@ -186,10 +195,6 @@ Item {
     Modifier { target: component; property : "textSelectHandleRunning";
                 when: flickableItem.dragging
                 value: false}
-
-    // Prevent update of text by dictionary during dragging. (Bug in Nexus 5 default keyboard)
-    Binding { target: textInputItem; property: "inputMethodHints";value: Qt.ImhNoPredictiveText;when: textSelectHandleMouseArea.drag.active}
-
 
     Loader {
         id : textSelectHandleEntryAnim
