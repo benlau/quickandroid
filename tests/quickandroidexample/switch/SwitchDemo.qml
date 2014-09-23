@@ -25,13 +25,21 @@ Activity {
         anchors.horizontalCenter: parent.horizontalCenter
 
         Switch {
+            id: switch1
             height: 48 * A.dp
             checked: true
+            onCheckedChanged: {
+                switch2.checked = !checked;
+            }
         }
 
         Switch {
+            id: switch2
             height: 48 * A.dp
             checked: false
+            onCheckedChanged: {
+                switch1.checked = !checked;
+            }
         }
     }
 

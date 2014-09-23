@@ -36,28 +36,17 @@ Item {
         height: _thumbHeight
 
         MouseArea {
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            width: parent.width / 2
-            onClicked: component.checked = false;
-            z: -1
-        }
-
-        MouseArea {
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            width: parent.width / 2
-            onClicked: component.checked = true;
-            z: -1
+            anchors.fill: parent
+            onClicked: {
+                component.checked = !component.checked;
+            }
+            z: -100;
         }
 
         content: StateListDrawable {
             id: thumbItem
             source: _style.thumb
             anchors.verticalCenter: parent.verticalCenter
-            x: -thumbItem.fillArea.x
             height: _thumbHeight
             width: _thumbWidth
             checked: component.checked
@@ -81,16 +70,22 @@ Item {
                 drag.target: thumbItem
                 drag.minimumX: -thumbItem.fillArea.x
                 drag.maximumX: trackItem.fillArea.width - thumbItem.width + thumbItem.fillArea.x
+
+                onReleased: {
+                    component.checked = !_inLeft
+                }
             }
         }
     }
 
+    /*
     Modifier {
         target: component ;
         property: "checked";
         when: mouseArea.drag.active;
         value: !_inLeft
     }
+    */
 
     /* Load a set of dummy components for calculate the dimen of other visible component.
        It could avoid "Binding loop detected" warning
@@ -115,40 +110,20 @@ Item {
     Component.onCompleted: {
         _updateStyle();
     }
+
     onStyleChanged: _updateStyle();
 
-    states: [
-        State {
-            when: mouseArea.drag.active
-        },
+    AnimatedModifier {
+        target: thumbItem
+        property: "x"
+        value: -thumbItem.fillArea.x
+        when: !component.checked && !mouseArea.pressed
+    }
 
-        State {
-            when: !component.checked && !mouseArea.drag.active
-            PropertyChanges {
-                target: thumbItem
-                x: -thumbItem.fillArea.x
-            }
-        },
-        State {
-            when: component.checked && !mouseArea.drag.active
-            PropertyChanges {
-                target: thumbItem
-                x: trackItem.fillArea.width - thumbItem.width + thumbItem.fillArea.x
-            }
-        }
-    ]
-
-    transitions: [
-        Transition {
-            from : "*"
-            to: "*"
-            PropertyAnimation {
-                target: thumbItem
-                property : "x"
-                duration: Res.config.config_activityShortDur;
-            }
-        }
-
-    ]
-
+    AnimatedModifier {
+        target: thumbItem
+        property: "x"
+        value: trackItem.fillArea.width - thumbItem.width + thumbItem.fillArea.x
+        when: component.checked && !mouseArea.pressed
+    }
 }
