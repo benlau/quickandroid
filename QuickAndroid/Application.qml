@@ -156,4 +156,9 @@ FocusScope {
         Global.application = application
     }
 
+    Component.onDestruction: {
+        if (Global.application === application)
+            Global.application = null;
+    }
+
 }

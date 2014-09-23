@@ -66,5 +66,6 @@
         <file>Switch.qml</file>
         <file>priv/Ghost.qml</file>
         <file>priv/qmldir</file>
+        <file>priv/Overlay.qml</file>
     </qresource>
 </RCC>
