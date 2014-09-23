@@ -3,8 +3,8 @@ import QuickAndroid 0.1
 
 Item {
     id: component
-    width: trackItem.width
-    height: trackItem.height
+    implicitWidth: trackItem.width
+    implicitHeight: trackItem.height
 
     property bool checked : false
     property string textOn : qsTr("ON")

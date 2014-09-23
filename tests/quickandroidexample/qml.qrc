@@ -18,5 +18,7 @@
         <file>dummydata/A.qml</file>
         <file>textinput/TextInputPreview.qml</file>
         <file>textinput/TextInputDemo.qml</file>
+        <file>switch/SwitchDemo.qml</file>
+        <file>switch/SwitchPreview.qml</file>
     </qresource>
 </RCC>

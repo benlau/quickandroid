@@ -52,6 +52,12 @@ Activity {
             demo: "textinput/TextInputDemo.qml"
         }
 
+        ListElement {
+            name : "Switch"
+            preview : "switch/SwitchPreview.qml"
+            demo : "switch/SwitchDemo.qml"
+        }
+
     }
 
     ListView {
