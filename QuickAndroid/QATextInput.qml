@@ -1,6 +1,7 @@
 // Android style Text Input
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.priv 0.1
 
 Item {
     id: component
@@ -60,7 +61,7 @@ Item {
         }
     }
 
-    Item { // The cursor rectangle mapped
+    Item { // The ghost of cursor rectangle
         id : cursorRectangle
         property var rect : component.mapFromItem(textInputItem,
                                                         textInput.cursorRectangle.x,textInput.cursorRectangle.y,
@@ -78,40 +79,54 @@ Item {
     }
 
 
-    Drawable {
+    Item {
         id: textSelectHandleItem
-        opacity: 0.0
-        asynchronous: true
-        source: _style.textSelectHandle
         anchors.top: cursorRectangle.bottom
         anchors.horizontalCenter: cursorRectangle.horizontalCenter
+        width: textSelectHandleIcon.width
+        height: textSelectHandleIcon.height
 
         PopupArea {
             id: textSelectHandlePopup
             anchors.fill: parent
         }
+    }
 
-        MouseArea {
-           anchors.fill: parent
-           enabled: textSelectHandleRunning
-           id : textSelectHandleMouseArea
-           drag.target: textSelectHandleItem
-           drag.axis: Drag.XAxis
-           drag.minimumX: backgroundItem.fillArea.x - textSelectHandleItem.width / 2
-           drag.maximumX: backgroundItem.fillArea.x + backgroundItem.fillArea.width - textSelectHandleItem.width / 2
+    Overlay {
+        Ghost {
+            target: textSelectHandleItem
+
+            Drawable {
+                id : textSelectHandleIcon
+                asynchronous: true
+                opacity: 0.0
+                source: _style.textSelectHandle
+                anchors.centerIn: parent
+
+                MouseArea {
+                   anchors.fill: parent
+                   enabled: textSelectHandleRunning
+                   id : textSelectHandleMouseArea
+                   drag.target: textSelectHandleItem
+                   drag.axis: Drag.XAxis
+                   drag.minimumX: backgroundItem.fillArea.x - textSelectHandleItem.width / 2
+                   drag.maximumX: backgroundItem.fillArea.x + Math.min(backgroundItem.fillArea.width,
+                                                                       textInputItem.contentWidth + cursorRectangle.width) - textSelectHandleItem.width / 2
+
+                   states : [
+                      State {
+                          when: textSelectHandleMouseArea.drag.active
+
+                          AnchorChanges {
+                              target: textSelectHandleItem
+                              anchors.top : undefined
+                              anchors.horizontalCenter: undefined
+                          }
+                      }
+                   ]
+                }
+            }
         }
-
-        states : [
-           State {
-               when: textSelectHandleMouseArea.drag.active
-
-               AnchorChanges {
-                   target: textSelectHandleItem
-                   anchors.top : undefined
-                   anchors.horizontalCenter: undefined
-               }
-           }
-        ]
     }
 
     Modifier {
@@ -141,7 +156,7 @@ Item {
         interval : 100
         running: textSelectHandleRunning && textSelectHandle.x === textSelectHandleMouseArea.drag.maximumX
         onTriggered: {
-            if (textInput.cursorPosition !== textInput.length - 1)
+            if (textInput.cursorPosition !== textInput.length)
                 textInput.cursorPosition = textInput.cursorPosition + 1
         }
     }
@@ -162,10 +177,10 @@ Item {
                  textInput.cursorRectangle.x >= flickableItem.contentX + backgroundItem.fillArea.width)
     }
 
-    Binding { target: textSelectHandleEntryAnim.item; property : "target" ; value: textSelectHandleItem ; when: true }
+    Binding { target: textSelectHandleEntryAnim.item; property : "target" ; value: textSelectHandleIcon ; when: true }
     Modifier { target: textSelectHandleEntryAnim.item; property : "running" ; value: textSelectHandleRunning ; when: true }
 
-    Binding { target: textSelectHandleExitAnim.item;  property : "target" ; value: textSelectHandleItem ; when: true }
+    Binding { target: textSelectHandleExitAnim.item;  property : "target" ; value: textSelectHandleIcon ; when: true }
     Modifier { target: textSelectHandleExitAnim.item;  property : "running" ; value: !textSelectHandleRunning; when: true }
 
     Modifier { target: component; property : "textSelectHandleRunning";

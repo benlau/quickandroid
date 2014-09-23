@@ -30,7 +30,6 @@ Activity {
             width: activity.width - 32 * A.dp
             height: 48 * A.dp
             text: "Text Input without any style"
-            z: 100
         }
 
         QATextInput {
@@ -39,7 +38,6 @@ Activity {
             gravity: "bottom"
             background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
             text: "Text Input with searching field background"
-            z: 99
         }
 
         QATextInput {
@@ -48,7 +46,6 @@ Activity {
             gravity: "bottom"
             background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
             text: "When content is longer than the input"
-            z: 98
         }
 
         QATextInput {
@@ -64,7 +61,6 @@ Activity {
                           }
                      }
                     })
-            z: 97
         }
 
         QATextInput {
@@ -80,7 +76,6 @@ Activity {
                           }
                      }
                     })
-            z: 96
         }
 
     }

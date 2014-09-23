@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtTest 1.0
 import QuickAndroid 0.1
 import QuickAndroid.drawable 0.1
+import QuickAndroid.priv 0.1
 
 Rectangle {
     id : rect
@@ -17,8 +18,6 @@ Rectangle {
             width: 100
             height: 40
             text: "Text Input 1......................................"
-            z: 100
-
         }
 
         QATextInput {
@@ -27,12 +26,9 @@ Rectangle {
             width: 150
             height: 40
             text: "Text Input 2......................................."
-            z: 99
             gravity: "bottom"
             background: "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
         }
-
-    }
 
     TestCase {
         name: "QATextInputTests"
