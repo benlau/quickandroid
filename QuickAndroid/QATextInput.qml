@@ -40,11 +40,14 @@ Item {
         content: Flickable {
             id: flickableItem
             anchors.fill: parent
+            anchors.leftMargin: 4 * A.dp
+            anchors.rightMargin: 4 * A.dp
             implicitWidth: textInputItem.contentWidth
             implicitHeight: textInputItem.contentHeight
             contentWidth: textInputItem.contentWidth
             contentHeight: parent.height
             flickableDirection : Flickable.HorizontalFlick
+            interactive: flickableItem.width < textInputItem.contentWidth
 
             TextInput {
                 id : textInputItem
