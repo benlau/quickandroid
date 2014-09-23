@@ -143,7 +143,7 @@ Item {
         id: stepBack
         repeat: true
         interval : 100
-        running: textSelectHandleRunning && textSelectHandle.x === textSelectHandleMouseArea.drag.minimumX
+        running: textSelectHandleRunning && textSelectHandleMouseArea.drag.active && Math.abs(textSelectHandle.x - textSelectHandleMouseArea.drag.minimumX) < 8 * A.dp
         onTriggered: {
             if (textInput.cursorPosition !== 0)
                 textInput.cursorPosition = textInput.cursorPosition - 1
@@ -154,7 +154,7 @@ Item {
         id: stepForward
         repeat: true
         interval : 100
-        running: textSelectHandleRunning && textSelectHandle.x === textSelectHandleMouseArea.drag.maximumX
+        running: textSelectHandleRunning && textSelectHandleMouseArea.drag.active && Math.abs(textSelectHandle.x - textSelectHandleMouseArea.drag.maximumX) < 8 * A.dp
         onTriggered: {
             if (textInput.cursorPosition !== textInput.length)
                 textInput.cursorPosition = textInput.cursorPosition + 1

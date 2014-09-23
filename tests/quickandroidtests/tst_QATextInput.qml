@@ -29,6 +29,7 @@ Rectangle {
             gravity: "bottom"
             background: "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
         }
+    }
 
     TestCase {
         name: "QATextInputTests"
