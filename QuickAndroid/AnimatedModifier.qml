@@ -50,4 +50,10 @@ Item {
         anim.to = value
         anim.start();
     }
+
+    Component.onCompleted: {
+        if (!target || !property || !when)
+            return;
+        target[property] = value;
+    }
 }
