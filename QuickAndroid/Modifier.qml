@@ -26,6 +26,11 @@ Item {
         }
     }
 
+    onTargetChanged: {
+        if (when)
+            _set();
+    }
+
     function _set(){
         if (!target || !property)
             return;
