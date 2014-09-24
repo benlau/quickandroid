@@ -67,5 +67,6 @@
         <file>priv/Ghost.qml</file>
         <file>priv/qmldir</file>
         <file>priv/Overlay.qml</file>
+        <file>priv/TextBehaviour.qml</file>
     </qresource>
 </RCC>

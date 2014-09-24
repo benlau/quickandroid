@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
-import QuickAndroidPriv 0.1
+import QuickAndroid.priv 0.1
 
 Item {
     id: component
@@ -58,7 +58,7 @@ Item {
                 text: _inLeft ? textOff : textOn
                 font.pixelSize: _style.switchTextAppearance.textSize * A.dp
                 color : _style.switchTextAppearance.textColor.color
-                TextGravityBehaviour { gravity : "center" }
+                TextBehaviour { gravity : "center" }
             }
 
             DrawableGravityBehaviour {

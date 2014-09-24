@@ -60,7 +60,7 @@ Item {
                 // when user is dragging the text select handle. No solution yet. Just disable it.
                 inputMethodHints: Qt.ImhNoPredictiveText
 
-                TextGravityBehaviour {
+                TextBehaviour {
                     id : gravityBehaviour
                     gravity: "bottom"
                 }
