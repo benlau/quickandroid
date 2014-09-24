@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroidPriv 0.1
 
 Item {
     id: component
