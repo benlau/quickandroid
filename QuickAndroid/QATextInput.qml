@@ -52,8 +52,8 @@ Item {
             TextInput {
                 id : textInputItem
                 focus: true
-                font.pixelSize: _style.textStyle.textSize * A.dp
-                color: _style.textStyle.textColor.color
+//                font.pixelSize: _style.textStyle.textSize * A.dp
+//                color: _style.textStyle.textColor.color
                 height: flickableItem.height
 
                 // In nexus 5, the default keyboard with predictive text will modify the input value
@@ -62,6 +62,7 @@ Item {
 
                 TextBehaviour {
                     id : gravityBehaviour
+                    textAppearance:  _style.textStyle
                     gravity: "bottom"
                 }
             }
