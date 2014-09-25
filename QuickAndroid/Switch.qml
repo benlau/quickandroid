@@ -95,7 +95,7 @@ Item {
     property real _textHeight: Math.max(textOffItem.contentHeight,textOnItem.contentHeight)
     property real _thumbMinWidth:  _textWidth + _style.thumbTextPadding * 2 * A.dp
     property real _thumbWidth: _thumbMinWidth + thumbDummy.fillArea.x + thumbDummy.fillArea.rightMargin
-    property real _thumbHeight: _textHeight + 16 * A.dp + thumbDummy.fillArea.y + thumbDummy.fillArea.bottomMargin
+    property real _thumbHeight: _textHeight + 8 * A.dp + thumbDummy.fillArea.y + thumbDummy.fillArea.bottomMargin
     property real _trackWidth : _thumbMinWidth * 2
     Text {id: textOffItem;text: textOff;font.pixelSize: _style.switchTextAppearance.textSize * A.dp;visible: false;}
     Text {id: textOnItem; text: textOn; font.pixelSize: _style.switchTextAppearance.textSize * A.dp;visible: false;}
