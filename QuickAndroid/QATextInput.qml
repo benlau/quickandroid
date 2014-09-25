@@ -218,6 +218,7 @@ Item {
         propagateComposedEvents: true
         onPressed: {
             textSelectHandleRunning = true;
+            textInput.focus = true;
             mouse.accepted = false;
         }
     }

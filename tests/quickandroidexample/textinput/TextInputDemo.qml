@@ -78,6 +78,21 @@ Activity {
                     })
         }
 
+        QATextInput {
+            width: 150 * A.dp
+            height: 48 * A.dp
+            gravity: "bottom"
+            background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
+            text: ""
+            style: ({ textStyle : {
+                          textSize : 14,
+                          textColor: {
+                                color : "blue"
+                          }
+                     }
+                    })
+        }
+
     }
 
 }
