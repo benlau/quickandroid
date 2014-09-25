@@ -11,6 +11,7 @@ Rectangle {
 
     Column {
         y: 10
+        spacing : 8
 
         QATextInput {
             x: 100
@@ -29,6 +30,27 @@ Rectangle {
             gravity: "bottom"
             background: "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
         }
+
+        Text {
+            id: text1
+            x: 100
+            text: "Large Text"
+            TextBehaviour {
+                textAppearance: Res.Style.TextAppearance.Large
+                shrink: true
+            }
+        }
+
+        Text {
+            id: text2
+            x: 100
+            width: 100
+            text: "Large Text"
+            TextBehaviour {
+                textAppearance: Res.Style.TextAppearance.Large
+                shrink: true
+            }
+        }
     }
 
     TestCase {
@@ -39,7 +61,14 @@ Rectangle {
 
         function test_basic() {
             console.log(textInput1.textInput.implicitWidth,textInput1.flickable.contentX);
-            wait(60000);
+//            wait(60000);
+        }
+
+        function test_shrink() {
+            compare(text1.contentWidth,text2.contentWidth)
+            compare(text2.scale !== 1,true);
+//            wait(60000);
+
         }
     }
 
