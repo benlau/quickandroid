@@ -43,5 +43,29 @@
         <file>qmldir</file>
         <file>global.js</file>
         <file>drawable/qmldir</file>
+        <file>anim/FastFadeIn.qml</file>
+        <file>anim/FastFadeOut.qml</file>
+        <file>DrawableGravityBehaviour.qml</file>
+        <file>QATextInput.qml</file>
+        <file>drawable-xxhdpi/text_select_handle_middle.png</file>
+        <file>Modifier.qml</file>
+        <file>AnimatedModifier.qml</file>
+        <file>drawable/TextFieldSearchHoloLight.qml</file>
+        <file>drawable-xxhdpi/textfield_search_default_holo_light.png</file>
+        <file>drawable-xxhdpi/textfield_search_selected_holo_light.png</file>
+        <file>drawable/SwitchBgHoloLight.qml</file>
+        <file>drawable-xxhdpi/switch_bg_holo_light.png</file>
+        <file>drawable-xxhdpi/switch_bg_focused_holo_light.png</file>
+        <file>drawable-xxhdpi/switch_bg_disabled_holo_light.png</file>
+        <file>drawable/SwitchThumbHoloLight.qml</file>
+        <file>drawable-xxhdpi/switch_thumb_activated_holo_light.png</file>
+        <file>drawable-xxhdpi/switch_thumb_disabled_holo_light.png</file>
+        <file>drawable-xxhdpi/switch_thumb_holo_light.png</file>
+        <file>drawable-xxhdpi/switch_thumb_pressed_holo_light.png</file>
+        <file>Switch.qml</file>
+        <file>priv/Ghost.qml</file>
+        <file>priv/qmldir</file>
+        <file>priv/Overlay.qml</file>
+        <file>priv/TextBehaviour.qml</file>
     </qresource>
 </RCC>

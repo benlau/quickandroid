@@ -25,6 +25,23 @@ function extend() {
     return target;
 }
 
+// Deep copy of attributes that is existed on dst only.
+function copy(dst,src) {
+    for (var i in dst) {
+        if (src.hasOwnProperty(i)) {
+            if (typeof src[i] === "object") {
+                if (typeof dst[i] !== "object")
+                    dst[i] = {}
+                dst[i] = extend(dst[i],src[i]);
+            } else {
+                dst[i] = src[i];
+            }
+        }
+    }
+
+    return dst;
+}
+
 /* Style */
 
 // values/styles.xml
@@ -151,6 +168,27 @@ Style.Widget.DropDown = {
     button : "drawable/BtnDropdown.qml"
 }
 
+Style.Widget.TextInput = {
+    background : "#00000000",
+    textStyle : extend({},Style.TextAppearance.Medium),
+    textSelectHandle : Qt.resolvedUrl("drawable-xxhdpi/text_select_handle_middle.png")
+}
+
+Style.Widget.CompoundButton = {};
+
+Style.Widget.CompoundButton.Switch = {
+    track: Qt.resolvedUrl("drawable/SwitchBgHoloLight.qml"),
+    thumb: Qt.resolvedUrl("drawable/SwitchThumbHoloLight.qml"),
+    switchTextAppearance: extend({},Style.TextAppearance.Small,{
+                                     textColor : {
+                                         color : "#ffffff"
+                                     }
+                                 }),
+    thumbTextPadding: 12,
+    switchMinWidth: 96,
+    switchPadding: 16
+}
+
 Style.Animation = {}
 
 Style.Animation.Activity = {
@@ -166,6 +204,11 @@ Style.Animation.DropDownDown = {
 Style.Animation.Dialog = {
     windowEnterAnimation : "anim/GrowFadeIn.qml",
     windowExitAnimation: "anim/ShrinkFadeOut.qml"
+}
+
+Style.Animation.TextInput = {
+    textSelectHandleEnter : Qt.resolvedUrl("./anim/FastFadeIn.qml"),
+    textSelectHandleExit : Qt.resolvedUrl("./anim/FastFadeOut.qml")
 }
 
 /* Material Design */

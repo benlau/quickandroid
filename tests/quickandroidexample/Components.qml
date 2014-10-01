@@ -4,6 +4,7 @@ import QuickAndroid 0.1
 
 Activity {
 
+    // @TODO: Changed to load via resource.
     MaterialShadow {
         asynchronous: true
         anchors.fill: actionBar
@@ -43,6 +44,18 @@ Activity {
             name : "Dialog"
             preview : "dialog/DialogPreview.qml"
             demo: "dialog/DialogDemo.qml"
+        }
+
+        ListElement {
+            name : "Text Input"
+            preview : "textinput/TextInputPreview.qml"
+            demo: "textinput/TextInputDemo.qml"
+        }
+
+        ListElement {
+            name : "Switch"
+            preview : "switch/SwitchPreview.qml"
+            demo : "switch/SwitchDemo.qml"
         }
 
     }

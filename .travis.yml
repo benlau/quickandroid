@@ -12,7 +12,12 @@ before_install:
     - sh -e /etc/init.d/xvfb start
 script:
     - source /opt/qt53/bin/qt53-env.sh 
-    - cd tests/quickandroidtests
+    - cd tests/quickandroidcpptests
+    - qmake
+    - make
+    - ls
+    - ./quickandroidcpptests
+    - cd ../quickandroidtests
     - qmake
     - make
     - ls

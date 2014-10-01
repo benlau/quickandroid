@@ -41,6 +41,10 @@ MouseArea {
         source: button.background ? button.background : _style.background
         z: -1
 
+        DrawableGravityBehaviour {
+            gravity: button.gravity
+        }
+
         content : Item {
                     id: item
                     width: childrenRect.width
@@ -65,55 +69,6 @@ MouseArea {
 
                         text: button.text
                     }
-
-                    states: [State {
-                        name: "left"
-                        when: button.gravity === "left"
-
-                            AnchorChanges {
-                                target: item
-                                anchors.left: item.parent.left
-                                anchors.verticalCenter: item.parent.verticalCenter
-                            }
-                        },State {
-                            name: "right"
-                            when: button.gravity === "right"
-
-                            AnchorChanges {
-                                target: item
-                                anchors.right: item.parent.right
-                                anchors.verticalCenter: item.parent.verticalCenter
-                            }
-                        },State {
-                            name: "top"
-                            when: button.gravity === "top"
-
-                            AnchorChanges {
-                                target: item
-                                anchors.horizontalCenter: item.parent.horizontalCenter
-                                anchors.top: item.parent.top
-                            }
-                        },State {
-                            name: "bottom"
-                            when: button.gravity === "bottom"
-
-                            AnchorChanges {
-                                target: item
-                                anchors.horizontalCenter: item.parent.horizontalCenter
-                                anchors.bottom: item.parent.bottom
-                            }
-                        },State {
-                            name : "center"
-                            when : button.gravity === "center"
-                            AnchorChanges {
-                                target: item
-                                anchors.horizontalCenter: item.parent.horizontalCenter
-                                anchors.verticalCenter: item.parent.verticalCenter
-                            }
-                        }
-
-                    ]
-
         }
 
         DrawableGrowBehaviour {
