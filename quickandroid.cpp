@@ -35,7 +35,7 @@ void QuickAndroid::registerTypes()
     qmlRegisterSingletonType("QuickAndroid", 0, 1, "A", aProvider);
 }
 
-qreal QuickAndroid::dp() const
+qreal QuickAndroid::dp()
 {
     return m_dp;
 }

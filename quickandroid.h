@@ -14,7 +14,7 @@ public:
      * @brief dp
      * @return The detected "dp" value
     */
-    qreal dp() const;
+    static qreal dp();
 };
 
 #endif // QUICKANDROID_H
