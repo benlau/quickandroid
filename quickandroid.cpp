@@ -29,8 +29,8 @@ void QuickAndroid::registerTypes()
     QAndroidJniObject activity = QAndroidJniObject::callStaticObjectMethod("org/qtproject/qt5/android/QtNative", "activity", "()Landroid/app/Activity;");
     QAndroidJniObject resource = activity.callObjectMethod("getResources","()Landroid/content/res/Resources;");
     QAndroidJniObject metrics = resource.callObjectMethod("getDisplayMetrics","()Landroid/util/DisplayMetrics;");
-    dp = metrics.getField<float>("density");
-    dpi = metrics.getField<int>("densityDpi");
+    m_dp = metrics.getField<float>("density");
+    m_dpi = metrics.getField<int>("densityDpi");
 #endif
     qmlRegisterSingletonType("QuickAndroid", 0, 1, "A", aProvider);
 }
