@@ -33,7 +33,7 @@ Rectangle {
     function _dpOfSource(source) {
         var dpiTable = ["ldpi","mdpi","hdpi","xhdpi","xxhdpi","xxxhdpi"];
         var dpTable = [ 0.75,1,1.5,2,3,4];
-        var dp = 1;
+        var dp = A.dp;
         for (var i = dpiTable.length -1 ;i >=0;i--) {
             if (source.indexOf(dpiTable[i]) !== -1) {
                 dp = dpTable[i];
@@ -126,6 +126,7 @@ Rectangle {
                 if (resized)
                     return;
                 dp = _dpOfSource(String(source));
+
                 var w = sourceSize.width * A.dp / dp;
                 var h = sourceSize.height * A.dp / dp;
 
