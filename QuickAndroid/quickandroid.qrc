@@ -67,5 +67,15 @@
         <file>priv/qmldir</file>
         <file>priv/Overlay.qml</file>
         <file>priv/TextBehaviour.qml</file>
+        <file>drawable/ArtShadowDepth5.qml</file>
+        <file>drawable/ArtShadowDepth4.qml</file>
+        <file>drawable/ArtShadowDepth3.qml</file>
+        <file>drawable/ArtShadowDepth2.qml</file>
+        <file>drawable/ArtShadowDepth1.qml</file>
+        <file>drawable-xxhdpi/art_shadow_depth_5.png</file>
+        <file>drawable-xxhdpi/art_shadow_depth_4.png</file>
+        <file>drawable-xxhdpi/art_shadow_depth_3.png</file>
+        <file>drawable-xxhdpi/art_shadow_depth_2.png</file>
+        <file>drawable-xxhdpi/art_shadow_depth_1.png</file>
     </qresource>
 </RCC>
