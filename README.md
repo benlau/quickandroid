@@ -18,12 +18,14 @@ Features
 UI Components
 
     ActionBar , Activity , Application , Drawable , StateListDrawable
-    MaterialShadow , PopupMenu , Spinner , QuickButton
+    MaterialShadow , PopupMenu , Spinner , QuickButton , QATextInput,
+    Switch
 
 Utility Components
 
     Dialog , DrawableGrowBehaviour, InverseMouseArea ,  PopupArea
-    QueuedSignal , RectToRectMatrix , AnimationLoader
+    QueuedSignal , RectToRectMatrix , AnimationLoader ,
+    Overlay , Ghost
 
 Under Development Components
 
@@ -93,3 +95,20 @@ License
 -------
 
 The license of this project has been changed to Apache License 2.0
+
+FAQ
+---
+
+Q. Looking for component that is not supported yet?
+
+Please feel free to submit the request to the wiki. Moreover, you may take a look on other component library:
+
+1. [Iktwo/components](https://github.com/Iktwo/components)
+2. [rschiang/material](https://github.com/rschiang/material)
+
+Q. Looking for iOS Native Component?
+
+1. [hlarycheng/quickios](https://github.com/hilarycheng/quickios) (Still Under Development)
+
+
+
