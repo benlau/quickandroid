@@ -108,7 +108,7 @@ Please feel free to submit the request to the wiki. Moreover, you may take a loo
 
 Q. Looking for iOS Native Component?
 
-1. [hlarycheng/quickios](https://github.com/hilarycheng/quickios) (Still Under Development)
+1. [hilarycheng/quickios](https://github.com/hilarycheng/quickios) (Still Under Development)
 
 
 
