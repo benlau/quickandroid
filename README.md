@@ -36,7 +36,7 @@ Instruction of use
 
  1) Clone this repository and bundle the folder within your source tree.
 
-(It is recommended to use `git subdmoule` to embed this repository)
+(It is recommended to use `git submodule` to embed this repository)
 
  2) Add this line to your profile file(.pro):
 
