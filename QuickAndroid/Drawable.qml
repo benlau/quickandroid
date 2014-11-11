@@ -8,6 +8,8 @@ Rectangle {
     property bool pressed
 
     property var source
+
+    /// The status of loading resource
     property var status
 
     // The container/parent of "item". It must be the direct child of drawable
@@ -17,9 +19,13 @@ Rectangle {
     // Dynamic created content by the source.
     property var item;
 
+    // Set this property to define what happens when the source image has a different size than the item.
+    property int fillMode : Image.Stretch
+
     // The resolution of source
     property real dp : 1
 
+    // The "content" region of drawable
     property alias content : fillAreaItem.children
 
     property alias fillArea : fillAreaItem
@@ -33,7 +39,7 @@ Rectangle {
     function _dpOfSource(source) {
         var dpiTable = ["ldpi","mdpi","hdpi","xhdpi","xxhdpi","xxxhdpi"];
         var dpTable = [ 0.75,1,1.5,2,3,4];
-        var dp = 1;
+        var dp = A.dp;
         for (var i = dpiTable.length -1 ;i >=0;i--) {
             if (source.indexOf(dpiTable[i]) !== -1) {
                 dp = dpTable[i];
@@ -116,6 +122,7 @@ Rectangle {
             source : drawable.source
             anchors.fill: parent
             asynchronous: drawable.asynchronous
+            fillMode: drawable.fillMode
             property bool resized : false
 
             onStatusChanged: {
@@ -126,6 +133,7 @@ Rectangle {
                 if (resized)
                     return;
                 dp = _dpOfSource(String(source));
+
                 var w = sourceSize.width * A.dp / dp;
                 var h = sourceSize.height * A.dp / dp;
 
