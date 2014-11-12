@@ -120,7 +120,7 @@ Style.ActionBar = {
     actionButtonBackground : "drawable/ItemBackgroundHoloLight.qml",
     titleTextStyle : extend({},Style.TextAppearance.Medium),
     homeAsUpIndicator : "drawable-xxhdpi/ic_ab_back_holo_light_am.png",
-    homeMarginLeft: 0,
+    homeMarginLeft: -2,
     divider: Style.dividerVertical,
     padding : 8
 }
