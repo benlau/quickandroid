@@ -1,6 +1,6 @@
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
-QT += qmltest qml
+QT += qmltest qml quick
 
 TARGET = quickandroidtests
 TEMPLATE = app
