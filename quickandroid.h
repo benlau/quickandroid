@@ -1,6 +1,7 @@
 #ifndef QUICKANDROID_H
 #define QUICKANDROID_H
 
+#include <QtGlobal>
 /// Quick Android Context
 
 class QuickAndroid
