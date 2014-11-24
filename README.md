@@ -1,5 +1,6 @@
 Quick Android - QML Theme and Component Library for Android
 ===========================================================
+[![Build Status](https://travis-ci.org/benlau/quickandroid.svg?branch=master)](https://travis-ci.org/benlau/quickandroid)
 
 Features
 --------
