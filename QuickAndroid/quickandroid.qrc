@@ -77,5 +77,14 @@
         <file>drawable-xxhdpi/art_shadow_depth_3.png</file>
         <file>drawable-xxhdpi/art_shadow_depth_2.png</file>
         <file>drawable-xxhdpi/art_shadow_depth_1.png</file>
+        <file>style/Theme.qml</file>
+        <file>style/ActionBarStyle.qml</file>
+        <file>style/qmldir</file>
+        <file>style/TextStyle.qml</file>
+        <file>style/Style.qml</file>
+        <file>style/Color.qml</file>
+        <file>def/Color.qml</file>
+        <file>def/qmldir</file>
+        <file>def/ColorDef.qml</file>
     </qresource>
 </RCC>
