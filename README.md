@@ -12,8 +12,8 @@ Features
   1. A single component that supports color , image , QML component , simulated nine patch image as input source
   2. Auto scale image to fit current screen resolution
   3. Derived StateListDrawable for animated drawable like button
- 4. Theme / Style Engine
- 5. Animation Management
+ 4. Image provider that will find the right image for current resolution automatically.
+ 5. Theme / Style Engine
  6. A set of components with native look and feel on Android
 
 UI Components
