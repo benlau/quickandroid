@@ -7,7 +7,7 @@ import QtQuick 2.0
 
 
 QtObject {
-    property var icon
+    property var icon : ""
     property var background
     property var actionButtonBackground
     property var titleTextStyle

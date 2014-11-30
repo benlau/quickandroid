@@ -11,11 +11,11 @@ import QuickAndroid.def 0.1
 QtObject {
     id : theme
 
-    property color colorPrimary : "#274ECC"
-    property color colorPrimaryDark : "#346CF0"
-    property color textColorPrimary : "#de000000"
-    property color windowBackground: "#EFEFEF"
-    property color navigationBarColor : "#FFFFFF"
+    property var colorPrimary : "#BBDEFB" // blue 100
+    property var colorPrimaryDark : "#1565C0" // blue 800
+    property var textColorPrimary : "#de000000"
+    property var windowBackground: "#EFEFEF"
+    property var navigationBarColor : "#FFFFFF"
 
     property TextStyle middleText : TextStyle {
         textSize: 14

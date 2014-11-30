@@ -3,6 +3,7 @@
 
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.style 0.1
 import "res.js" as Res
 import "global.js" as Global
 
@@ -12,6 +13,8 @@ FocusScope {
     height: 640
 
     focus : true
+
+    property var theme
 
     property var icon
     property var current;
@@ -150,6 +153,12 @@ FocusScope {
                 event.accepted = true;
             }
         }
+    }
+
+    Binding {
+        target: Style; property : "theme"
+        when: application.theme !== undefined
+        value : application.theme
     }
 
     Component.onCompleted: {
