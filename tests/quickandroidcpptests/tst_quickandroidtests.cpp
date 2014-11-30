@@ -59,6 +59,17 @@ void QuickAndroidTests::loading()
                 continue;
             }
 
+            QFile file(":" + url.path());
+            QVERIFY(file.open(QIODevice::ReadOnly));
+            QString content = file.readAll();
+            content = content.toLower();
+
+            // Skip singleton module as it can not be loaded directly
+            if (content.indexOf("pragma singleton") != -1) {
+                qDebug() << QString("%1 : Skipped (singleton)").arg(url.toString());
+                continue;
+            }
+
             QQmlComponent comp(&engine);
             comp.loadUrl(url);
             if (comp.isError()) {
