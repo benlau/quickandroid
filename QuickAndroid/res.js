@@ -114,6 +114,7 @@ Style.dividerVertical = "#1A000000"
 
 /* ActionBar */
 
+
 Style.ActionBar = {
     icon : "",
     background : "drawable/ActionBarBackground.qml",
@@ -123,29 +124,6 @@ Style.ActionBar = {
     homeMarginLeft: -2,
     divider: Style.dividerVertical,
     padding : 8
-}
-
-/* Spinner */
-
-Style.Spinner = {
-    // styles.xml : Widget.Spinner
-
-    // It should be BtnDropdown but it is not implementeted yet
-    background : "drawable/SpinnerAbHoloLight.qml",
-    popupBackground: "drawable/SpinnerDropdownBackground.qml",
-    dropDownSelector: "drawable/ListSelectorHoloLight.qml",
-    dropDownVerticalOffset: -10,
-
-    // Custom Style
-    textStyle : extend({},Style.ActionBar.titleTextStyle),
-    divider: "drawable/DividerHorizontalHoloLight.qml"
-}
-
-Style.SpinnerItemStyle = {
-    TextAppearance : Style.TextAppearance.Medium,
-    // simple_spinner_item.xml
-    paddingStart : 8,
-    paddingEnd : 8
 }
 
 Style.Widget = {

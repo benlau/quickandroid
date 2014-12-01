@@ -22,7 +22,7 @@ Item {
 
     property string icon
 
-    property var style : Style.theme.actionBar
+    property ActionBarStyle style : Style.theme.actionBar
 
     property alias content : fillArea.children
 

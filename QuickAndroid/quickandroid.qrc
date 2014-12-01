@@ -86,5 +86,7 @@
         <file>def/Color.qml</file>
         <file>def/qmldir</file>
         <file>def/ColorDef.qml</file>
+        <file>style/SpinnerStyle.qml</file>
+        <file>style/SpinnerItemStyle.qml</file>
     </qresource>
 </RCC>

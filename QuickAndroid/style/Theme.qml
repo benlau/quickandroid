@@ -32,4 +32,19 @@ QtObject {
         padding: 8
     }
 
+    property SpinnerStyle spinner : SpinnerStyle {
+        background : Qt.resolvedUrl("../drawable/SpinnerAbHoloLight.qml")
+        popupBackground : Qt.resolvedUrl("../drawable/SpinnerDropdownBackground.qml")
+        dropDownSelector : Qt.resolvedUrl("../drawable/ListSelectorHoloLight.qml")
+        dropDownVerticalOffset : -10
+        textStyle : actionBar.titleTextStyle
+        divider : Qt.resolvedUrl("../drawable/DividerHorizontalHoloLight.qml");
+    }
+
+    property SpinnerItemStyle spinnerItem : SpinnerItemStyle {
+        textStyle: middleText
+        paddingStart: 8
+        paddingEnd: 8
+    }
+
 }

@@ -5,7 +5,6 @@ import QtQuick 2.0
   Author : benlau
  */
 
-
 QtObject {
     property var icon : ""
     property var background
