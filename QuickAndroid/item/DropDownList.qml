@@ -2,6 +2,7 @@
 
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.style 0.1
 import "../res.js" as Res
 
 Item {
@@ -13,8 +14,7 @@ Item {
     property int currentIndex : -1
     property var currentItem;
 
-    property var style
-    property alias _style : styleItem
+    property var style : Style.theme.dropdown
 
     property Component delegate : QuickButton {
         id : button
@@ -24,13 +24,13 @@ Item {
 
         text: model.title
         style: ({
-            background : dropDownList._style.button,
-            textAppearance: dropDownList._style.textStyle
+            background : dropDownList.style.button,
+            textAppearance: dropDownList.style.textStyle
         })
         gravity: "left"
 
         Drawable {
-            source: dropDownList._style.divider
+            source: dropDownList.style.divider
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
@@ -55,7 +55,7 @@ Item {
 
     Drawable {
         id : background
-        source: _style.background
+        source: style.background
 
         content : Column {
             id : column
@@ -107,17 +107,5 @@ Item {
         }
 
         DrawableGrowBehaviour {}
-    }
-
-    onStyleChanged: {
-        Res.extend(_style,Res.Style.Widget.DropDown);
-        Res.extend(_style,style);
-        _styleChanged();
-    }
-
-    Component.onCompleted: {
-        Res.extend(_style,Res.Style.Widget.DropDown);
-        Res.extend(_style,style);
-        _styleChanged();
     }
 }

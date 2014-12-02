@@ -88,5 +88,6 @@
         <file>def/ColorDef.qml</file>
         <file>style/SpinnerStyle.qml</file>
         <file>style/SpinnerItemStyle.qml</file>
+        <file>style/DropDownStyle.qml</file>
     </qresource>
 </RCC>

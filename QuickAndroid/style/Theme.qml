@@ -13,19 +13,36 @@ QtObject {
 
     property var colorPrimary : "#BBDEFB" // blue 100
     property var colorPrimaryDark : "#1565C0" // blue 800
-    property var textColorPrimary : "#de000000"
+    property var textColorPrimary : Color.black87
     property var windowBackground: "#EFEFEF"
     property var navigationBarColor : "#FFFFFF"
 
-    property TextStyle middleText : TextStyle {
-        textSize: 14
-        textColor : Color.black87
+    // Normal test style
+    property TextStyle text : TextStyle {
+        textSize: 16
+        textColor : textColorPrimary
     }
+
+    property TextStyle smallText : TextStyle {
+        textSize: 14
+        textColor : textColorPrimary
+    }
+
+    property TextStyle mediumText : TextStyle {
+        textSize: 18
+        textColor : textColorPrimary
+    }
+
+    property TextStyle largeText : TextStyle {
+        textSize: 22
+        textColor : textColorPrimary
+    }
+
 
     property ActionBarStyle actionBar : ActionBarStyle {
         background : theme.colorPrimary
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
-        titleTextStyle: middleText
+        titleTextStyle: mediumText
         homeAsUpIndicator : Qt.resolvedUrl("../drawable-xxhdpi/ic_ab_back_holo_light_am.png")
         homeMarginLeft: -2
         divider : Color.black12
@@ -42,9 +59,19 @@ QtObject {
     }
 
     property SpinnerItemStyle spinnerItem : SpinnerItemStyle {
-        textStyle: middleText
+        textStyle: mediumText
         paddingStart: 8
         paddingEnd: 8
+    }
+
+    property DropdownStyle dropdown : DropdownStyle {
+        background : Qt.resolvedUrl("../drawable/MenuDropdownPanelHoloLight.qml")
+        verticalOffset: -10
+        textStyle: actionBar.titleTextStyle
+        divider: Qt.resolvedUrl("../drawable/DividerHorizontalHoloLight.qml")
+
+        // Custom Style
+        button : Qt.resolvedUrl("../drawable/BtnDropdown.qml")
     }
 
 }

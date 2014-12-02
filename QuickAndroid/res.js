@@ -134,6 +134,7 @@ Style.Widget.Button = {
     textAppearance : extend({},Style.TextAppearance.Medium)
 }
 
+/*
 // Widget.Spinner.DropDown
 Style.Widget.DropDown = {
     background : "drawable/MenuDropdownPanelHoloLight.qml",
@@ -145,6 +146,7 @@ Style.Widget.DropDown = {
     // Custom Style
     button : "drawable/BtnDropdown.qml"
 }
+*/
 
 Style.Widget.TextInput = {
     background : "#00000000",

@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 Notes of using DP
 -----------------
 
-You may get the DP/density value from the global variable "A.dp" after you have called the `QuickAndroid::RegisterTypes()` in your code. However, Qt Creator don't know the value and threfore the UI will be broken. In make it works , you have to declare a dummy data in your project. Check the example code: [dummydata/A.qml](tests/quickandroidexample/dummydata/A.qml)
+You may get the DP/density value from the global variable "A.dp" after you have called the `QuickAndroid::RegisterTypes()` in your code. However, Qt Creator don't know the value and threfore the UI will be broken. To make it works , you have to declare a dummy data in your project. Check the example code: [dummydata/A.qml](tests/quickandroidexample/dummydata/A.qml)
 
 Demonstration
 -------------

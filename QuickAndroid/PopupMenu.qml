@@ -14,7 +14,7 @@ PopupArea {
     property alias delegate : dropDownList.delegate
     property var animationStyle : (Res.Style.Animation.DropDownDown)
     property alias style : dropDownList.style
-    property alias _style : dropDownList._style
+    property alias _style : dropDownList.style
 
     signal itemSelected(int index,Item item,var model);
 
