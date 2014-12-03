@@ -17,7 +17,7 @@ Rectangle {
     property var canvas
 
     // Dynamic created content by the source.
-    property var item;
+    property var item: null;
 
     // Set this property to define what happens when the source image has a different size than the item.
     property int fillMode : Image.Stretch

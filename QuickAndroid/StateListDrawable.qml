@@ -13,32 +13,27 @@ Drawable {
     property bool middle
     property bool single
 
-    onItemChanged: {
-        var properties = ["enabled",
-                          "pressed",
-                          "focused",
-                          "selected",
-                          "checkable",
-                          "checked",
-                          "first",
-                          "last",
-                          "middle",
-                          "single"]
+    Repeater {
+        model: ["enabled",
+            "pressed",
+            "focused",
+            "selected",
+            "checkable",
+            "checked",
+            "first",
+            "last",
+            "middle",
+            "single"]
 
-        if (!item)
-            return;
-
-        for (var i in properties) {
-            var p = properties[i];
-            if (item.hasOwnProperty(p)) {
-                (function(prop) {
-
-                    item[prop] = Qt.binding(function() {
-                        return stateListDrawable[prop];
-                    });
-
-                })(p);
+        delegate: Item {
+            Binding {
+                target: stateListDrawable.item
+                property: modelData
+                value: stateListDrawable[modelData]
+                when: stateListDrawable.item !== null &&
+                      stateListDrawable.item.hasOwnProperty(modelData)
             }
         }
+
     }
 }
