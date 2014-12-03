@@ -30,6 +30,7 @@ Rectangle {
             text: "Text Input 2......................................."
             gravity: "bottom"
             background: "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
+            style.textStyle.textColor: "red"
         }
 
         Text {
