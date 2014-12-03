@@ -26,7 +26,7 @@ Rectangle {
         when : windowShown
 
         function test_basic() {
-            wait(60000);
+//            wait(60000);
         }
     }
 
