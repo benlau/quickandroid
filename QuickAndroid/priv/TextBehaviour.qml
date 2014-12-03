@@ -1,6 +1,7 @@
 // Modify the beahviour of Text component
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.style 0.1
 
 Item {
     id : behaviour
@@ -10,15 +11,16 @@ Item {
     /// Set to true if you want the text scale to a smaller size if the content exceed the width
     property bool shrink : false;
 
-    // Given a textAppearance object defined in res.js, it will modify the text according to the style.
-    property var textAppearance;
+//    // Given a textAppearance object defined in res.js, it will modify the text according to the style.
+//    property var textAppearance;
+    property TextStyle textStyle
 
-    property var _pixelSize : textAppearance ?  textAppearance.textSize * A.dp : undefined
-    property var _color : textAppearance ? textAppearance.textColor.color : undefined
+    property var _pixelSize : textStyle ?  textStyle.textSize * A.dp : undefined
+    property var _color : textStyle ? textStyle.textColor : undefined
 
     /* textAppearance */
-    Binding { target: behaviour.target;property: "font.pixelSize";when: textAppearance !== undefined; value: _pixelSize}
-    Binding { target: behaviour.target;property: "color";when: textAppearance !== undefined; value: _color}
+    Binding { target: behaviour.target;property: "font.pixelSize";when: textStyle !== undefined; value: _pixelSize}
+    Binding { target: behaviour.target;property: "color";when: textStyle !== undefined; value: _color}
 
     Binding { target: behaviour.target; property: "scale"; when: shrink && behaviour.target.contentWidth > behaviour.target.width; value: behaviour.target.width / behaviour.target.contentWidth}
 

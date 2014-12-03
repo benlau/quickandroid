@@ -90,5 +90,7 @@
         <file>style/SpinnerItemStyle.qml</file>
         <file>style/DropDownStyle.qml</file>
         <file>style/ButtonStyle.qml</file>
+        <file>style/TextInputStyle.qml</file>
+        <file>style/SwitchStyle.qml</file>
     </qresource>
 </RCC>

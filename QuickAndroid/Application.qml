@@ -74,6 +74,12 @@ FocusScope {
 
         next = comp.createObject(application);
 
+        if (next === null) {
+            console.warn("Failed to create : " + component);
+            console.warn(comp.errorString());
+
+        }
+
         for (var i in options) {
             next[i] = options[i];
         }

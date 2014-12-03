@@ -115,6 +115,7 @@ Style.dividerVertical = "#1A000000"
 /* ActionBar */
 
 
+/*
 Style.ActionBar = {
     icon : "",
     background : "drawable/ActionBarBackground.qml",
@@ -130,7 +131,6 @@ Style.Widget = {
 }
 
 
-/*
 Style.Widget.Button = {
     background : "drawable/BtnDefault.qml",
     textAppearance : extend({},Style.TextAppearance.Medium)
@@ -147,7 +147,6 @@ Style.Widget.DropDown = {
     // Custom Style
     button : "drawable/BtnDropdown.qml"
 }
-*/
 
 Style.Widget.TextInput = {
     background : "#00000000",
@@ -169,6 +168,7 @@ Style.Widget.CompoundButton.Switch = {
     switchMinWidth: 96,
     switchPadding: 16
 }
+*/
 
 Style.Animation = {}
 

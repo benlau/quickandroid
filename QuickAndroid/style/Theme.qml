@@ -78,4 +78,19 @@ QtObject {
         button : Qt.resolvedUrl("../drawable/BtnDropdown.qml")
     }
 
+    property TextInputStyle textInput : TextInputStyle {
+        background : "#00000000"
+        textStyle : mediumText
+        textSelectHandle : Qt.resolvedUrl("../drawable-xxhdpi/text_select_handle_middle.png")
+    }
+
+    property SwitchStyle switchStyle : SwitchStyle {
+        track: Qt.resolvedUrl("../drawable/SwitchBgHoloLight.qml")
+        thumb: Qt.resolvedUrl("../drawable/SwitchThumbHoloLight.qml")
+        textStyle: smallText
+        thumbTextPadding: 12
+        switchMinWidth: 96
+        switchPadding: 16
+    }
+
 }
