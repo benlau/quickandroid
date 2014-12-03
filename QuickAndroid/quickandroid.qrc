@@ -89,5 +89,6 @@
         <file>style/SpinnerStyle.qml</file>
         <file>style/SpinnerItemStyle.qml</file>
         <file>style/DropDownStyle.qml</file>
+        <file>style/ButtonStyle.qml</file>
     </qresource>
 </RCC>

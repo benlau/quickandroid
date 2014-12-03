@@ -129,12 +129,13 @@ Style.ActionBar = {
 Style.Widget = {
 }
 
+
+/*
 Style.Widget.Button = {
     background : "drawable/BtnDefault.qml",
     textAppearance : extend({},Style.TextAppearance.Medium)
 }
 
-/*
 // Widget.Spinner.DropDown
 Style.Widget.DropDown = {
     background : "drawable/MenuDropdownPanelHoloLight.qml",

@@ -38,6 +38,10 @@ QtObject {
         textColor : textColorPrimary
     }
 
+    property ButtonStyle button: ButtonStyle {
+        background : Qt.resolvedUrl("../drawable/BtnDefault.qml")
+        textStyle : mediumText
+    }
 
     property ActionBarStyle actionBar : ActionBarStyle {
         background : theme.colorPrimary

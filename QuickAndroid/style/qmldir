@@ -8,3 +8,4 @@ Theme 0.1 Theme.qml
 SpinnerStyle 0.1 SpinnerStyle.qml
 SpinnerItemStyle 0.1 SpinnerItemStyle.qml
 DropdownStyle 0.1 DropdownStyle.qml
+ButtonStyle 0.1 ButtonStyle.qml

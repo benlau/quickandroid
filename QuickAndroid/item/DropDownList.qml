@@ -3,7 +3,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1
-import "../res.js" as Res
 
 Item {
     id : dropDownList
@@ -23,10 +22,10 @@ Item {
         visible : !hidden
 
         text: model.title
-        style: ({
-            background : dropDownList.style.button,
-            textAppearance: dropDownList.style.textStyle
-        })
+        style: ButtonStyle {
+            background : dropDownList.style.button
+            textStyle: dropDownList.style.textStyle
+        }
         gravity: "left"
 
         Drawable {
