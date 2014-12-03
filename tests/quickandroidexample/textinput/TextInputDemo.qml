@@ -55,11 +55,10 @@ Activity {
             gravity: "bottom"
             background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
             text: "Smaller text size and color"
-//            style.textStyle: TextStyle {
-//                textColor : "red"
-//                textSize: 14
-//            }
-//            style.textStyle.textSize: 14
+            style.textStyle: TextStyle {
+                textColor : "red"
+                textSize: 14
+            }
         }
 
         QATextInput {
@@ -68,10 +67,10 @@ Activity {
             gravity: "center"
             background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
             text: "Gravity center"
-//            style.textStyle: {
-//                textColor : "blue"
-//                textSize: 14
-//            }
+            style.textStyle: TextStyle {
+                textColor : "blue"
+                textSize: 14
+            }
 
         }
 
@@ -81,10 +80,12 @@ Activity {
             gravity: "bottom"
             background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
             text: ""
-//            style.textStyle: TextStyle {
+//            style.textStyle: {
 //                textColor : "blue"
 //                textSize: 14
 //            }
+            style.textStyle.textColor: "blue"
+            style.textStyle.textSize: 14
         }
 
     }

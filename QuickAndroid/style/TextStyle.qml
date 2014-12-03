@@ -6,6 +6,6 @@ import QtQuick 2.0
  */
 
 QtObject {
-    property real textSize
-    property color textColor
+    property var textSize
+    property var textColor
 }

@@ -7,6 +7,7 @@ import QuickAndroid.style 0.1
 Item {
     id: component
 
+
     property alias text : textInputItem.text
 
     property alias textInput : textInputItem
@@ -16,12 +17,24 @@ Item {
     property var background
     property alias gravity: gravityBehaviour.gravity
 
-    property TextInputStyle style : Style.theme.textInput
 
     property alias textSelectHandle: textSelectHandleItem
 
     property alias textSelectHandleRunning : textSelectHandlePopup.active
 
+//  property TextInputStyle style : Style.theme.textInput
+
+    property TextInputStyle style : TextInputStyle {
+        background: Style.theme.textInput.background
+//        textStyle: Style.theme.textInput.textStyle
+        textStyle: TextStyle {
+            textSize: Style.theme.textInput.textStyle.textSize
+            textColor: Style.theme.textInput.textStyle.textColor
+        }
+        textSelectHandle: Style.theme.textInput.textSelectHandle
+        property var dirtyHack : component.text
+        // Dirty hack to ensure the "style" object is created before user use it
+    }
 
     StateListDrawable {
         id : backgroundItem
