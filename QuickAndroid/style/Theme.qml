@@ -64,7 +64,7 @@ QtObject {
         paddingEnd: 8
     }
 
-    property DropdownStyle dropdown : DropdownStyle {
+    property DropDownStyle dropdown : DropDownStyle {
         background : Qt.resolvedUrl("../drawable/MenuDropdownPanelHoloLight.qml")
         verticalOffset: -10
         textStyle: actionBar.titleTextStyle

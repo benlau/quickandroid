@@ -7,3 +7,4 @@ TextStyle 0.1 TextStyle.qml
 Theme 0.1 Theme.qml
 SpinnerStyle 0.1 SpinnerStyle.qml
 SpinnerItemStyle 0.1 SpinnerItemStyle.qml
+DropdownStyle 0.1 DropdownStyle.qml
