@@ -20,6 +20,7 @@ Rectangle {
             width: 100
             height: 40
             text: "Text Input 1......................................"
+            style.textStyle.textSize: 20
         }
 
         QATextInput {

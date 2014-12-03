@@ -22,10 +22,8 @@ Item {
         visible : !hidden
 
         text: model.title
-        style: ButtonStyle {
-            background : dropDownList.style.button
-            textStyle: dropDownList.style.textStyle
-        }
+        style.background : dropDownList.style.button
+        style.textStyle: dropDownList.style.textStyle
         gravity: "left"
 
         Drawable {

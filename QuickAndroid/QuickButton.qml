@@ -19,8 +19,11 @@ MouseArea {
     property var icon
     property string text
 
-    property ButtonStyle style : Style.theme.button
-
+//    property ButtonStyle style : Style.theme.button
+    property ButtonStyle style : ButtonStyle {
+        background : Style.theme.button.background
+        textStyle: Style.theme.button.textStyle
+    }
     // Load background in asynchronous mode
     property bool asynchronous : false
 

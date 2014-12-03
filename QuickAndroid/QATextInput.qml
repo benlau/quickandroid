@@ -26,14 +26,11 @@ Item {
 
     property TextInputStyle style : TextInputStyle {
         background: Style.theme.textInput.background
-//        textStyle: Style.theme.textInput.textStyle
         textStyle: TextStyle {
             textSize: Style.theme.textInput.textStyle.textSize
             textColor: Style.theme.textInput.textStyle.textColor
         }
         textSelectHandle: Style.theme.textInput.textSelectHandle
-        property var dirtyHack : component.text
-        // Dirty hack to ensure the "style" object is created before user use it
     }
 
     StateListDrawable {
