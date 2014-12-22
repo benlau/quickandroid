@@ -31,6 +31,9 @@ Item {
             textColor: Style.theme.textInput.textStyle.textColor
         }
         textSelectHandle: Style.theme.textInput.textSelectHandle
+
+        textSelectHandleEnterAnimation : Qt.resolvedUrl("./anim/FastFadeIn.qml")
+        textSelectHandleExitAnimation : Qt.resolvedUrl("./anim/FastFadeOut.qml")
     }
 
     StateListDrawable {
@@ -208,13 +211,13 @@ Item {
     Loader {
         id : textSelectHandleEntryAnim
         asynchronous: true
-        source : Res.Style.Animation.TextInput.textSelectHandleEnter
+        source : component.style.textSelectHandleEnterAnimation
     }
 
     Loader {
         id : textSelectHandleExitAnim
         asynchronous: true
-        source : Res.Style.Animation.TextInput.textSelectHandleExit
+        source : component.style.textSelectHandleExitAnimation
     }
 
 
