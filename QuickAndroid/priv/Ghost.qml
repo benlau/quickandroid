@@ -1,4 +1,10 @@
-// Ghost is a special component that will be placed on/under target component but using the current coordinate system
+/*
+  Ghost is a special component that will be placed over target component but using the current coordinate system
+
+  Project: https://github.com/benlau/quickandroid
+  Author : benlau
+
+ */
 import QtQuick 2.0
 
 Item {
