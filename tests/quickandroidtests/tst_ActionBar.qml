@@ -24,9 +24,7 @@ Rectangle {
         when : windowShown
 
         function test_basic() {
-            wait(100);
-//            console.log(actionBar1.menuBar.x,button1.x);
-//            wait(60000);
+            wait(TestEnv.waitTime);
         }
     }
 
