@@ -92,5 +92,6 @@
         <file>style/ButtonStyle.qml</file>
         <file>style/TextInputStyle.qml</file>
         <file>style/SwitchStyle.qml</file>
+        <file>style/DialogStyle.qml</file>
     </qresource>
 </RCC>

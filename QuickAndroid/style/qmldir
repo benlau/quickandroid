@@ -11,3 +11,4 @@ DropdownStyle 0.1 DropdownStyle.qml
 ButtonStyle 0.1 ButtonStyle.qml
 TextInputStyle 0.1 TextInputStyle.qml
 SwitchStyle 0.1 SwitchStyle.qml
+DialogStyle 0.1 DialogStyle.qml

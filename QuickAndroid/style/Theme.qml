@@ -93,4 +93,9 @@ QtObject {
         switchPadding: 16
     }
 
+    property DialogStyle dialogStyle : DialogStyle {
+        windowEnterAnimation : Qt.resolvedUrl("../anim/GrowFadeIn.qml")
+        windowExitAnimation: Qt.resolvedUrl("anim/ShrinkFadeOut.qml")
+    }
+
 }
