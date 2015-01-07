@@ -93,5 +93,6 @@
         <file>style/TextInputStyle.qml</file>
         <file>style/SwitchStyle.qml</file>
         <file>style/DialogStyle.qml</file>
+        <file>style/ActivityStyle.qml</file>
     </qresource>
 </RCC>

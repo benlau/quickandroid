@@ -38,6 +38,12 @@ QtObject {
         textColor : textColorPrimary
     }
 
+    property ActivityStyle activityStyle : ActivityStyle {
+        activityEnterAnimation : Qt.resolvedUrl("../anim/ActivityEnter.qml")
+        activityExitAnimation : Qt.resolvedUrl("../anim/ActivityExit.qml")
+        background: Qt.resolvedUrl("../drawable/BackgroundHoloLight.qml")
+    }
+
     property ButtonStyle button: ButtonStyle {
         background : Qt.resolvedUrl("../drawable/BtnDefault.qml")
         textStyle : mediumText
@@ -95,7 +101,7 @@ QtObject {
 
     property DialogStyle dialogStyle : DialogStyle {
         windowEnterAnimation : Qt.resolvedUrl("../anim/GrowFadeIn.qml")
-        windowExitAnimation: Qt.resolvedUrl("anim/ShrinkFadeOut.qml")
+        windowExitAnimation: Qt.resolvedUrl("../anim/ShrinkFadeOut.qml")
     }
 
 }

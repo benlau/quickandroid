@@ -97,14 +97,14 @@ Drawable {
     AnimationLoader {
         id : enterAnimation
         transition: fromNullToActive
-        source : Res.Style.Animation.Dialog.windowEnterAnimation
+        source : dialog.style.windowEnterAnimation
         target: dialog
     }
 
     AnimationLoader{
         id : exitAnimation
         transition: fromActiveToNull
-        source : Res.Style.Animation.Dialog.windowExitAnimation
+        source : dialog.style.windowExitAnimation
         target: dialog
     }
 

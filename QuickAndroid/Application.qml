@@ -4,6 +4,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1
+import "./style"
 import "res.js" as Res
 import "global.js" as Global
 
@@ -33,7 +34,7 @@ FocusScope {
         var animOptions = {
             target : current
         }
-        var animComponent = Qt.createComponent(Res.Style.Animation.Activity.activityExitAnimation);
+        var animComponent = Qt.createComponent(Style.theme.activityStyle.activityExitAnimation);
 
         var anim = animComponent.createObject(null,animOptions);
 
@@ -117,7 +118,7 @@ FocusScope {
             target : next
         }
 
-        var animComponent = Qt.createComponent(Res.Style.Animation.Activity.activityEnterAnimation);
+        var animComponent = Qt.createComponent(Style.theme.activityStyle.activityEnterAnimation);
 
         var anim = animComponent.createObject(null,animOptions);
         anim.onStopped.connect(function() {

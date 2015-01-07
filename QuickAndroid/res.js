@@ -75,9 +75,11 @@ var config = {
     config_activityShortDur : 150
 }
 
+/*
 Style.Theme = {
     colorBackground : "drawable/BackgroundHoloLight.qml"
 }
+*/
 
 Style.TextAppearance = {
     textSize : 16,
@@ -172,10 +174,12 @@ Style.Widget.CompoundButton.Switch = {
 
 Style.Animation = {}
 
+/*
 Style.Animation.Activity = {
     activityEnterAnimation : "anim/ActivityEnter.qml",
     activityExitAnimation : "anim/ActivityExit.qml"
 }
+*/
 
 Style.Animation.DropDownDown = {
     windowEnterAnimation : "anim/GrowFadeIn.qml",
