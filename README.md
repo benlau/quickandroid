@@ -83,12 +83,14 @@ int main(int argc, char *argv[])
 Notes of using DP
 -----------------
 
-You may get the DP/density value from the global variable "A.dp" after you have called the `QuickAndroid::RegisterTypes()` in your code. However, Qt Creator don't know the value and threfore the UI will be broken. In make it works , you have to declare a dummy data in your project. Check the example code: [dummydata/A.qml](tests/quickandroidexample/dummydata/A.qml)
+You may get the DP/density value from the global variable "A.dp" after you have called the `QuickAndroid::registerTypes()` in your code. However, Qt Creator don't know the value and threfore the UI will be broken. In make it works , you have to declare a dummy data in your project. Check the example code: [dummydata/A.qml](tests/quickandroidexample/dummydata/A.qml)
 
 Demonstration
 -------------
 
-Please refer to the example program in the folder of [tests/quickandroidexample](tests/quickandroidexample)
+An example program is available in the folder of [tests/quickandroidexample](tests/quickandroidexample) . You may build it by yourself or download the daily build from [drone.io](https://drone.io/github.com/benlau/quickandroid/files) .
+
+Remarks: Daily build for non-master branch may not be working. 
 
 ![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/tests/quickandroidexample/docs/screenshot.png)
 
