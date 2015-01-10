@@ -8,4 +8,7 @@ QtObject {
 
     // Custom Style
     property var button
+
+    property var windowEnterAnimation
+    property var windowExitAnimation
 }

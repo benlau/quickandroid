@@ -172,21 +172,19 @@ Style.Widget.CompoundButton.Switch = {
 }
 */
 
+/*
 Style.Animation = {}
 
-/*
 Style.Animation.Activity = {
     activityEnterAnimation : "anim/ActivityEnter.qml",
     activityExitAnimation : "anim/ActivityExit.qml"
 }
-*/
 
 Style.Animation.DropDownDown = {
     windowEnterAnimation : "anim/GrowFadeIn.qml",
     windowExitAnimation: "anim/ShrinkFadeOut.qml"
 }
 
-/*
 Style.Animation.Dialog = {
     windowEnterAnimation : "anim/GrowFadeIn.qml",
     windowExitAnimation: "anim/ShrinkFadeOut.qml"

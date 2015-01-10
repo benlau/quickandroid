@@ -12,7 +12,6 @@ PopupArea {
 
     property alias model : dropDownList.model
     property alias delegate : dropDownList.delegate
-    property var animationStyle : (Res.Style.Animation.DropDownDown)
     property alias style : dropDownList.style
     property alias _style : dropDownList.style
 
@@ -39,14 +38,14 @@ PopupArea {
     AnimationLoader {
         id : enterAnimation
         transition: fromNulltoActive
-        source : animationStyle.windowEnterAnimation
+        source : popupMenu.style.windowEnterAnimation
         target: dropDownList
     }
 
     AnimationLoader{
         id : exitAnimation
         transition: fromActiveToNull
-        source : animationStyle.windowExitAnimation
+        source : popupMenu.style.windowExitAnimation
         target: dropDownList
     }
 

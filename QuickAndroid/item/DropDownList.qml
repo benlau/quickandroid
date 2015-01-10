@@ -13,7 +13,7 @@ Item {
     property int currentIndex : -1
     property var currentItem;
 
-    property var style : Style.theme.dropdown
+    property DropDownStyle style : Style.theme.dropdown
 
     property Component delegate : QuickButton {
         id : button

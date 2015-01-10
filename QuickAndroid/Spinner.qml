@@ -16,8 +16,6 @@ Item {
     property SpinnerStyle style: Style.theme.spinner
     property SpinnerItemStyle itemStyle : Style.theme.spinnerItem
 
-    property var animationStyle : (Res.Style.Animation.DropDownDown)
-
     property alias delegate : dropDownList.delegate
     property alias model : dropDownList.model
 

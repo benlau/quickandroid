@@ -81,7 +81,10 @@ QtObject {
         divider: Qt.resolvedUrl("../drawable/DividerHorizontalHoloLight.qml")
 
         // Custom Style
-        button : Qt.resolvedUrl("../drawable/BtnDropdown.qml")
+        button : Qt.resolvedUrl("../drawable/BtnDropdown.qml");
+
+        windowEnterAnimation : Qt.resolvedUrl("../anim/GrowFadeIn.qml")
+        windowExitAnimation: Qt.resolvedUrl("../anim/ShrinkFadeOut.qml")
     }
 
     property TextInputStyle textInput : TextInputStyle {
