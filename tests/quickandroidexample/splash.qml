@@ -27,7 +27,6 @@ Rectangle {
 
     Component.onCompleted: {
         // Load your custom theme before the main scene
-        Res.load(Theme);
         mainLoader.source = "main.qml"
     }
 }

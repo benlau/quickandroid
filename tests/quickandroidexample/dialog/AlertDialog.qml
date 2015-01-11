@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.style 0.1
 
 // It is not part of QuickAndroid yet. Still tuning the size
 Dialog {
@@ -32,9 +33,9 @@ Dialog {
                 anchors.margins: 16 * A.dp
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pixelSize: Res.Style.TextAppearance.textSize * A.dp
+                font.pixelSize: Style.theme.text.textSize * A.dp
                 wrapMode : Text.WordWrap
-                color : Res.Style.Black87
+                color : Style.theme.black87
             }
         }
 

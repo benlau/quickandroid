@@ -72,7 +72,10 @@ QtObject {
         popupBackground : Qt.resolvedUrl("../drawable/SpinnerDropdownBackground.qml")
         dropDownSelector : Qt.resolvedUrl("../drawable/ListSelectorHoloLight.qml")
         dropDownVerticalOffset : -10
-        textStyle : actionBar.titleTextStyle
+        textStyle : TextStyle {
+            textSize :  actionBar.titleTextStyle.textSize
+            textColor :  actionBar.titleTextStyle.textColor
+        }
         divider : Qt.resolvedUrl("../drawable/DividerHorizontalHoloLight.qml");
     }
 

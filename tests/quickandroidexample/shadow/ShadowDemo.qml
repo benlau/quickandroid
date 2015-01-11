@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.style 0.1
 
 Activity {
 
@@ -53,8 +54,8 @@ Activity {
                 anchors.topMargin: 8 * A.dp
                 anchors.horizontalCenter: parent.horizontalCenter
                 text : "Depth : " + (modelData + 1)
-                font.pixelSize: Res.Style.TextAppearance.Large.textSize * A.dp
-                color : Res.Style.Black87
+                font.pixelSize: Style.theme.largeText.textSize * A.dp
+                color : Style.theme.black87
 
             }
 

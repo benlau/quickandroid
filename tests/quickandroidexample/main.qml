@@ -9,6 +9,11 @@ Application {
 
     theme : Theme {
         actionBar.background : "#cddc39" // Lime 500
+        actionBar.titleTextStyle: TextStyle {
+            textSize: 18
+            textColor : Style.theme.black87
+        }
+        spinner.textStyle.textColor: Style.theme.black87
     }
 
     Component.onCompleted: {
