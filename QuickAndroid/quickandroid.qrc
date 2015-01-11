@@ -14,7 +14,6 @@
         <file>quickandroid.qrc</file>
         <file>QuickButton.qml</file>
         <file>RectToRectMatrix.qml</file>
-        <file>res.js</file>
         <file>Shadow.qml</file>
         <file>Spinner.qml</file>
         <file>StateListDrawable.qml</file>

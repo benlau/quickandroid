@@ -45,8 +45,8 @@ Activity {
         height : 480
         when : windowShown
 
-        function test_basic() {
-//            wait(60000);
+        function test_preview() {
+            wait(TestEnv.waitTime);
         }
     }
 

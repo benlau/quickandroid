@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtTest 1.0
 import QuickAndroid 0.1
 import QuickAndroid.drawable 0.1
+import QuickAndroid.style 0.1
 
 Rectangle {
     id : rect
@@ -40,7 +41,7 @@ Rectangle {
         content : Text {
                 anchors.centerIn: parent
                 text: "Drawable3"
-                color : Res.Style.Black87
+                color : Style.theme.black87
                 horizontalAlignment: Text.Center
         }
     }

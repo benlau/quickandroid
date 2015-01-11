@@ -16,6 +16,14 @@ QtObject {
     property var textColorPrimary : Color.black87
     property var windowBackground: "#EFEFEF"
     property var navigationBarColor : "#FFFFFF"
+    property int activityDefaultDuration: 220
+    property int activityShortDuration: 150
+
+    // colors_material.xml
+    property string black87 : "#de000000"
+    property string black54 : "#8a000000"
+    property string white87 : "#deffffff"
+    property string white38 : "#61ffffff"
 
     // Normal test style
     property TextStyle text : TextStyle {

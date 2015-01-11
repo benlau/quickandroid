@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import "./item/"
-import "./res.js" as Res
 import QuickAndroid 0.1
 
 PopupArea {
