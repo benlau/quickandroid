@@ -11,7 +11,6 @@ include(../../quickandroid.pri)
 
 OTHER_FILES += \
     tst_Drawable.qml \
-    tst_QuickButton.qml \
     tst_NinePatch.qml \
     tst_Activity_NoHistory.qml \
     tst_InverseMouseArea.qml \

@@ -9,6 +9,8 @@ Item {
     implicitWidth: background.implicitWidth
     implicitHeight: background.implicitHeight
 
+    signal itemSelected(int index,Item item,var model);
+
     property var model
     property int currentIndex : -1
     property var currentItem;
@@ -34,8 +36,6 @@ Item {
             height : 1 * A.dp
         }
     }
-
-    signal itemSelected(int index,Item item,var model);
 
     function itemAt(index){
         return repeater.itemAt(index)
@@ -93,7 +93,7 @@ Item {
                             onClicked: {
                                 mouse.accepted = false;
                                 currentIndex = index;
-                                itemSelected(index,item,model);
+                                itemSelected(index,loader.item,model);
                             }
 
                             onImplicitWidthChanged: loader.updateWidth();
