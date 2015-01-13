@@ -4,7 +4,6 @@
         <file>drawable-hdpi/icon.png</file>
         <file>Components.qml</file>
         <file>spinner/SpinnerPreview.qml</file>
-        <file>splash.qml</file>
         <file>spinner/SpinnerDemo.qml</file>
         <file>shadow/ShadowPreview.qml</file>
         <file>shadow/ShadowDemo.qml</file>
