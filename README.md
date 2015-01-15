@@ -19,7 +19,7 @@ Features
 UI Components
 
     ActionBar , Activity , Application , Drawable , StateListDrawable
-    MaterialShadow , PopupMenu , Spinner , QuickButton , QATextInput,
+    MaterialShadow , PopupMenu , Spinner , QuickButton , 
     Switch
 
 Utility Components
