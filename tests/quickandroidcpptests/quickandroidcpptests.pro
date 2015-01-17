@@ -19,3 +19,6 @@ SOURCES += tst_quickandroidtests.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 include(../../quickandroid.pri)
+
+RESOURCES += \
+    ../quickandroidexample/qml.qrc

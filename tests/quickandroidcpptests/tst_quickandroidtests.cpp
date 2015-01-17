@@ -3,6 +3,9 @@
 #include <QCoreApplication>
 #include <QQmlEngine>
 #include <QQmlComponent>
+#include <QQmlApplicationEngine>
+#include <QQuickWindow>
+#include <QQuickView>
 #include "quickandroid.h"
 
 class QuickAndroidTests : public QObject
@@ -16,7 +19,22 @@ private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
     void loading();
+    void runExample();
 };
+
+void wait(int msec)
+{
+    if (msec == -1) {
+        msec = 1000;
+    }
+
+    QEventLoop loop;
+    QTimer timer;
+    QObject::connect(&timer,SIGNAL(timeout()),
+            &loop,SLOT(quit()));
+    timer.start(msec);
+    loop.exec();
+}
 
 QuickAndroidTests::QuickAndroidTests()
 {
@@ -80,6 +98,27 @@ void QuickAndroidTests::loading()
             qDebug() << QString("%1 : Passed").arg(info.absoluteFilePath());
         }
     }
+}
+
+void QuickAndroidTests::runExample()
+{
+
+    QQuickView view;
+//    QQmlApplicationEngine engine;
+    view.setMinimumSize(QSize(480,640));
+    view.setWidth(480);
+    view.setHeight(640);
+    view.setResizeMode(QQuickView::SizeRootObjectToView);
+
+    view.engine()->addImportPath("qrc:///");
+    view.setSource(QUrl("qrc:/main.qml"));
+    view.show();
+
+    wait(6000);
+
+    QList<QQmlError> errors = view.errors();
+    QVERIFY(errors.size() == 0);
+
 }
 
 QTEST_MAIN(QuickAndroidTests)

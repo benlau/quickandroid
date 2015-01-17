@@ -1,4 +1,6 @@
 import QtQuick 2.0
+import QtQuick 2.0 as Quick
+
 import QtTest 1.0
 import QuickAndroid 0.1
 import QuickAndroid.drawable 0.1
@@ -34,7 +36,7 @@ Rectangle {
             style.textStyle.textColor: "red"
         }
 
-        Text {
+        Quick.Text {
             id: text1
             x: 100
             text: "Large Text"
@@ -44,7 +46,7 @@ Rectangle {
             }
         }
 
-        Text {
+        Quick.Text {
             id: text2
             x: 100
             width: 100
