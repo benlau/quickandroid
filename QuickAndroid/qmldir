@@ -22,3 +22,5 @@ QATextInput 0.1 QATextInput.qml
 Modifier 0.1 Modifier.qml
 AnimatedModifier 0.1 AnimatedModifier.qml
 Switch 0.1 Switch.qml
+singleton QA 0.1 QA.qml
+

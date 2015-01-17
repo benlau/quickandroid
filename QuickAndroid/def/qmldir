@@ -1,2 +1,2 @@
 singleton Color 0.1 Color.qml
-
+singleton Constant 0.1 Constant.qml

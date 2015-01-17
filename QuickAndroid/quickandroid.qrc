@@ -93,5 +93,8 @@
         <file>style/SwitchStyle.qml</file>
         <file>style/DialogStyle.qml</file>
         <file>style/ActivityStyle.qml</file>
+        <file>def/ConstantDef.qml</file>
+        <file>QA.qml</file>
+        <file>def/Constant.qml</file>
     </qresource>
 </RCC>
