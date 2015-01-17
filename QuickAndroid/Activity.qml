@@ -14,9 +14,9 @@ FocusScope {
     signal back
 
     property ActivityStyle style : ActivityStyle {
-        activityEnterAnimation: Style.theme.activityStyle.activityEnterAnimation
-        activityExitAnimation: Style.theme.activityStyle.activityExitAnimation
-        background: Style.theme.activityStyle.background
+        activityEnterAnimation: Style.theme.activity.activityEnterAnimation
+        activityExitAnimation: Style.theme.activity.activityExitAnimation
+        background: Style.theme.activity.background
     }
 
     // It is emitted after the activity is started after page transition

@@ -33,7 +33,7 @@ FocusScope {
         var animOptions = {
             target : current
         }
-        var animComponent = Qt.createComponent(Style.theme.activityStyle.activityExitAnimation);
+        var animComponent = Qt.createComponent(Style.theme.activity.activityExitAnimation);
 
         var anim = animComponent.createObject(null,animOptions);
 
@@ -117,7 +117,7 @@ FocusScope {
             target : next
         }
 
-        var animComponent = Qt.createComponent(Style.theme.activityStyle.activityEnterAnimation);
+        var animComponent = Qt.createComponent(Style.theme.activity.activityEnterAnimation);
 
         var anim = animComponent.createObject(null,animOptions);
         anim.onStopped.connect(function() {

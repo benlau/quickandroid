@@ -19,8 +19,8 @@ Drawable {
     property bool active: false
 
     property DialogStyle style : DialogStyle {
-        windowEnterAnimation: Style.theme.dialogStyle.windowEnterAnimation
-        windowExitAnimation:  Style.theme.dialogStyle.windowExitAnimation
+        windowEnterAnimation: Style.theme.dialog.windowEnterAnimation
+        windowExitAnimation:  Style.theme.dialog.windowExitAnimation
     }
 
     function open() {
