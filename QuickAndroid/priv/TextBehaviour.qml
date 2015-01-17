@@ -11,8 +11,6 @@ Item {
     /// Set to true if you want the text scale to a smaller size if the content exceed the width
     property bool shrink : false;
 
-//    // Given a textAppearance object defined in res.js, it will modify the text according to the style.
-//    property var textAppearance;
     property TextStyle textStyle
 
     property var _pixelSize : textStyle ?  textStyle.textSize * A.dp : undefined

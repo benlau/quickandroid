@@ -11,5 +11,10 @@ QtObject {
     property string right : "right"
     property string top : "top"
     property string bottom : "bottom"
+    property string center : "center"
+    property string leftTop : "leftTop"
+    property string rightTop : "rightTop"
+    property string leftBottom : "leftBottom"
+    property string rightBottom : "rightBottom"
 }
 

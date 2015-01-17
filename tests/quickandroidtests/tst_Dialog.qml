@@ -46,7 +46,7 @@ Activity {
         when : windowShown
 
         function test_preview() {
-            compare(QA.SmallTextStyle,1);
+            compare(QA.smallTextStyle,1);
             wait(TestEnv.waitTime);
         }
     }

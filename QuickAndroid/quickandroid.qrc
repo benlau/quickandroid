@@ -96,5 +96,6 @@
         <file>def/ConstantDef.qml</file>
         <file>QA.qml</file>
         <file>def/Constant.qml</file>
+        <file>Text.qml</file>
     </qresource>
 </RCC>
