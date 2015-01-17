@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QuickAndroid.def 0.1
 
 /** Text Style Component
 
@@ -6,6 +7,6 @@ import QtQuick 2.0
  */
 
 QtObject {
-    property var textSize
-    property var textColor
+    property int textSize : 16
+    property var textColor : Color.black87
 }

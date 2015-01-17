@@ -118,4 +118,7 @@ QtObject {
         windowExitAnimation: Qt.resolvedUrl("../anim/ShrinkFadeOut.qml")
     }
 
+    // Allow to place children under Theme.
+    default property alias children: theme.__children
+    property list<QtObject> __children: [QtObject {}]
 }
