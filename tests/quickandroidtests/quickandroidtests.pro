@@ -25,3 +25,6 @@ OTHER_FILES += \
     tst_QATextInput.qml \
     tst_Switch.qml \
     tst_Text.qml
+
+DISTFILES += \
+    tst_QuickButton.qml
