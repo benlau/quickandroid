@@ -21,15 +21,22 @@ Item {
 
     property string icon
 
-    property ActionBarStyle style : Style.theme.actionBar
+    property ActionBarStyle style : ActionBarStyle {
+        icon : Style.theme.actionBar.icon
+        background: Style.theme.actionBar.background
+        actionButtonBackground: Style.theme.actionBar.actionButtonBackground
+        titleTextStyle:  Style.theme.actionBar.titleTextStyle
+        homeAsUpIndicator: Style.theme.actionBar.homeAsUpIndicator
+        homeMarginLeft: Style.theme.actionBar.homeMarginLeft
+        divider: Style.theme.actionBar.divider
+        padding: Style.theme.actionBar.padding
+    }
 
     property alias content : fillArea.children
 
     property alias actionButtonEnabled : actionButton.enabled
 
     signal actionButtonClicked
-
-    property var _style;
 
     width : 480
     height: A.dp * 48
@@ -44,9 +51,7 @@ Item {
     Drawable {
         id : bg
         anchors.fill: parent
-//        source : _style.background
-        source: Style.theme.actionBar.background
-
+        source: actionBar.style.background
     }
 
     RowLayout {
@@ -74,7 +79,7 @@ Item {
         Drawable {
             id : up
             anchors.verticalCenter: parent.verticalCenter
-            source :  style.homeAsUpIndicator
+            source :  actionBar.style.homeAsUpIndicator
             width : showIcon ? implicitWidth : 0
             visible: upEnabled && showIcon
             asynchronous: true
@@ -82,14 +87,14 @@ Item {
 
         Image {
             id : home
-            width: showIcon && style.icon || actionBar.icon ? height : 0
+            width: showIcon && actionBar.style.icon || actionBar.icon ? height : 0
             height: 32 * A.dp
             anchors.left: up.right
-            anchors.leftMargin: style.homeMarginLeft * A.dp
+            anchors.leftMargin: actionBar.style.homeMarginLeft * A.dp
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
             asynchronous: true
-            source: actionBar.icon ? actionBar.icon : style.icon
+            source: actionBar.icon ? actionBar.icon : actionBar.style.icon
             sourceSize: Qt.size(32 * A.dp,32 * A.dp)
         }
 
@@ -144,6 +149,7 @@ Item {
              Global.application.icon) {
             actionBar.icon = Global.application.icon
         }
+
     }
 
 }
