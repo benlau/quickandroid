@@ -1,4 +1,6 @@
 import QtQuick 2.0
+import QtQuick 2.0 as Quick
+
 import QtTest 1.0
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1
@@ -46,6 +48,17 @@ Rectangle {
                 textColor : "blue"
             }
         }
+
+        Text {
+            // Set color directly
+            id : text6
+            text: "Custom Text 2"
+            color : "red"
+        }
+
+        Quick.Text {
+            id : dummy
+        }
     }
 
     Column {
@@ -73,6 +86,7 @@ Rectangle {
             compare(text4.font.pixelSize , 22);
             compare(text5.font.pixelSize , 20);
             compare(text5.color , "#0000ff");
+            compare(text6.color , "#ff0000");
 
             wait(TestEnv.waitTime);
         }

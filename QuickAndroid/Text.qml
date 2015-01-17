@@ -9,6 +9,7 @@
 
 import QtQuick 2.0
 import QtQuick 2.0 as Quick
+import QuickAndroid 0.1
 import "./style"
 import "./priv"
 import "./def"
@@ -17,8 +18,11 @@ Quick.Text {
     id: component
 
     property TextStyle textStyle
-    property int textStyleType : Constant.normalTextStyle
+    property int textStyleType : -1
     property alias gravity : textBehaviour.gravity
+
+    font.pixelSize: Style.theme.text.textSize * A.dp
+    color : Style.theme.text.textColor
 
     TextBehaviour {
         id: textBehaviour
