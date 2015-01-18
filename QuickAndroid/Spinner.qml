@@ -34,11 +34,10 @@ Item {
         content: Text {
                 id : content
                 anchors.verticalCenter: parent.verticalCenter
-                color : itemStyle.textStyle.textColor
-                font.pixelSize: itemStyle.textStyle.textSize * A.dp
                 elide : Text.ElideLeft
                 maximumLineCount : 1
                 wrapMode: Text.WrapAnywhere
+                textStyle: spinner.style.textStyle
         }
     }
 
