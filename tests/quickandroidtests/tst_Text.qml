@@ -56,6 +56,14 @@ Rectangle {
             color : "red"
         }
 
+        Text {
+            // Set color directly
+            id : text7
+            text: "Custom Text 3"
+            color : "green"
+            textSize : QA.largeTextStyle
+        }
+
         Quick.Text {
             id : dummy
         }
@@ -87,6 +95,8 @@ Rectangle {
             compare(text5.font.pixelSize , 20);
             compare(text5.color , "#0000ff");
             compare(text6.color , "#ff0000");
+            compare(text7.color , "#008000");
+            compare(text7.font.pixelSize , 22);
 
             wait(TestEnv.waitTime);
         }
