@@ -1,5 +1,6 @@
 Quick Android - QML Theme and Component Library for Android
 ===========================================================
+[![Build Status](https://travis-ci.org/benlau/quickandroid.svg?branch=master)](https://travis-ci.org/benlau/quickandroid)
 
 Features
 --------
@@ -11,14 +12,14 @@ Features
   1. A single component that supports color , image , QML component , simulated nine patch image as input source
   2. Auto scale image to fit current screen resolution
   3. Derived StateListDrawable for animated drawable like button
- 4. Theme / Style Engine
- 5. Animation Management
+ 4. Image provider that will find the right image for current resolution automatically.
+ 5. Theme / Style Engine
  6. A set of components with native look and feel on Android
 
 UI Components
 
     ActionBar , Activity , Application , Drawable , StateListDrawable
-    MaterialShadow , PopupMenu , Spinner , QuickButton , QATextInput,
+    MaterialShadow , PopupMenu , Spinner , QuickButton , 
     Switch
 
 Utility Components
@@ -82,12 +83,14 @@ int main(int argc, char *argv[])
 Notes of using DP
 -----------------
 
-You may get the DP/density value from the global variable "A.dp" after you have called the `QuickAndroid::RegisterTypes()` in your code. However, Qt Creator don't know the value and threfore the UI will be broken. To make it works , you have to declare a dummy data in your project. Check the example code: [dummydata/A.qml](tests/quickandroidexample/dummydata/A.qml)
+You may get the DP/density value from the global variable "A.dp" after you have called the `QuickAndroid::registerTypes()` in your code. However, Qt Creator don't know the value and threfore the UI will be broken. In make it works , you have to declare a dummy data in your project. Check the example code: [dummydata/A.qml](tests/quickandroidexample/dummydata/A.qml)
 
 Demonstration
 -------------
 
-Please refer to the example program in the folder of [tests/quickandroidexample](tests/quickandroidexample)
+An example program is available in the folder of [tests/quickandroidexample](tests/quickandroidexample) . You may build it by yourself or download the daily build from [drone.io](https://drone.io/github.com/benlau/quickandroid/files) .
+
+Remarks: Daily build for non-master branch may not be working. 
 
 ![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/tests/quickandroidexample/docs/screenshot.png)
 
@@ -110,5 +113,7 @@ Q. Looking for iOS Native Component?
 
 1. [hilarycheng/quickios](https://github.com/hilarycheng/quickios) (Still Under Development)
 
+Q. Any library for ...?
 
-
+1. Sharing
+ 1. [bdentino/Qtino.SharingKit](https://github.com/bdentino/Qtino.SharingKit)
