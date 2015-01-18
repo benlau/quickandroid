@@ -12,20 +12,21 @@ Rectangle {
         id : listModel
 
         ListElement {
-            name : "Apple"
+            title : "Apple"
         }
 
         ListElement {
-            name : "Banana"
+            title : "Banana"
         }
 
         ListElement {
-            name : "Cinnamon"
+            title : "Cinnamon"
         }
 
     }
 
     DropDownList {
+        id : dropDownList
         x: 0
         y : 0
         model : listModel
@@ -37,10 +38,14 @@ Rectangle {
         height : 480
         when : windowShown
 
-        function test_basic() {
-            // For initialization
-//            wait(60000);
+        function test_preview() {
+            wait(200);
+            compare(dropDownList.currentIndex,-1);
+            // Click the second button
+            mouseClick(rect,100,100);
+            compare(dropDownList.currentIndex,1);
 
+            wait(TestEnv.waitTime);
         }
     }
 

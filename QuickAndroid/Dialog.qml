@@ -1,7 +1,7 @@
 // Dialog interface
 import QtQuick 2.0
 import QtQuick.Window 2.1
-import "./res.js" as Res
+import "./style"
 
 Drawable {
     id: dialog
@@ -17,6 +17,11 @@ Drawable {
     property int result;
 
     property bool active: false
+
+    property DialogStyle style : DialogStyle {
+        windowEnterAnimation: Style.theme.dialog.windowEnterAnimation
+        windowExitAnimation:  Style.theme.dialog.windowExitAnimation
+    }
 
     function open() {
         active = true
@@ -92,14 +97,14 @@ Drawable {
     AnimationLoader {
         id : enterAnimation
         transition: fromNullToActive
-        source : Res.Style.Animation.Dialog.windowEnterAnimation
+        source : dialog.style.windowEnterAnimation
         target: dialog
     }
 
     AnimationLoader{
         id : exitAnimation
         transition: fromActiveToNull
-        source : Res.Style.Animation.Dialog.windowExitAnimation
+        source : dialog.style.windowExitAnimation
         target: dialog
     }
 

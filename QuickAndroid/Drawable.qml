@@ -17,7 +17,7 @@ Rectangle {
     property var canvas
 
     // Dynamic created content by the source.
-    property var item;
+    property var item: null;
 
     // Set this property to define what happens when the source image has a different size than the item.
     property int fillMode : Image.Stretch
@@ -53,8 +53,8 @@ Rectangle {
         id : loaderBuilder
         Loader {
             id : loader
-            z: -1
-            source : drawable.source
+            // Never bind the "source" property to "drawable.source'. Whatever you have changed the source, it will be loaded twice.
+            z: -1            
             anchors.fill: parent
             asynchronous: drawable.asynchronous
             onStatusChanged: {
@@ -91,6 +91,9 @@ Rectangle {
                     if (item.fillArea) {
                         fillArea.target = item.fillArea
                         fillArea.zoom = ratio;
+                    } else {
+                        fillArea.target = drawable
+                        fillArea.zoom = 1;
                     }
 
                 } else { // QML component but not nine patch
@@ -106,6 +109,8 @@ Rectangle {
 
                     if (item.fillArea) {
                         fillArea.target = item.fillArea
+                    } else {
+                        fillArea.target = drawable
                     }
                 }
 
@@ -119,7 +124,6 @@ Rectangle {
         Image {
             id : item
             z: -1
-            source : drawable.source
             anchors.fill: parent
             asynchronous: drawable.asynchronous
             fillMode: drawable.fillMode
@@ -241,13 +245,13 @@ Rectangle {
         } else {
             var qml = source.search(/\.qml$/i);
             if (qml !== -1) {
-                loaderBuilder.createObject(drawable);
+                loaderBuilder.createObject(drawable,{source: drawable.source});
             } else if ( /(^#[0-9A-F]{8}$)|(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(source) ) {
                 // Color code
                 drawable.color = source;
             } else {
                 // Image source
-                imageBuilder.createObject(drawable);
+                imageBuilder.createObject(drawable,{source: drawable.source});
             }
         }
     }

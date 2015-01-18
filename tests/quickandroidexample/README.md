@@ -4,7 +4,11 @@ Quick Android Example Program
 Pre-built Binary
 ----------------
 
-[Download](https://dl.dropboxusercontent.com/u/2152786/download/quickandroid/Quick%20Android%20Example.apk)
+[Download](https://drone.io/github.com/benlau/quickandroid/files)
+
+Remarks: Daily build for non-master branch may not be working.
+
+
 
 Prerequisites
 -------------

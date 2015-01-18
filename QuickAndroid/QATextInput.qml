@@ -2,9 +2,11 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.priv 0.1
+import QuickAndroid.style 0.1
 
 Item {
     id: component
+
 
     property alias text : textInputItem.text
 
@@ -14,25 +16,31 @@ Item {
     // The background of the text input
     property var background
     property alias gravity: gravityBehaviour.gravity
-    property var style : ({})
+
 
     property alias textSelectHandle: textSelectHandleItem
-    property alias _style : styleItem
 
     property alias textSelectHandleRunning : textSelectHandlePopup.active
 
-    Item {
-        id : styleItem
-        property string background
-        property var textStyle
-        property var textSelectHandle
+//  property TextInputStyle style : Style.theme.textInput
+
+    property TextInputStyle style : TextInputStyle {
+        background: Style.theme.textInput.background
+        textStyle: TextStyle {
+            textSize: Style.theme.textInput.textStyle.textSize
+            textColor: Style.theme.textInput.textStyle.textColor
+        }
+        textSelectHandle: Style.theme.textInput.textSelectHandle
+
+        textSelectHandleEnterAnimation : Qt.resolvedUrl("./anim/FastFadeIn.qml")
+        textSelectHandleExitAnimation : Qt.resolvedUrl("./anim/FastFadeOut.qml")
     }
 
     StateListDrawable {
         id : backgroundItem
         anchors.fill: parent
 
-        source: component.background ? component.background : _style.background
+        source: component.background ? component.background : component.style.background
 
         selected: textInput.activeFocus
         fillArea.clip : true
@@ -62,7 +70,7 @@ Item {
 
                 TextBehaviour {
                     id : gravityBehaviour
-                    textAppearance:  _style.textStyle
+                    textStyle:  component.style.textStyle
                     gravity: "bottom"
                 }
             }
@@ -110,7 +118,7 @@ Item {
                 id : textSelectHandleIcon
                 asynchronous: true
                 opacity: 0.0
-                source: _style.textSelectHandle
+                source: component.style.textSelectHandle
                 anchors.centerIn: parent
 
                 MouseArea {
@@ -203,13 +211,13 @@ Item {
     Loader {
         id : textSelectHandleEntryAnim
         asynchronous: true
-        source : Res.Style.Animation.TextInput.textSelectHandleEnter
+        source : component.style.textSelectHandleEnterAnimation
     }
 
     Loader {
         id : textSelectHandleExitAnim
         asynchronous: true
-        source : Res.Style.Animation.TextInput.textSelectHandleExit
+        source : component.style.textSelectHandleExitAnimation
     }
 
 
@@ -222,17 +230,4 @@ Item {
             mouse.accepted = false;
         }
     }
-
-    function _updateStyle() {
-        Res.copy(_style,Res.Style.Widget.TextInput);
-        Res.copy(_style,style);
-        _styleChanged();
-    }
-
-    Component.onCompleted: {
-        _updateStyle();
-        if (textInput.activeFocus)
-            component.textSelectHandleRunning = textInput.activeFocus;
-    }
-    onStyleChanged: _updateStyle();
 }

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.style 0.1
 
 Activity {
     id: activity
@@ -54,13 +55,10 @@ Activity {
             gravity: "bottom"
             background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
             text: "Smaller text size and color"
-            style: ({ textStyle : {
-                          textSize : 14,
-                          textColor: {
-                                color : "red"
-                          }
-                     }
-                    })
+            style.textStyle: TextStyle {
+                textColor : "red"
+                textSize: 14
+            }
         }
 
         QATextInput {
@@ -69,13 +67,11 @@ Activity {
             gravity: "center"
             background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
             text: "Gravity center"
-            style: ({ textStyle : {
-                          textSize : 14,
-                          textColor: {
-                                color : "blue"
-                          }
-                     }
-                    })
+            style.textStyle: TextStyle {
+                textColor : "blue"
+                textSize: 14
+            }
+
         }
 
         QATextInput {
@@ -84,13 +80,12 @@ Activity {
             gravity: "bottom"
             background : "qrc:///QuickAndroid/drawable/TextFieldSearchHoloLight.qml"
             text: ""
-            style: ({ textStyle : {
-                          textSize : 14,
-                          textColor: {
-                                color : "blue"
-                          }
-                     }
-                    })
+//            style.textStyle: {
+//                textColor : "blue"
+//                textSize: 14
+//            }
+            style.textStyle.textColor: "blue"
+            style.textStyle.textSize: 14
         }
 
     }

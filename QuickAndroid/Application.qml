@@ -3,7 +3,8 @@
 
 import QtQuick 2.0
 import QuickAndroid 0.1
-import "res.js" as Res
+import QuickAndroid.style 0.1
+import "./style"
 import "global.js" as Global
 
 FocusScope {
@@ -12,6 +13,8 @@ FocusScope {
     height: 640
 
     focus : true
+
+    property Theme theme
 
     property var icon
     property var current;
@@ -30,7 +33,7 @@ FocusScope {
         var animOptions = {
             target : current
         }
-        var animComponent = Qt.createComponent(Res.Style.Animation.Activity.activityExitAnimation);
+        var animComponent = Qt.createComponent(Style.theme.activity.activityExitAnimation);
 
         var anim = animComponent.createObject(null,animOptions);
 
@@ -71,6 +74,12 @@ FocusScope {
 
         next = comp.createObject(application);
 
+        if (next === null) {
+            console.warn("Failed to create : " + component);
+            console.warn(comp.errorString());
+
+        }
+
         for (var i in options) {
             next[i] = options[i];
         }
@@ -108,7 +117,7 @@ FocusScope {
             target : next
         }
 
-        var animComponent = Qt.createComponent(Res.Style.Animation.Activity.activityEnterAnimation);
+        var animComponent = Qt.createComponent(Style.theme.activity.activityEnterAnimation);
 
         var anim = animComponent.createObject(null,animOptions);
         anim.onStopped.connect(function() {
@@ -150,6 +159,11 @@ FocusScope {
                 event.accepted = true;
             }
         }
+    }
+
+    onThemeChanged: {
+        if (theme !== null)
+            Style.theme = theme;
     }
 
     Component.onCompleted: {

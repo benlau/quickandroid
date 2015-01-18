@@ -1,7 +1,7 @@
 // Pretend Android's activity class but in fact it is just a page of UI
 
 import QtQuick 2.0
-import "res.js" as Res
+import "./style"
 
 FocusScope {
     id : activity
@@ -12,6 +12,12 @@ FocusScope {
     property alias background : backgroundDrawable.source
 
     signal back
+
+    property ActivityStyle style : ActivityStyle {
+        activityEnterAnimation: Style.theme.activity.activityEnterAnimation
+        activityExitAnimation: Style.theme.activity.activityExitAnimation
+        background: Style.theme.activity.background
+    }
 
     // It is emitted after the activity is started after page transition
     signal started
@@ -37,7 +43,7 @@ FocusScope {
 
     Drawable {
         id : backgroundDrawable
-        source : Res.Style.Theme.colorBackground
+        source : activity.style.background
         anchors.fill: parent
         z: -1
     }

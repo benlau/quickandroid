@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.style 0.1
 
 Activity {
     MaterialShadow {
@@ -25,8 +26,8 @@ Activity {
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        color : Res.Style.Black87
-        font.pixelSize: Res.Style.TextAppearance.Large.textSize * A.dp
+        color : Style.theme.black87
+        font.pixelSize: Style.theme.largeText.textSize * A.dp
 
     }
 

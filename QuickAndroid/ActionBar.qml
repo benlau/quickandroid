@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
-import "res.js" as Res
+import QuickAndroid.style 0.1
 import "global.js" as Global
 
 Item {
@@ -21,8 +21,16 @@ Item {
 
     property string icon
 
-    property var style
-    property alias _style : styleItem
+    property ActionBarStyle style : ActionBarStyle {
+        icon : Style.theme.actionBar.icon
+        background: Style.theme.actionBar.background
+        actionButtonBackground: Style.theme.actionBar.actionButtonBackground
+        titleTextStyle:  Style.theme.actionBar.titleTextStyle
+        homeAsUpIndicator: Style.theme.actionBar.homeAsUpIndicator
+        homeMarginLeft: Style.theme.actionBar.homeMarginLeft
+        divider: Style.theme.actionBar.divider
+        padding: Style.theme.actionBar.padding
+    }
 
     property alias content : fillArea.children
 
@@ -40,22 +48,10 @@ Item {
     anchors.left: parent.left
     anchors.leftMargin: 0
 
-    Item {
-        id : styleItem
-        property string icon
-        property string homeAsUpIndicator
-        property string background
-        property string actionButtonBackground
-        property var titleTextStyle
-        property var homeMarginLeft
-        property var divider
-        property var padding
-    }
-
     Drawable {
         id : bg
         anchors.fill: parent
-        source : _style.background
+        source: actionBar.style.background
     }
 
     RowLayout {
@@ -70,7 +66,7 @@ Item {
         width : show ? Math.min(implicitWidth , menuBarRegion.x) : 0
         implicitWidth: titleText.x + (titleText.implicitWidth + 8 * A.dp) * showTitle
         height : 48 * A.dp
-        background: _style.actionButtonBackground
+        background: actionBar.style.actionButtonBackground
         clip : true
 
         property bool show : upEnabled || showIcon || showTitle
@@ -83,7 +79,7 @@ Item {
         Drawable {
             id : up
             anchors.verticalCenter: parent.verticalCenter
-            source :  _style.homeAsUpIndicator
+            source :  actionBar.style.homeAsUpIndicator
             width : showIcon ? implicitWidth : 0
             visible: upEnabled && showIcon
             asynchronous: true
@@ -91,14 +87,14 @@ Item {
 
         Image {
             id : home
-            width: showIcon && _style.icon || actionBar.icon ? height : 0
+            width: showIcon && actionBar.style.icon || actionBar.icon ? height : 0
             height: 32 * A.dp
             anchors.left: up.right
-            anchors.leftMargin: _style.homeMarginLeft * A.dp
+            anchors.leftMargin: actionBar.style.homeMarginLeft * A.dp
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
             asynchronous: true
-            source: actionBar.icon ? actionBar.icon : _style.icon
+            source: actionBar.icon ? actionBar.icon : actionBar.style.icon
             sourceSize: Qt.size(32 * A.dp,32 * A.dp)
         }
 
@@ -117,8 +113,8 @@ Item {
 //            horizontalAlignment: paintedWidth < width ? Text.AlignHCenter : Text.AlignLeft
             horizontalAlignment : Text.AlignLeft
 
-            color : _style.titleTextStyle.textColor.color
-            font.pixelSize: _style.titleTextStyle.textSize * A.dp
+            color : actionBar.style.titleTextStyle.textColor
+            font.pixelSize: actionBar.style.titleTextStyle.textSize * A.dp
         }
 
         onClicked: actionBar.actionButtonClicked();
@@ -147,21 +143,13 @@ Item {
 
     } // End of RowLayout
 
-    onStyleChanged: {
-        Res.extend(_style,Res.Style.ActionBar);
-        Res.extend(_style,style);
-        _styleChanged();
-    }
-
     Component.onCompleted: {
         if (!actionBar.icon &&
              Global.application &&
              Global.application.icon) {
             actionBar.icon = Global.application.icon
         }
-        Res.extend(_style,Res.Style.ActionBar);
-        Res.extend(_style,style);
-        _styleChanged();
+
     }
 
 }

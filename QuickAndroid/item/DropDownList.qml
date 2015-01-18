@@ -2,19 +2,20 @@
 
 import QtQuick 2.0
 import QuickAndroid 0.1
-import "../res.js" as Res
+import QuickAndroid.style 0.1
 
 Item {
     id : dropDownList
     implicitWidth: background.implicitWidth
     implicitHeight: background.implicitHeight
 
+    signal itemSelected(int index,Item item,var model);
+
     property var model
     property int currentIndex : -1
     property var currentItem;
 
-    property var style
-    property alias _style : styleItem
+    property DropDownStyle style : Style.theme.dropdown
 
     property Component delegate : QuickButton {
         id : button
@@ -23,22 +24,18 @@ Item {
         visible : !hidden
 
         text: model.title
-        style: ({
-            background : dropDownList._style.button,
-            textAppearance: dropDownList._style.textStyle
-        })
+        style.background : dropDownList.style.button
+        style.textStyle: dropDownList.style.textStyle
         gravity: "left"
 
         Drawable {
-            source: dropDownList._style.divider
+            source: dropDownList.style.divider
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
             height : 1 * A.dp
         }
     }
-
-    signal itemSelected(int index,Item item,var model);
 
     function itemAt(index){
         return repeater.itemAt(index)
@@ -55,7 +52,7 @@ Item {
 
     Drawable {
         id : background
-        source: _style.background
+        source: style.background
 
         content : Column {
             id : column
@@ -96,7 +93,7 @@ Item {
                             onClicked: {
                                 mouse.accepted = false;
                                 currentIndex = index;
-                                itemSelected(index,item,model);
+                                itemSelected(index,loader.item,model);
                             }
 
                             onImplicitWidthChanged: loader.updateWidth();
@@ -107,17 +104,5 @@ Item {
         }
 
         DrawableGrowBehaviour {}
-    }
-
-    onStyleChanged: {
-        Res.extend(_style,Res.Style.Widget.DropDown);
-        Res.extend(_style,style);
-        _styleChanged();
-    }
-
-    Component.onCompleted: {
-        Res.extend(_style,Res.Style.Widget.DropDown);
-        Res.extend(_style,style);
-        _styleChanged();
     }
 }

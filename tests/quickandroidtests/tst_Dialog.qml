@@ -40,13 +40,14 @@ Activity {
     }
 
     TestCase {
-        name: "DialogTests"
+        name: "Dialog"
         width : 480
         height : 480
         when : windowShown
 
-        function test_basic() {
-//            wait(60000);
+        function test_preview() {
+            compare(QA.smallTextStyle,1);
+            wait(TestEnv.waitTime);
         }
     }
 

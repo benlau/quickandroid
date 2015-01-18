@@ -33,6 +33,7 @@ Application {
         when : windowShown
 
         function test_default() {
+            compare(application.theme , null);
             application.start(activity1);
             wait(200);
             compare(application.current.type,"activity1");
@@ -55,7 +56,6 @@ Application {
 
             compare(activity2DestroyCount,1);
 
-//            wait(60000);
         }
     }
 }

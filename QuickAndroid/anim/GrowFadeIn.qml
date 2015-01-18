@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "../res.js" as Res
+import "../style"
 
 ParallelAnimation {
     id : anim
@@ -10,7 +10,7 @@ ParallelAnimation {
         property : "opacity"
         from : 0
         to : 1
-        duration : Res.config.config_activityDefaultDur;
+        duration : Style.theme.activityDefaultDuration;
     }
 
     PropertyAnimation {
@@ -18,7 +18,7 @@ ParallelAnimation {
         property : "scale"
         from : 0.9
         to : 1
-        duration : Res.config.config_activityShortDur;
+        duration : Style.theme.activityShortDuration;
     }
 
 }

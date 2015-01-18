@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
-import "./res.js" as Res
+import QuickAndroid.style 0.1
 
 Item {
     id : spinner
@@ -12,7 +12,8 @@ Item {
 
     property string mode : "Dropdown"
 
-    property var animationStyle : (Res.Style.Animation.DropDownDown)
+    property SpinnerStyle style: Style.theme.spinner
+    property SpinnerItemStyle itemStyle : Style.theme.spinnerItem
 
     property alias delegate : dropDownList.delegate
     property alias model : dropDownList.model
@@ -21,7 +22,7 @@ Item {
 
     QuickButton {
         id : button
-        background: Res.Style.Spinner.background
+        background: spinner.style.background
 
         onClicked: {
             dropDownList.toggle();
@@ -33,11 +34,10 @@ Item {
         content: Text {
                 id : content
                 anchors.verticalCenter: parent.verticalCenter
-                color : Res.Style.Spinner.textStyle.textColor.color
-                font.pixelSize: Res.Style.SpinnerItemStyle.TextAppearance.textSize * A.dp
                 elide : Text.ElideLeft
                 maximumLineCount : 1
                 wrapMode: Text.WrapAnywhere
+                textStyle: spinner.style.textStyle
         }
     }
 

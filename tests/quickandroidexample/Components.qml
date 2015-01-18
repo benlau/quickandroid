@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Window 2.1
 import QuickAndroid 0.1
+import QuickAndroid.style 0.1
 
 Activity {
 
@@ -104,9 +105,8 @@ Activity {
                 anchors.left: preview.right
                 anchors.leftMargin: 16 * A.dp
                 anchors.verticalCenter: parent.verticalCenter
-                font.pixelSize: Res.Style.TextAppearance.Medium.textSize * A.dp
-                color : Res.Style.Black87
-
+                font.pixelSize: Style.theme.mediumText.textSize * A.dp
+                color : Style.theme.black87
             }
 
             Rectangle {

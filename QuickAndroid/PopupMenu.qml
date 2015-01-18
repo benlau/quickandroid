@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import "./item/"
-import "./res.js" as Res
 import QuickAndroid 0.1
 
 PopupArea {
@@ -12,9 +11,8 @@ PopupArea {
 
     property alias model : dropDownList.model
     property alias delegate : dropDownList.delegate
-    property var animationStyle : (Res.Style.Animation.DropDownDown)
     property alias style : dropDownList.style
-    property alias _style : dropDownList._style
+    property alias _style : dropDownList.style
 
     signal itemSelected(int index,Item item,var model);
 
@@ -39,14 +37,14 @@ PopupArea {
     AnimationLoader {
         id : enterAnimation
         transition: fromNulltoActive
-        source : animationStyle.windowEnterAnimation
+        source : popupMenu.style.windowEnterAnimation
         target: dropDownList
     }
 
     AnimationLoader{
         id : exitAnimation
         transition: fromActiveToNull
-        source : animationStyle.windowExitAnimation
+        source : popupMenu.style.windowExitAnimation
         target: dropDownList
     }
 

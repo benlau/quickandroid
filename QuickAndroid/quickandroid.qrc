@@ -14,7 +14,6 @@
         <file>quickandroid.qrc</file>
         <file>QuickButton.qml</file>
         <file>RectToRectMatrix.qml</file>
-        <file>res.js</file>
         <file>Shadow.qml</file>
         <file>Spinner.qml</file>
         <file>StateListDrawable.qml</file>
@@ -77,5 +76,26 @@
         <file>drawable-xxhdpi/art_shadow_depth_3.png</file>
         <file>drawable-xxhdpi/art_shadow_depth_2.png</file>
         <file>drawable-xxhdpi/art_shadow_depth_1.png</file>
+        <file>style/Theme.qml</file>
+        <file>style/ActionBarStyle.qml</file>
+        <file>style/qmldir</file>
+        <file>style/TextStyle.qml</file>
+        <file>style/Style.qml</file>
+        <file>style/Color.qml</file>
+        <file>def/Color.qml</file>
+        <file>def/qmldir</file>
+        <file>def/ColorDef.qml</file>
+        <file>style/SpinnerStyle.qml</file>
+        <file>style/SpinnerItemStyle.qml</file>
+        <file>style/DropDownStyle.qml</file>
+        <file>style/ButtonStyle.qml</file>
+        <file>style/TextInputStyle.qml</file>
+        <file>style/SwitchStyle.qml</file>
+        <file>style/DialogStyle.qml</file>
+        <file>style/ActivityStyle.qml</file>
+        <file>def/ConstantDef.qml</file>
+        <file>QA.qml</file>
+        <file>def/Constant.qml</file>
+        <file>Text.qml</file>
     </qresource>
 </RCC>

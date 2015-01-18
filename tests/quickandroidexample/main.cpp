@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     view.engine()->addImageProvider("drawable",provider);
 
     view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl(QStringLiteral("qrc:///splash.qml")));
+    view.setSource(QUrl(QStringLiteral("qrc:///main.qml")));
     view.show();
 
     return app.exec();
