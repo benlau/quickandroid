@@ -161,10 +161,9 @@ FocusScope {
         }
     }
 
-    Binding {
-        target: Style; property : "theme"
-        when: application.theme !== null
-        value : application.theme
+    onThemeChanged: {
+        if (theme !== null)
+            Style.theme = theme;
     }
 
     Component.onCompleted: {

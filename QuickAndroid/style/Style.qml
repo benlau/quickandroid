@@ -5,6 +5,6 @@ pragma Singleton
  */
 
 QtObject {
-    property var theme : Theme {
+    property Theme theme : Theme {
     }
 }
