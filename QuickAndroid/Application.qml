@@ -14,7 +14,7 @@ FocusScope {
 
     focus : true
 
-    property var theme
+    property Theme theme
 
     property var icon
     property var current;
@@ -163,7 +163,7 @@ FocusScope {
 
     Binding {
         target: Style; property : "theme"
-        when: application.theme !== undefined
+        when: application.theme !== null
         value : application.theme
     }
 
