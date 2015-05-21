@@ -38,7 +38,10 @@ int main(int argc, char *argv[])
     view.setSource(QUrl(QStringLiteral("qrc:///main.qml")));
     view.show();
 
-    QASystemMessenger::instance()->sendMessage("ping");
+    QVariantMap message;
+    message["field1"] = "value1";
+    message["field2"] = 0;
+    QASystemMessenger::instance()->sendMessage("ping",message);
 
     return app.exec();
 }

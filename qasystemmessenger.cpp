@@ -11,12 +11,53 @@ static QPointer<QASystemMessenger> m_instance;
 #include <QAndroidJniEnvironment>
 
 #define JCLASS_Name "quickandroid/SystemMessenger"
-#define POST_SIGNATURE "(Ljava/lang/String;)Z"
-//#define POST_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)Z"
+//#define POST_SIGNATURE "(Ljava/lang/String;)Z"
+#define POST_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)Z"
 #define INVOKE_SIGNATURE "(Ljava/lang/String;)V"
 
 static void invoke(JNIEnv* env,jobject name,jobject data) {
     qDebug() << "invoke";
+}
+
+static jobject createHashMap(const QVariantMap &data) {
+    QAndroidJniEnvironment env;
+
+    jclass mapClass = env->FindClass("java/util/HashMap");
+
+    if (mapClass == NULL)  {
+        qWarning() << "Failed to find class" << "java/util/HashMap";
+        return NULL;
+    }
+
+    jsize map_len = data.size();
+
+    jmethodID init = env->GetMethodID(mapClass, "<init>", "(I)V");
+    jobject hashMap = env->NewObject( mapClass, init, map_len);
+
+    jmethodID put = env->GetMethodID( mapClass, "put",
+                "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
+
+
+    QMapIterator<QString, QVariant> iter(data);
+    while (iter.hasNext()) {
+        iter.next();
+
+        qDebug() << iter.key() << iter.value();
+        QString key = iter.key();
+        jstring jkey = env->NewStringUTF(key.toLocal8Bit().data());
+        QVariant v = iter.value();
+        if (v.type() == QVariant::String) {
+            QString str = v.toString();
+            jstring vString = env->NewStringUTF(str.toLocal8Bit().data());
+            env->CallObjectMethod(hashMap,put,jkey,vString);
+        } else if (v.type() == QVariant::Int) {
+            env->CallObjectMethod(hashMap,put,jkey,v.toInt());
+        } else {
+            qWarning() << "QASystemMessenger::sendMessage() - Non-supported data type : " <<  v.type();
+        }
+     }
+
+    return hashMap;
 }
 
 #endif
@@ -47,9 +88,10 @@ bool QASystemMessenger::sendMessage(QString name, QVariantMap data)
     qDebug() << "sendMessage" << name << data;
     QAndroidJniEnvironment env;
     jstring jName = env->NewStringUTF(name.toLocal8Bit().data());
+    jobject jData = createHashMap(data);
     bool res = QAndroidJniObject::callStaticMethod<jboolean>(JCLASS_Name, "post",
                                               POST_SIGNATURE,
-                                              jName);
+                                              jName,jData);
 
     return res;
 #else

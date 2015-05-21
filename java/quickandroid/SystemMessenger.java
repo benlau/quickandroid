@@ -16,8 +16,16 @@ public class SystemMessenger {
     public SystemMessenger() {
     }
 
-    public static boolean post(String name) {
+    public static boolean post(String name,Map data) {
         Log.d("",String.format("post(%s)", name));
+        Log.d("",String.format("%d",data.size()));
+
+//        for (Map.Entry entry : data.entrySet()) {
+//          String key = (String) entry.getKey();
+//          Log.d("",String.format("Field::%s",key));
+
+//        }
+
         final String messageName = name;
 
         Activity activity = QtNative.activity();
