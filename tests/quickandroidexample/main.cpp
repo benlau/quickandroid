@@ -3,6 +3,19 @@
 #include <QQuickView>
 #include "quickandroid.h"
 #include "qadrawableprovider.h"
+#include "qasystemmessenger.h"
+
+#ifdef Q_OS_ANDROID
+#include <QtAndroidExtras/QAndroidJniObject>
+#include <QtAndroidExtras/QAndroidJniEnvironment>
+
+JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void*) {
+    Q_UNUSED(vm);
+    qDebug("NativeInterface::JNI_OnLoad()");
+    QASystemMessenger::registerNatives();
+    return JNI_VERSION_1_6;
+}
+#endif
 
 int main(int argc, char *argv[])
 {
@@ -24,6 +37,8 @@ int main(int argc, char *argv[])
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl(QStringLiteral("qrc:///main.qml")));
     view.show();
+
+    QASystemMessenger::instance()->sendMessage("ping");
 
     return app.exec();
 }
