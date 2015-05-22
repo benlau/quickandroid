@@ -11,12 +11,14 @@ static QPointer<QASystemMessenger> m_instance;
 #include <QAndroidJniEnvironment>
 
 #define JCLASS_Name "quickandroid/SystemMessenger"
-//#define POST_SIGNATURE "(Ljava/lang/String;)Z"
 #define POST_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)Z"
-#define INVOKE_SIGNATURE "(Ljava/lang/String;)V"
+#define INVOKE_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 
-static void invoke(JNIEnv* env,jobject name,jobject data) {
-    qDebug() << "invoke";
+static void invoke(JNIEnv* env,jobject object,jstring name,jobject data) {
+    Q_UNUSED(object);
+
+    QString str = env->GetStringUTFChars(name, 0);
+    qDebug() << "invoke" << str;
 }
 
 static jobject createHashMap(const QVariantMap &data) {
