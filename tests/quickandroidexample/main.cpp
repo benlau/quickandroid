@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
     QVariantMap message;
     message["field1"] = "value1";
-    message["field2"] = 0;
+    message["field2"] = 10;
     QASystemMessenger::instance()->sendMessage("ping",message);
 
     return app.exec();
