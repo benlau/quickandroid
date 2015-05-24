@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
+#include <QQmlContext>
 #include "quickandroid.h"
 #include "qadrawableprovider.h"
 #include "qasystemmessenger.h"
@@ -42,6 +43,13 @@ int main(int argc, char *argv[])
     message["field1"] = "value1";
     message["field2"] = 10;
     QASystemMessenger::instance()->sendMessage("ping",message);
+
+    message.clear();
+    message["title"] = "Quick Android Example";
+    message["message"] = "Hello! It is Quick Android Hello World";
+    QASystemMessenger::instance()->sendMessage("notificationManagerNotify",message);
+
+    view.rootContext()->setContextProperty("SystemMessenger",QASystemMessenger::instance());
 
     return app.exec();
 }
