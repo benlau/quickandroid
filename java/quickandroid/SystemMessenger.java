@@ -1,11 +1,5 @@
 // Author:  Ben Lau (https://github.com/benlau)
 package quickandroid;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.content.Context;
 import android.app.Activity;
 import org.qtproject.qt5.android.QtNative;
 import java.lang.String;
@@ -14,8 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
+import java.lang.Thread;
 import android.util.Log;
 import android.os.Handler;
+import android.os.Looper;
 
 public class SystemMessenger {
 
@@ -28,6 +24,15 @@ public class SystemMessenger {
     }
 
     private static List<Listener> listeners = new ArrayList<Listener>();
+
+    /** Post a message with argument. It will trigger listener's post() method.
+
+       @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
+     */
+
+    public static boolean post(String name) {
+        return post(name,new HashMap());
+    }
 
     /** Post a message. It will trigger listener's post() method.
 
@@ -48,31 +53,36 @@ public class SystemMessenger {
             final String messageName = name;
             final Map messageData = data;
 
+            if ( Looper.getMainLooper().getThread() == Thread.currentThread() ) {
+                // It is UI thread
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                     public void run() {
+                         Log.d("","Invoke");
+                         invoke(messageName,messageData);
+                     }
+                }, 0);
 
-            Activity activity = QtNative.activity();
-            Runnable runnable = new Runnable () {
-                public void run() {
-                    Log.d("","Invoke");
-                    invoke(messageName,messageData);
+            } else {
+
+
+                Activity activity = QtNative.activity();
+                Runnable runnable = new Runnable () {
+                    public void run() {
+                        Log.d("","Invoke");
+                        invoke(messageName,messageData);
+                    };
                 };
-            };
-            activity.runOnUiThread(runnable);
+                activity.runOnUiThread(runnable);
+
+            }
 
             /*
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                 public void run() {
-                     Log.d("","Invoke");
-                     invoke(messageName,messageData);
-                 }
-            }, 0);
             */
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-
         }
-
 
         return res;
     }
@@ -107,45 +117,4 @@ public class SystemMessenger {
         }
 
     }
-
-    static {
-
-        addListener(new Listener() {
-
-            private void hapticFeedbackPerform(Map data) {
-
-                final Activity activity = QtNative.activity();
-                final Map messageData = data;
-                Runnable runnable = new Runnable () {
-                    public void run() {
-                        int feedbackConstant = (Integer) messageData.get("feedbackConstant");
-                        int flags = (Integer) messageData.get("flags");
-
-                        Log.d("",String.format("hapticFeedbackPerform(%d,%d)",feedbackConstant,flags));
-
-                        View rootView = activity.getWindow().getDecorView().getRootView();
-                        rootView.performHapticFeedback(feedbackConstant, flags);
-
-                        // Test function. Remove it later.
-                        SystemMessenger.post("hapticFeedbackPerformFinished" , new HashMap());
-                    };
-                };
-                activity.runOnUiThread(runnable);
-            }
-
-            public boolean post(String name , Map data) {
-                Log.d("","Listener::post");
-
-                if (name.equals("hapticFeedbackPerform")) {
-                    hapticFeedbackPerform(data);
-                    return true;
-                }
-
-                return false;
-            }
-        });
-
-    }
-
-
 }

@@ -15,6 +15,8 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.os.Handler;
 import android.app.Activity;
+import android.view.View;
+import android.content.Context;
 
 /* Custom QtActivity is not a must to develop Android application using Qt. It is just
    needed for using native API that need to use resource files.
@@ -59,11 +61,32 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
                             m_notificationManager.notify(1, m_builder.build());
 
                             // Test function. Remove it later.
-                            SystemMessenger.post("notificationManagerNotifyFinished" , new HashMap());
+                            SystemMessenger.post("notificationManagerNotifyFinished");
                         } catch (Exception e) {
                             Log.d("",e.getMessage());
                         }
 
+                    };
+                };
+                activity.runOnUiThread(runnable);
+            }
+
+            private void hapticFeedbackPerform(Map data) {
+
+                final Activity activity = QtNative.activity();
+                final Map messageData = data;
+                Runnable runnable = new Runnable () {
+                    public void run() {
+                        int feedbackConstant = (Integer) messageData.get("feedbackConstant");
+                        int flags = (Integer) messageData.get("flags");
+
+                        Log.d("",String.format("hapticFeedbackPerform(%d,%d)",feedbackConstant,flags));
+
+                        View rootView = activity.getWindow().getDecorView().getRootView();
+                        rootView.performHapticFeedback(feedbackConstant, flags);
+
+                        // Test function. Remove it later.
+                        SystemMessenger.post("hapticFeedbackPerformFinished");
                     };
                 };
                 activity.runOnUiThread(runnable);
@@ -74,6 +97,9 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
 
                 if (name.equals("notificationManagerNotify")) {
                     notificationManagerNotify(data);
+                    return true;
+                } else if (name.equals("hapticFeedbackPerform")) {
+                    hapticFeedbackPerform(data);
                     return true;
                 }
 
