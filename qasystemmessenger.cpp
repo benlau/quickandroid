@@ -19,7 +19,7 @@ static QVariantMap createVariantMap(jobject data) {
     QVariantMap res;
 
     QAndroidJniEnvironment env;
-// Reference : https://community.oracle.com/thread/1549999
+    /* Reference : https://community.oracle.com/thread/1549999 */
 
     // Get the HashMap Class
     jclass jclass_of_hashmap = (env)->GetObjectClass(data);
@@ -40,7 +40,8 @@ static QVariantMap createVariantMap(jobject data) {
 
     jclass jclass_of_string = env->FindClass("java/lang/String");
     jclass jclass_of_integer = env->FindClass("java/lang/Integer");
-//    jmethodID intValueMethod = env->GetMethodID(jclass_of_integer,"intValue","()I");
+    jclass jclass_of_boolean = env->FindClass("java/lang/Boolean");
+
 
     // Get link to Method "iterator"
     jmethodID iteratorMethod = env->GetMethodID(jclass_of_set, "iterator", "()Ljava/util/Iterator;");
@@ -54,33 +55,20 @@ static QVariantMap createVariantMap(jobject data) {
     // Get link to Method "hasNext"
     jmethodID hasNextMethod = env->GetMethodID(jclass_of_iterator, "hasNext", "()Z");
 
-//    // Invoke - Get the value hasNextMethod
-//    jboolean bHasNext = env->CallBooleanMethod(jobject_of_iterator, hasNextMethod);
-
-    // Get link to Method "hasNext"
-//    jmethodID nextMethod = env->GetMethodID(jclass_of_iterator, "next", "()Ljava/util/Map/Entry;");
     jmethodID nextMethod = env->GetMethodID(jclass_of_iterator, "next", "()Ljava/lang/Object;");
 
-//    jclass jclass_of_mapentry = (env)->FindClass("java/util/Map/Entry");
-
-//    jmethodID getKeyMethod = env->GetMethodID(jclass_of_mapentry, "getKey", "()Ljava/lang/Object");
-
-//    jmethodID getValueMethod = env->GetMethodID(jclass_of_mapentry, "getValue", "()Ljava/lang/Object");
-
     while (env->CallBooleanMethod(jobject_of_iterator, hasNextMethod) ) {
-//        jobject entry = env->CallObjectMethod(jobject_of_iterator,nextMethod);
         QAndroidJniObject entry = env->CallObjectMethod(jobject_of_iterator,nextMethod);
-//        jobject key = (jobject) env->CallObjectMethod(entry,getKeyMethod);
-//        jobject value =  env->CallObjectMethod(entry,getValueMethod);
         QAndroidJniObject key = entry.callObjectMethod("getKey","()Ljava/lang/Object;");
         QAndroidJniObject value = entry.callObjectMethod("getValue","()Ljava/lang/Object;");
-//        QString k = env->GetStringUTFChars((jstring) key, 0);
         QString k = key.toString();
 
         if (!value.isValid())
             continue;
 
-        if (env->IsInstanceOf(value.object<jobject>(),jclass_of_integer)) {
+        if (env->IsInstanceOf(value.object<jobject>(),jclass_of_boolean)) {
+            res[k] = QVariant::fromValue<bool>(value.callMethod<jboolean>("booleanValue","()Z"));
+        } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_integer)) {
             res[k] = value.callMethod<jint>("intValue","()I");
         } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_string)) {
             QString v = value.toString();
@@ -88,7 +76,10 @@ static QVariantMap createVariantMap(jobject data) {
         }
     }
 
-    qDebug() << res;
+    if (env->ExceptionOccurred()) {
+        env->ExceptionDescribe();
+        env->ExceptionClear();
+    }
 
     // Delete local reference
     return res;
@@ -106,9 +97,11 @@ static jobject createHashMap(const QVariantMap &data) {
 
     jclass integerClass = env->FindClass("java/lang/Integer");
 
-//    jmethodID setIntValue = env->GetMethodID(integerClass,"setIntValue","(I)V");
-
     jmethodID integerConstructor = env->GetMethodID(integerClass, "<init>", "(I)V");
+
+    jclass booleanClass = env->FindClass("java/lang/Boolean");
+    jmethodID booleanConstructor = env->GetMethodID(booleanClass,"<init>","(Z)V");
+
 
     jsize map_len = data.size();
 
@@ -132,31 +125,37 @@ static jobject createHashMap(const QVariantMap &data) {
             jstring vString = env->NewStringUTF(str.toLocal8Bit().data());
             env->CallObjectMethod(hashMap,put,jkey,vString);
         } else if (v.type() == QVariant::Int) {
-//            QAndroidJniObject integer = QAndroidJniObject("java/lang/Integer");
-//            integer.callMethod<void>("setIntValue","(I)V",v.toInt());
-//            env->CallObjectMethod(hashMap,put,jkey,integer.object<jobject>());
-
             jobject integer = env->NewObject(integerClass,integerConstructor,v.toInt());
             env->CallObjectMethod(hashMap,put,jkey,integer);
-
-            //            env->CallVoidMethod(integer,setIntValue,v.toInt());
-
-//              env->CallObjectMethod(hashMap,put,jkey,v.toInt());
-
-
+        } else if (v.type() == QVariant::Bool) {
+            jobject boolean = env->NewObject(booleanClass,booleanConstructor,v.toBool());
+            env->CallObjectMethod(hashMap,put,jkey,boolean);
         } else {
             qWarning() << "QASystemMessenger::sendMessage() - Non-supported data type : " <<  v.type();
         }
      }
+
+    if (env->ExceptionOccurred()) {
+        env->ExceptionDescribe();
+        env->ExceptionClear();
+    }
 
     return hashMap;
 }
 
 static void invoke(JNIEnv* env,jobject object,jstring name,jobject data) {
     Q_UNUSED(object);
-
     QString str = env->GetStringUTFChars(name, 0);
-    qDebug() << "invoke" << str << createVariantMap(data) ;
+    qDebug() << "invoke" << str;
+
+    QVariantMap map = createVariantMap(data);
+    qDebug() << "invoke" << str << map;
+    if (m_instance.isNull())
+        return;
+
+    QMetaObject::invokeMethod(m_instance.data(),"received",Qt::QueuedConnection,
+                              Q_ARG(QString, str),
+                              Q_ARG(QVariantMap,map));
 }
 
 

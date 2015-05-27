@@ -58,27 +58,23 @@ public class SystemMessenger {
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                      public void run() {
-                         Log.d("","Invoke");
+                         Log.d("","Invoke by handler");
                          invoke(messageName,messageData);
                      }
                 }, 0);
 
             } else {
-
-
                 Activity activity = QtNative.activity();
+
                 Runnable runnable = new Runnable () {
                     public void run() {
-                        Log.d("","Invoke");
+                        Log.d("","Invoke by runOnUiThread");
                         invoke(messageName,messageData);
                     };
                 };
                 activity.runOnUiThread(runnable);
 
             }
-
-            /*
-            */
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -99,21 +95,28 @@ public class SystemMessenger {
 
 
     private static void printMap(Map data) {
-        for (Map.Entry entry : (Set<Map.Entry>) data.entrySet()) {
-            String key = (String) entry.getKey();
-            Object value = entry.getValue();
-            if (value == null)
-                continue;
+        try {
+            for (Map.Entry entry : (Set<Map.Entry>) data.entrySet()) {
+                String key = (String) entry.getKey();
+                Object value = entry.getValue();
+                if (value == null)
+                    continue;
 
-            if (value instanceof String) {
-                String stringValue = (String) value;
-                Log.d("",String.format("%s : %s",key,stringValue));
-            } else if (value instanceof Integer) {
-                int intValue = (Integer) value;
-                Log.d("",String.format("%s : %d",key,intValue));
-            } else {
-                Log.d("",String.format("%s : [%s]",value.getClass().getName()));
+                if (value instanceof String) {
+                    String stringValue = (String) value;
+                    Log.d("",String.format("%s : %s",key,stringValue));
+                } else if (value instanceof Integer) {
+                    int intValue = (Integer) value;
+                    Log.d("",String.format("%s : %d",key,intValue));
+                } else if (value instanceof Boolean) {
+                    Boolean booleanValue = (Boolean) value;
+                    Log.d("",String.format("%s : %b",key,booleanValue));
+                } else {
+                    Log.d("",String.format("%s : Non-supported data type[%s] is passed",key,value.getClass().getName()));
+                }
             }
+        } catch (Exception e) {
+            Log.d("",e.getMessage());
         }
 
     }
