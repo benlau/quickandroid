@@ -16,19 +16,17 @@ import java.util.Set;
 import java.util.ArrayList;
 import android.util.Log;
 import android.os.Handler;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
-
-interface Listener {
-    /** Every messages posted on SystemMessenger will trigger this function.
-
-        @return true if the message is handled. Otherwise, it should be false.
-     */
-    public boolean post(String name , Map data);
-}
 
 public class SystemMessenger {
+
+    public interface Listener {
+        /** Every messages posted on SystemMessenger will trigger this function.
+
+            @return true if the message is handled. Otherwise, it should be false.
+         */
+        public boolean post(String name , Map data);
+    }
+
     private static List<Listener> listeners = new ArrayList<Listener>();
 
     /** Post a message. It will trigger listener's post() method.
@@ -135,50 +133,11 @@ public class SystemMessenger {
                 activity.runOnUiThread(runnable);
             }
 
-
-            NotificationManager m_notificationManager;
-            Notification.Builder m_builder;
-
-            private void notificationManagerNotify(Map data) {
-
-                final Activity activity = QtNative.activity();
-                final Map messageData = data;
-
-                Runnable runnable = new Runnable () {
-                    public void run() {
-                        String title = (String) messageData.get("title");
-
-                        String message = (String) messageData.get("message");
-
-                        if (m_notificationManager == null)
-                            m_notificationManager = (NotificationManager) activity.getSystemService(Context.NOTIFICATION_SERVICE);
-
-                        Log.d("",String.format("notificationManagerNotify(%s)",message));
-
-                        if (m_builder == null) {
-                            m_builder = new Notification.Builder(activity);
-                        }
-
-                        m_builder.setContentTitle(title);
-                        m_builder.setContentText(message);
-                        m_notificationManager.notify(1, m_builder.build());
-
-                        // Test function. Remove it later.
-                        SystemMessenger.post("notificationManagerNotifyFinished" , new HashMap());
-                    };
-                };
-                activity.runOnUiThread(runnable);
-            }
-
-
             public boolean post(String name , Map data) {
                 Log.d("","Listener::post");
 
                 if (name.equals("hapticFeedbackPerform")) {
                     hapticFeedbackPerform(data);
-                    return true;
-                } else if (name.equals("notificationManagerNotify")) {
-                    notificationManagerNotify(data);
                     return true;
                 }
 

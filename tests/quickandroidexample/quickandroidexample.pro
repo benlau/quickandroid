@@ -18,3 +18,7 @@ android {
 
 # Default rules for deployment.
 include(deployment.pri)
+
+DISTFILES += \
+    android-sources/src/quickandroid/example/ExampleActivity.java \
+    android-sources/AndroidManifest.xml
