@@ -20,5 +20,6 @@ android {
 }
 
 DISTFILES += \
-    android-sources/src/quickandroid/UnitTestsActivity.java
+    android-sources/src/quickandroid/UnitTestsActivity.java \
+    android-sources/tests/src/quickandroid/activitytests/UnitTestsActivityTest.java
 
