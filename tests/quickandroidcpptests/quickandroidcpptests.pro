@@ -21,4 +21,4 @@ DEFINES += SRCDIR=\\\"$$PWD/\\\"
 include(../../quickandroid.pri)
 
 RESOURCES += \
-    ../quickandroidexample/qml.qrc
+    ../../examples/quickandroidexample/qml.qrc
