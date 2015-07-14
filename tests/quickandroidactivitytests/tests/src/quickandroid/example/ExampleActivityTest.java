@@ -1,6 +1,7 @@
 package quickandroid.example;
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.util.Log;
 
 /**
  * This is a simple framework for a test of an Application.  See
@@ -14,8 +15,15 @@ import android.test.ActivityInstrumentationTestCase2;
  */
 public class ExampleActivityTest extends ActivityInstrumentationTestCase2<ExampleActivity> {
 
+    private static TAG = "ExampleActivityTest"
+
     public ExampleActivityTest() {
         super("quickandroid.example", ExampleActivity.class);
+    }
+
+    public void testHello() {
+        Log.d(TAG,"Hello");
+        assertTrue(true);
     }
 
 }

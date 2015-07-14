@@ -24,11 +24,12 @@ PLATFORM=android_armv7
 
 QT_ANDROID_BIN=$QT_HOME/$PLATFORM/bin
 QMAKE=$QT_ANDROID_BIN/qmake
-ANDROID_BUILD_DIR=$PWD/build/android
+ANDROID_BUILD_DIR=$PWD/build-apk/android-source
+BUILD_DIR=$PWD/build-apk
 
-mkdir -p build;
-cd build;
+mkdir -p $BUILD_DIR
+cd $BUILD_DIR
 $QMAKE ../../../examples/quickandroidexample
 make 
 make install INSTALL_ROOT=$ANDROID_BUILD_DIR
-$QT_ANDROID_BIN/androiddeployqt --input android-libquickandroidexample.so-deployment-settings.json --release --output $ANDROID_BUILD_DIR
+$QT_ANDROID_BIN/androiddeployqt --input android-libquickandroidexample.so-deployment-settings.json --output $ANDROID_BUILD_DIR
