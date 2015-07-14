@@ -148,7 +148,10 @@ static void invoke(JNIEnv* env,jobject object,jstring name,jobject data) {
     QString str = env->GetStringUTFChars(name, 0);
     qDebug() << "invoke" << str;
 
-    QVariantMap map = createVariantMap(data);
+    QVariantMap map;
+
+    if (data != 0)
+        map = createVariantMap(data);
     qDebug() << "invoke" << str << map;
     if (m_instance.isNull())
         return;

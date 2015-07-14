@@ -4,7 +4,9 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
 import quickandroid.SystemMessenger;
 import java.util.Map;
-
+import android.content.Intent;
+import android.test.ActivityTestCase;
+import android.app.Instrumentation;
 /**
  * This is a simple framework for a test of an Application.  See
  * {@link android.test.ApplicationTestCase ApplicationTestCase} for more information on
@@ -23,16 +25,25 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
         super("quickandroid.example", ExampleActivity.class);
     }
 
+    @Override
+    protected void setUp() throws Exception {
+           super.setUp();
+    }
+
     public void testHello() {
-        Log.v(TAG,"Hello2");
         assertTrue(true);
     }
 
     private int counter = 0;
 
     public void testSendMessage() {
-        Log.v(TAG,"testSendMessage");
-        Log.v(TAG,"testSendMessage2");
+
+        Instrumentation instrumentation = getInstrumentation();
+        Intent intent = new Intent(getInstrumentation()
+                .getTargetContext(), ExampleActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        instrumentation.startActivitySync(intent);
+
 
         SystemMessenger.Listener listener = new SystemMessenger.Listener() {
 

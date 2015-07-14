@@ -91,7 +91,9 @@ public class SystemMessenger {
             mutex.release();
 
         } catch (Exception e) {
-            Log.d(TAG,e.getMessage());
+            String err = (e.getMessage() == null) ? "post() failed" : e.getMessage();
+            //Log.d(TAG,e.getCause().getMessage());
+            Log.e(TAG,"exception",e);
         }
 
         return res;
@@ -111,13 +113,13 @@ public class SystemMessenger {
         final String messageName = name;
         final Map messageData = data;
 
-        // @FIXME: It don't need to run invoke on next tick.
+        /*
         if ( Looper.getMainLooper().getThread() == Thread.currentThread() ) {
             // It is UI thread
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                  public void run() {
-                     Log.d("","Invoke by handler");
+                     Log.d(TAG,"Invoke by handler");
                      invoke(messageName,messageData);
                  }
             }, 0);
@@ -127,12 +129,13 @@ public class SystemMessenger {
 
             Runnable runnable = new Runnable () {
                 public void run() {
-                    Log.d("","Invoke by runOnUiThread");
+                    Log.d(TAG,"Invoke by runOnUiThread");
                     invoke(messageName,messageData);
                 };
             };
             activity.runOnUiThread(runnable);
         }
+        */
 
         for (int i = 0 ; i < listeners.size() ; i++ ) {
             Listener listener = listeners.get(i);
@@ -143,9 +146,12 @@ public class SystemMessenger {
             }
         }
 
+        invoke(name,data);
     }
 
     private static void printMap(Map data) {
+        if (data == null)
+            return;
         try {
             for (Map.Entry entry : (Set<Map.Entry>) data.entrySet()) {
                 String key = (String) entry.getKey();
@@ -155,19 +161,19 @@ public class SystemMessenger {
 
                 if (value instanceof String) {
                     String stringValue = (String) value;
-                    Log.d("",String.format("%s : %s",key,stringValue));
+                    Log.d(TAG,String.format("%s : %s",key,stringValue));
                 } else if (value instanceof Integer) {
                     int intValue = (Integer) value;
-                    Log.d("",String.format("%s : %d",key,intValue));
+                    Log.d(TAG,String.format("%s : %d",key,intValue));
                 } else if (value instanceof Boolean) {
                     Boolean booleanValue = (Boolean) value;
-                    Log.d("",String.format("%s : %b",key,booleanValue));
+                    Log.d(TAG,String.format("%s : %b",key,booleanValue));
                 } else {
-                    Log.d("",String.format("%s : Non-supported data type[%s] is passed",key,value.getClass().getName()));
+                    Log.d(TAG,String.format("%s : Non-supported data type[%s] is passed",key,value.getClass().getName()));
                 }
             }
         } catch (Exception e) {
-            Log.d("",e.getMessage());
+            Log.d(TAG,e.getMessage());
         }
 
     }
