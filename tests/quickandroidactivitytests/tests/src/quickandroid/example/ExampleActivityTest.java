@@ -10,6 +10,8 @@ import android.app.Instrumentation;
 import android.app.Activity;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is a simple framework for a test of an Application.  See
@@ -79,7 +81,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
         SystemMessenger.post("testSendMessage",null);
 
-        assertTrue(counter == 1);
+        assertEquals(counter , 1);
 
         SystemMessenger.removeListener(listener);
 
@@ -88,11 +90,11 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
     }
 
-    private Queue<String> queue;
+    private List<String> messages ;
 
     public void testReentrant() {
         startActivity();
-        queue = new LinkedList();
+        messages = new ArrayList();
 
         Log.v(TAG,"testReentrant");
         final String messageName = "testReentrant";
@@ -100,10 +102,13 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
         SystemMessenger.Listener listener = new SystemMessenger.Listener() {
 
             public boolean post(String name , Map data) {
+                messages.add(name);
                 if (name.equals("ping")) {
                     counter++;
                     SystemMessenger.post("pong");
                     return true;
+                } else if (name.equals("poing")) {
+                    counter++;
                 }
                 return false;
             }
@@ -112,13 +117,20 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
         SystemMessenger.addListener(listener);
         SystemMessenger.addListener(listener);
 
-        assertTrue(counter == 0);
+        assertTrue(messages.size() == 0);
 
         SystemMessenger.post("ping",null);
-        assertEquals(counter , 6);
+        assertEquals(messages.size() , 6);
+        assertTrue(messages.get(0).equals("ping"));
+        assertTrue(messages.get(1).equals("ping"));
+        assertTrue(messages.get(2).equals("pong"));
+        assertTrue(messages.get(3).equals("pong"));
+        assertTrue(messages.get(4).equals("pong"));
+        assertTrue(messages.get(5).equals("pong"));
+
 
         SystemMessenger.removeListener(listener);
-
+        SystemMessenger.removeListener(listener);
     }
 
 

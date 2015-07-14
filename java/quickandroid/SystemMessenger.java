@@ -59,6 +59,8 @@ public class SystemMessenger {
         boolean res = false;
 
         try {
+//            Log.d(TAG,String.format("Post: %s",name));
+
             Pair pair;
 
             mutex.acquire();
@@ -79,6 +81,8 @@ public class SystemMessenger {
             emit(name,data); // Emit
 
             mutex.acquire(); // Process queued message
+//            Log.d(TAG,String.format("Count: %d",queue.size()));
+
             while (queue.size() > 0 ) {
                 pair = queue.poll();
                 mutex.release();
