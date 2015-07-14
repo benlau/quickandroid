@@ -35,12 +35,8 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
     private static Activity mActivity = null;
 
     private void startActivity() {
-//        Log.v(TAG,String.format("Pre StartActivity: %b",launched));
-
         if (launched)
             return;
-
-        Log.v(TAG,"StartActivity");
 
         Instrumentation instrumentation = getInstrumentation();
         Intent intent = new Intent(getInstrumentation()
@@ -49,12 +45,6 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
         mActivity = instrumentation.startActivitySync(intent);
         launched = true;
-        Log.v(TAG,"End of StartActivity");
-
-    }
-
-    public void testHello() {
-        assertTrue(true);
     }
 
     private int counter = 0;
@@ -65,14 +55,12 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
         SystemMessenger.Listener listener = new SystemMessenger.Listener() {
 
-            public boolean post(String name , Map data) {
+            public void post(String name , Map data) {
                 Log.v(TAG,"Listener::post");
 
                 if (name.equals("testSendMessage")) {
                     counter++;
-                    return true;
                 }
-                return false;
             }
         };
 
@@ -101,16 +89,15 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
         SystemMessenger.Listener listener = new SystemMessenger.Listener() {
 
-            public boolean post(String name , Map data) {
+            public void post(String name , Map data) {
                 messages.add(name);
                 if (name.equals("ping")) {
                     counter++;
                     SystemMessenger.post("pong");
-                    return true;
                 } else if (name.equals("poing")) {
                     counter++;
                 }
-                return false;
+                return;
             }
         };
 

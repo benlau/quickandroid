@@ -92,18 +92,18 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
                 activity.runOnUiThread(runnable);
             }
 
-            public boolean post(String name , Map data) {
+            public void post(String name , Map data) {
                 Log.d("","Listener::post");
 
                 if (name.equals("notificationManagerNotify")) {
                     notificationManagerNotify(data);
-                    return true;
+                    return;
                 } else if (name.equals("hapticFeedbackPerform")) {
                     hapticFeedbackPerform(data);
-                    return true;
+                    return;
                 }
 
-                return false;
+                return;
             }
         });
 

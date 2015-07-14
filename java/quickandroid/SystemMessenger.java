@@ -23,10 +23,10 @@ public class SystemMessenger {
 
             @return true if the message is handled. Otherwise, it should be false.
          */
-        public boolean post(String name , Map data);
+        public void post(String name , Map data);
     }
 
-    private static class Pair {
+    private static class Payload {
         public String name;
         public Map message;
     }
@@ -35,7 +35,7 @@ public class SystemMessenger {
 
     private static Semaphore mutex = new Semaphore(1);
 
-    private static Queue<Pair> queue = new LinkedList();
+    private static Queue<Payload> queue = new LinkedList();
 
     private static List<Listener> listeners = new ArrayList<Listener>();
 
@@ -46,8 +46,8 @@ public class SystemMessenger {
        @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
      */
 
-    public static boolean post(String name) {
-        return post(name,new HashMap());
+    public static void post(String name) {
+        post(name,new HashMap());
     }
 
     /** Post a message. It will trigger listener's post() method.
@@ -55,23 +55,21 @@ public class SystemMessenger {
         @threadsafe
        @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
      */
-    public static boolean post(String name,Map data) {
-        boolean res = false;
+    public static void post(String name,Map data) {
 
         try {
-//            Log.d(TAG,String.format("Post: %s",name));
 
-            Pair pair;
+            Payload payload;
 
             mutex.acquire();
 
             if (dispatching) {
-                pair = new Pair();
-                pair.name = name;
-                pair.message = data;
-                queue.add(pair);
+                payload = new Payload();
+                payload.name = name;
+                payload.message = data;
+                queue.add(payload);
                 mutex.release();
-                return false;
+                return;
             }
 
             dispatching = true;
@@ -81,13 +79,12 @@ public class SystemMessenger {
             emit(name,data); // Emit
 
             mutex.acquire(); // Process queued message
-//            Log.d(TAG,String.format("Count: %d",queue.size()));
 
             while (queue.size() > 0 ) {
-                pair = queue.poll();
+                payload = queue.poll();
                 mutex.release();
 
-                emit(pair.name,pair.message);
+                emit(payload.name,payload.message);
 
                 mutex.acquire();
             }
@@ -95,52 +92,34 @@ public class SystemMessenger {
             mutex.release();
 
         } catch (Exception e) {
-            String err = (e.getMessage() == null) ? "post() failed" : e.getMessage();
-            //Log.d(TAG,e.getCause().getMessage());
             Log.e(TAG,"exception",e);
         }
-
-        return res;
     }
 
     public static void addListener(Listener listener ) {
-        listeners.add(listener);
+        try {
+            mutex.acquire();
+            listeners.add(listener);
+            mutex.release();
+        } catch (Exception e) {
+            Log.e(TAG,"exception",e);
+        }
+
     }
 
     public static void removeListener(Listener listener ) {
-        listeners.remove(listener);
+        try {
+            mutex.acquire();
+            listeners.remove(listener);
+            mutex.release();
+        } catch (Exception e) {
+            Log.e(TAG,"exception",e);
+        }
     }
 
     private static native void invoke(String name,Map data);
 
     private static void emit(String name,Map data) {
-        final String messageName = name;
-        final Map messageData = data;
-
-        /*
-        if ( Looper.getMainLooper().getThread() == Thread.currentThread() ) {
-            // It is UI thread
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                 public void run() {
-                     Log.d(TAG,"Invoke by handler");
-                     invoke(messageName,messageData);
-                 }
-            }, 0);
-
-        } else {
-            Activity activity = QtNative.activity();
-
-            Runnable runnable = new Runnable () {
-                public void run() {
-                    Log.d(TAG,"Invoke by runOnUiThread");
-                    invoke(messageName,messageData);
-                };
-            };
-            activity.runOnUiThread(runnable);
-        }
-        */
-
         for (int i = 0 ; i < listeners.size() ; i++ ) {
             Listener listener = listeners.get(i);
             try {

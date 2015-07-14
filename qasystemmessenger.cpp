@@ -11,7 +11,7 @@ static QPointer<QASystemMessenger> m_instance;
 #include <QAndroidJniEnvironment>
 
 #define JCLASS_Name "quickandroid/SystemMessenger"
-#define POST_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)Z"
+#define POST_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 #define INVOKE_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 
 
