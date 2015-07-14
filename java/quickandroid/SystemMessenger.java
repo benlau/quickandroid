@@ -8,10 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
 import java.lang.Thread;
 import android.util.Log;
 import android.os.Handler;
 import android.os.Looper;
+import java.util.concurrent.Semaphore;
 
 public class SystemMessenger {
 
@@ -23,7 +26,20 @@ public class SystemMessenger {
         public boolean post(String name , Map data);
     }
 
+    private static class Pair {
+        public String name;
+        public Map message;
+    }
+
+    private static String TAG = "QuickAndroid";
+
+    private static Semaphore mutex = new Semaphore(1);
+
+    private static Queue<Pair> queue = new LinkedList();
+
     private static List<Listener> listeners = new ArrayList<Listener>();
+
+    private static boolean dispatching = false;
 
     /** Post a message with argument. It will trigger listener's post() method.
 
@@ -36,48 +52,46 @@ public class SystemMessenger {
 
     /** Post a message. It will trigger listener's post() method.
 
+        @threadsafe
        @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
      */
     public static boolean post(String name,Map data) {
         boolean res = false;
 
         try {
+            Pair pair;
 
+            mutex.acquire();
+
+            if (dispatching) {
+                pair = new Pair();
+                pair.name = name;
+                pair.message = data;
+                queue.add(pair);
+                mutex.release();
+                return false;
+            }
+
+            dispatching = true;
             printMap(data);
+            mutex.release();
 
-            for (int i = 0 ; i < listeners.size() ; i++ ) {
-                Listener listener = listeners.get(i);
-                res |= listener.post(name,data);
+            emit(name,data); // Emit
+
+            mutex.acquire(); // Process queued message
+            while (queue.size() > 0 ) {
+                pair = queue.poll();
+                mutex.release();
+
+                emit(pair.name,pair.message);
+
+                mutex.acquire();
             }
-
-            final String messageName = name;
-            final Map messageData = data;
-
-            if ( Looper.getMainLooper().getThread() == Thread.currentThread() ) {
-                // It is UI thread
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                     public void run() {
-                         Log.d("","Invoke by handler");
-                         invoke(messageName,messageData);
-                     }
-                }, 0);
-
-            } else {
-                Activity activity = QtNative.activity();
-
-                Runnable runnable = new Runnable () {
-                    public void run() {
-                        Log.d("","Invoke by runOnUiThread");
-                        invoke(messageName,messageData);
-                    };
-                };
-                activity.runOnUiThread(runnable);
-
-            }
+            dispatching = false;
+            mutex.release();
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Log.d(TAG,e.getMessage());
         }
 
         return res;
@@ -93,6 +107,43 @@ public class SystemMessenger {
 
     private static native void invoke(String name,Map data);
 
+    private static void emit(String name,Map data) {
+        final String messageName = name;
+        final Map messageData = data;
+
+        // @FIXME: It don't need to run invoke on next tick.
+        if ( Looper.getMainLooper().getThread() == Thread.currentThread() ) {
+            // It is UI thread
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                 public void run() {
+                     Log.d("","Invoke by handler");
+                     invoke(messageName,messageData);
+                 }
+            }, 0);
+
+        } else {
+            Activity activity = QtNative.activity();
+
+            Runnable runnable = new Runnable () {
+                public void run() {
+                    Log.d("","Invoke by runOnUiThread");
+                    invoke(messageName,messageData);
+                };
+            };
+            activity.runOnUiThread(runnable);
+        }
+
+        for (int i = 0 ; i < listeners.size() ; i++ ) {
+            Listener listener = listeners.get(i);
+            try {
+                listener.post(name,data);
+            } catch (Exception e) {
+                Log.d(TAG,e.getMessage());
+            }
+        }
+
+    }
 
     private static void printMap(Map data) {
         try {
