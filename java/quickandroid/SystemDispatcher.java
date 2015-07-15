@@ -14,6 +14,7 @@ import java.lang.Thread;
 import android.util.Log;
 import android.os.Handler;
 import android.os.Looper;
+import android.content.Intent;
 import java.util.concurrent.Semaphore;
 
 public class SystemDispatcher {
@@ -25,21 +26,6 @@ public class SystemDispatcher {
          */
         public void onDispatched(String name , Map message);
     }
-
-    private static class Payload {
-        public String name;
-        public Map message;
-    }
-
-    private static String TAG = "QuickAndroid";
-
-    private static Semaphore mutex = new Semaphore(1);
-
-    private static Queue<Payload> queue = new LinkedList();
-
-    private static List<Listener> listeners = new ArrayList<Listener>();
-
-    private static boolean dispatching = false;
 
     /**
       @threadsafe
@@ -54,7 +40,7 @@ public class SystemDispatcher {
        @threadsafe
        @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
      */
-    public static void dispatch(String name,Map data) {
+    public static void dispatch(String name,Map message) {
 
         try {
 
@@ -65,17 +51,17 @@ public class SystemDispatcher {
             if (dispatching) {
                 payload = new Payload();
                 payload.name = name;
-                payload.message = data;
+                payload.message = message;
                 queue.add(payload);
                 mutex.release();
                 return;
             }
 
             dispatching = true;
-            printMap(data);
+//            printMap(message);
             mutex.release();
 
-            emit(name,data); // Emit
+            emit(name,message); // Emit
 
             mutex.acquire(); // Process queued message
 
@@ -115,6 +101,35 @@ public class SystemDispatcher {
             Log.e(TAG,"exception",e);
         }
     }
+
+    public static String ACTIVITY_RESULT_MESSAGE = "Activity.onActivityResult";
+
+    /** A helper function to dispatch a message based on the input argument fron Activity.onActivityResult
+     */
+    public static void onActivityResult (int requestCode, int resultCode, Intent data) {
+        Map message = new HashMap();
+
+        message.put("requestCode",requestCode);
+        message.put("resultCode",resultCode);
+        message.put("data",data);
+
+        dispatch(ACTIVITY_RESULT_MESSAGE,message);
+    }
+
+    private static class Payload {
+        public String name;
+        public Map message;
+    }
+
+    private static String TAG = "QuickAndroid";
+
+    private static Semaphore mutex = new Semaphore(1);
+
+    private static Queue<Payload> queue = new LinkedList();
+
+    private static List<Listener> listeners = new ArrayList<Listener>();
+
+    private static boolean dispatching = false;
 
     private static native void jniEmit(String name,Map message);
 

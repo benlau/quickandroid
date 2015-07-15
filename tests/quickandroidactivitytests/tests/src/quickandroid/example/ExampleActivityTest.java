@@ -171,6 +171,34 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
         SystemDispatcher.removeListener(listener);
     }
 
+    public void testOnActivityResult() {
+        SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
+
+            public void onDispatched(String name , Map message) {
+                Payload payload = new Payload();
+                payload.name = name;
+                payload.message = message;
+
+                lastPayload = payload;
+            }
+        };
+        SystemDispatcher.addListener(listener);
+
+        SystemDispatcher.onActivityResult(73,99,null);
+
+        assertTrue(lastPayload != null);
+        assertTrue(lastPayload.message.containsKey("requestCode"));
+        assertTrue(lastPayload.message.containsKey("resultCode"));
+        assertTrue(lastPayload.message.containsKey("data"));
+
+        assertEquals((int) (Integer) lastPayload.message.get("requestCode") ,73);
+        assertEquals((int) (Integer) lastPayload.message.get("resultCode") ,99);
+
+        SystemDispatcher.removeListener(listener);
+
+    }
+
+
 
 
 }
