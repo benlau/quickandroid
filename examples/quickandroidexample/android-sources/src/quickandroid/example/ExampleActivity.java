@@ -1,5 +1,5 @@
 package quickandroid.example;
-import quickandroid.SystemMessenger;
+import quickandroid.SystemDispatcher;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
 
     static {
 
-        SystemMessenger.addListener(new SystemMessenger.Listener() {
+        SystemDispatcher.addListener(new SystemDispatcher.Listener() {
 
             NotificationManager m_notificationManager;
             Notification.Builder m_builder;
@@ -61,7 +61,7 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
                             m_notificationManager.notify(1, m_builder.build());
 
                             // Test function. Remove it later.
-                            SystemMessenger.post("notificationManagerNotifyFinished");
+                            SystemDispatcher.post("notificationManagerNotifyFinished");
                         } catch (Exception e) {
                             Log.d("",e.getMessage());
                         }
@@ -86,7 +86,7 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
                         rootView.performHapticFeedback(feedbackConstant, flags);
 
                         // Test function. Remove it later.
-                        SystemMessenger.post("hapticFeedbackPerformFinished");
+                        SystemDispatcher.post("hapticFeedbackPerformFinished");
                     };
                 };
                 activity.runOnUiThread(runnable);

@@ -4,7 +4,7 @@
 #include <QQmlContext>
 #include "quickandroid.h"
 #include "qadrawableprovider.h"
-#include "qasystemmessenger.h"
+#include "qasystemdispatcher.h"
 
 #ifdef Q_OS_ANDROID
 #include <QtAndroidExtras/QAndroidJniObject>
@@ -13,7 +13,7 @@
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void*) {
     Q_UNUSED(vm);
     qDebug("NativeInterface::JNI_OnLoad()");
-    QASystemMessenger::registerNatives();
+    QASystemDispatcher::registerNatives();
     return JNI_VERSION_1_6;
 }
 #endif
@@ -43,14 +43,14 @@ int main(int argc, char *argv[])
     message["field1"] = "value1";
     message["field2"] = 10;
     message["field3"] = true;
-    QASystemMessenger::instance()->sendMessage("ping",message);
+    QASystemDispatcher::instance()->sendMessage("ping",message);
 
     message.clear();
     message["title"] = "Quick Android Example";
     message["message"] = "Hello! It is Quick Android Hello World";
-    QASystemMessenger::instance()->sendMessage("notificationManagerNotify",message);
+    QASystemDispatcher::instance()->sendMessage("notificationManagerNotify",message);
 
-    view.rootContext()->setContextProperty("SystemMessenger",QASystemMessenger::instance());
+    view.rootContext()->setContextProperty("SystemMessenger",QASystemDispatcher::instance());
 
     return app.exec();
 }

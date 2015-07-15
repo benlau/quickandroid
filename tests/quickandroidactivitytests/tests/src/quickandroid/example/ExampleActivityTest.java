@@ -2,7 +2,7 @@ package quickandroid.example;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
-import quickandroid.SystemMessenger;
+import quickandroid.SystemDispatcher;
 import java.util.Map;
 import android.content.Intent;
 import android.test.ActivityTestCase;
@@ -53,7 +53,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
         startActivity();
         Log.v(TAG,"testSendMessage");
 
-        SystemMessenger.Listener listener = new SystemMessenger.Listener() {
+        SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void post(String name , Map data) {
                 Log.v(TAG,"Listener::post");
@@ -64,16 +64,16 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
             }
         };
 
-        SystemMessenger.addListener(listener);
+        SystemDispatcher.addListener(listener);
         assertTrue(counter == 0);
 
-        SystemMessenger.post("testSendMessage",null);
+        SystemDispatcher.post("testSendMessage",null);
 
         assertEquals(counter , 1);
 
-        SystemMessenger.removeListener(listener);
+        SystemDispatcher.removeListener(listener);
 
-        SystemMessenger.post("testSendMessage",null);
+        SystemDispatcher.post("testSendMessage",null);
         assertTrue(counter == 1);
 
     }
@@ -87,13 +87,13 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
         Log.v(TAG,"testReentrant");
         final String messageName = "testReentrant";
 
-        SystemMessenger.Listener listener = new SystemMessenger.Listener() {
+        SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void post(String name , Map data) {
                 messages.add(name);
                 if (name.equals("ping")) {
                     counter++;
-                    SystemMessenger.post("pong");
+                    SystemDispatcher.post("pong");
                 } else if (name.equals("poing")) {
                     counter++;
                 }
@@ -101,12 +101,12 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
             }
         };
 
-        SystemMessenger.addListener(listener);
-        SystemMessenger.addListener(listener);
+        SystemDispatcher.addListener(listener);
+        SystemDispatcher.addListener(listener);
 
         assertTrue(messages.size() == 0);
 
-        SystemMessenger.post("ping",null);
+        SystemDispatcher.post("ping",null);
         assertEquals(messages.size() , 6);
         assertTrue(messages.get(0).equals("ping"));
         assertTrue(messages.get(1).equals("ping"));
@@ -116,8 +116,8 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
         assertTrue(messages.get(5).equals("pong"));
 
 
-        SystemMessenger.removeListener(listener);
-        SystemMessenger.removeListener(listener);
+        SystemDispatcher.removeListener(listener);
+        SystemDispatcher.removeListener(listener);
     }
 
 

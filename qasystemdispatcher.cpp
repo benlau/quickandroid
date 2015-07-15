@@ -2,15 +2,15 @@
 #include <QCoreApplication>
 #include <QPointer>
 #include <QtCore>
-#include "qasystemmessenger.h"
+#include "qasystemdispatcher.h"
 
-static QPointer<QASystemMessenger> m_instance;
+static QPointer<QASystemDispatcher> m_instance;
 
 #ifdef Q_OS_ANDROID
 #include <QAndroidJniObject>
 #include <QAndroidJniEnvironment>
 
-#define JCLASS_Name "quickandroid/SystemMessenger"
+#define JCLASS_Name "quickandroid/SystemDispatcher"
 #define POST_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 #define INVOKE_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 
@@ -131,7 +131,7 @@ static jobject createHashMap(const QVariantMap &data) {
             jobject boolean = env->NewObject(booleanClass,booleanConstructor,v.toBool());
             env->CallObjectMethod(hashMap,put,jkey,boolean);
         } else {
-            qWarning() << "QASystemMessenger::sendMessage() - Non-supported data type : " <<  v.type();
+            qWarning() << "QASystemDispatcher: Non-supported data type - " <<  v.type();
         }
      }
 
@@ -164,26 +164,26 @@ static void invoke(JNIEnv* env,jobject object,jstring name,jobject data) {
 
 #endif
 
-QASystemMessenger::QASystemMessenger(QObject* parent) : QObject(parent)
+QASystemDispatcher::QASystemDispatcher(QObject* parent) : QObject(parent)
 {
 
 }
 
-QASystemMessenger::~QASystemMessenger()
+QASystemDispatcher::~QASystemDispatcher()
 {
 
 }
 
-QASystemMessenger *QASystemMessenger::instance()
+QASystemDispatcher *QASystemDispatcher::instance()
 {
     if (!m_instance) {
         QCoreApplication* app = QCoreApplication::instance();
-        m_instance = new QASystemMessenger(app);
+        m_instance = new QASystemDispatcher(app);
     }
     return m_instance;
 }
 
-bool QASystemMessenger::sendMessage(QString name, QVariantMap data)
+bool QASystemDispatcher::sendMessage(QString name, QVariantMap data)
 {
 #ifdef Q_OS_ANDROID
 
@@ -201,7 +201,7 @@ bool QASystemMessenger::sendMessage(QString name, QVariantMap data)
 #endif
 }
 
-void QASystemMessenger::registerNatives()
+void QASystemDispatcher::registerNatives()
 {
 #ifdef Q_OS_ANDROID
     QAndroidJniEnvironment env;

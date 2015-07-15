@@ -1,18 +1,16 @@
 // Author:  Ben Lau (https://github.com/benlau)
-#ifndef QASYSTEMMESSENGER_H
-#define QASYSTEMMESSENGER_H
-
+#pragma once
 #include <QObject>
 #include <QVariantMap>
 
 /// QASystemMessenger provides an simple async messaging interface between C/C++/QML and Objective-C source code.
 
-class QASystemMessenger : public QObject
+class QASystemDispatcher : public QObject
 {
     Q_OBJECT
 public:
-    ~QASystemMessenger();
-    static QASystemMessenger* instance();
+    ~QASystemDispatcher();
+    static QASystemDispatcher* instance();
 
     /// Deliver a message
     /** If there has a registered helper function , it will return TRUE. Otherwise, it will return FALSE.
@@ -20,7 +18,7 @@ public:
      * After processed by the registered helper, the "received" signal will be emitted
      * in next tick of event loop.
      */
-    Q_INVOKABLE bool sendMessage(QString name , QVariantMap data = QVariantMap());
+    Q_INVOKABLE bool sendMessage(QString name , QVariantMap message = QVariantMap());
 
     /// Register JNI native methods. This function must be called in JNI_OnLoad. Otherwise, the messenger will not be working
     static void registerNatives();
@@ -30,8 +28,7 @@ signals:
     void received(QString name , QVariantMap data);
 
 private:
-    explicit QASystemMessenger(QObject* parent = 0);
+    explicit QASystemDispatcher(QObject* parent = 0);
 
 };
 
-#endif // QASYSTEMMESSENGER_H

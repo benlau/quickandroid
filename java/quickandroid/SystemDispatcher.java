@@ -16,7 +16,7 @@ import android.os.Handler;
 import android.os.Looper;
 import java.util.concurrent.Semaphore;
 
-public class SystemMessenger {
+public class SystemDispatcher {
 
     public interface Listener {
         /** Every messages posted on SystemMessenger will trigger this function.
