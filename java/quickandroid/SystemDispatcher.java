@@ -23,7 +23,7 @@ public class SystemDispatcher {
 
             @return true if the message is handled. Otherwise, it should be false.
          */
-        public void post(String name , Map data);
+        public void onDispatched(String name , Map message);
     }
 
     private static class Payload {
@@ -41,21 +41,20 @@ public class SystemDispatcher {
 
     private static boolean dispatching = false;
 
-    /** Post a message with argument. It will trigger listener's post() method.
-
-       @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
+    /**
+      @threadsafe
+      @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
      */
 
-    public static void post(String name) {
-        post(name,new HashMap());
+    public static void dispatch(String name) {
+        dispatch(name,null);
     }
 
-    /** Post a message. It will trigger listener's post() method.
-
-        @threadsafe
+    /** Dispatch a message.
+       @threadsafe
        @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
      */
-    public static void post(String name,Map data) {
+    public static void dispatch(String name,Map data) {
 
         try {
 
@@ -117,19 +116,21 @@ public class SystemDispatcher {
         }
     }
 
-    private static native void invoke(String name,Map data);
+    private static native void jniEmit(String name,Map message);
 
-    private static void emit(String name,Map data) {
+    /** Emit onDispatched signal to registered listenter
+     */
+    private static void emit(String name,Map message) {
         for (int i = 0 ; i < listeners.size() ; i++ ) {
             Listener listener = listeners.get(i);
             try {
-                listener.post(name,data);
+                listener.onDispatched(name,message);
             } catch (Exception e) {
                 Log.d(TAG,e.getMessage());
             }
         }
 
-        invoke(name,data);
+        jniEmit(name,message);
     }
 
     private static void printMap(Map data) {

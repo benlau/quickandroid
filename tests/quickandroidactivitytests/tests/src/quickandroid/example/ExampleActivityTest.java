@@ -55,7 +55,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
-            public void post(String name , Map data) {
+            public void onDispatched(String name , Map data) {
                 Log.v(TAG,"Listener::post");
 
                 if (name.equals("testSendMessage")) {
@@ -67,13 +67,13 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
         SystemDispatcher.addListener(listener);
         assertTrue(counter == 0);
 
-        SystemDispatcher.post("testSendMessage",null);
+        SystemDispatcher.dispatch("testSendMessage",null);
 
         assertEquals(counter , 1);
 
         SystemDispatcher.removeListener(listener);
 
-        SystemDispatcher.post("testSendMessage",null);
+        SystemDispatcher.dispatch("testSendMessage",null);
         assertTrue(counter == 1);
 
     }
@@ -89,11 +89,11 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
-            public void post(String name , Map data) {
+            public void onDispatched(String name , Map data) {
                 messages.add(name);
                 if (name.equals("ping")) {
                     counter++;
-                    SystemDispatcher.post("pong");
+                    SystemDispatcher.dispatch("pong");
                 } else if (name.equals("poing")) {
                     counter++;
                 }
@@ -106,7 +106,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
         assertTrue(messages.size() == 0);
 
-        SystemDispatcher.post("ping",null);
+        SystemDispatcher.dispatch("ping",null);
         assertEquals(messages.size() , 6);
         assertTrue(messages.get(0).equals("ping"));
         assertTrue(messages.get(1).equals("ping"));

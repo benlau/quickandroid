@@ -3,7 +3,7 @@
 #include <QObject>
 #include <QVariantMap>
 
-/// QASystemMessenger provides an simple async messaging interface between C/C++/QML and Objective-C source code.
+/// QASystemDispatcher provides an simple messaging interface between C/C++/QML and Java code.
 
 class QASystemDispatcher : public QObject
 {
@@ -12,20 +12,20 @@ public:
     ~QASystemDispatcher();
     static QASystemDispatcher* instance();
 
-    /// Deliver a message
-    /** If there has a registered helper function , it will return TRUE. Otherwise, it will return FALSE.
+    /// Dispatch a message via Dispatcher
+    /** The message will be first passed to Java's SystemDispatcher and invoke
+     * registered listener. Once it is finished, it will emit the
+     * "dispatched" signal.
      *
-     * After processed by the registered helper, the "received" signal will be emitted
-     * in next tick of event loop.
      */
-    Q_INVOKABLE bool sendMessage(QString name , QVariantMap message = QVariantMap());
+    Q_INVOKABLE void dispatch(QString name , QVariantMap message = QVariantMap());
 
     /// Register JNI native methods. This function must be called in JNI_OnLoad. Otherwise, the messenger will not be working
     static void registerNatives();
 
 signals:
-    /// The signal is emitted when a message is received.
-    void received(QString name , QVariantMap data);
+    /// The signal is emitted when a message is dispatched.
+    void dispatched(QString name , QVariantMap data);
 
 private:
     explicit QASystemDispatcher(QObject* parent = 0);

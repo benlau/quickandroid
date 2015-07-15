@@ -11,8 +11,8 @@ static QPointer<QASystemDispatcher> m_instance;
 #include <QAndroidJniEnvironment>
 
 #define JCLASS_Name "quickandroid/SystemDispatcher"
-#define POST_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
-#define INVOKE_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
+#define DISPATCH_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
+#define EMIT_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 
 
 static QVariantMap createVariantMap(jobject data) {
@@ -143,20 +143,20 @@ static jobject createHashMap(const QVariantMap &data) {
     return hashMap;
 }
 
-static void invoke(JNIEnv* env,jobject object,jstring name,jobject data) {
+static void jniEmit(JNIEnv* env,jobject object,jstring name,jobject data) {
     Q_UNUSED(object);
     QString str = env->GetStringUTFChars(name, 0);
-    qDebug() << "invoke" << str;
+//    qDebug() << "invoke" << str;
 
     QVariantMap map;
 
     if (data != 0)
         map = createVariantMap(data);
-    qDebug() << "invoke" << str << map;
+//    qDebug() << "invoke" << str << map;
     if (m_instance.isNull())
         return;
 
-    QMetaObject::invokeMethod(m_instance.data(),"received",Qt::QueuedConnection,
+    QMetaObject::invokeMethod(m_instance.data(),"dispatched",Qt::QueuedConnection,
                               Q_ARG(QString, str),
                               Q_ARG(QVariantMap,map));
 }
@@ -183,21 +183,16 @@ QASystemDispatcher *QASystemDispatcher::instance()
     return m_instance;
 }
 
-bool QASystemDispatcher::sendMessage(QString name, QVariantMap data)
+void QASystemDispatcher::dispatch(QString name, QVariantMap message)
 {
 #ifdef Q_OS_ANDROID
-
-    qDebug() << "sendMessage" << name << data;
     QAndroidJniEnvironment env;
     jstring jName = env->NewStringUTF(name.toLocal8Bit().data());
-    jobject jData = createHashMap(data);
-    bool res = QAndroidJniObject::callStaticMethod<jboolean>(JCLASS_Name, "post",
-                                              POST_SIGNATURE,
+    jobject jData = createHashMap(message);
+    QAndroidJniObject::callStaticMethod<jboolean>(JCLASS_Name, "dispatch",
+                                              DISPATCH_SIGNATURE,
                                               jName,jData);
 
-    return res;
-#else
-    return false;
 #endif
 }
 
@@ -214,7 +209,7 @@ void QASystemDispatcher::registerNatives()
 
     JNINativeMethod methods[] =
     {
-        {"invoke", INVOKE_SIGNATURE, (void *)&invoke},
+        {"jniEmit", EMIT_SIGNATURE, (void *)&jniEmit},
     };
 
     int numMethods = sizeof(methods) / sizeof(methods[0]);

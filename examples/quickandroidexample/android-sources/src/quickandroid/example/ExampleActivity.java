@@ -61,7 +61,7 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
                             m_notificationManager.notify(1, m_builder.build());
 
                             // Test function. Remove it later.
-                            SystemDispatcher.post("notificationManagerNotifyFinished");
+                            SystemDispatcher.dispatch("notificationManagerNotifyFinished");
                         } catch (Exception e) {
                             Log.d("",e.getMessage());
                         }
@@ -86,13 +86,13 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
                         rootView.performHapticFeedback(feedbackConstant, flags);
 
                         // Test function. Remove it later.
-                        SystemDispatcher.post("hapticFeedbackPerformFinished");
+                        SystemDispatcher.dispatch("hapticFeedbackPerformFinished");
                     };
                 };
                 activity.runOnUiThread(runnable);
             }
 
-            public void post(String name , Map data) {
+            public void onDispatched(String name , Map data) {
                 Log.d("","Listener::post");
 
                 if (name.equals("notificationManagerNotify")) {

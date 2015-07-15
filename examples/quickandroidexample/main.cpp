@@ -43,12 +43,12 @@ int main(int argc, char *argv[])
     message["field1"] = "value1";
     message["field2"] = 10;
     message["field3"] = true;
-    QASystemDispatcher::instance()->sendMessage("ping",message);
+    QASystemDispatcher::instance()->dispatch("ping",message);
 
     message.clear();
     message["title"] = "Quick Android Example";
     message["message"] = "Hello! It is Quick Android Hello World";
-    QASystemDispatcher::instance()->sendMessage("notificationManagerNotify",message);
+    QASystemDispatcher::instance()->dispatch("notificationManagerNotify",message);
 
     view.rootContext()->setContextProperty("SystemMessenger",QASystemDispatcher::instance());
 
