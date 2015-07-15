@@ -71,6 +71,7 @@ FocusScope {
         anchors.rightMargin: 0
         anchors.left: parent.left
         anchors.leftMargin: 0
+        z: contentHolder.z + 1;
     }
 
     Item {
