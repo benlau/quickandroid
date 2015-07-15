@@ -40,18 +40,9 @@ int main(int argc, char *argv[])
     view.setSource(QUrl(QStringLiteral("qrc:///main.qml")));
     view.show();
 
-
     /* Testing Code. Not needed for regular project */
     Automator* automator = new Automator();
     automator->start();
-
-    QVariantMap message;
-    message.clear();
-    message["title"] = "Quick Android Example";
-    message["message"] = "Hello! It is Quick Android Hello World";
-    QASystemDispatcher::instance()->dispatch("notificationManagerNotify",message);
-
-    view.rootContext()->setContextProperty("SystemMessenger",QASystemDispatcher::instance());
 
     return app.exec();
 }

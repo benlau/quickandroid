@@ -116,7 +116,7 @@ static jobject createHashMap(const QVariantMap &data) {
     while (iter.hasNext()) {
         iter.next();
 
-        qDebug() << iter.key() << iter.value();
+//        qDebug() << iter.key() << iter.value();
         QString key = iter.key();
         jstring jkey = env->NewStringUTF(key.toLocal8Bit().data());
         QVariant v = iter.value();

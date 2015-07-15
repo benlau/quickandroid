@@ -57,6 +57,12 @@ Activity {
             demo : "switch/SwitchDemo.qml"
         }
 
+        ListElement {
+            name : "Notification"
+            preview : ""
+            demo : "notification/NotificationDemo.qml"
+        }
+
     }
 
     ListView {

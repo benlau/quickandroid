@@ -19,5 +19,6 @@
         <file>textinput/TextInputDemo.qml</file>
         <file>switch/SwitchDemo.qml</file>
         <file>switch/SwitchPreview.qml</file>
+        <file>notification/NotificationDemo.qml</file>
     </qresource>
 </RCC>
