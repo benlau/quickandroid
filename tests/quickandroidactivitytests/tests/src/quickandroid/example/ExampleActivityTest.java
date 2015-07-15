@@ -12,6 +12,7 @@ import java.util.Queue;
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 /**
  * This is a simple framework for a test of an Application.  See
@@ -49,9 +50,8 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
     private int counter = 0;
 
-    public void testSendMessage() {
+    public void testDispatch() {
         startActivity();
-        Log.v(TAG,"testSendMessage");
 
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
@@ -80,11 +80,10 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
     private List<String> messages ;
 
-    public void testReentrant() {
+    public void testDispatchReentrant() {
         startActivity();
         messages = new ArrayList();
 
-        Log.v(TAG,"testReentrant");
         final String messageName = "testReentrant";
 
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
@@ -117,6 +116,58 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
 
         SystemDispatcher.removeListener(listener);
+        SystemDispatcher.removeListener(listener);
+    }
+
+    private static class Payload {
+        public String name;
+        public Map message;
+    }
+
+
+    private static Payload lastPayload;
+
+    /** Verify the data convension function between C++ and Java */
+    public void testDispatchTypes() {
+
+        SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
+
+            public void onDispatched(String name , Map message) {
+                Payload payload = new Payload();
+                payload.name = name;
+                payload.message = message;
+
+                lastPayload = payload;
+            }
+        };
+
+        SystemDispatcher.addListener(listener);
+
+        Map message = new HashMap();
+        message.put("field1","value1");
+        message.put("field2",10);
+        message.put("field3",true);
+        message.put("field4",false);
+
+        SystemDispatcher.dispatch("Automater::echo",message);
+
+        assertTrue(lastPayload != null);
+        assertTrue(lastPayload.message.containsKey("field1"));
+        assertTrue(lastPayload.message.containsKey("field2"));
+        assertTrue(lastPayload.message.containsKey("field3"));
+
+        String field1 = (String)  lastPayload.message.get("field1");
+        assertTrue(field1.equals("value1"));
+
+        int field2 = (int) (Integer) lastPayload.message.get("field2");
+        assertEquals(field2,10);
+
+        boolean field3 = (boolean)(Boolean) lastPayload.message.get("field3");
+        assertEquals(field3,true);
+
+        boolean field4 = (boolean)(Boolean) lastPayload.message.get("field4");
+        assertEquals(field4,false);
+
         SystemDispatcher.removeListener(listener);
     }
 

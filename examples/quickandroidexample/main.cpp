@@ -5,6 +5,7 @@
 #include "quickandroid.h"
 #include "qadrawableprovider.h"
 #include "qasystemdispatcher.h"
+#include "automator.h"
 
 #ifdef Q_OS_ANDROID
 #include <QtAndroidExtras/QAndroidJniObject>
@@ -38,6 +39,11 @@ int main(int argc, char *argv[])
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl(QStringLiteral("qrc:///main.qml")));
     view.show();
+
+
+    /* Testing Code. Not needed for regular project */
+    Automator* automator = new Automator();
+    automator->start();
 
     QVariantMap message;
     message["field1"] = "value1";
