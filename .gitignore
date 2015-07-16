@@ -27,3 +27,6 @@ build-*
 # QtCreator
 
 *.autosave
+
+tests/quickandroidactivitytests/tests/bin/*
+tests/quickandroidactivitytests/tests/gen/*

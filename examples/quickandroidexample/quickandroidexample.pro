@@ -2,7 +2,8 @@ TEMPLATE = app
 
 QT += qml quick
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    automator.cpp
 
 RESOURCES += qml.qrc
 
@@ -18,3 +19,10 @@ android {
 
 # Default rules for deployment.
 include(deployment.pri)
+
+DISTFILES += \
+    android-sources/src/quickandroid/example/ExampleActivity.java \
+    android-sources/AndroidManifest.xml
+
+HEADERS += \
+    automator.h

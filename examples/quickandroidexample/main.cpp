@@ -1,8 +1,23 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
+#include <QQmlContext>
 #include "quickandroid.h"
 #include "qadrawableprovider.h"
+#include "qasystemdispatcher.h"
+#include "automator.h"
+
+#ifdef Q_OS_ANDROID
+#include <QtAndroidExtras/QAndroidJniObject>
+#include <QtAndroidExtras/QAndroidJniEnvironment>
+
+JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void*) {
+    Q_UNUSED(vm);
+    qDebug("NativeInterface::JNI_OnLoad()");
+    QASystemDispatcher::registerNatives();
+    return JNI_VERSION_1_6;
+}
+#endif
 
 int main(int argc, char *argv[])
 {
@@ -24,6 +39,10 @@ int main(int argc, char *argv[])
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl(QStringLiteral("qrc:///main.qml")));
     view.show();
+
+    /* Testing Code. Not needed for regular project */
+    Automator* automator = new Automator();
+    automator->start();
 
     return app.exec();
 }

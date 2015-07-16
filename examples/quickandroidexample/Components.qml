@@ -5,20 +5,18 @@ import QuickAndroid.style 0.1
 
 Activity {
 
-    // @TODO: Changed to load via resource.
-    MaterialShadow {
-        asynchronous: true
-        anchors.fill: actionBar
-        depth: 1
-        z: actionBar.z - 1
-    }
-
-    ActionBar {
+    actionBar: ActionBar {
         id : actionBar
         title: "Quick Android Example Program"
-//        icon : Qt.resolvedUrl("drawable-hdpi/icon.png")
         z: 10
         actionButtonEnabled: false
+
+        MaterialShadow {
+            asynchronous: true
+            anchors.fill: actionBar
+            depth: 1
+            z: -1
+        }
     }
 
     ListModel {
@@ -59,13 +57,16 @@ Activity {
             demo : "switch/SwitchDemo.qml"
         }
 
+        ListElement {
+            name : "Notification"
+            preview : ""
+            demo : "notification/NotificationDemo.qml"
+        }
+
     }
 
     ListView {
-        anchors.top : actionBar.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        anchors.fill: parent
 
         model : listModel
         delegate : QuickButton {
