@@ -5,16 +5,18 @@ Quick Android - QML Theme and Component Library for Android
 Features
 --------
 
- 1. Provides “DP” unit
+ 1. Provide “DP” unit
  2. Page transition management
   1. "Back" to previous page by the hardware back button
  3. Unified “Drawable” component
-  1. A single component that supports color , image , QML component , simulated nine patch image as input source
+  1. A single component that supports color , image , QML component, simulated nine patch image as input source
   2. Auto scale image to fit current screen resolution
   3. Derived StateListDrawable for animated drawable like button
  4. Image provider that will find the right image for current resolution automatically.
  5. Theme / Style Engine
  6. A set of components with native look and feel on Android
+ 7. SystemDispatcher - C++ and Java communication manager. 
+  1. Auto conversion between C++ and Java data type. No need to write in JNI.
 
 UI Components
 
