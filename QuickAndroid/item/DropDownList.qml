@@ -28,26 +28,17 @@ Item {
         style.textStyle: dropDownList.style.textStyle
         gravity: "left"
 
-        Drawable {
-            source: dropDownList.style.divider
-            anchors.bottom: parent.bottom
+        Loader {
             anchors.left: parent.left
             anchors.right: parent.right
-            height : 1 * A.dp
+            anchors.bottom: parent.bottom
+            sourceComponent: dropDownList.style.divider
         }
+
     }
 
     function itemAt(index){
         return repeater.itemAt(index)
-    }
-
-    Item {
-        id : styleItem
-        property var background
-        property var verticalOffset
-        property var textStyle
-        property var divider
-        property var button
     }
 
     Drawable {

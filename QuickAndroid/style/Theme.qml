@@ -89,7 +89,6 @@ QtObject {
         background : Qt.resolvedUrl("../drawable/MenuDropdownPanelHoloLight.qml")
         verticalOffset: -10
         textStyle: actionBar.titleTextStyle
-        divider: Qt.resolvedUrl("../drawable/DividerHorizontalHoloLight.qml")
 
         // Custom Style
         button : Qt.resolvedUrl("../drawable/BtnDropdown.qml");
