@@ -19,32 +19,74 @@ Activity {
         }
     }
 
+    Component {
+        id: listItem
+        ListItem {
+            titleText: model.name
+            subTitleText: model.description
+
+            icon: Rectangle {
+                id: preview
+                anchors.verticalCenter: parent.verticalCenter
+                width: 48 * A.dp
+                height: 48 * A.dp
+                border.color: "#1A000000"
+                color : "#999999"
+
+                Loader {
+                    id : loader
+                    x: 1 * A.dp
+                    y: 1 * A.dp
+                    asynchronous: true
+                    visible: false
+                    source: Qt.resolvedUrl(model.preview)
+                    onLoaded: visible = true
+
+                    transform: RectToRectMatrix {
+                        source: Qt.rect(0,0,loader.width + 8 * A.dp,loader.height +8 *A.dp)
+                        dest: Qt.rect(0,0,preview.width - x * 2,preview.height - x * 2)
+                    }
+                }
+            }
+
+            onClicked: {
+                start(Qt.resolvedUrl(model.demo));
+            }
+        }
+    }
+
     ListModel {
         id: listModel
         ListElement {
             name : "Spinner"
             preview : "spinner/SpinnerPreview.qml"
             demo: "spinner/SpinnerDemo.qml"
+            description: "Spinner Example"
         }
 
         ListElement {
             name : "Shadow"
             preview : "shadow/ShadowPreview.qml"
             demo: "shadow/ShadowDemo.qml"
+            description: "Material Design Shadow"
+
         }
 
         ListElement {
             name : "Popup Menu"
             preview : "popupmenu/PopupMenuPreview.qml"
             demo: "popupmenu/PopupMenuDemo.qml"
+            description: "PopupArea , PopupMenu components"
         }
 
         ListElement {
             name : "Dialog"
             preview : "dialog/DialogPreview.qml"
             demo: "dialog/DialogDemo.qml"
+            description: "Dialog Component"
         }
 
+        /*
         ListElement {
             name : "Text Input"
             preview : "textinput/TextInputPreview.qml"
@@ -56,11 +98,13 @@ Activity {
             preview : "switch/SwitchPreview.qml"
             demo : "switch/SwitchDemo.qml"
         }
+        */
 
         ListElement {
             name : "Notification"
             preview : ""
             demo : "notification/NotificationDemo.qml"
+            description: "Sending notification via System Dispatcher"
         }
 
     }
@@ -69,6 +113,9 @@ Activity {
         anchors.fill: parent
 
         model : listModel
+        delegate: listItem
+
+        /*
         delegate : QuickButton {
             height: 72 * A.dp
             width: parent.width
@@ -123,6 +170,7 @@ Activity {
                 start(Qt.resolvedUrl(model.demo));
             }
         }
+        */
     }
 
 }

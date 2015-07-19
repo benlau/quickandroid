@@ -12,6 +12,7 @@ QtObject {
     property int textTopPadding: 16 * A.dp
     property int textBottomPadding : 20 * A.dp
 
+    // If icon is present, the left padding of title
     property int titleKeyline : 72 * A.dp
 
     property TextStyle titleTextStyle

@@ -10,7 +10,6 @@
         <file>popupmenu/PopupMenuPreview.qml</file>
         <file>popupmenu/PopupMenuDemo.qml</file>
         <file>drawable-xxhdpi/ic_menu.png</file>
-        <file>theme.js</file>
         <file>dialog/AlertDialog.qml</file>
         <file>dialog/DialogPreview.qml</file>
         <file>dialog/DialogDemo.qml</file>
