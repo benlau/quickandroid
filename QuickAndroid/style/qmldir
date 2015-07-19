@@ -13,3 +13,4 @@ TextInputStyle 0.1 TextInputStyle.qml
 SwitchStyle 0.1 SwitchStyle.qml
 DialogStyle 0.1 DialogStyle.qml
 ActivityStyle 0.1 ActivityStyle.qml
+ListItemStyle 0.1 ListItemStyle.qml

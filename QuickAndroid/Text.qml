@@ -29,7 +29,6 @@ Quick.Text {
 
     property alias gravity : textBehaviour.gravity
 
-
     TextBehaviour {
         id: textBehaviour
     }

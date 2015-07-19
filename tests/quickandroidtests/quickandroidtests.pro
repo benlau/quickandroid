@@ -27,4 +27,5 @@ OTHER_FILES += \
     tst_Text.qml
 
 DISTFILES += \
-    tst_QuickButton.qml
+    tst_QuickButton.qml \
+    tst_ListItem.qml

@@ -97,5 +97,8 @@
         <file>def/Constant.qml</file>
         <file>Text.qml</file>
         <file>drawable/ListDivider.qml</file>
+        <file>priv/BaseListItem.qml</file>
+        <file>ListItem.qml</file>
+        <file>style/ListItemStyle.qml</file>
     </qresource>
 </RCC>

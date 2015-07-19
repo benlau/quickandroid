@@ -24,4 +24,4 @@ AnimatedModifier 0.1 AnimatedModifier.qml
 Switch 0.1 Switch.qml
 singleton QA 0.1 QA.qml
 Text 0.1 Text.qml
-
+ListItem 0.1 ListItem.qml
