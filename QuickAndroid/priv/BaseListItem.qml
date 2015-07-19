@@ -92,58 +92,42 @@ Rectangle {
 
     RowLayout {
         id: rowLayout
-        spacing: 0
+        spacing: 8 * A.dp
         anchors.fill: parent
         anchors.leftMargin: _iconSet ? component.style.titleKeyline : component.style.leftPadding;
         anchors.rightMargin: component.style.rightPadding
 
-        ColumnLayout {
-
-            spacing: 0
-            id: titleHolder
+        Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.maximumHeight: rowLayout.height
 
-            Item {
-                Layout.fillWidth: true
-                Layout.fillHeight: false
-                height: component.style.textTopPadding
-            }
+            ColumnLayout {
+                spacing: 4 * A.dp
+                anchors.fill: parent
+                anchors.topMargin: component.style.textTopPadding
+                anchors.bottomMargin: component.style.textBottomPadding
+                id: titleHolder
 
-            Text {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                id: titleItem
-                text: titleText
-                textStyle: component.style.titleTextStyle
-                elide: Text.ElideRight
-            }
+                Text {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    id: titleItem
+                    text: titleText
+                    textStyle: component.style.titleTextStyle
+                    elide: Text.ElideRight
+                }
 
-            Text {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                id : subTitleItem
-                text: subTitleText
-                visible : subTitleText !== ""
-                textStyle: component.style.subTitleTextStyle
-                elide: Text.ElideRight
+                Text {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    id : subTitleItem
+                    text: subTitleText
+                    visible : subTitleText !== ""
+                    textStyle: component.style.subTitleTextStyle
+                    elide: Text.ElideRight
+                }
             }
-
-            Item {
-                Layout.fillWidth: true
-                Layout.fillHeight: false
-                height: component.style.textBottomPadding
-                Layout.alignment: Qt.AlignRight
-            }
-        }
-
-        Item {
-            id: spacer
-            Layout.fillHeight: true
-            Layout.maximumWidth: 8 * A.dp
-            Layout.minimumWidth: 8 * A.dp
-            Layout.maximumHeight: rowLayout.height
         }
 
         Item {
@@ -175,14 +159,12 @@ Rectangle {
 
         anchors {
             left: parent.left
+            leftMargin: dividerLeftInset
             right: parent.right
             bottom: parent.bottom
+            rightMargin: dividerRightInset
         }
     }
-
-    Binding { target : dividerLoader.item ; property: "leftInset"; value : dividerLeftInset; when: dividerLoader.item}
-    Binding { target : dividerLoader.item ; property: "rightInset"; value : dividerRightInset; when: dividerLoader.item}
-
 
 }
 
