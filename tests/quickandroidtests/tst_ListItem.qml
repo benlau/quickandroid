@@ -12,6 +12,8 @@ Rectangle {
         anchors.fill: parent
         ListItem {
             titleText : "Item 1"
+            dividerLeftInset: 45
+            dividerRightInset: 30
         }
 
         ListItem {
@@ -43,7 +45,12 @@ Rectangle {
 
 
             titleText: "Custom Icon and Value"
+        }
 
+        ListItem {
+            titleText : "Item 5"
+            subTitleText : "Subtitle"
+            valueText : "Value"
         }
     }
 

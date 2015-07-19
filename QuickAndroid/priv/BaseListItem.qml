@@ -17,8 +17,9 @@ Rectangle {
     //@TODO : Read from Style.theme
     property ListItemStyle style : ListItemStyle {}
 
-    property string titleText
-    property string valueText
+    property string titleText: ""
+    property string valueText : ""
+    property string subTitleText : ""
 
     property bool interactive : true
     property bool selected : false
@@ -29,6 +30,9 @@ Rectangle {
     property alias icon : iconHolder.children
 
     property alias value : valueHolder.children
+
+    property int dividerLeftInset : style.dividerLeftInset
+    property int dividerRightInset : style.dividerRightInset
 
     signal clicked();
 
@@ -103,24 +107,33 @@ Rectangle {
 
             Item {
                 Layout.fillWidth: true
-                Layout.fillHeight: true
-                Layout.maximumHeight: component.style.topPadding
-                Layout.minimumHeight: component.style.topPadding
+                Layout.fillHeight: false
+                height: component.style.textTopPadding
             }
 
             Text {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 id: titleItem
                 text: titleText
                 textStyle: component.style.titleTextStyle
                 elide: Text.ElideRight
             }
 
-            Item {
+            Text {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Layout.maximumHeight: component.style.bottomPadding
-                Layout.minimumHeight: component.style.bottomPadding
+                id : subTitleItem
+                text: subTitleText
+                visible : subTitleText !== ""
+                textStyle: component.style.subTitleTextStyle
+                elide: Text.ElideRight
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: false
+                height: component.style.textBottomPadding
                 Layout.alignment: Qt.AlignRight
             }
         }
@@ -149,14 +162,15 @@ Rectangle {
 
                anchors.top: parent.top
                anchors.bottom: parent.bottom
-               anchors.topMargin: component.style.topPadding
-               anchors.bottomMargin: component.style.bottomPadding
+               anchors.topMargin: component.style.textTopPadding
+               anchors.bottomMargin: component.style.textBottomPadding
              }
         }
 
     }
 
     Loader {
+        id : dividerLoader
         sourceComponent: component.style.divider
 
         anchors {
@@ -165,6 +179,9 @@ Rectangle {
             bottom: parent.bottom
         }
     }
+
+    Binding { target : dividerLoader.item ; property: "leftInset"; value : dividerLeftInset; when: dividerLoader.item}
+    Binding { target : dividerLoader.item ; property: "rightInset"; value : dividerRightInset; when: dividerLoader.item}
 
 
 }

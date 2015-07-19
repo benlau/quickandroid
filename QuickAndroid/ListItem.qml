@@ -3,6 +3,6 @@ import QuickAndroid 0.1
 import "./priv"
 
 BaseListItem {
-    height: 48 * A.dp
+    height: subTitleText === "" ? 48 * A.dp : 72 * A.dp
 }
 
