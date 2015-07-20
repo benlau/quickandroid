@@ -11,11 +11,11 @@ import QuickAndroid.def 0.1
 QtObject {
     id : theme
 
-    property var colorPrimary : "#BBDEFB" // blue 100
-    property var colorPrimaryDark : "#1565C0" // blue 800
-    property var textColorPrimary : Color.black87
-    property var windowBackground: "#EFEFEF"
-    property var navigationBarColor : "#FFFFFF"
+    property color colorPrimary : "#BBDEFB" // blue 100
+    property color colorPrimaryDark : "#1565C0" // blue 800
+    property color textColorPrimary : Color.black87
+    property color windowBackground: "#EFEFEF"
+    property color navigationBarColor : "#FFFFFF"
     property int activityDefaultDuration: 220
     property int activityShortDuration: 150
 
@@ -115,6 +115,9 @@ QtObject {
     property DialogStyle dialog : DialogStyle {
         windowEnterAnimation : Qt.resolvedUrl("../anim/GrowFadeIn.qml")
         windowExitAnimation: Qt.resolvedUrl("../anim/ShrinkFadeOut.qml")
+    }
+
+    property ListItemStyle listItem : ListItemStyle {
     }
 
     // Allow to place children under Theme.

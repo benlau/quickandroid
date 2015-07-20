@@ -19,5 +19,7 @@
         <file>switch/SwitchDemo.qml</file>
         <file>switch/SwitchPreview.qml</file>
         <file>notification/NotificationDemo.qml</file>
+        <file>theme/AppTheme.qml</file>
+        <file>theme/qmldir</file>
     </qresource>
 </RCC>
