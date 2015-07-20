@@ -37,9 +37,7 @@ Under Development Components
 Instruction of use
 ------------------
 
- 1) Clone this repository and bundle the folder within your source tree.
-
-(It is recommended to use `git submodule` to embed this repository)
+ 1) Clone this repository / download release and bundle the folder within your source tree.
 
  2) Add this line to your profile file(.pro):
 
