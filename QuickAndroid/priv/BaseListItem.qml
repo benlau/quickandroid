@@ -17,9 +17,9 @@ Rectangle {
     //@TODO : Read from Style.theme
     property ListItemStyle style : ListItemStyle {}
 
-    property string titleText: ""
-    property string valueText : ""
-    property string subTitleText : ""
+    property string title: ""
+    property string value : ""
+    property string subtitle : ""
 
     property bool interactive : true
     property bool selected : false
@@ -29,7 +29,7 @@ Rectangle {
 
     property alias icon : iconHolder.children
 
-    property alias value : valueHolder.children
+    property alias rightIcon : valueHolder.children
 
     property int dividerLeftInset : style.dividerLeftInset
     property int dividerRightInset : style.dividerRightInset
@@ -113,7 +113,7 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     id: titleItem
-                    text: titleText
+                    text: title
                     textStyle: component.style.titleTextStyle
                     elide: Text.ElideRight
                 }
@@ -121,10 +121,10 @@ Rectangle {
                 Text {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    id : subTitleItem
-                    text: subTitleText
-                    visible : subTitleText !== ""
-                    textStyle: component.style.subTitleTextStyle
+                    id : subtitleItem
+                    text: subtitle
+                    visible : subtitle !== ""
+                    textStyle: component.style.subtitleTextStyle
                     elide: Text.ElideRight
                 }
             }
@@ -141,7 +141,7 @@ Rectangle {
             Text {
                id: valueItem
                textStyle: component.style.valueTextStyle
-               text: valueText
+               text: value
                elide: Text.ElideRight
 
                anchors.top: parent.top

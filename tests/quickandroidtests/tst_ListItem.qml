@@ -11,20 +11,20 @@ Rectangle {
     Column {
         anchors.fill: parent
         ListItem {
-            titleText : "Item 1"
+            title : "Item 1"
             dividerLeftInset: 45
             dividerRightInset: 30
         }
 
         ListItem {
-            titleText : "Item 2 - 12345678901234567890123456789012345678901234567890"
-            valueText : "Value"
+            title : "Item 2 - 12345678901234567890123456789012345678901234567890"
+            value : "Value"
         }
 
         ListItem {
             iconSource: Qt.resolvedUrl("img/ic_action_accept.png")
-            titleText: "Item 3"
-            valueText : "Value"
+            title: "Item 3"
+            value : "Value"
             z:1
         }
 
@@ -36,7 +36,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
             }
 
-            value : Rectangle {
+            rightIcon : Rectangle {
                 width: 32
                 height: 32
                 color : "red"
@@ -44,13 +44,13 @@ Rectangle {
             }
 
 
-            titleText: "Custom Icon and Value"
+            title: "Custom Icon and Value"
         }
 
         ListItem {
-            titleText : "Item 5"
-            subTitleText : "Subtitle"
-            valueText : "Value"
+            title : "Item 5"
+            subtitle : "Subtitle"
+            value : "Value"
         }
     }
 

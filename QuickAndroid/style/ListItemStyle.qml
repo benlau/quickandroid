@@ -18,7 +18,7 @@ QtObject {
     property TextStyle titleTextStyle
     property TextStyle valueTextStyle
 
-    property TextStyle subTitleTextStyle : TextStyle {
+    property TextStyle subtitleTextStyle : TextStyle {
         textSize: 14
         textColor : Color.black54
     }
