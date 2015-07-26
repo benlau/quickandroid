@@ -146,17 +146,15 @@ static jobject createHashMap(const QVariantMap &data) {
 static void jniEmit(JNIEnv* env,jobject object,jstring name,jobject data) {
     Q_UNUSED(object);
     QString str = env->GetStringUTFChars(name, 0);
-//    qDebug() << "invoke" << str;
 
     QVariantMap map;
 
     if (data != 0)
         map = createVariantMap(data);
-//    qDebug() << "invoke" << str << map;
     if (m_instance.isNull())
         return;
 
-    QMetaObject::invokeMethod(m_instance.data(),"dispatched",Qt::QueuedConnection,
+    QMetaObject::invokeMethod(m_instance.data(),"dispatched",Qt::AutoConnection,
                               Q_ARG(QString, str),
                               Q_ARG(QVariantMap,map));
 }
