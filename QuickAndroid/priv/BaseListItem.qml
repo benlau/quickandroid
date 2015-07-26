@@ -14,8 +14,7 @@ import QuickAndroid.def 0.1
 Rectangle {
     id: component
 
-    //@TODO : Read from Style.theme
-    property ListItemStyle style : ListItemStyle {}
+    property ListItemStyle style : Style.theme.listItem
 
     property string title: ""
     property string value : ""

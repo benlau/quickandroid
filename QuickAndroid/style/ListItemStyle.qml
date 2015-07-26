@@ -16,7 +16,10 @@ QtObject {
     property int titleKeyline : 72 * A.dp
 
     property TextStyle titleTextStyle
-    property TextStyle valueTextStyle
+    property TextStyle valueTextStyle : TextStyle {
+        textSize: 16
+        textColor : Color.black54
+    }
 
     property TextStyle subtitleTextStyle : TextStyle {
         textSize: 14
