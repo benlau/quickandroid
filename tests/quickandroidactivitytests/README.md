@@ -25,6 +25,7 @@ Command to execute a single test case.
 
 $ adb shell am  instrument -w -e class quickandroid.example.ExampleActivityTest#testSendMessage  quickandroid.example.tests/android.test.InstrumentationTestRunner
 
-
+List instrumentation
+$ adb shell pm list instrumentation
 
 

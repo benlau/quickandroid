@@ -1,32 +1,18 @@
 package quickandroid.example;
 import quickandroid.SystemDispatcher;
-
-import java.util.Map;
-import java.util.HashMap;
-import org.qtproject.qt5.android.QtNative;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.os.Handler;
 import android.app.Activity;
 import android.view.View;
 import android.content.Context;
+import java.util.Map;
+import org.qtproject.qt5.android.QtNative;
 
-/* Custom QtActivity is not a must to develop Android application using Qt. It is just
-   needed for using native API that need to use resource files.
+public class ExampleService {
 
-   In this example, it will demonstrate how to use the notification system.
- */
-
-public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivity {
-
-    static {
+    static void start() {
 
         SystemDispatcher.addListener(new SystemDispatcher.Listener() {
 
@@ -105,7 +91,6 @@ public class ExampleActivity extends org.qtproject.qt5.android.bindings.QtActivi
         });
 
     }
-
 
 }
 

@@ -22,8 +22,8 @@ Activity {
     Component {
         id: listItem
         ListItem {
-            titleText: model.name
-            subTitleText: model.description
+            title: model.name
+            subtitle: model.description
 
             icon: Rectangle {
                 id: preview

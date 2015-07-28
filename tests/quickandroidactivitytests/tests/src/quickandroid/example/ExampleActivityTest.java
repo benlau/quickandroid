@@ -13,6 +13,7 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+import quickandroid.QuickAndroidActivity;
 
 /**
  * This is a simple framework for a test of an Application.  See
@@ -24,12 +25,12 @@ import java.util.HashMap;
  * -e class quickandroid.example.ExampleActivityTest \
  * quickandroid.example.tests/android.test.InstrumentationTestRunner
  */
-public class ExampleActivityTest extends ActivityInstrumentationTestCase2<ExampleActivity> {
+public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickAndroidActivity> {
 
-    private static String TAG = "ExampleActivityTest";
+    private static String TAG = "ActivityTest";
 
     public ExampleActivityTest() {
-        super("quickandroid.example", ExampleActivity.class);
+        super("quickandroid", QuickAndroidActivity.class);
     }
 
     private static boolean launched = false;
@@ -41,7 +42,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<Exampl
 
         Instrumentation instrumentation = getInstrumentation();
         Intent intent = new Intent(getInstrumentation()
-                .getTargetContext(), ExampleActivity.class);
+                .getTargetContext(), QuickAndroidActivity.class);
         intent.setFlags(intent.getFlags()  | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         mActivity = instrumentation.startActivitySync(intent);
