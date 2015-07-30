@@ -102,7 +102,15 @@ public class SystemDispatcher {
         }
     }
 
+    public static String ACTIVITY_RESUME_MESSAGE = "Activity.onResume";
     public static String ACTIVITY_RESULT_MESSAGE = "Activity.onActivityResult";
+
+    /** A helper function to dispatch a massage when onResume is invoked in the Activity class
+     */
+
+    public static void onActivityResume() {
+        dispatch(ACTIVITY_RESUME_MESSAGE);
+    }
 
     /** A helper function to dispatch a message based on the input argument fron Activity.onActivityResult
      */

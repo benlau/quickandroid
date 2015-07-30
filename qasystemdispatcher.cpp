@@ -6,6 +6,10 @@
 
 static QPointer<QASystemDispatcher> m_instance;
 
+QString QASystemDispatcher::ACTIVITY_RESUME_MESSAGE = "Activity.onResume";
+QString QASystemDispatcher::ACTIVITY_RESULT_MESSAGE = "Activity.onActivityResult";
+
+
 #ifdef Q_OS_ANDROID
 #include <QAndroidJniObject>
 #include <QAndroidJniEnvironment>

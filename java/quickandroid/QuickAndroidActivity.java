@@ -17,5 +17,10 @@ public class QuickAndroidActivity extends org.qtproject.qt5.android.bindings.QtA
         SystemDispatcher.onActivityResult(requestCode,resultCode,data);
     }
 
+    protected void onResume() {
+        super.onResume();
+        SystemDispatcher.onActivityResume();
+    }
+
 }
 
