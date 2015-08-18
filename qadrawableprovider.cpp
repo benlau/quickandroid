@@ -72,7 +72,17 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
 
         insert(id,image);
         *size = image.size();
-        break;
+        return image;
+    }
+
+    // Load from drawable
+    image = tryLoadSuffix(m_basePath + "/drawable/" + id,1.0);
+
+    if (image.isNull()) {
+        qWarning() << QString("Failed to load image://drawable/%1").arg(id);
+    } else {
+        insert(id,image);
+        *size = image.size();
     }
 
     return image;
@@ -108,34 +118,53 @@ void QADrawableProvider::insert(const QString &id, QImage image)
 
 QImage QADrawableProvider::tryLoad(QString dpi, QString id,qreal scale)
 {
-    QString pathFormat("%1/drawable-%2/%3%4");
+    QString pathFormat("%1/drawable-%2/%3");
+    QImage image;
+
+    QString path = pathFormat.arg(m_basePath).arg(dpi).arg(id);
+
+    image = tryLoadSuffix(path,scale);
+
+    return image;
+}
+
+QImage QADrawableProvider::tryLoadSuffix(QString prefix, qreal scale)
+{
     QImage image;
     QStringList exts;
     exts << ".png" << ".jpg" << ""; // In case extension is already included;
 
     for (int i = 0 ; i < exts.size();i++) {
-        QString path = pathFormat.arg(m_basePath).arg(dpi).arg(id).arg(exts.at(i));
+        image = tryLoadAbs(prefix + exts.at(i),scale);
+        if (!image.isNull())
+            break;
+    }
 
-        QFileInfo info(path);
+    return image;
+}
 
-        if (!info.exists())
-            continue;
 
-        QImageReader reader(path);
+QImage QADrawableProvider::tryLoadAbs(QString path,qreal scale)
+{
+    QImage image;
+    QFileInfo info(path);
 
-        if (scale != 1.0) {
-            QSize size = reader.size();
-            size.setWidth(size.width() * scale);
-            size.setHeight(size.height() * scale);
-            reader.setScaledSize(size);
-        }
+    if (!info.exists())
+        return image;
 
-        image = reader.read();
+    QImageReader reader(path);
 
-        if (image.isNull()) {
-            qWarning() << QString("image://drawable/%1 is failed to read: %2").arg(id).arg(reader.errorString());
-        }
-        break;
+    if (scale != 1.0) {
+        QSize size = reader.size();
+        size.setWidth(size.width() * scale);
+        size.setHeight(size.height() * scale);
+        reader.setScaledSize(size);
+    }
+
+    image = reader.read();
+
+    if (image.isNull()) {
+        qWarning() << QString("Failed to read %1 : %2").arg(path).arg(reader.errorString());
     }
 
     return image;

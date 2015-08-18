@@ -22,3 +22,6 @@ include(../../quickandroid.pri)
 
 RESOURCES += \
     ../../examples/quickandroidexample/qml.qrc
+
+DISTFILES += \
+    test_drawableprovider.qml

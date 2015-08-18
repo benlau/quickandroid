@@ -28,6 +28,8 @@ private:
     void insert(const QString &id,QImage image);
 
     QImage tryLoad(QString dpi,QString id,qreal scale = 1.0);
+    QImage tryLoadSuffix(QString prefix,qreal scale = 1.0);
+    QImage tryLoadAbs(QString path,qreal scale = 1.0);
 
     QString m_basePath;
     QCache<QString,QImage> storage;
