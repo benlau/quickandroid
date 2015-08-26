@@ -86,6 +86,12 @@ Activity {
             description: "Dialog Component"
         }
 
+        ListElement {
+            name: "Drawable Provider"
+            demo: "drawableprovider/DrawableProviderDemo.qml"
+            description: "Loading drawable resource in Android style"
+        }
+
         /*
         ListElement {
             name : "Text Input"
@@ -114,63 +120,6 @@ Activity {
 
         model : listModel
         delegate: listItem
-
-        /*
-        delegate : QuickButton {
-            height: 72 * A.dp
-            width: parent.width
-
-            Rectangle {
-                id : preview
-                anchors.left: parent.left
-                anchors.leftMargin: 16 * A.dp
-                anchors.verticalCenter: parent.verticalCenter
-                width: 48 * A.dp
-                height: 48 * A.dp
-                border.color: "#1A000000"
-                color : "#999999"
-
-                Loader {
-                    id : loader
-                    x: 1 * A.dp
-                    y: 1 * A.dp
-                    asynchronous: true
-                    visible: false
-                    source: Qt.resolvedUrl(model.preview)
-                    onLoaded: visible = true
-
-                    transform: RectToRectMatrix {
-                        source: Qt.rect(0,0,loader.width + 8 * A.dp,loader.height +8 *A.dp)
-                        dest: Qt.rect(0,0,preview.width - x * 2,preview.height - x * 2)
-                    }
-                }
-            }
-
-
-            Text {
-                id: title
-                text: model.name
-                anchors.left: preview.right
-                anchors.leftMargin: 16 * A.dp
-                anchors.verticalCenter: parent.verticalCenter
-                font.pixelSize: Style.theme.mediumText.textSize * A.dp
-                color : Style.theme.black87
-            }
-
-            Rectangle {
-                id: divider
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 1 * A.dp
-                color : "#1A000000"
-            }
-
-            onClicked: {
-                start(Qt.resolvedUrl(model.demo));
-            }
-        }
-        */
     }
 
 }

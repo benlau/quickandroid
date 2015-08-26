@@ -24,4 +24,5 @@ RESOURCES += \
     ../../examples/quickandroidexample/qml.qrc
 
 DISTFILES += \
-    test_drawableprovider.qml
+    test_drawableprovider.qml \
+    test_drawableprovider_tintcolor.qml

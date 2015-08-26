@@ -1,10 +1,13 @@
 #include <QtCore>
 #include <QImageReader>
+#include <QPainter>
+#include <QColor>
 #include "quickandroid.h"
 #include "qadrawableprovider.h"
 
 QADrawableProvider::QADrawableProvider() : QQuickImageProvider(QQmlImageProviderBase::Image)
 {
+    // 50MB
     setLimit(50 *1024 * 1024);
 }
 
@@ -32,6 +35,11 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
         return get(id);
     }
 
+    // ID Parser.
+    QUrl url(id);
+    QString filename = url.path();
+    QColor tintColor = parseTintColor(url.query());
+
     QList<QPair<QString,qreal> > resolutions;
 
     resolutions << QPair<QString,qreal>("xxxhdpi",4)
@@ -55,8 +63,10 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
         index = 0;
     }
 
+    // Load from current DPI path
+
     QString dpi = resolutions.at(index).first;
-    image = tryLoad(dpi,id);
+    image = loadFileName(filename,dpi, tintColor);
     if (!image.isNull()) {
         insert(id,image);
         *size = image.size();
@@ -66,7 +76,7 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
     for (int i = 0 ; i < resolutions.size() ; i++ ) {
         dpi = resolutions.at(i).first;
         qreal imageDp = resolutions.at(i).second;
-        image = tryLoad(dpi,id , dp / imageDp);
+        image = loadFileName(filename, dpi, dp / imageDp);
         if (image.isNull())
             continue;
 
@@ -76,7 +86,7 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
     }
 
     // Load from drawable
-    image = tryLoadSuffix(m_basePath + "/drawable/" + id,1.0);
+    image = loadPrefix(m_basePath + "/drawable/" + filename,1.0);
 
     if (image.isNull()) {
         qWarning() << QString("Failed to load image://drawable/%1").arg(id);
@@ -108,34 +118,33 @@ void QADrawableProvider::insert(const QString &id, QImage image)
 {
     QMutexLocker locker(&mutex);
     Q_UNUSED(locker);
-    QSize size = image.size();
-    int cost = size.width() * size.height();
+    int cost = image.byteCount();
 
     QImage *tmp = new QImage();
     *tmp = image;
     storage.insert(id,tmp,cost);
 }
 
-QImage QADrawableProvider::tryLoad(QString dpi, QString id,qreal scale)
+QImage QADrawableProvider::loadFileName(QString filename, QString dpi ,QColor tintColor, qreal scale)
 {
     QString pathFormat("%1/drawable-%2/%3");
     QImage image;
 
-    QString path = pathFormat.arg(m_basePath).arg(dpi).arg(id);
+    QString path = pathFormat.arg(m_basePath).arg(dpi).arg(filename);
 
-    image = tryLoadSuffix(path,scale);
+    image = loadPrefix(path,tintColor, scale);
 
     return image;
 }
 
-QImage QADrawableProvider::tryLoadSuffix(QString prefix, qreal scale)
+QImage QADrawableProvider::loadPrefix(QString prefix, QColor tintColor, qreal scale)
 {
     QImage image;
     QStringList exts;
     exts << ".png" << ".jpg" << ""; // In case extension is already included;
 
     for (int i = 0 ; i < exts.size();i++) {
-        image = tryLoadAbs(prefix + exts.at(i),scale);
+        image = loadAbsPath(prefix + exts.at(i),tintColor, scale);
         if (!image.isNull())
             break;
     }
@@ -144,7 +153,7 @@ QImage QADrawableProvider::tryLoadSuffix(QString prefix, qreal scale)
 }
 
 
-QImage QADrawableProvider::tryLoadAbs(QString path,qreal scale)
+QImage QADrawableProvider::loadAbsPath(QString path, QColor tintColor, qreal scale)
 {
     QImage image;
     QFileInfo info(path);
@@ -163,11 +172,78 @@ QImage QADrawableProvider::tryLoadAbs(QString path,qreal scale)
 
     image = reader.read();
 
+    if (!image.isNull() && tintColor.isValid()) {
+        image = colorize(image,tintColor);
+    }
+
     if (image.isNull()) {
         qWarning() << QString("Failed to read %1 : %2").arg(path).arg(reader.errorString());
     }
 
     return image;
+}
+
+QColor QADrawableProvider::parseTintColor(const QString &query)
+{
+    QColor tintColor;
+
+    QStringList token = query.split("&");
+
+    Q_FOREACH(QString expression,token) {
+        QStringList pair = expression.split("=");
+        if (pair.size() != 2)
+            continue;
+
+        if (pair.at(0) != "tintColor")
+            continue;
+
+        QString color = pair.at(1);
+
+        if (QColor::isValidColor(color)) {
+            tintColor = QColor(color);
+            break;
+        }
+
+        color = QString("#") + color;
+        if (QColor::isValidColor(color)) {
+            tintColor = QColor(color);
+            break;
+        }
+    }
+
+    return tintColor;
+}
+
+QImage QADrawableProvider::colorize(QImage image, QColor tintColor)
+{
+    QImage canvas = QImage(image.size(), image.format());
+
+    gray(canvas,image);
+
+    QPainter painter(&canvas);
+
+    painter.setCompositionMode(QPainter::CompositionMode_Screen);
+    painter.fillRect(0,0,canvas.width(),canvas.height(),tintColor);
+    painter.end();
+
+    if (image.hasAlphaChannel())
+        canvas.setAlphaChannel(image.alphaChannel());
+
+    return canvas;
+}
+
+void QADrawableProvider::gray(QImage& dest,QImage& src)
+{
+    for (int y = 0; y < src.height(); ++y) {
+        unsigned int *data = (unsigned int *)src.scanLine(y);
+        unsigned int *outData = (unsigned int*)dest.scanLine(y);
+
+        for (int x = 0 ; x < src.width(); x++) {
+            int val = qGray(data[x]);
+            outData[x] = qRgba(val,val,val,qAlpha(data[x]));
+        }
+    }
+
 }
 
 int QADrawableProvider::limit() const

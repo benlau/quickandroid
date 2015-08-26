@@ -21,5 +21,11 @@
         <file>notification/NotificationDemo.qml</file>
         <file>theme/AppTheme.qml</file>
         <file>theme/qmldir</file>
+        <file>drawable-hdpi/ic_android_black_48dp.png</file>
+        <file>drawable-xxhdpi/ic_android_black_48dp.png</file>
+        <file>drawable-mdpi/ic_android_black_48dp.png</file>
+        <file>drawable-xhdpi/ic_android_black_48dp.png</file>
+        <file>drawable-xxxhdpi/ic_android_black_48dp.png</file>
+        <file>drawableprovider/DrawableProviderDemo.qml</file>
     </qresource>
 </RCC>
