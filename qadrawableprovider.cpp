@@ -214,22 +214,37 @@ QColor QADrawableProvider::parseTintColor(const QString &query)
     return tintColor;
 }
 
-QImage QADrawableProvider::colorize(QImage image, QColor tintColor)
+QImage QADrawableProvider::colorize(QImage src, QColor tintColor)
 {
-    QImage canvas = QImage(image.size(), image.format());
+    QImage dst = QImage(src.size(), src.format());
 
-    gray(canvas,image);
+    gray(dst,src);
 
-    QPainter painter(&canvas);
+    QPainter painter(&dst);
+
+    QColor pureColor = tintColor;
+    pureColor.setAlpha(255);
 
     painter.setCompositionMode(QPainter::CompositionMode_Screen);
-    painter.fillRect(0,0,canvas.width(),canvas.height(),tintColor);
+    painter.fillRect(0,0,dst.width(),dst.height(),pureColor);
     painter.end();
 
-    if (image.hasAlphaChannel())
-        canvas.setAlphaChannel(image.alphaChannel());
+    if (tintColor.alpha() != 255) {
+        QImage buffer = QImage(src.size(), src.format());
+        buffer.fill(QColor("transparent"));
+        QPainter bufPainter(&buffer);
+        qreal opacity = tintColor.alpha() / 255.0;
+        bufPainter.setOpacity(opacity);
+        bufPainter.drawImage(0,0,dst);
+        bufPainter.end();
+        dst = buffer;
+    }
 
-    return canvas;
+    if (src.hasAlphaChannel()) {
+        dst.setAlphaChannel(src.alphaChannel());
+    }
+
+    return dst;
 }
 
 void QADrawableProvider::gray(QImage& dest,QImage& src)

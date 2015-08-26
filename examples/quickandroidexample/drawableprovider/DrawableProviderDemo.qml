@@ -23,17 +23,22 @@ Activity {
         id: listModel
         ListElement {
             source : "image://drawable/ic_android_black_48dp"
-            title: "Default"
+            title: "No tintColor"
         }
 
         ListElement {
             source : "image://drawable/ic_android_black_48dp?tintColor=red"
-            title: "Set tintColor to 'red'"
+            title: "tintColor='red'"
         }
 
         ListElement {
             source : "image://drawable/ic_android_black_48dp?tintColor=5D76DB"
-            title: "Set tintColor to 5D76DB"
+            title: "tintColor=5D76DB"
+        }
+
+        ListElement {
+            source : "image://drawable/ic_android_black_48dp?tintColor=7F5D76DB"
+            title: "tintColor=7F5D76DB"
         }
 
     }
@@ -46,6 +51,7 @@ Activity {
             title: model.title
             subtitle : model.source
             height: 72 * A.dp
+            color: "#9FFFFFFF"
 
             icon: Image {
                 anchors.verticalCenter: parent.verticalCenter
