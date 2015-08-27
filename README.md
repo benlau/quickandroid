@@ -12,7 +12,10 @@ Features
   1. A single component that supports color , image , QML component, simulated nine patch image as input source
   2. Auto scale image to fit current screen resolution
   3. Derived StateListDrawable for animated drawable like button
- 4. Image provider that will find the right image for current resolution automatically.
+ 4. Drawable Image provider
+  1. Load image resource in Android resource style. (e.g drawable-xxxhdpi)
+  2. Choose the best image according to current resolution automatically.
+  3. Apply a tint of color to image
  5. Theme / Style Engine
  6. A set of components with native look and feel on Android
  7. SystemDispatcher - C++ and Java communication manager. 
@@ -111,7 +114,7 @@ Please feel free to submit the request to the wiki. Moreover, you may take a loo
 
 Q. Looking for iOS Native Component?
 
-1. [hilarycheng/quickios](https://github.com/hilarycheng/quickios) (Still Under Development)
+1. [benlau/quickios](https://github.com/benlau/quickios) 
 
 Q. Any library for ...?
 
