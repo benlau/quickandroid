@@ -6,7 +6,8 @@ import "./theme"
 Application {
     width: 480
     height: 640
-    icon : Qt.resolvedUrl("drawable-hdpi/icon.png")
+    icon : "image://drawable/icon.png"
+//    icon: Qt.resolvedUrl("./res/drawable-hdpi/icon.png")
     theme: AppTheme
 
     Component.onCompleted: {

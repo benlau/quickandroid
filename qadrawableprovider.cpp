@@ -76,7 +76,7 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
     for (int i = 0 ; i < resolutions.size() ; i++ ) {
         dpi = resolutions.at(i).first;
         qreal imageDp = resolutions.at(i).second;
-        image = loadFileName(filename, dpi, dp / imageDp);
+        image = loadFileName(filename, dpi, tintColor, dp / imageDp);
         if (image.isNull())
             continue;
 

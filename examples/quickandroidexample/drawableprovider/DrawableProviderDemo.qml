@@ -52,6 +52,7 @@ Activity {
             subtitle : model.source
             height: 72 * A.dp
             color: "#9FFFFFFF"
+            interactive: false
 
             icon: Image {
                 anchors.verticalCenter: parent.verticalCenter

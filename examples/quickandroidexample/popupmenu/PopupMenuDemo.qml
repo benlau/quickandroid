@@ -20,7 +20,7 @@ Activity {
         z: 10
 
         menuBar : QuickButton {
-            icon : Qt.resolvedUrl("../drawable-xxhdpi/ic_menu.png")
+            icon : "image://drawable/ic_menu.png"
             onClicked:  {
                 popupMenu.toggle();
             }

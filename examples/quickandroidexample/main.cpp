@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
     // Extra features:
     QADrawableProvider* provider = new QADrawableProvider();
-    provider->setBasePath("qrc:///");
+    provider->setBasePath("qrc://res");
     view.engine()->addImageProvider("drawable",provider);
 
     view.setResizeMode(QQuickView::SizeRootObjectToView);
