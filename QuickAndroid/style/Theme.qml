@@ -20,10 +20,17 @@ QtObject {
     property int activityShortDuration: 150
 
     // colors_material.xml
+    property string black : "#000000"
     property string black87 : "#de000000"
     property string black54 : "#8a000000"
+
+    property string white : "#ffffff"
     property string white87 : "#deffffff"
     property string white38 : "#61ffffff"
+
+    // Metric
+    property int keyline1: 16
+    property int keyline2: 72
 
     // Normal test style
     property TextStyle text : TextStyle {
@@ -118,6 +125,9 @@ QtObject {
     }
 
     property ListItemStyle listItem : ListItemStyle {
+        leftPadding: keyline1
+        rightPadding: keyline1
+        titleKeyline: keyline2
     }
 
     // Allow to place children under Theme.

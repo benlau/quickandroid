@@ -10,8 +10,9 @@ Rectangle {
 
     Column {
         anchors.fill: parent
+
         ListItem {
-            title : "Item 1"
+            title : "Item 1 - 12345678901234567890123456789012345678901234567890"
             dividerLeftInset: 45
             dividerRightInset: 30
         }
@@ -19,6 +20,15 @@ Rectangle {
         ListItem {
             title : "Item 2 - 12345678901234567890123456789012345678901234567890"
             value : "Value"
+
+            Rectangle {
+                // textTopPadding is 16dp
+                height: 1
+                width: parent.width
+                color : "red"
+                anchors.top: parent.top
+                anchors.topMargin: 16
+            }
         }
 
         ListItem {
@@ -48,9 +58,38 @@ Rectangle {
         }
 
         ListItem {
-            title : "Item 5"
+            title : "Item 5 - 12345678901234567890123456789012345678901234567890"
+            subtitle : "Subtitle - 12345678901234567890123456789012345678901234567890"
+            rightIcon: Image {
+                source: Qt.resolvedUrl("img/ic_action_accept.png")
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+
+        ListItem {
+            iconSource: Qt.resolvedUrl("img/ic_action_accept.png")
+            title: "Item 6"
             subtitle : "Subtitle"
-            value : "Value"
+            value: "Value"
+            z:1
+
+            Rectangle {
+                // textTopPadding is 16dp
+                height: 1
+                width: parent.width
+                color : "red"
+                anchors.top: parent.top
+                anchors.topMargin: 16
+            }
+
+            Rectangle {
+                // textBottomPadding is 20dp
+                height: 1
+                width: parent.width
+                color : "red"
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 16
+            }
         }
     }
 

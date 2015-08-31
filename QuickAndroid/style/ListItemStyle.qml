@@ -6,14 +6,14 @@ import "../drawable"
 QtObject {
     property color backgroundColor : "#ffffff"
 
-    property int leftPadding : 16 * A.dp
-    property int rightPadding: 16 * A.dp
+    property int leftPadding: 16
+    property int rightPadding: 16
 
-    property int textTopPadding: 16 * A.dp
-    property int textBottomPadding : 20 * A.dp
+    property int textTopPadding: 16
+    property int textBottomPadding: 20
 
     // If icon is present, the left padding of title
-    property int titleKeyline : 72 * A.dp
+    property int titleKeyline: 72
 
     property TextStyle titleTextStyle
     property TextStyle valueTextStyle : TextStyle {
