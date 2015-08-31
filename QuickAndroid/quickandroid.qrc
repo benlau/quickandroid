@@ -100,5 +100,6 @@
         <file>priv/BaseListItem.qml</file>
         <file>ListItem.qml</file>
         <file>style/ListItemStyle.qml</file>
+        <file>FloatingActionButton.qml</file>
     </qresource>
 </RCC>

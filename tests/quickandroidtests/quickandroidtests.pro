@@ -28,4 +28,5 @@ OTHER_FILES += \
 
 DISTFILES += \
     tst_QuickButton.qml \
-    tst_ListItem.qml
+    tst_ListItem.qml \
+    tst_FloatingActionButton.qml
