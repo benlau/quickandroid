@@ -95,7 +95,7 @@ An example program is available in the folder of [tests/quickandroidexample](tes
 
 Remarks: Daily build for non-master branch may not be working. 
 
-![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/tests/quickandroidexample/docs/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/examples/quickandroidexample/docs/screenshot.png)
 
 License
 -------
