@@ -98,7 +98,7 @@ Rectangle {
         anchors.right: parent.right
 
         anchors.leftMargin: _iconSet ? component.style.titleKeyline * A.dp : component.style.leftPadding * A.dp
-        anchors.topMargin: component.style.textTopPadding
+        anchors.topMargin: component.style.textTopPadding * A.dp
         anchors.rightMargin: parent.width - valueHolder.x
     }
 
@@ -114,8 +114,8 @@ Rectangle {
         anchors.right: parent.right
 
         anchors.leftMargin: _iconSet ? component.style.titleKeyline * A.dp : component.style.leftPadding * A.dp
-        anchors.bottomMargin: component.style.textBottomPadding * A.dp
         anchors.rightMargin: parent.width - valueHolder.x
+        anchors.bottomMargin: component.style.textBottomPadding * A.dp
     }
 
     Item {
@@ -136,26 +136,6 @@ Rectangle {
            anchors.topMargin: component.style.textTopPadding
            anchors.bottomMargin: component.style.textBottomPadding
          }
-    }
-
-    RowLayout {
-        id: rowLayout
-        spacing: 8 * A.dp
-        anchors.fill: parent
-
-        Item {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.maximumHeight: rowLayout.height
-
-            ColumnLayout {
-                spacing: 4 * A.dp
-                anchors.fill: parent
-                anchors.topMargin: component.style.textTopPadding
-                anchors.bottomMargin: component.style.textBottomPadding
-                id: titleHolder
-            }
-        }
     }
 
     Loader {

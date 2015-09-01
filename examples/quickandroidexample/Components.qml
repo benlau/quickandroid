@@ -98,9 +98,9 @@ Activity {
         }
 
         ListElement {
-            name: "FloatingActionButton"
+            name: "Floating Action Button"
             demo: "floatingactionbutton/FloatingActionButtonDemo.qml"
-            description: "FloatingActionButton"
+            description: "Circled button floating above UI"
         }
 
         /*
