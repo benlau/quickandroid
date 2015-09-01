@@ -9,7 +9,6 @@ Activity {
         showTitle: true
 
         onActionButtonClicked: back();
-        z: 10
 
         MaterialShadow {
             asynchronous: true

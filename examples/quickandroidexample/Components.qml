@@ -8,7 +8,6 @@ Activity {
     actionBar: ActionBar {
         id : actionBar
         title: "Quick Android Example Program"
-        z: 10
         actionButtonEnabled: false
 
         MaterialShadow {
@@ -90,6 +89,18 @@ Activity {
             name: "Drawable Provider"
             demo: "drawableprovider/DrawableProviderDemo.qml"
             description: "Loading drawable resource in Android style"
+        }
+
+        ListElement {
+            name: "ListItem"
+            demo: "listitem/ListItemDemo.qml"
+            description: "Lists: Control"
+        }
+
+        ListElement {
+            name: "FloatingActionButton"
+            demo: "floatingactionbutton/FloatingActionButtonDemo.qml"
+            description: "FloatingActionButton"
         }
 
         /*
