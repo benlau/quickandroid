@@ -28,14 +28,14 @@ Rectangle {
             title: "Actoin Bar 2"
 
             id: actionBar2
-            icon: Qt.resolvedUrl("drawable-hdpi/icon.png")
+            iconSource: Qt.resolvedUrl("drawable-hdpi/icon.png")
         }
 
         ActionBar {
             title: "Actoin Bar 3"
 
             id: actionBar3
-            icon: Qt.resolvedUrl("drawable-hdpi/icon.png")
+            iconSource: Qt.resolvedUrl("drawable-hdpi/icon.png")
 
             content: Rectangle {
                 height: actionBar3.height

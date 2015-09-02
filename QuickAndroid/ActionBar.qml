@@ -19,10 +19,10 @@ Item {
 
     property bool upEnabled : false
 
-    property string icon
+    property string iconSource
 
     property ActionBarStyle style : ActionBarStyle {
-        icon : Style.theme.actionBar.icon
+        iconSource : Style.theme.actionBar.iconSource
         background: Style.theme.actionBar.background
         actionButtonBackground: Style.theme.actionBar.actionButtonBackground
         titleTextStyle:  Style.theme.actionBar.titleTextStyle
@@ -84,10 +84,10 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
             asynchronous: true
-            source: actionBar.icon ? actionBar.icon : actionBar.style.icon
+            source: actionBar.iconSource ? actionBar.iconSource : actionBar.style.iconSource
             sourceSize: Qt.size(32 * A.dp,32 * A.dp)
 
-            property bool show: showIcon && actionBar.style.icon || actionBar.icon
+            property bool show: showIcon && actionBar.style.iconSource || actionBar.iconSource
         }
 
         Text {
@@ -138,8 +138,8 @@ Item {
     Component.onCompleted: {
         if (!actionBar.icon &&
              Global.application &&
-             Global.application.icon) {
-            actionBar.icon = Global.application.icon
+             Global.application.iconSource) {
+            actionBar.iconSource = Global.application.iconSource
         }
 
     }
