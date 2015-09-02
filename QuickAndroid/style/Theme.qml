@@ -72,6 +72,8 @@ QtObject {
         homeMarginLeft: -2
         divider : Color.black12
         padding: 8
+        keyline1: theme.keyline1
+        keyline2: theme.keyline2
     }
 
     property SpinnerStyle spinner : SpinnerStyle {

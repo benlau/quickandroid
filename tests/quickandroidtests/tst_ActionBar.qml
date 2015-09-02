@@ -8,20 +8,68 @@ Rectangle {
     width: 480
     height: 640
 
-    ActionBar {
-        id : actionBar1
-        title : "Super Long Title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    Column {
+        anchors.fill: parent
 
-        style.background : "#cddc39" // Lime 500
+        ActionBar {
+            id : actionBar1
+            title : "Super Long Title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+            anchors.fill: undefined
 
-        menuBar: Drawable {
-            id : button1
-            source : Qt.resolvedUrl("drawable-xhdpi/ic_action_accept.png")
+            style.background : "#cddc39" // Lime 500
+
+            menuBar: Drawable {
+                id : button1
+                source : Qt.resolvedUrl("drawable-xhdpi/ic_action_accept.png")
+            }
         }
+
+        ActionBar {
+            title: "Actoin Bar 2"
+
+            id: actionBar2
+            icon: Qt.resolvedUrl("drawable-hdpi/icon.png")
+        }
+
+        ActionBar {
+            title: "Actoin Bar 3"
+
+            id: actionBar3
+            icon: Qt.resolvedUrl("drawable-hdpi/icon.png")
+
+            content: Rectangle {
+                height: actionBar3.height
+                width: 200
+                color:"red"
+                Text {
+                    anchors.fill: parent
+                    text: "Content item"
+                }
+            }
+
+            menuBar: Drawable {
+                source : Qt.resolvedUrl("drawable-xhdpi/ic_action_accept.png")
+            }
+        }
+
+    }
+
+    Rectangle {
+        height: parent.height
+        width: 1
+        x: 16
+        color: "red"
+    }
+
+    Rectangle {
+        height: parent.height
+        width: 1
+        x: 72
+        color: "red"
     }
 
     TestCase {
-        name: "ActionBar"
+        name: "ActionBarTests"
         width : 480
         height : 480
         when : windowShown
