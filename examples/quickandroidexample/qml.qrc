@@ -34,5 +34,6 @@
         <file>res/drawable-xxhdpi/ic_done_black_24dp.png</file>
         <file>res/drawable-xxxhdpi/ic_done_black_24dp.png</file>
         <file>floatingactionbutton/FloatingActionButtonDemo.qml</file>
+        <file>theme/AppActionBar.qml</file>
     </qresource>
 </RCC>

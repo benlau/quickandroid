@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1
+import "../theme"
 
 /*
   Lists: Controls - Components - Google design guidelines
@@ -8,20 +9,13 @@ import QuickAndroid.style 0.1
  */
 
 Activity {
-    actionBar: ActionBar {
+    actionBar: AppActionBar {
         id: actionBar
         upEnabled: true
         title: qsTr("List Item Demo")
         showTitle: true
 
         onActionButtonClicked: back();
-
-        MaterialShadow {
-            asynchronous: true
-            anchors.fill: actionBar
-            depth: 1
-            z: -1
-        }
     }
 
     Column {
