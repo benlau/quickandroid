@@ -27,7 +27,6 @@
         <file>drawable/BackgroundHoloLight.qml</file>
         <file>drawable/BtnDefault.qml</file>
         <file>drawable/BtnDropdown.qml</file>
-        <file>drawable/DividerHorizontalHoloLight.qml</file>
         <file>drawable/ic_ab_back_holo_light_am.png</file>
         <file>drawable/ItemBackgroundHoloLight.qml</file>
         <file>drawable/ListSelectorHoloLight.qml</file>
@@ -97,5 +96,10 @@
         <file>QA.qml</file>
         <file>def/Constant.qml</file>
         <file>Text.qml</file>
+        <file>drawable/ListDivider.qml</file>
+        <file>priv/BaseListItem.qml</file>
+        <file>ListItem.qml</file>
+        <file>style/ListItemStyle.qml</file>
+        <file>FloatingActionButton.qml</file>
     </qresource>
 </RCC>

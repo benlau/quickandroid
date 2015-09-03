@@ -20,11 +20,13 @@ android {
     QT += androidextras
 
     QA_JAVASRC.path = /src/quickandroid
-    QA_JAVASRC.files += $$PWD/java/quickandroid/SystemDispatcher.java
+    QA_JAVASRC.files += $$PWD/java/quickandroid/SystemDispatcher.java \
+                        $$PWD/java/quickandroid/QuickAndroidActivity.java
 
     INSTALLS += QA_JAVASRC
 }
 
 DISTFILES += \
-    $$PWD/java/quickandroid/SystemDispatcher.java
+    $$PWD/java/quickandroid/SystemDispatcher.java \
+    $$PWD/java/quickandroid/QuickAndroidActivity.java
 

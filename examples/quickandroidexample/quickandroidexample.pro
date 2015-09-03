@@ -21,8 +21,8 @@ android {
 include(deployment.pri)
 
 DISTFILES += \
-    android-sources/src/quickandroid/example/ExampleActivity.java \
-    android-sources/AndroidManifest.xml
+    android-sources/AndroidManifest.xml \
+    android-sources/src/quickandroid/example/ExampleService.java
 
 HEADERS += \
     automator.h

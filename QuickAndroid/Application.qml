@@ -16,7 +16,7 @@ FocusScope {
 
     property Theme theme
 
-    property var icon
+    property var iconSource
     property var current;
     property var history : new Array
 

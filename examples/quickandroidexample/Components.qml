@@ -2,81 +2,24 @@ import QtQuick 2.2
 import QtQuick.Window 2.1
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1
+import "./theme"
 
 Activity {
 
-    actionBar: ActionBar {
+    actionBar: AppActionBar {
         id : actionBar
         title: "Quick Android Example Program"
-        z: 10
         actionButtonEnabled: false
-
-        MaterialShadow {
-            asynchronous: true
-            anchors.fill: actionBar
-            depth: 1
-            z: -1
-        }
     }
 
-    ListModel {
-        id: listModel
-        ListElement {
-            name : "Spinner"
-            preview : "spinner/SpinnerPreview.qml"
-            demo: "spinner/SpinnerDemo.qml"
-        }
+    Component {
+        id: listItem
+        ListItem {
+            title: model.name
+            subtitle: model.description
 
-        ListElement {
-            name : "Shadow"
-            preview : "shadow/ShadowPreview.qml"
-            demo: "shadow/ShadowDemo.qml"
-        }
-
-        ListElement {
-            name : "Popup Menu"
-            preview : "popupmenu/PopupMenuPreview.qml"
-            demo: "popupmenu/PopupMenuDemo.qml"
-        }
-
-        ListElement {
-            name : "Dialog"
-            preview : "dialog/DialogPreview.qml"
-            demo: "dialog/DialogDemo.qml"
-        }
-
-        ListElement {
-            name : "Text Input"
-            preview : "textinput/TextInputPreview.qml"
-            demo: "textinput/TextInputDemo.qml"
-        }
-
-        ListElement {
-            name : "Switch"
-            preview : "switch/SwitchPreview.qml"
-            demo : "switch/SwitchDemo.qml"
-        }
-
-        ListElement {
-            name : "Notification"
-            preview : ""
-            demo : "notification/NotificationDemo.qml"
-        }
-
-    }
-
-    ListView {
-        anchors.fill: parent
-
-        model : listModel
-        delegate : QuickButton {
-            height: 72 * A.dp
-            width: parent.width
-
-            Rectangle {
-                id : preview
-                anchors.left: parent.left
-                anchors.leftMargin: 16 * A.dp
+            icon: Rectangle {
+                id: preview
                 anchors.verticalCenter: parent.verticalCenter
                 width: 48 * A.dp
                 height: 48 * A.dp
@@ -99,30 +42,89 @@ Activity {
                 }
             }
 
-
-            Text {
-                id: title
-                text: model.name
-                anchors.left: preview.right
-                anchors.leftMargin: 16 * A.dp
-                anchors.verticalCenter: parent.verticalCenter
-                font.pixelSize: Style.theme.mediumText.textSize * A.dp
-                color : Style.theme.black87
-            }
-
-            Rectangle {
-                id: divider
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 1 * A.dp
-                color : "#1A000000"
-            }
-
             onClicked: {
                 start(Qt.resolvedUrl(model.demo));
             }
         }
+    }
+
+    ListModel {
+        id: listModel
+        ListElement {
+            name : "Spinner"
+            preview : "spinner/SpinnerPreview.qml"
+            demo: "spinner/SpinnerDemo.qml"
+            description: "Spinner Example"
+        }
+
+        ListElement {
+            name : "Shadow"
+            preview : "shadow/ShadowPreview.qml"
+            demo: "shadow/ShadowDemo.qml"
+            description: "Material Design Shadow"
+
+        }
+
+        ListElement {
+            name : "Popup Menu"
+            preview : "popupmenu/PopupMenuPreview.qml"
+            demo: "popupmenu/PopupMenuDemo.qml"
+            description: "PopupArea , PopupMenu components"
+        }
+
+        ListElement {
+            name : "Dialog"
+            preview : "dialog/DialogPreview.qml"
+            demo: "dialog/DialogDemo.qml"
+            description: "Dialog Component"
+        }
+
+        ListElement {
+            name: "Drawable Provider"
+            demo: "drawableprovider/DrawableProviderDemo.qml"
+            description: "Loading drawable resource in Android style"
+        }
+
+        ListElement {
+            name: "ListItem"
+            demo: "listitem/ListItemDemo.qml"
+            description: "Lists: Control"
+        }
+
+        ListElement {
+            name: "Floating Action Button"
+            demo: "floatingactionbutton/FloatingActionButtonDemo.qml"
+            description: "Circled button floating above UI"
+        }
+
+        /*
+        ListElement {
+            name : "Text Input"
+            preview : "textinput/TextInputPreview.qml"
+            demo: "textinput/TextInputDemo.qml"
+        }
+
+        ListElement {
+            name : "Switch"
+            preview : "switch/SwitchPreview.qml"
+            demo : "switch/SwitchDemo.qml"
+        }
+        */
+
+        ListElement {
+            name : "Notification"
+            preview : ""
+            demo : "notification/NotificationDemo.qml"
+            description: "Sending notification via System Dispatcher"
+        }
+
+    }
+
+    ListView {
+        anchors.fill: parent
+
+        model : listModel
+        delegate: listItem
     }
 
 }

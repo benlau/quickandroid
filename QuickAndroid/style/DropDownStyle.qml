@@ -1,10 +1,11 @@
 import QtQuick 2.0
+import "../drawable"
 
 QtObject {
     property var background
     property int verticalOffset
     property TextStyle textStyle
-    property var divider
+    property Component divider : ListDivider { }
 
     // Custom Style
     property var button

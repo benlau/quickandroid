@@ -23,6 +23,12 @@ public:
     /// Register JNI native methods. This function must be called in JNI_OnLoad. Otherwise, the messenger will not be working
     static void registerNatives();
 
+    /// The name of message that will be dispatched during Activity.onActivityResult.
+    static QString ACTIVITY_RESULT_MESSAGE;
+
+    /// The name of message that will be dispatched during Activity.onResume.
+    static QString ACTIVITY_RESUME_MESSAGE;
+
 signals:
     /// The signal is emitted when a message is dispatched.
     void dispatched(QString name , QVariantMap data);

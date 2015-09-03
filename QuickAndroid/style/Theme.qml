@@ -11,19 +11,26 @@ import QuickAndroid.def 0.1
 QtObject {
     id : theme
 
-    property var colorPrimary : "#BBDEFB" // blue 100
-    property var colorPrimaryDark : "#1565C0" // blue 800
-    property var textColorPrimary : Color.black87
-    property var windowBackground: "#EFEFEF"
-    property var navigationBarColor : "#FFFFFF"
+    property color colorPrimary : "#BBDEFB" // blue 100
+    property color colorPrimaryDark : "#1565C0" // blue 800
+    property color textColorPrimary : Color.black87
+    property color windowBackground: "#EFEFEF"
+    property color navigationBarColor : "#FFFFFF"
     property int activityDefaultDuration: 220
     property int activityShortDuration: 150
 
     // colors_material.xml
+    property string black : "#000000"
     property string black87 : "#de000000"
     property string black54 : "#8a000000"
+
+    property string white : "#ffffff"
     property string white87 : "#deffffff"
     property string white38 : "#61ffffff"
+
+    // Metric
+    property int keyline1: 16
+    property int keyline2: 72
 
     // Normal test style
     property TextStyle text : TextStyle {
@@ -65,6 +72,8 @@ QtObject {
         homeMarginLeft: -2
         divider : Color.black12
         padding: 8
+        keyline1: theme.keyline1
+        keyline2: theme.keyline2
     }
 
     property SpinnerStyle spinner : SpinnerStyle {
@@ -89,7 +98,6 @@ QtObject {
         background : Qt.resolvedUrl("../drawable/MenuDropdownPanelHoloLight.qml")
         verticalOffset: -10
         textStyle: actionBar.titleTextStyle
-        divider: Qt.resolvedUrl("../drawable/DividerHorizontalHoloLight.qml")
 
         // Custom Style
         button : Qt.resolvedUrl("../drawable/BtnDropdown.qml");
@@ -116,6 +124,12 @@ QtObject {
     property DialogStyle dialog : DialogStyle {
         windowEnterAnimation : Qt.resolvedUrl("../anim/GrowFadeIn.qml")
         windowExitAnimation: Qt.resolvedUrl("../anim/ShrinkFadeOut.qml")
+    }
+
+    property ListItemStyle listItem : ListItemStyle {
+        leftPadding: keyline1
+        rightPadding: keyline1
+        titleKeyline: keyline2
     }
 
     // Allow to place children under Theme.

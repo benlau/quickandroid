@@ -6,7 +6,9 @@
 #include <QQmlApplicationEngine>
 #include <QQuickWindow>
 #include <QQuickView>
+#include <QQuickItem>
 #include "quickandroid.h"
+#include "qadrawableprovider.h"
 
 class QuickAndroidTests : public QObject
 {
@@ -20,6 +22,9 @@ private Q_SLOTS:
     void cleanupTestCase();
     void loading();
     void runExample();
+
+    void drawableProvider();
+    void drawableProvider_tintColor();
 };
 
 void wait(int msec)
@@ -118,6 +123,58 @@ void QuickAndroidTests::runExample()
 
     QList<QQmlError> errors = view.errors();
     QVERIFY(errors.size() == 0);
+
+}
+
+void QuickAndroidTests::drawableProvider()
+{
+    QQmlApplicationEngine engine;
+    QADrawableProvider* provider = new QADrawableProvider();
+
+    provider->setBasePath(QString(SRCDIR) + "/res");
+    engine.addImageProvider("drawable",provider);
+    engine.load(QUrl::fromLocalFile(QString(SRCDIR) + "/test_drawableprovider.qml"));
+
+    QObject *rootItem = engine.rootObjects().first();
+
+    QVERIFY(rootItem);
+
+    QStringList images;
+    images << "image1" << "image2" << "image3";
+
+    Q_FOREACH(QString image,images) {
+        QQuickItem* item = rootItem->findChild<QQuickItem*>(image);
+        QVERIFY(item);
+        QCOMPARE(item->property("status").toInt() , 1) ;
+    }
+
+    engine.removeImageProvider("drawable");
+
+}
+
+void QuickAndroidTests::drawableProvider_tintColor()
+{
+    QQmlApplicationEngine engine;
+    QADrawableProvider* provider = new QADrawableProvider();
+
+    provider->setBasePath(QString(SRCDIR) + "/res");
+    engine.addImageProvider("drawable",provider);
+    engine.load(QUrl::fromLocalFile(QString(SRCDIR) + "/test_drawableprovider_tintcolor.qml"));
+
+    QObject *rootItem = engine.rootObjects().first();
+
+    QVERIFY(rootItem);
+
+    QStringList images;
+    images << "image1";
+
+    Q_FOREACH(QString image,images) {
+        QQuickItem* item = rootItem->findChild<QQuickItem*>(image);
+        QVERIFY(item);
+        QCOMPARE(item->property("status").toInt() , 1) ;
+    }
+
+    engine.removeImageProvider("drawable");
 
 }
 

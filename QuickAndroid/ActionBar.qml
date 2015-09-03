@@ -19,10 +19,10 @@ Item {
 
     property bool upEnabled : false
 
-    property string icon
+    property string iconSource
 
     property ActionBarStyle style : ActionBarStyle {
-        icon : Style.theme.actionBar.icon
+        iconSource : Style.theme.actionBar.iconSource
         background: Style.theme.actionBar.background
         actionButtonBackground: Style.theme.actionBar.actionButtonBackground
         titleTextStyle:  Style.theme.actionBar.titleTextStyle
@@ -41,13 +41,6 @@ Item {
     width : 480
     height: A.dp * 48
 
-    anchors.top: parent.top
-    anchors.topMargin: 0
-    anchors.right: parent.right
-    anchors.rightMargin: 0
-    anchors.left: parent.left
-    anchors.leftMargin: 0
-
     Drawable {
         id : bg
         anchors.fill: parent
@@ -61,11 +54,9 @@ Item {
     QuickButton {
         id : actionButton
         objectName : "ActionButton"
-        anchors.top : parent.top
-        anchors.left: parent.left
         width : show ? Math.min(implicitWidth , menuBarRegion.x) : 0
         implicitWidth: titleText.x + (titleText.implicitWidth + 8 * A.dp) * showTitle
-        height : 48 * A.dp
+        height : actionBar.height
         background: actionBar.style.actionButtonBackground
         clip : true
 
@@ -87,30 +78,31 @@ Item {
 
         Image {
             id : home
-            width: showIcon && actionBar.style.icon || actionBar.icon ? height : 0
+            width: show ? height : 0
             height: 32 * A.dp
-            anchors.left: up.right
-            anchors.leftMargin: actionBar.style.homeMarginLeft * A.dp
+            x: Math.max(actionBar.style.keyline1 * A.dp,up.x + up.width)
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
             asynchronous: true
-            source: actionBar.icon ? actionBar.icon : actionBar.style.icon
+            source: actionBar.iconSource ? actionBar.iconSource : actionBar.style.iconSource
             sourceSize: Qt.size(32 * A.dp,32 * A.dp)
+
+            property bool show: showIcon && actionBar.style.iconSource || actionBar.iconSource
         }
 
         Text {
             id : titleText
             text: "Application Title"
 
+            property int keyline: (home.show ? actionBar.style.keyline2 : actionBar.style.keyline1 ) * A.dp
+
+            x: keyline
             verticalAlignment: Text.AlignVCenter
             wrapMode : Text.NoWrap
             maximumLineCount:1
-            visible : showTitle
-
-            anchors.left: home.right
-            anchors.leftMargin: 8 * A.dp
+            elide: Text.ElideRight
+            visible: showTitle
             anchors.verticalCenter: parent.verticalCenter
-//            horizontalAlignment: paintedWidth < width ? Text.AlignHCenter : Text.AlignLeft
             horizontalAlignment : Text.AlignLeft
 
             color : actionBar.style.titleTextStyle.textColor
@@ -146,8 +138,8 @@ Item {
     Component.onCompleted: {
         if (!actionBar.icon &&
              Global.application &&
-             Global.application.icon) {
-            actionBar.icon = Global.application.icon
+             Global.application.iconSource) {
+            actionBar.iconSource = Global.application.iconSource
         }
 
     }

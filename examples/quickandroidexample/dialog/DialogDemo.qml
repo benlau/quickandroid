@@ -1,15 +1,10 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1
+import "../theme"
 
 Activity {
-    MaterialShadow {
-        asynchronous: true
-        anchors.fill: actionBar
-        depth: 1
-    }
-
-    ActionBar {
+    actionBar: AppActionBar {
         id: actionBar
         upEnabled: true
         title: qsTr("Dialog Demo")
@@ -28,7 +23,6 @@ Activity {
         horizontalAlignment: Text.AlignHCenter
         color : Style.theme.black87
         font.pixelSize: Style.theme.largeText.textSize * A.dp
-
     }
 
     MouseArea {

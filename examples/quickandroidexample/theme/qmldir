@@ -1,0 +1,2 @@
+module theme
+singleton AppTheme 0.1 AppTheme.qml
