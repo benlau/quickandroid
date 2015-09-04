@@ -30,7 +30,8 @@ DISTFILES += \
     tst_QuickButton.qml \
     tst_ListItem.qml \
     tst_FloatingActionButton.qml \
-    tst_Tabs.qml
+    tst_Tabs.qml \
+    tst_SwipeView.qml
 
 RESOURCES += \
     qml.qrc

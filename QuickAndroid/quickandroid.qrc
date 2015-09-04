@@ -103,5 +103,6 @@
         <file>FloatingActionButton.qml</file>
         <file>Tabs.qml</file>
         <file>priv/Tab.qml</file>
+        <file>SwipeView.qml</file>
     </qresource>
 </RCC>

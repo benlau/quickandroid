@@ -27,3 +27,4 @@ Text 0.1 Text.qml
 ListItem 0.1 ListItem.qml
 FloatingActionButton 0.1 FloatingActionButton.qml
 Tabs 0.1 Tabs.qml
+SwipeView 0.1 SwipeView.qml

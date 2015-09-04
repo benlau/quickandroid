@@ -27,7 +27,7 @@ Rectangle {
 
     Image {
         id: icon
-        source: model.iconSource
+        source: model.iconSource ? model.iconSource : ""
         anchors.horizontalCenter: parent.horizontalCenter
         sourceSize: Qt.size(24 * A.dp , 24 * A.dp)
     }
