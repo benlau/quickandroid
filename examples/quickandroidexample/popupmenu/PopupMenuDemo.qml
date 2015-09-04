@@ -5,7 +5,7 @@ import "../theme"
 
 Activity {
 
-    actionBar: AppActionBar {
+    actionBar: ActionBar {
         id: actionBar
         upEnabled: true
         title: qsTr("PopupMenu Demo")

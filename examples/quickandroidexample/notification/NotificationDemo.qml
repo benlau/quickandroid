@@ -6,7 +6,7 @@ import "../theme"
 
 Activity {
 
-    actionBar: AppActionBar {
+    actionBar: ActionBar {
         id : actionBar
         title: "Notification"
         z: 10

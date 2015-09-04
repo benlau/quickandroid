@@ -4,7 +4,7 @@ import QuickAndroid.style 0.1
 import "../theme"
 
 Activity {
-    actionBar: AppActionBar {
+    actionBar: ActionBar {
         id: actionBar
         upEnabled: true
         title: qsTr("Dialog Demo")
