@@ -11,7 +11,7 @@ Rectangle {
     Column {
         anchors.fill: parent
 
-        Tabs {
+        TabBar {
             anchors {
                 left: parent.left
                 right: parent.right
@@ -30,7 +30,7 @@ Rectangle {
             }
         }
 
-        Tabs {
+        TabBar {
             anchors {
                 left: parent.left
                 right: parent.right
@@ -49,7 +49,7 @@ Rectangle {
             }
         }
 
-        Tabs {
+        TabBar {
             id: tabs3
             anchors {
                 left: parent.left
@@ -70,7 +70,7 @@ Rectangle {
             }
         }
 
-        Tabs {
+        TabBar {
             id: tabs4
             anchors {
                 left: parent.left
@@ -94,7 +94,7 @@ Rectangle {
 
 
     TestCase {
-        name: "TabsTests"
+        name: "TabBarTests"
         width : 480
         height : 480
         when : windowShown

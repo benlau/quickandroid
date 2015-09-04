@@ -101,7 +101,7 @@
         <file>ListItem.qml</file>
         <file>style/ListItemStyle.qml</file>
         <file>FloatingActionButton.qml</file>
-        <file>Tabs.qml</file>
+        <file>TabBar.qml</file>
         <file>priv/Tab.qml</file>
         <file>SwipeView.qml</file>
     </qresource>
