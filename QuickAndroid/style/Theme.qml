@@ -16,6 +16,7 @@ QtObject {
     property color textColorPrimary : Color.black87
     property color windowBackground: "#EFEFEF"
     property color navigationBarColor : "#FFFFFF"
+
     property int activityDefaultDuration: 220
     property int activityShortDuration: 150
 
