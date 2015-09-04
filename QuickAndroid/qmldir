@@ -28,3 +28,4 @@ ListItem 0.1 ListItem.qml
 FloatingActionButton 0.1 FloatingActionButton.qml
 TabBar 0.1 TabBar.qml
 SwipeView 0.1 SwipeView.qml
+TabView 0.1 TabView.qml

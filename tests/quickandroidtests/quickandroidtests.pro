@@ -31,7 +31,8 @@ DISTFILES += \
     tst_ListItem.qml \
     tst_FloatingActionButton.qml \
     tst_SwipeView.qml \
-    tst_TabBar.qml
+    tst_TabBar.qml \
+    tst_TabView.qml
 
 RESOURCES += \
     qml.qrc

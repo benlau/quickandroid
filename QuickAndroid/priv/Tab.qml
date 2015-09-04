@@ -12,6 +12,8 @@ Rectangle {
 
     property bool active: false
 
+    signal clicked
+
     height: 48 * A.dp
 
     color: mouseArea.pressed ? "#1F000000" : "#00000000"
@@ -21,7 +23,7 @@ Rectangle {
         id: mouseArea
         anchors.fill: parent
         onClicked: {
-            component.currentIndex = model.index
+            tab.clicked();
         }
     }
 

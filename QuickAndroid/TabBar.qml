@@ -38,11 +38,15 @@ Item {
 
             model: component.tabs
             delegate: Tab {
-                title: model.title
-                iconSource: model.iconSource
+                title: model.title ? model.title : ""
+                iconSource: model.iconSource ? model.iconSource : ""
                 width: component._itemWidth
                 height: component.height
                 active: currentIndex === model.index
+
+                onClicked: {
+                    component.currentIndex = model.index;
+                }
 
                 Component.onCompleted: {
                     if (model.title && model.iconSource)
