@@ -28,30 +28,29 @@ Activity {
             width: parent.width
             height: childrenRect.height
 
-            MaterialShadow {
-                anchors.fill: whiteFrame
-                depth: modelData + 1
-                asynchronous: true
+            Column {
+                width: parent.width
+
+                Paper {
+                    id: paper
+                    depth: modelData + 1
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: 96 * A.dp
+                    height: 96 * A.dp
+                }
+
+                Item {
+                    height: 8 * A.dp
+                    width: parent.width
+                }
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text : "Depth : " + (modelData + 1)
+                    font.pixelSize: Style.theme.largeText.textSize * A.dp
+                    color : Style.theme.black87
+                }
             }
-
-            Rectangle {
-                id: whiteFrame
-                color : "#ffffff"
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: 96 * A.dp
-                height: 96 * A.dp
-            }
-
-            Text {
-                anchors.top : whiteFrame.bottom
-                anchors.topMargin: 8 * A.dp
-                anchors.horizontalCenter: parent.horizontalCenter
-                text : "Depth : " + (modelData + 1)
-                font.pixelSize: Style.theme.largeText.textSize * A.dp
-                color : Style.theme.black87
-
-            }
-
         }
 
     }

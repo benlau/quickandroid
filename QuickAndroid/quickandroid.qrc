@@ -106,5 +106,6 @@
         <file>SwipeView.qml</file>
         <file>TabView.qml</file>
         <file>Button.qml</file>
+        <file>Paper.qml</file>
     </qresource>
 </RCC>

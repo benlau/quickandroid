@@ -30,3 +30,4 @@ TabBar 0.1 TabBar.qml
 SwipeView 0.1 SwipeView.qml
 TabView 0.1 TabView.qml
 Button 0.1 Button.qml
+Paper 0.1 Paper.qml
