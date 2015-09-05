@@ -80,7 +80,6 @@
         <file>style/qmldir</file>
         <file>style/TextStyle.qml</file>
         <file>style/Style.qml</file>
-        <file>style/Color.qml</file>
         <file>style/SpinnerStyle.qml</file>
         <file>style/SpinnerItemStyle.qml</file>
         <file>style/DropDownStyle.qml</file>

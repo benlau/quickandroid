@@ -1,6 +1,4 @@
 module QuickAndroid.style
-singleton ColorPalette 0.1 Color.qml
-singleton Color 0.1 Color.qml
 singleton Style 0.1 Style.qml
 ActionBarStyle 0.1 ActionBarStyle.qml
 TextStyle 0.1 TextStyle.qml

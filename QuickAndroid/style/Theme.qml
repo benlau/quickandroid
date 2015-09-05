@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QuickAndroid.def 0.1
+import QuickAndroid 0.1
 
 /** Application Theme Component (based on Material Design)
 
@@ -13,7 +13,7 @@ QtObject {
 
     property color colorPrimary : "#BBDEFB" // blue 100
     property color colorPrimaryDark : "#1565C0" // blue 800
-    property color textColorPrimary : Color.black87
+    property color textColorPrimary : Constants.black87
     property color windowBackground: "#EFEFEF"
     property color navigationBarColor : "#FFFFFF"
 
@@ -69,7 +69,7 @@ QtObject {
         titleTextStyle: mediumText
         homeAsUpIndicator : Qt.resolvedUrl("../drawable-xxhdpi/ic_ab_back_holo_light_am.png")
         homeMarginLeft: -2
-        divider : Color.black12
+        divider : Constants.black12
         padding: 8
         keyline1: theme.keyline1
         keyline2: theme.keyline2

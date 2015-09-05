@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
-import QuickAndroid.def 0.1
 import "../drawable"
 
 QtObject {
@@ -18,12 +17,12 @@ QtObject {
     property TextStyle titleTextStyle
     property TextStyle valueTextStyle : TextStyle {
         textSize: 16
-        textColor : Color.black54
+        textColor : Constants.black54
     }
 
     property TextStyle subtitleTextStyle : TextStyle {
         textSize: 14
-        textColor : Color.black54
+        textColor : Constants.black54
     }
 
     property Component divider : ListDivider {}

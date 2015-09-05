@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1
-import QuickAndroid.def 0.1
 
 /*
   Reference:
@@ -62,7 +61,7 @@ Rectangle {
         Rectangle {
             id : mask
             anchors.fill: parent
-            color : Color.black12
+            color : Constants.black12
             visible: mouseArea.pressed
         }
     }
