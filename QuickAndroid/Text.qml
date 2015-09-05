@@ -12,7 +12,6 @@ import QtQuick 2.0 as Quick
 import QuickAndroid 0.1
 import "./style"
 import "./priv"
-import "./def"
 
 Quick.Text {
     id: component
@@ -34,32 +33,32 @@ Quick.Text {
     }
 
     Modifier {
-        target: textBehaviour;property: "textStyle";value: Style.theme.text;when: component.textStyleType === Constant.normalTextStyle && component.textStyle === null
+        target: textBehaviour;property: "textStyle";value: Style.theme.text;when: component.textStyleType === Constants.normalTextStyle && component.textStyle === null
     }
     Modifier {
-        target: textBehaviour;property: "textStyle";value: Style.theme.smallText;when: component.textStyleType === Constant.smallTextStyle && component.textStyle === null
+        target: textBehaviour;property: "textStyle";value: Style.theme.smallText;when: component.textStyleType === Constants.smallTextStyle && component.textStyle === null
     }
     Modifier {
-        target: textBehaviour;property: "textStyle";value: Style.theme.mediumText;when: component.textStyleType === Constant.mediumTextStyle && component.textStyle === null
+        target: textBehaviour;property: "textStyle";value: Style.theme.mediumText;when: component.textStyleType === Constants.mediumTextStyle && component.textStyle === null
     }
     Modifier {
-        target: textBehaviour;property: "textStyle";value: Style.theme.largeText;when: component.textStyleType === Constant.largeTextStyle && component.textStyle === null
+        target: textBehaviour;property: "textStyle";value: Style.theme.largeText;when: component.textStyleType === Constants.largeTextStyle && component.textStyle === null
     }
     Modifier {
         target: textBehaviour;property: "textStyle";value: component.textStyle; when: component.textStyle !== null
     }
 
     Modifier {
-        target: component.font;property: "pixelSize";value: Style.theme.text.textSize * A.dp;when: component.textSize === Constant.normalTextStyle && component.textStyle === null
+        target: component.font;property: "pixelSize";value: Style.theme.text.textSize * A.dp;when: component.textSize === Constants.normalTextStyle && component.textStyle === null
     }
     Modifier {
-        target: component.font;property: "pixelSize";value: Style.theme.smallText.textSize * A.dp;when: component.textSize === Constant.smallTextStyle && component.textStyle === null
+        target: component.font;property: "pixelSize";value: Style.theme.smallText.textSize * A.dp;when: component.textSize === Constants.smallTextStyle && component.textStyle === null
     }
     Modifier {
-        target: component.font;property: "pixelSize";value: Style.theme.mediumText.textSize * A.dp;when: component.textSize === Constant.mediumTextStyle && component.textStyle === null
+        target: component.font;property: "pixelSize";value: Style.theme.mediumText.textSize * A.dp;when: component.textSize === Constants.mediumTextStyle && component.textStyle === null
     }
     Modifier {
-        target: component.font;property: "pixelSize";value: Style.theme.largeText.textSize * A.dp;when: component.textSize === Constant.largeTextStyle && component.textStyle === null
+        target: component.font;property: "pixelSize";value: Style.theme.largeText.textSize * A.dp;when: component.textSize === Constants.largeTextStyle && component.textStyle === null
     }
 
 }

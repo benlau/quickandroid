@@ -81,9 +81,6 @@
         <file>style/TextStyle.qml</file>
         <file>style/Style.qml</file>
         <file>style/Color.qml</file>
-        <file>def/Color.qml</file>
-        <file>def/qmldir</file>
-        <file>def/ColorDef.qml</file>
         <file>style/SpinnerStyle.qml</file>
         <file>style/SpinnerItemStyle.qml</file>
         <file>style/DropDownStyle.qml</file>
@@ -92,9 +89,6 @@
         <file>style/SwitchStyle.qml</file>
         <file>style/DialogStyle.qml</file>
         <file>style/ActivityStyle.qml</file>
-        <file>def/ConstantDef.qml</file>
-        <file>QA.qml</file>
-        <file>def/Constant.qml</file>
         <file>Text.qml</file>
         <file>drawable/ListDivider.qml</file>
         <file>priv/BaseListItem.qml</file>
@@ -107,5 +101,6 @@
         <file>TabView.qml</file>
         <file>Button.qml</file>
         <file>Paper.qml</file>
+        <file>Constants.qml</file>
     </qresource>
 </RCC>

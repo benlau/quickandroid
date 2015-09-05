@@ -22,7 +22,6 @@ QATextInput 0.1 QATextInput.qml
 Modifier 0.1 Modifier.qml
 AnimatedModifier 0.1 AnimatedModifier.qml
 Switch 0.1 Switch.qml
-singleton QA 0.1 QA.qml
 Text 0.1 Text.qml
 ListItem 0.1 ListItem.qml
 FloatingActionButton 0.1 FloatingActionButton.qml
@@ -31,3 +30,4 @@ SwipeView 0.1 SwipeView.qml
 TabView 0.1 TabView.qml
 Button 0.1 Button.qml
 Paper 0.1 Paper.qml
+singleton Constants 0.1 Constants.qml

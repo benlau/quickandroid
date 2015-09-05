@@ -19,25 +19,25 @@ Rectangle {
         Text {
             id : text1
             text: "Small Text"
-            textStyleType: QA.smallTextStyle
+            textStyleType: Constants.smallTextStyle
         }
 
         Text {
             id: text2
             text: "Normal Text"
-            textStyleType: QA.normalTextStyle
+            textStyleType: Constants.normalTextStyle
         }
 
         Text {
             id: text3
             text: "Medium Text"
-            textStyleType: QA.mediumTextStyle
+            textStyleType: Constants.mediumTextStyle
         }
 
         Text {
             id: text4
             text: "Large Text"
-            textStyleType: QA.largeTextStyle
+            textStyleType: Constants.largeTextStyle
         }
 
         Text {
@@ -61,7 +61,7 @@ Rectangle {
             id : text7
             text: "Custom Text 3"
             color : "green"
-            textSize : QA.largeTextStyle
+            textSize : Constants.largeTextStyle
         }
 
         Quick.Text {
@@ -81,7 +81,7 @@ Rectangle {
 
 
     TestCase {
-        name: "Text"
+        name: "TextTests"
         width : 480
         height : 480
         when : windowShown
