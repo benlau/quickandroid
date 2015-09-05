@@ -25,4 +25,5 @@ DISTFILES += \
     android-sources/src/quickandroid/example/ExampleService.java
 
 HEADERS += \
-    automator.h
+    automator.h \
+    ../../README.md

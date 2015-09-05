@@ -105,5 +105,6 @@
         <file>priv/Tab.qml</file>
         <file>SwipeView.qml</file>
         <file>TabView.qml</file>
+        <file>Button.qml</file>
     </qresource>
 </RCC>

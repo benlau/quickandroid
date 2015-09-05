@@ -24,6 +24,7 @@ OTHER_FILES += \
     tst_DrawableGravityBehaviour.qml \
     tst_QATextInput.qml \
     tst_Switch.qml \
+    tst_Button.qml \
     tst_Text.qml
 
 DISTFILES += \

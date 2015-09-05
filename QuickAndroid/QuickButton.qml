@@ -1,4 +1,7 @@
-// A button with background
+/** A button with background
+
+   Remarks: This component is deprecated
+ */
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1

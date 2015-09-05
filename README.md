@@ -13,9 +13,9 @@ Features
   2. Auto scale image to fit current screen resolution
   3. Derived StateListDrawable for animated drawable like button
  4. Drawable Image provider
-  1. Load image resource in Android resource style. (e.g drawable-xxxhdpi)
-  2. Choose the best image according to current resolution automatically.
-  3. Apply a tint of color to image
+  1. Load image resource in Android resource style file tree. (e.g drawable-xxxhdpi)
+  2. Tint an image at load time
+  3. Choose the best image according to current resolution automatically.
  5. Theme / Style Engine
  6. A set of components with native look and feel on Android
  7. SystemDispatcher - C++ and Java communication manager. 
@@ -32,10 +32,6 @@ Utility Components
     Dialog , DrawableGrowBehaviour, InverseMouseArea ,  PopupArea
     QueuedSignal , RectToRectMatrix , AnimationLoader ,
     Overlay , Ghost
-
-Under Development Components
-
-    SwipeViewer , NavigationDrawer
 
 Instruction of use
 ------------------
@@ -102,12 +98,18 @@ License
 
 The license of this project has been changed to Apache License 2.0
 
+TODO
+----
+
+ 1. Migrate to Material Design
+ 2. Deprecate QuickButton component
+
 FAQ
 ---
 
 Q. Looking for component that is not supported yet?
 
-Please feel free to submit the request to the wiki. Moreover, you may take a look on other component library:
+Please feel free to submit the request to our issue tracker. Moreover, you may take a look on other component library:
 
 1. [Iktwo/components](https://github.com/Iktwo/components)
 2. [rschiang/material](https://github.com/rschiang/material)

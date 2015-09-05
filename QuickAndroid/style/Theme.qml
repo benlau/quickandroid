@@ -36,7 +36,7 @@ QtObject {
     // Normal test style
     property TextStyle text : TextStyle {
         textSize: 16
-        textColor : textColorPrimary
+        textColor: textColorPrimary
     }
 
     property TextStyle smallText : TextStyle {
@@ -61,8 +61,6 @@ QtObject {
     }
 
     property ButtonStyle button: ButtonStyle {
-        background : Qt.resolvedUrl("../drawable/BtnDefault.qml")
-        textStyle : mediumText
     }
 
     property ActionBarStyle actionBar : ActionBarStyle {
