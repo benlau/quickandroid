@@ -15,6 +15,13 @@ QtObject {
     property int mediumTextStyle : 2
     property int largeTextStyle : 3
 
+    /* Text Size */
+    property string smallText: "small"
+    property string normalText: "normal"
+    property string mediumText: "medium"
+    property string largeText: "large"
+
+    /* Alignment/Gravity */
     property string left : "left"
     property string right : "right"
     property string top : "top"

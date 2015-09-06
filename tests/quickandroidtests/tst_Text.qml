@@ -19,25 +19,25 @@ Rectangle {
         Text {
             id : text1
             text: "Small Text"
-            textStyleType: Constants.smallTextStyle
+            type: Constants.smallText
         }
 
         Text {
             id: text2
             text: "Normal Text"
-            textStyleType: Constants.normalTextStyle
+            type: Constants.normalText
         }
 
         Text {
             id: text3
             text: "Medium Text"
-            textStyleType: Constants.mediumTextStyle
+            type: Constants.mediumText
         }
 
         Text {
             id: text4
             text: "Large Text"
-            textStyleType: Constants.largeTextStyle
+            type: Constants.largeText
         }
 
         Text {
@@ -59,9 +59,9 @@ Rectangle {
         Text {
             // Set color directly
             id : text7
-            text: "Custom Text 3"
+            text: "Custom Text 3"            
             color : "green"
-            textSize : Constants.largeTextStyle
+
         }
 
         Quick.Text {
@@ -96,7 +96,7 @@ Rectangle {
             compare(text5.color , "#0000ff");
             compare(text6.color , "#ff0000");
             compare(text7.color , "#008000");
-            compare(text7.font.pixelSize , 22);
+            compare(text7.font.pixelSize , 16);
 
             wait(TestEnv.waitTime);
         }
