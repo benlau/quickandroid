@@ -8,6 +8,7 @@ QtObject {
     property color black12 : "#1a000000"
     property color white87 : "#deffffff"
     property color white38 : "#61ffffff"
+    property color transparent : "#00000000"
 
 
     property int normalTextStyle : 0

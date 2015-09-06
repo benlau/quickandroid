@@ -30,6 +30,7 @@ Rectangle {
         Button {
             id: button4
             iconSource : "qrc:///drawable-hdpi/ic_done_black_24dp.png"
+            iconSourceSize: Qt.size(16 * A.dp,16 * A.dp)
             text: "Icon and Text"
         }
 

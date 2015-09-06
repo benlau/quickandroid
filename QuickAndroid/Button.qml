@@ -11,6 +11,8 @@ Controls.Button {
 
     id: button
 
+    property size iconSourceSize
+
     property var background : Style.theme.button.background
 
     property color textColor: Style.theme.button.textStyle.textColor
