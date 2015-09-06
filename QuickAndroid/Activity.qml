@@ -10,6 +10,9 @@ FocusScope {
 
     property Component actionBar : null
 
+    /// This hold the actionBar item created from actionBar component
+    property Item actionBarItem : actionBarLoader.item
+
     property var application : null
 
     property bool noHistory : false
