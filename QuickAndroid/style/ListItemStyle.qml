@@ -14,7 +14,11 @@ QtObject {
     // If icon is present, the left padding of title
     property int titleKeyline: 72
 
-    property TextStyle titleTextStyle
+    property TextStyle titleTextStyle : TextStyle {
+        textSize: 16
+        textColor: Constants.black87
+    }
+
     property TextStyle valueTextStyle : TextStyle {
         textSize: 16
         textColor : Constants.black54

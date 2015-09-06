@@ -14,14 +14,18 @@ Rectangle {
     id: component
     property ListItemStyle style: Style.theme.listItem
 
+    property string iconSource : ""
+
     property string title: ""
-    property string value : ""
+
     property string subtitle : ""
 
+    property string value : ""
+
     property bool interactive : true
+
     property bool selected : false
 
-    property string iconSource : ""
     property size iconSourceSize : Qt.size(-1,-1)
 
     property alias icon : iconHolder.children
@@ -29,7 +33,10 @@ Rectangle {
     property alias rightIcon : valueHolder.children
 
     property int dividerLeftInset : style.dividerLeftInset
+
     property int dividerRightInset : style.dividerRightInset
+
+    property bool showDivider: true
 
     signal clicked();
 
@@ -139,6 +146,7 @@ Rectangle {
     Loader {
         id : dividerLoader
         sourceComponent: component.style.divider
+        visible: showDivider
 
         anchors {
             left: parent.left

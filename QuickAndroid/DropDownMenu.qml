@@ -9,7 +9,6 @@ Popup {
 
     ScrollView {
         id: scrollView
-        horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
 
         flickableItem.flickableDirection : Flickable.VerticalFlick
         flickableItem.interactive: true
