@@ -29,9 +29,7 @@ UI Components
 
 Utility Components
 
-    Dialog , DrawableGrowBehaviour, InverseMouseArea ,  PopupArea
-    QueuedSignal , RectToRectMatrix , AnimationLoader ,
-    Overlay , Ghost
+    InverseMouseArea, RectToRectMatrix
 
 Instruction of use
 ------------------

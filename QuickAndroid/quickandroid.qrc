@@ -101,5 +101,6 @@
         <file>Button.qml</file>
         <file>Paper.qml</file>
         <file>Constants.qml</file>
+        <file>Popup.qml</file>
     </qresource>
 </RCC>

@@ -2,6 +2,7 @@ import QtQuick 2.0
 pragma Singleton
 
 QtObject {
+    property color black : "#000000"
     property color black87 : "#de000000"
     property color black54 : "#8a000000"
     property color black12 : "#1a000000"
@@ -24,5 +25,7 @@ QtObject {
     property string leftBottom : "leftBottom"
     property string rightBottom : "rightBottom"
 
+    // The z value of popup layer
+    property int zPopupLayer : 100000000
 }
 
