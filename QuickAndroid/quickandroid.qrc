@@ -102,5 +102,6 @@
         <file>Paper.qml</file>
         <file>Constants.qml</file>
         <file>Popup.qml</file>
+        <file>DropDownMenu.qml</file>
     </qresource>
 </RCC>

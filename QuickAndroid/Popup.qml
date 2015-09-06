@@ -1,3 +1,9 @@
+/* Popup Component
+
+  Author: @benlau
+  Project: https://github.com/benlau/quickandroid
+ */
+
 import QtQuick 2.0
 import QuickAndroid 0.1
 
@@ -6,7 +12,8 @@ Item {
     width: 100
     height: 62
 
-    /// The anchor point of the popup
+    /// The anchor point of the popup.
+    /// Possible values: [ Constants.leftTop , Constants.rightTop , Constants.leftBottom, Constants.leftBottom]
     property string anchorPoint : Constants.leftTop
 
     /// The component (may be a button) to trigger to launch this popup. If it not set, it will be the parent component.
@@ -36,6 +43,7 @@ Item {
 
         _paperWidth = paper.childrenRect.width
         _paperHeight = paper.childrenRect.height
+        console.log(_paperWidth,_paperHeight);
 
         _move(root);
         _adjustX(root);

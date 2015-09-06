@@ -1,3 +1,4 @@
+/* @deprecated */
 /* PopupArea delcares an area used as popup.
    Press out of the area will dismiss the popup by set the
    "active" property to false.

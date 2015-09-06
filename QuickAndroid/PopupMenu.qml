@@ -1,3 +1,4 @@
+/* @deprecated */
 import QtQuick 2.0
 import "./item/"
 import QuickAndroid 0.1
