@@ -9,8 +9,6 @@ import QuickAndroid 0.1
 
 Item {
     id: popup
-    width: 100
-    height: 62
 
     /// The anchor point of the popup.
     /// Possible values: [ Constants.leftTop , Constants.rightTop , Constants.leftBottom, Constants.leftBottom]
@@ -34,7 +32,18 @@ Item {
     property int _paperWidth: 0
     property int _paperHeight: 0
 
+    signal aboutToOpen
+    signal opened
+
+    signal aboutToClose
+    signal closed
+
     function open() {
+        if (isOpened)
+            return;
+
+        aboutToOpen();
+
         var root = viewport;
         if (!root)
             root = _topmost();
@@ -43,7 +52,6 @@ Item {
 
         _paperWidth = paper.childrenRect.width
         _paperHeight = paper.childrenRect.height
-        console.log(_paperWidth,_paperHeight);
 
         _move(root);
         _adjustX(root);
@@ -53,6 +61,11 @@ Item {
     }
 
     function close() {
+        if (!isOpened)
+            return;
+
+        aboutToClose();
+
         isOpened = false;
     }
 
@@ -158,7 +171,7 @@ Item {
 
     }
 
-    states: [
+    states: [    
         State {
             name: "Opened"
             when: isOpened
@@ -204,6 +217,16 @@ Item {
                 duration: 100
                 easing.type: Easing.InOutQuad
             }
+
+            SequentialAnimation {
+                PauseAnimation {
+                    duration: 300
+                }
+
+                ScriptAction {
+                    script: popup.opened();
+                }
+            }
         },
 
         Transition {
@@ -234,6 +257,10 @@ Item {
                     property: "width"
                     duration: 100
                     easing.type: Easing.InOutQuad
+                }
+
+                ScriptAction {
+                    script: popup.closed();
                 }
             }
         }

@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.2
+import QtQuick.Controls 1.3
 import QuickAndroid 0.1
 
 Popup {
@@ -7,11 +7,24 @@ Popup {
 
     property var model : ListModel { }
 
+    onAboutToOpen: {
+        var max = 56 * A.dp
+        var margin = 16 * A.dp
+        for (var i = 0 ; i < repeater.count ;i++) {
+            var item = repeater.itemAt(i);
+            if (item.implicitWidth + margin> max) {
+                max = item.implicitWidth + margin;
+            }
+        }
+        scrollView.width = max;
+    }
+
     ScrollView {
         id: scrollView
 
         flickableItem.flickableDirection : Flickable.VerticalFlick
         flickableItem.interactive: true
+        horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
 
         Item {
             width: scrollView.width
@@ -21,7 +34,7 @@ Popup {
                 width: scrollView.width
                 y: 8 * A.dp
                 Repeater {
-                    id: listView
+                    id: repeater
                     width: scrollView.width
 
                     model: dropDownMenu.model

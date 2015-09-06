@@ -22,25 +22,12 @@ Rectangle {
             id: dropDownMenu1
             anchorPoint: Constants.rightTop
 
-//            model: ListModel {
-//                ListElement { title: "A"}
-//                ListElement { title: "A"}
-//                ListElement { title: "A"}
-//                ListElement { title: "A"}
-//                ListElement { title: "A"}
-//                ListElement { title: "A"}
-//                ListElement { title: "A"}
-//            }
-
             model: VisualItemModel {
-                ListItem {
-                    title: "Item A"
-                }
+                ListItem { title: "Item A"; id: item1 }
                 ListItem { title: "Item B" }
                 ListItem { title: "Item C" }
                 ListItem { title: "Item D" }
                 ListItem { title: "Item E" }
-
             }
         }
     }
@@ -55,7 +42,6 @@ Rectangle {
         function test_preview() {
             wait(200);
             dropDownMenu1.open();
-
             wait(TestEnv.waitTime);
         }
     }
