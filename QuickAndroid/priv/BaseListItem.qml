@@ -44,12 +44,11 @@ Rectangle {
 
     color : component.style.backgroundColor
 
-    implicitWidth: component.style.leftPadding * A.dp +
-                   component.style.rightPadding * A.dp +
-                   iconHolder.width +
+    implicitWidth: titleItem.x +
                    Math.max(titleItem.contentWidth,
                             subtitleItem.contentWidth) +
-                   valueHolder.width
+                   valueHolder.width +
+                   component.style.rightPadding * A.dp
 
     anchors {
         left: parent ? parent.left : undefined
