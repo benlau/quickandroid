@@ -132,8 +132,7 @@ Rectangle {
 
            anchors.top: parent.top
            anchors.bottom: parent.bottom
-           anchors.topMargin: component.style.textTopPadding
-           anchors.bottomMargin: component.style.textBottomPadding
+           anchors.topMargin: component.style.textTopPadding * A.dp
          }
     }
 
