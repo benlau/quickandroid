@@ -93,21 +93,21 @@ Item {
             break;
 
         case Constants.rightTop:
-            pos = viewport.mapFromItem(view.parent,view.x,view.y)
-            paper.x = pos.x - paper.width;
+            pos = viewport.mapFromItem(view.parent,view.x + view.width,view.y)
+            paper.x = pos.x - _paperWidth;
             paper.y = pos.y;
             break;
 
         case Constants.leftBottom:
-            pos = viewport.mapFromItem(view.parent,view.x,view.y)
+            pos = viewport.mapFromItem(view.parent,view.x,view.y + view.height)
             paper.x = pos.x;
-            paper.y = pos.y - paper.height;
+            paper.y = pos.y - _paperHeight;
             break;
 
         case Constants.rightBottom:
-            pos = viewport.mapFromItem(view.parent,view.x,view.y)
-            paper.x = pos.x - paper.width;
-            paper.y = pos.y - paper.height;
+            pos = viewport.mapFromItem(view.parent,view.x + view.width,view.y + view.height)
+            paper.x = pos.x - _paperWidth;
+            paper.y = pos.y - _paperHeight;
             break;
         }
     }
