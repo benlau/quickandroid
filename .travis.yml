@@ -4,14 +4,14 @@ env:
 compiler:
   - gcc
 before_install:
-    - sudo add-apt-repository --yes ppa:beineri/opt-qt532
+    - sudo add-apt-repository --yes ppa:beineri/opt-qt542
     - sudo apt-get update -qq
     - apt-cache search qt5
-    - sudo apt-get install -qq qt53quickcontrols  qt53declarative qt53script qt53graphicaleffects
+    - sudo apt-get install -qq qt54quickcontrols  qt54declarative qt54script qt54graphicaleffects
 
     - sh -e /etc/init.d/xvfb start
 script:
-    - source /opt/qt53/bin/qt53-env.sh 
+    - source /opt/qt54/bin/qt54-env.sh 
     - cd tests/quickandroidcpptests
     - qmake
     - make
