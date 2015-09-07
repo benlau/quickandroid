@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
 import QuickAndroid.style 0.1
@@ -45,8 +45,8 @@ Rectangle {
     color : component.style.backgroundColor
 
     implicitWidth: titleItem.x +
-                   Math.max(titleItem.contentWidth,
-                            subtitleItem.contentWidth) +
+                   Math.max(titleMetrics.width,
+                            subtitleMetrics.width) +
                    valueHolder.width +
                    component.style.rightPadding * A.dp
 
@@ -161,6 +161,18 @@ Rectangle {
             bottom: parent.bottom
             rightMargin: dividerRightInset
         }
+    }
+
+    TextMetrics {
+        id: titleMetrics
+        font: titleItem.font
+        text: title
+    }
+
+    TextMetrics {
+        id: subtitleMetrics
+        font: subtitleItem.font
+        text: subtitle
     }
 
 }

@@ -14,11 +14,11 @@ Popup {
         var margin = 16 * A.dp
         for (var i = 0 ; i < repeater.count ;i++) {
             var item = repeater.itemAt(i);
-            if (item.implicitWidth + margin> max) {
+            if (item.implicitWidth + margin> max ) {
                 max = item.implicitWidth + margin;
             }
         }
-        _contentWidth = max + 32 * A.dp
+        _contentWidth = max;
     }
 
     ScrollView {

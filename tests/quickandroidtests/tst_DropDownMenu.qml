@@ -23,7 +23,7 @@ Rectangle {
             anchorPoint: Constants.rightTop
 
             model: VisualItemModel {
-                ListItem { title: "Item A"; id: item1 }
+                ListItem { title: "Item A - 1234567890"; id: item1 }
                 ListItem { title: "Item B" }
                 ListItem { title: "Item C" }
                 ListItem { title: "Item D" }
