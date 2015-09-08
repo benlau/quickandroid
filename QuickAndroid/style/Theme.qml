@@ -131,6 +131,11 @@ QtObject {
         titleKeyline: keyline2
     }
 
+    property DropDownMenuStyle dropDownMenu: DropDownMenuStyle {
+        topPadding: 8
+        bottomPadding: 8
+    }
+
     // Allow to place children under Theme.
     default property alias children: theme.__children
     property list<QtObject> __children: [QtObject {}]

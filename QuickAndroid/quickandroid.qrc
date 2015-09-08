@@ -103,5 +103,6 @@
         <file>Constants.qml</file>
         <file>Popup.qml</file>
         <file>DropDownMenu.qml</file>
+        <file>style/DropDownMenuStyle.qml</file>
     </qresource>
 </RCC>

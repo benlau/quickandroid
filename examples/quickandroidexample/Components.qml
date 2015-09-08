@@ -61,15 +61,13 @@ Activity {
             name : "Shadow"
             preview : "shadow/ShadowPreview.qml"
             demo: "shadow/ShadowDemo.qml"
-            description: "Material Design Shadow"
-
+            description: "Shadow, Paper components"
         }
 
         ListElement {
-            name : "Popup Menu"
-            preview : "popupmenu/PopupMenuPreview.qml"
-            demo: "popupmenu/PopupMenuDemo.qml"
-            description: "PopupArea , PopupMenu components"
+            name : "Drop Down Menu"
+            demo: "dropDownMenu/DropDownMenuDemo.qml"
+            description: "DropDownMenu components"
         }
 
         ListElement {
