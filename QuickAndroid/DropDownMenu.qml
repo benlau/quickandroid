@@ -21,7 +21,7 @@ Popup {
             h+=item.height
         }
         scrollView.implicitWidth = max;
-        scrollView.implicitHeight = h;
+        scrollView.implicitHeight = h + 16 * A.dp; // + top and bottom padding
     }
 
     ScrollView {
