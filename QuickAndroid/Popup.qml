@@ -7,7 +7,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 
-Item {
+FocusScope {
     id: popup
 
     /// The anchor point of the popup.
@@ -167,20 +167,26 @@ Item {
             width: 0
             height: 0
             z: Constants.zPopupLayer
-
-            Keys.onReleased: {
-                if (event.key === Qt.Key_Back) {
-                    close();
-                }
-            }
         }
 
+    }
+
+    Keys.onReleased: {
+        if (event.key === Qt.Key_Back) {
+            close();
+            event.accepted = true;
+        }
     }
 
     states: [    
         State {
             name: "Opened"
             when: isOpened
+
+            PropertyChanges {
+                target: popup
+                focus: true;
+            }
 
             PropertyChanges {
                 target: layer
@@ -190,7 +196,6 @@ Item {
 
             PropertyChanges {
                 target: paper
-                focus: true
                 height: _paperHeight
                 width: _paperWidth
             }
