@@ -55,6 +55,7 @@ Activity {
 
         function test_preview() {
             wait(200);
+            popup1.anchorView = button1;
 
             var root = popup1._topmost();
             compare(root.width,480);
@@ -65,8 +66,8 @@ Activity {
 
             popup1.open();
             wait(300);
-            compare(popup1.paper.width,100);
-            compare(popup1.paper.height,100);
+            fuzzyCompare(popup1.paper.width,100,1);
+            fuzzyCompare(popup1.paper.height,100,1);
 
             wait(TestEnv.waitTime);
 

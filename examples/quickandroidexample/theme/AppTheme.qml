@@ -5,11 +5,15 @@ pragma Singleton
 Theme {
     mediumText.textSize: 18
     smallText.textSize : 14
-    actionBar.background : Qt.resolvedUrl("./ActionBarBackground.qml") // Lime 500
+
+    windowBackground: "#eeeeee";
+
+    // Background with shadow
+    actionBar.background : Qt.resolvedUrl("./ActionBarBackground.qml");
 
     // actionBar.titleTextStyle.textSize is not allowed in QML. You should declare your own TextStyle and assign directly.
     // or modify text , smallText , mediumText and largetText
-    actionBar.titleTextStyle : customTextStyle1
+    actionBar.titleTextStyle : customTextStyle1;
 
     // Custom Style object.
     TextStyle {

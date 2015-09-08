@@ -57,7 +57,7 @@ QtObject {
     property ActivityStyle activity : ActivityStyle {
         activityEnterAnimation : Qt.resolvedUrl("../anim/ActivityEnter.qml")
         activityExitAnimation : Qt.resolvedUrl("../anim/ActivityExit.qml")
-        background: Qt.resolvedUrl("../drawable/BackgroundHoloLight.qml")
+        background: windowBackground
     }
 
     property ButtonStyle button: ButtonStyle {

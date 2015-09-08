@@ -55,7 +55,6 @@ FocusScope {
         id : backgroundDrawable
         source : activity.style.background
         anchors.fill: parent
-        z: -1
     }
 
     Keys.onReleased: {
