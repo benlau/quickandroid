@@ -29,6 +29,7 @@ Activity {
         anchorView: button1
 
         Rectangle {
+            id: rect1
             width: 100
             height: 100
         }
@@ -57,10 +58,14 @@ Activity {
             var root = popup1._topmost();
             compare(root.width,480);
             compare(root.height,640);
-//            compare(popup1.paper.width,100);
 
             // It won't set the height when closed
             compare(popup1.paper.height,0);
+
+            popup1.open();
+            wait(300);
+            compare(popup1.paper.width,100);
+            compare(popup1.paper.height,100);
 
             wait(TestEnv.waitTime);
         }

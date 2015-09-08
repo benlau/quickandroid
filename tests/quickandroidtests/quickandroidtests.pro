@@ -39,3 +39,6 @@ DISTFILES += \
 
 RESOURCES += \
     qml.qrc
+
+OTHER_FILES += \
+    ../../README.md

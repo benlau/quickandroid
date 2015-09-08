@@ -18,7 +18,7 @@ Features
   3. Choose the best image according to current resolution automatically.
  5. Theme / Style Engine
  6. A set of components with native look and feel on Android
- 7. SystemDispatcher - C++ and Java communication manager. 
+ 7. Inter-thread communication manager between C++/Qt and Java/Android
   1. Auto conversion between C++ and Java data type. No need to write in JNI.
 
 UI Components

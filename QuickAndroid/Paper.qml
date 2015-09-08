@@ -11,6 +11,9 @@ Rectangle {
     property alias shader : shadow.shader
     default property alias content: container.children
 
+    implicitWidth:  content.length > 0 ? content[0].implicitWidth : 0
+    implicitHeight: content.length > 0 ? content[0].implicitHeight : 0
+
     MaterialShadow {
         id: shadow
         anchors.fill: parent

@@ -12,28 +12,30 @@ Popup {
     onAboutToOpen: {
         var max = 56 * A.dp
         var margin = 16 * A.dp
+        var h = 0;
         for (var i = 0 ; i < repeater.count ;i++) {
             var item = repeater.itemAt(i);
             if (item.implicitWidth + margin> max ) {
                 max = item.implicitWidth + margin;
             }
+            h+=item.height
         }
-        _contentWidth = max;
+        scrollView.implicitWidth = max;
+        scrollView.implicitHeight = h;
     }
 
     ScrollView {
         id: scrollView
-        width: _contentWidth
 
         flickableItem.flickableDirection : Flickable.VerticalFlick
         flickableItem.interactive: true
 
         Item {
-            width: _contentWidth
+            width: scrollView.width
             height: childrenRect.height + 16 * A.dp
 
             Column {
-                width: _contentWidth
+                width: scrollView.width
                 y: 8 * A.dp
                 Repeater {
                     id: repeater

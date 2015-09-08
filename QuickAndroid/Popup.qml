@@ -23,7 +23,7 @@ Item {
     /// The Paper component behind the popup.
     readonly property alias paper: container
 
-    default property alias content: container.children
+    default property alias content: container.content
 
     property bool isOpened: false
 
@@ -50,8 +50,14 @@ Item {
 
         layer.parent = root;
 
-        _paperWidth = paper.childrenRect.width
-        _paperHeight = paper.childrenRect.height
+        if (content.length > 0) {
+            var child = content[0];
+            _paperWidth = child.implicitWidth > 0 ? child.implicitWidth : Math.max(child.childrenRect.width,child.width)
+            _paperHeight = child.implicitHeight > 0 ? child.implicitHeight : Math.max(child.childrenRect.height,child.height)
+        } else {
+            _paperWidth = 240 * A.dp;
+            _paperHeight = 80 * A.dp;
+        }
 
         _move(root);
         _adjustX(root);
