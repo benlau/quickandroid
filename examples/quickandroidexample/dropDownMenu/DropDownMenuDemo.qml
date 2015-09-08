@@ -29,9 +29,9 @@ Activity {
         anchorView: menuButton
         anchorPoint: Constants.rightTop
         model: VisualItemModel {
-            ListItem { title: "Share" }
-            ListItem { title: "Copy" }
-            ListItem { title: "Delete" }
+            ListItem { title: "Share"; showDivider: false }
+            ListItem { title: "Copy" ; showDivider: false}
+            ListItem { title: "Delete"; showDivider: false }
         }
     }
 

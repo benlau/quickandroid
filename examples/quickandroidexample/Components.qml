@@ -95,22 +95,8 @@ Activity {
             description: "Circled button floating above UI"
         }
 
-        /*
         ListElement {
-            name : "Text Input"
-            preview : "textinput/TextInputPreview.qml"
-            demo: "textinput/TextInputDemo.qml"
-        }
-
-        ListElement {
-            name : "Switch"
-            preview : "switch/SwitchPreview.qml"
-            demo : "switch/SwitchDemo.qml"
-        }
-        */
-
-        ListElement {
-            name : "Notification"
+            name : "Notification / Interthread communication with Android"
             preview : ""
             demo : "notification/NotificationDemo.qml"
             description: "Sending notification via System Dispatcher"

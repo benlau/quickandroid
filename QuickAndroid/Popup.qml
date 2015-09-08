@@ -18,7 +18,7 @@ FocusScope {
     property var anchorView: parent;
 
     /// The parent component of the launched popup item. If it is not specificed, it will use the top most component.
-    property var viewport: null;
+    property var window: null;
 
     /// The Paper component behind the popup.
     readonly property alias paper: container
@@ -44,7 +44,7 @@ FocusScope {
 
         aboutToOpen();
 
-        var root = viewport;
+        var root = window;
         if (!root)
             root = _topmost();
 
@@ -86,41 +86,41 @@ FocusScope {
     }
 
     // Move the paper according to the anchorPoint and anchorView
-    function _move(viewport) {
+    function _move(window) {
         var view = anchorView;
         var pos;
 
         switch (anchorPoint) {
 
         case Constants.leftTop:
-            pos = viewport.mapFromItem(view.parent,view.x,view.y)
+            pos = window.mapFromItem(view.parent,view.x,view.y)
             paper.x = pos.x;
             paper.y = pos.y;
             break;
 
         case Constants.rightTop:
-            pos = viewport.mapFromItem(view.parent,view.x + view.width,view.y)
+            pos = window.mapFromItem(view.parent,view.x + view.width,view.y)
             paper.x = pos.x - _paperWidth;
             paper.y = pos.y;
             break;
 
         case Constants.leftBottom:
-            pos = viewport.mapFromItem(view.parent,view.x,view.y + view.height)
+            pos = window.mapFromItem(view.parent,view.x,view.y + view.height)
             paper.x = pos.x;
             paper.y = pos.y - _paperHeight;
             break;
 
         case Constants.rightBottom:
-            pos = viewport.mapFromItem(view.parent,view.x + view.width,view.y + view.height)
+            pos = window.mapFromItem(view.parent,view.x + view.width,view.y + view.height)
             paper.x = pos.x - _paperWidth;
             paper.y = pos.y - _paperHeight;
             break;
         }
     }
 
-    function _adjustX(viewport) {
-        if (paper.x + _paperWidth + margin * A.dp > viewport.width) {
-            paper.x = viewport.width - _paperWidth - margin * A.dp
+    function _adjustX(window) {
+        if (paper.x + _paperWidth + margin * A.dp > window.width) {
+            paper.x = window.width - _paperWidth - margin * A.dp
         }
 
         if (paper.x < margin * A.dp) {
@@ -128,9 +128,9 @@ FocusScope {
         }
     }
 
-    function _adjustY(viewport) {
-        if (paper.y + _paperHeight + margin * A.dp > viewport.height) {
-            paper.y = viewport.height - _paperHeight - margin * A.dp
+    function _adjustY(window) {
+        if (paper.y + _paperHeight + margin * A.dp > window.height) {
+            paper.y = window.height - _paperHeight - margin * A.dp
         }
 
         if (paper.y < margin * A.dp) {
@@ -138,9 +138,9 @@ FocusScope {
         }
     }
 
-    function _shrinkHeight(viewport) {
-        if (paper.y + _paperHeight + margin * A.dp > viewport.height) {
-            _paperHeight = viewport.height - paper.y - margin * A.dp;
+    function _shrinkHeight(window) {
+        if (paper.y + _paperHeight + margin * A.dp > window.height) {
+            _paperHeight = window.height - paper.y - margin * A.dp;
         }
     }
 
