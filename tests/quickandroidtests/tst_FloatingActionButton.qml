@@ -20,6 +20,7 @@ Rectangle {
         FloatingActionButton {
             color: "blue"
             iconSource: Qt.resolvedUrl("img/ic_action_accept.png")
+            iconSourceSize: Qt.size(24 * A.dp,24 * A.dp)
         }
 
     }

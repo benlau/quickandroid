@@ -42,6 +42,7 @@ Activity {
         when : windowShown
 
         function test_rightTop() {
+            wait(200);
             popup1.anchorView = actionBarItem
             popup1.anchorPoint = Constants.rightTop
             popup1.open();

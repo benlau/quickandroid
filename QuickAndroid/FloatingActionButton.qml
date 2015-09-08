@@ -1,3 +1,8 @@
+/** Floating Action Button
+
+  TODO:
+  - background property
+ */
 import QtQuick 2.0
 import QtQuick.Controls 1.2 as Controls
 import QtQuick.Controls.Styles 1.2 as ControlStyles
@@ -11,10 +16,21 @@ Controls.Button {
     width: 56 * A.dp
     height: 56 * A.dp
 
+    property size iconSourceSize
     property color color : Style.theme.colorPrimary
     property int depth: 1
 
     style: ControlStyles.ButtonStyle {
+        label: Item {
+            anchors.centerIn: parent
+
+            Image {
+                id: icon
+                source: control.iconSource
+                sourceSize: control.iconSourceSize
+                anchors.centerIn: parent
+            }
+        }
         background: Item {
 
             RectangularGlow {
