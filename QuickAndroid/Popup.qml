@@ -54,7 +54,9 @@ Item {
             var child = content[0];
             _paperWidth = child.implicitWidth > 0 ? child.implicitWidth : Math.max(child.childrenRect.width,child.width);
             _paperHeight = child.implicitHeight > 0 ? child.implicitHeight : Math.max(child.childrenRect.height,child.height);
-            console.log("DEBUG- Popup::open() : ",child.implicitWidth, child.implicitHeight, _paperWidth,_paperHeight );
+            console.log("DEBUG- Popup::open() : ",child.implicitWidth, child.implicitHeight,
+                        child.width,child.height,
+                        _paperWidth,_paperHeight );
         } else {
             _paperWidth = 240 * A.dp;
             _paperHeight = 80 * A.dp;
@@ -65,6 +67,8 @@ Item {
         _adjustY(root);
         _shrinkHeight(root);
         isOpened = true;
+
+        console.log("DEBUG- Popup::open()",_paperWidth,_paperHeight);
     }
 
     function close() {

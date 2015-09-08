@@ -69,6 +69,8 @@ Activity {
             compare(popup1.paper.height,100);
 
             wait(TestEnv.waitTime);
+
+            popup1.close();
         }
     }
 

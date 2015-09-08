@@ -36,6 +36,11 @@ Rectangle {
     property int itemImplicitWidth : 0
     property int itemImplicitHeight: 0
 
+    /// Return TRUE if the input is a color object
+    function isColor(value) {
+        return  /(^#[0-9A-F]{8}$)|(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(String(source).toUpperCase());
+    }
+
     function _dpOfSource(source) {
         var dpiTable = ["ldpi","mdpi","hdpi","xhdpi","xxhdpi","xxxhdpi"];
         var dpTable = [ 0.75,1,1.5,2,3,4];
@@ -236,19 +241,19 @@ Rectangle {
 
         // Reset fillArea.target here may generate a lot of loop detected warning message
 //        fillArea.target = drawable
-        fillArea.zoom = 1
+        fillArea.zoom = 1;
 
-        drawable.color = "#00000000"
+        drawable.color = Constants.transparent;
 
-        if (typeof source === "object") {
+        if (isColor(source)) {
+            // color can be an object or string
+            drawable.color = source;
+        } else if (typeof source === "object") {
             sourceItemContainer.createObject(drawable,{ content : source })
         } else {
             var qml = source.search(/\.qml$/i);
             if (qml !== -1) {
                 loaderBuilder.createObject(drawable,{source: drawable.source});
-            } else if ( /(^#[0-9A-F]{8}$)|(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(source) ) {
-                // Color code
-                drawable.color = source;
             } else {
                 // Image source
                 imageBuilder.createObject(drawable,{source: drawable.source});
