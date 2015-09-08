@@ -14,6 +14,8 @@ QtObject {
     // If icon is present, the left padding of title
     property int titleKeyline: 72
 
+    property bool showDivider: true
+
     property TextStyle titleTextStyle : TextStyle {
         textSize: 16
         textColor: Constants.black87
@@ -30,6 +32,7 @@ QtObject {
     }
 
     property Component divider : ListDivider {}
+
     property int dividerLeftInset : 0
 
     property int dividerRightInset : 0

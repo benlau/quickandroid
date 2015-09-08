@@ -32,11 +32,11 @@ Rectangle {
 
     property alias rightIcon : valueHolder.children
 
-    property int dividerLeftInset : style.dividerLeftInset
+    property int dividerLeftInset : style.dividerLeftInset * A.dp
 
-    property int dividerRightInset : style.dividerRightInset
+    property int dividerRightInset : style.dividerRightInset * A.dp
 
-    property bool showDivider: true
+    property bool showDivider: style.showDivider
 
     signal clicked();
 
