@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 
 Item {
     id : spinner

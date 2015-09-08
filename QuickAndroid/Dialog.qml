@@ -1,7 +1,7 @@
 // Dialog interface
 import QtQuick 2.0
 import QtQuick.Window 2.1
-import "./style"
+import "./Styles"
 
 Drawable {
     id: dialog

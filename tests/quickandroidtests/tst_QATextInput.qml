@@ -5,7 +5,7 @@ import QtTest 1.0
 import QuickAndroid 0.1
 import QuickAndroid.drawable 0.1
 import QuickAndroid.priv 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 
 Rectangle {
     id : rect

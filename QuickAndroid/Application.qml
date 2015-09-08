@@ -3,8 +3,8 @@
 
 import QtQuick 2.0
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
-import "./style"
+import QuickAndroid.Styles 0.1
+import "./Styles"
 import "global.js" as Global
 
 FocusScope {

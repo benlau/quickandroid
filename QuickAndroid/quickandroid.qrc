@@ -75,24 +75,24 @@
         <file>drawable-xxhdpi/art_shadow_depth_3.png</file>
         <file>drawable-xxhdpi/art_shadow_depth_2.png</file>
         <file>drawable-xxhdpi/art_shadow_depth_1.png</file>
-        <file>style/Theme.qml</file>
-        <file>style/ActionBarStyle.qml</file>
-        <file>style/qmldir</file>
-        <file>style/TextStyle.qml</file>
-        <file>style/Style.qml</file>
-        <file>style/SpinnerStyle.qml</file>
-        <file>style/SpinnerItemStyle.qml</file>
-        <file>style/DropDownStyle.qml</file>
-        <file>style/ButtonStyle.qml</file>
-        <file>style/TextInputStyle.qml</file>
-        <file>style/SwitchStyle.qml</file>
-        <file>style/DialogStyle.qml</file>
-        <file>style/ActivityStyle.qml</file>
+        <file>Styles/Theme.qml</file>
+        <file>Styles/ActionBarStyle.qml</file>
+        <file>Styles/qmldir</file>
+        <file>Styles/TextStyle.qml</file>
+        <file>Styles/Style.qml</file>
+        <file>Styles/SpinnerStyle.qml</file>
+        <file>Styles/SpinnerItemStyle.qml</file>
+        <file>Styles/DropDownStyle.qml</file>
+        <file>Styles/ButtonStyle.qml</file>
+        <file>Styles/TextInputStyle.qml</file>
+        <file>Styles/SwitchStyle.qml</file>
+        <file>Styles/DialogStyle.qml</file>
+        <file>Styles/ActivityStyle.qml</file>
         <file>Text.qml</file>
         <file>drawable/ListDivider.qml</file>
         <file>priv/BaseListItem.qml</file>
         <file>ListItem.qml</file>
-        <file>style/ListItemStyle.qml</file>
+        <file>Styles/ListItemStyle.qml</file>
         <file>FloatingActionButton.qml</file>
         <file>TabBar.qml</file>
         <file>priv/Tab.qml</file>
@@ -103,6 +103,6 @@
         <file>Constants.qml</file>
         <file>Popup.qml</file>
         <file>DropDownMenu.qml</file>
-        <file>style/DropDownMenuStyle.qml</file>
+        <file>Styles/DropDownMenuStyle.qml</file>
     </qresource>
 </RCC>

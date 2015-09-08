@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 pragma Singleton
 
 Theme {

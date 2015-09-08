@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.2 as Controls
 import QtQuick.Controls.Styles 1.2 as ControlsStyles
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 import "./drawable"
 
 /// Base Button Component

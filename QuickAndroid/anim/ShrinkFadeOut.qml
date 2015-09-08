@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "../style"
+import "../Styles"
 
 ParallelAnimation {
     id : anim

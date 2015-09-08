@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.2
 import QuickAndroid 0.1
-import "./style"
+import "./Styles"
 
 Popup {
     id: dropDownMenu
