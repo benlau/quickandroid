@@ -35,7 +35,8 @@ DISTFILES += \
     tst_TabBar.qml \
     tst_TabView.qml \
     tst_Popup.qml \
-    tst_DropDownMenu.qml
+    tst_DropDownMenu.qml \
+    tst_Activity.qml
 
 RESOURCES += \
     qml.qrc

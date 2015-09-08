@@ -26,7 +26,7 @@ Activity {
         id: popup1
 
         anchorPoint : Constants.leftTop
-        anchorView: button1
+        anchorView: window
 
         Rectangle {
             id: rect1
@@ -43,7 +43,7 @@ Activity {
 
         function test_rightTop() {
             wait(200);
-            popup1.anchorView = actionBarItem
+            popup1.anchorView = window;
             popup1.anchorPoint = Constants.rightTop
             popup1.open();
             wait(300);

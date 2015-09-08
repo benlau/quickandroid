@@ -8,10 +8,7 @@ FocusScope {
     id : activity
     focus : true
 
-    property Component actionBar : null
-
-    /// This hold the actionBar item created from actionBar component
-    property Item actionBarItem : actionBarLoader.item
+    property alias actionBar : actionBarContainer.children
 
     property var application : null
 
@@ -63,10 +60,8 @@ FocusScope {
         }
     }
 
-    Loader {
-        id : actionBarLoader
-        sourceComponent: activity.actionBar
-
+    Item {
+        id: actionBarContainer
         anchors.top: parent.top
         anchors.topMargin: 0
         anchors.right: parent.right
@@ -74,13 +69,22 @@ FocusScope {
         anchors.left: parent.left
         anchors.leftMargin: 0
         z: contentHolder.z + 1;
+
+        height: children.length > 0 ? childrenRect.height : 0
     }
 
     Item {
         id: contentHolder
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: actionBarLoader.bottom
+        anchors.top: actionBarContainer.bottom
         anchors.bottom: parent.bottom
+    }
+
+    Binding {
+        target: actionBarContainer.children.length > 0 ? actionBarContainer.children[0] : null
+        when: true
+        property: "width"
+        value: activity.width
     }
 }

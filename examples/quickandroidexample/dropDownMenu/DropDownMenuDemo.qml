@@ -26,7 +26,7 @@ Activity {
 
     DropDownMenu {
         id: dropDownMenu
-        anchorView: actionBarItem
+        anchorView: menuButton
         anchorPoint: Constants.rightTop
         model: VisualItemModel {
             ListItem { title: "Share" }

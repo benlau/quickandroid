@@ -38,7 +38,6 @@ Item {
 
     signal actionButtonClicked
 
-    width : 480
     height: A.dp * 48
 
     Drawable {
