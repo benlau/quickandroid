@@ -21,6 +21,8 @@ Item {
 
     property string iconSource
 
+    property var background : style.background
+
     property ActionBarStyle style : ActionBarStyle {
         iconSource : Style.theme.actionBar.iconSource
         background: Style.theme.actionBar.background
@@ -43,7 +45,7 @@ Item {
     Drawable {
         id : bg
         anchors.fill: parent
-        source: actionBar.style.background
+        source: actionBar.background
     }
 
     RowLayout {
@@ -91,7 +93,6 @@ Item {
 
         Text {
             id : titleText
-            text: "Application Title"
 
             property int keyline: (home.show ? actionBar.style.keyline2 : actionBar.style.keyline1 ) * A.dp
 

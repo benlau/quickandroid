@@ -4,7 +4,7 @@ import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
 
 Rectangle {
-    id : rect
+    id : window
     width: 480
     height: 640
 
@@ -12,6 +12,7 @@ Rectangle {
         anchors.fill: parent
 
         ActionBar {
+            width: window.width
             id : actionBar1
             title : "Super Long Title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
             anchors.fill: undefined
@@ -26,6 +27,7 @@ Rectangle {
 
         ActionBar {
             title: "Actoin Bar 2"
+            width: window.width
 
             id: actionBar2
             iconSource: Qt.resolvedUrl("drawable-hdpi/icon.png")
@@ -33,6 +35,7 @@ Rectangle {
 
         ActionBar {
             title: "Actoin Bar 3"
+            width: window.width
 
             id: actionBar3
             iconSource: Qt.resolvedUrl("drawable-hdpi/icon.png")
@@ -52,6 +55,11 @@ Rectangle {
             }
         }
 
+        ActionBar {
+            title: "Actoin Bar 4"
+            width: window.width
+            background: Constants.white100
+        }
     }
 
     Rectangle {

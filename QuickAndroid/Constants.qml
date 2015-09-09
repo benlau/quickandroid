@@ -3,11 +3,17 @@ pragma Singleton
 
 QtObject {
     property color black : "#000000"
+    property color black100 : "#000000"
     property color black87 : "#de000000"
     property color black54 : "#8a000000"
     property color black12 : "#1a000000"
+
+    property color white: "#ffffff"
+    property color white100: "#ffffff"
     property color white87 : "#deffffff"
+    property color white54 : "#8affffff"
     property color white38 : "#61ffffff"
+
     property color transparent : "#00000000"
 
     /* Size */
