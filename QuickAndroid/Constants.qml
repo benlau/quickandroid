@@ -10,12 +10,6 @@ QtObject {
     property color white38 : "#61ffffff"
     property color transparent : "#00000000"
 
-
-    property int normalTextStyle : 0
-    property int smallTextStyle : 1
-    property int mediumTextStyle : 2
-    property int largeTextStyle : 3
-
     /* Text Size */
     property string smallText: "small"
     property string normalText: "normal"
