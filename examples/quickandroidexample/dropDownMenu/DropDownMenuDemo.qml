@@ -19,7 +19,6 @@ Activity {
             icon : "image://drawable/ic_menu.png?tintColor=" + escape(Constants.black87)
             onClicked:  {
                 dropDownMenu.open();
-                console.log(dropDownMenu.paper.width,dropDownMenu.paper.height);
             }
         }
     }

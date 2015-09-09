@@ -15,12 +15,11 @@ Popup {
     onAboutToOpen: {
         var multipler = 56 * A.dp;
         var max = 0;
-        var margin = 16 * A.dp
         var h = 0;
         for (var i = 0 ; i < repeater.count ;i++) {
             var item = repeater.itemAt(i);
-            if (item.implicitWidth + margin> max ) {
-                max = item.implicitWidth + margin;
+            if (item.implicitWidth> max ) {
+                max = item.implicitWidth;
             }
             h += item.height
         }
