@@ -33,8 +33,7 @@ Activity {
                     iconSource: "image://drawable/ic_done_black_24dp?tintColor=" + escape(Style.theme.white87)
                     depth: modelData
                     anchors.verticalCenter: parent.verticalCenter
-                    width: 40 * A.dp
-                    height: 40 * A.dp
+                    size: Constants.small
                 }
             }
         }

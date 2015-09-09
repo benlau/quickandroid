@@ -13,12 +13,15 @@ import QuickAndroid.Styles 0.1
 Controls.Button {
     id: component
 
-    width: 56 * A.dp
-    height: 56 * A.dp
+    width: size === Constants.large ? 56 * A.dp : 40 * A.dp
+    height: width
 
-    property size iconSourceSize
+    property size iconSourceSize : Qt.size(24 * A.dp,24 * A.dp);
     property color color : Style.theme.colorPrimary
     property int depth: 1
+
+    // Size of button. Possible values: [Constants.large, Constants.small]
+    property string size: Constants.large
 
     style: ControlStyles.ButtonStyle {
         label: Item {
