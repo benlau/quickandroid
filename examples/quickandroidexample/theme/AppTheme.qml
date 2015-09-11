@@ -7,6 +7,7 @@ Theme {
     mediumText.textSize: 18
     smallText.textSize : 14
 
+    colorPrimary: "#cddc39" // Lime 500
     windowBackground: "#eeeeee";
 
     // Background with shadow

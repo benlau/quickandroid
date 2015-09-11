@@ -43,7 +43,7 @@ Item {
 
     signal actionButtonClicked
 
-    height: A.dp * 48
+    implicitHeight: A.dp * 48
 
     Drawable {
         id : bg

@@ -96,11 +96,18 @@ Activity {
         }
 
         ListElement {
-            name : "Notification / Interthread communication with Android"
+            name : "Inter Process Communication between Android/C++"
             preview : ""
             demo : "notification/NotificationDemo.qml"
             description: "Sending notification via System Dispatcher"
         }
+
+        ListElement {
+            name : "Tabs"
+            description: "TabBar, TabView"
+            demo : "tabs/TabsDemo.qml"
+        }
+
 
     }
 
