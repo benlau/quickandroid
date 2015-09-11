@@ -11,23 +11,22 @@ import QuickAndroid 0.1
 QtObject {
     id : theme
 
-    property color colorPrimary : "#BBDEFB" // blue 100
-    property color colorPrimaryDark : "#1565C0" // blue 800
-    property color textColorPrimary : Constants.black87
+    // Color
+    // Reference: https://github.com/android/platform_frameworks_base/blob/master/core/res/res/values/attrs.xml
+
+    property string colorPrimary : "#BBDEFB" // blue 100
+    property string colorPrimaryDark : "#1565C0" // blue 800
+
+    property string textColorPrimary : Constants.black87
+    property string textColorSecondary: Constants.black54
+
     property color windowBackground: "#EFEFEF"
     property color navigationBarColor : "#FFFFFF"
 
+    // Animation
+
     property int activityDefaultDuration: 220
     property int activityShortDuration: 150
-
-    // colors_material.xml
-    property string black : "#000000"
-    property string black87 : "#de000000"
-    property string black54 : "#8a000000"
-
-    property string white : "#ffffff"
-    property string white87 : "#deffffff"
-    property string white38 : "#61ffffff"
 
     // Metric
     property int keyline1: 16
