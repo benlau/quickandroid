@@ -19,7 +19,9 @@ Item {
 
     property bool upEnabled : false
 
-    property string iconSource
+    property string iconSource : style.iconSource
+
+    property size iconSourceSize : style.iconSourceSize
 
     property var background : style.background
 
@@ -85,10 +87,10 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
             asynchronous: true
-            source: actionBar.iconSource ? actionBar.iconSource : actionBar.style.iconSource
+            source: actionBar.iconSource
             sourceSize: Qt.size(32 * A.dp,32 * A.dp)
 
-            property bool show: showIcon && actionBar.style.iconSource || actionBar.iconSource
+            property bool show: showIcon && actionBar.iconSource
         }
 
         Text {

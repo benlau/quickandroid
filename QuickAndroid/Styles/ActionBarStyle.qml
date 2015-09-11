@@ -7,6 +7,8 @@ import QtQuick 2.0
 
 QtObject {
     property var iconSource : ""
+    property size iconSourceSize
+
     property var background
     property var actionButtonBackground
     property var titleTextStyle
