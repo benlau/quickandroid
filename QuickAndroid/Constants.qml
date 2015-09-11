@@ -38,6 +38,8 @@ QtObject {
     property string rightBottom : "rightBottom"
 
     // The z value of popup layer
-    property int zPopupLayer : 100000000
+
+    property int zPopupLayer :      100000000
+    property int zInverseMouseArea: 200000000
 }
 

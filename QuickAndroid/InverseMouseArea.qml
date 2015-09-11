@@ -3,8 +3,8 @@
     License: Apache
  */
 
-
 import QtQuick 2.0
+import QuickAndroid 0.1
 
 Item {
     id : component
@@ -57,7 +57,7 @@ Item {
         MouseArea {
             propagateComposedEvents : true
             anchors.fill: parent
-            z: 1000000000
+            z: Constants.zInverseMouseArea
             onPressed: {
                 mouse.accepted = false;
                 var pt = mapToItem(component.parent,mouse.x,mouse.y)
