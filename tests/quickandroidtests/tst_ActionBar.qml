@@ -14,7 +14,7 @@ Rectangle {
         ActionBar {
             width: window.width
             id : actionBar1
-            title : "Super Long Title!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+            title : "Super Long Title - 01234567890123456789012345678901234567890123456789"
             anchors.fill: undefined
 
             style.background : "#cddc39" // Lime 500
@@ -31,6 +31,7 @@ Rectangle {
 
             id: actionBar2
             iconSource: Qt.resolvedUrl("drawable-hdpi/icon.png")
+            iconSourceSize: Qt.size(32 * A.dp , 32 * A.dp)
         }
 
         ActionBar {

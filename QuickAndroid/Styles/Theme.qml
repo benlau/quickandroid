@@ -65,7 +65,11 @@ QtObject {
     property ActionBarStyle actionBar : ActionBarStyle {
         background : "#E6E6E6"
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
-        titleTextStyle: mediumText
+        titleTextStyle: TextStyle {
+            textSize: 18
+            textColor: textColorPrimary
+        }
+
         homeAsUpIndicator : Qt.resolvedUrl("../drawable-xxhdpi/ic_ab_back_holo_light_am.png")
         homeMarginLeft: -2
         divider : Constants.black12

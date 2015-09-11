@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
@@ -11,7 +11,7 @@ Item {
 
     property alias title : titleText.text
 
-    property alias homeIcon : home.source
+//    property alias homeIcon : home.source
 
     property bool showTitle : true
 
@@ -54,22 +54,7 @@ Item {
         anchors.fill: parent
         spacing : 0
 
-    QuickButton {
-        id : actionButton
-        objectName : "ActionButton"
-        width : show ? Math.min(implicitWidth , menuBarRegion.x) : 0
-        implicitWidth: titleText.x + (titleText.implicitWidth + 8 * A.dp) * showTitle
-        height : actionBar.height
-        background: actionBar.style.actionButtonBackground
-        clip : true
-
-        property bool show : upEnabled || showIcon || showTitle
-
-        Layout.fillHeight: true
-        Layout.fillWidth: true
-        Layout.maximumWidth: implicitWidth
-        Layout.minimumWidth: titleText.x + 8 * A.dp
-
+        /*
         Drawable {
             id : up
             anchors.verticalCenter: parent.verticalCenter
@@ -78,27 +63,45 @@ Item {
             visible: upEnabled && showIcon
             asynchronous: true
         }
+        */
 
-        Image {
-            id : home
-            width: show ? height : 0
-            height: 32 * A.dp
-            x: Math.max(actionBar.style.keyline1 * A.dp,up.x + up.width)
-            anchors.verticalCenter: parent.verticalCenter
-            fillMode: Image.PreserveAspectFit
-            asynchronous: true
-            source: actionBar.iconSource
-            sourceSize: Qt.size(32 * A.dp,32 * A.dp)
+        Button {
+            id : actionButton
+            objectName : "ActionButton"
+            implicitWidth: actionBar.iconSource !== "" ? Math.max(48 * A.dp, iconItem.width + 32 * A.dp) : 0
+            height : actionBar.height
+            background: actionBar.style.actionButtonBackground
+            clip : true
 
-            property bool show: showIcon && actionBar.iconSource
+            property bool show : upEnabled || showIcon || showTitle
+
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.maximumWidth: implicitWidth
+            Layout.minimumWidth: titleText.x + 8 * A.dp
+
+            onClicked: actionBar.actionButtonClicked();
+
+            Image {
+                id: iconItem
+                x: actionBar.style.keyline1
+
+                anchors.verticalCenter: parent.verticalCenter
+                source: actionBar.iconSource
+                sourceSize: actionBar.iconSourceSize
+            }
+        }
+
+        Item {
+            id: spacer;
+            width: actionButton.width == 0 ? actionBar.style.keyline1 * A.dp : Math.max(actionBar.style.keyline2 * A.dp - actionButton.width );
         }
 
         Text {
             id : titleText
+            Layout.fillHeight: true
+            Layout.fillWidth: true
 
-            property int keyline: (home.show ? actionBar.style.keyline2 : actionBar.style.keyline1 ) * A.dp
-
-            x: keyline
             verticalAlignment: Text.AlignVCenter
             wrapMode : Text.NoWrap
             maximumLineCount:1
@@ -107,12 +110,8 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment : Text.AlignLeft
 
-            color : actionBar.style.titleTextStyle.textColor
-            font.pixelSize: actionBar.style.titleTextStyle.textSize * A.dp
+            textStyle: actionBar.style.titleTextStyle
         }
-
-        onClicked: actionBar.actionButtonClicked();
-    }
 
         Item {
             id : fillArea
