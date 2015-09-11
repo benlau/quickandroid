@@ -119,7 +119,7 @@ void QuickAndroidTests::runExample()
     view.setSource(QUrl("qrc:/main.qml"));
     view.show();
 
-    wait(6000);
+    wait(1000);
 
     QList<QQmlError> errors = view.errors();
     QVERIFY(errors.size() == 0);
@@ -140,13 +140,25 @@ void QuickAndroidTests::drawableProvider()
     QVERIFY(rootItem);
 
     QStringList images;
-    images << "image1" << "image2" << "image3";
+    images << "image1" << "image2" << "image3" << "image4";
 
     Q_FOREACH(QString image,images) {
         QQuickItem* item = rootItem->findChild<QQuickItem*>(image);
         QVERIFY(item);
         QCOMPARE(item->property("status").toInt() , 1) ;
     }
+
+    QQuickItem *image1 = rootItem->findChild<QQuickItem*>("image1");
+    QVERIFY(image1);
+    QVERIFY(image1->property("sourceSize").toSize() == QSize(48,48));
+    QVERIFY(image1->width() == 48);
+    QVERIFY(image1->height() == 48);
+
+    QQuickItem *image4 = rootItem->findChild<QQuickItem*>("image4");
+    QVERIFY(image4);
+    QVERIFY(image4->property("sourceSize").toSize() == QSize(32,32));
+    QVERIFY(image4->width() == 32);
+    QVERIFY(image4->height() == 32);
 
     engine.removeImageProvider("drawable");
 

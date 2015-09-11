@@ -17,5 +17,11 @@ Item {
         source: 'image://drawable/Qt-logo-medium.png'
     }
 
+    Image {
+        objectName : "image4"
+        source: 'image://drawable/icon.png'
+        sourceSize: Qt.size(32,32);
+    }
+
 }
 
