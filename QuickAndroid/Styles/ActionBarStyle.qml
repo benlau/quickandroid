@@ -11,7 +11,7 @@ QtObject {
 
     property var background
     property var actionButtonBackground
-    property var titleTextStyle
+    property TextStyle titleTextStyle
     property var homeAsUpIndicator
     property int homeMarginLeft: -2
 

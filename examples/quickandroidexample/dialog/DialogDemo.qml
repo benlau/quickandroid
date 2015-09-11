@@ -21,7 +21,7 @@ Activity {
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        color : Style.theme.black87
+        color : Constants.black87
         font.pixelSize: Style.theme.largeText.textSize * A.dp
     }
 

@@ -27,6 +27,7 @@ Item {
 
     property ActionBarStyle style : ActionBarStyle {
         iconSource : Style.theme.actionBar.iconSource
+        iconSourceSize : Style.theme.actionBar.iconSourceSize
         background: Style.theme.actionBar.background
         actionButtonBackground: Style.theme.actionBar.actionButtonBackground
         titleTextStyle:  Style.theme.actionBar.titleTextStyle
@@ -94,7 +95,9 @@ Item {
 
         Item {
             id: spacer;
-            width: actionButton.width == 0 ? actionBar.style.keyline1 * A.dp : Math.max(actionBar.style.keyline2 * A.dp - actionButton.width );
+            Layout.maximumWidth: implicitWidth
+            Layout.minimumWidth: implicitWidth
+            implicitWidth: actionButton.width == 0 ? actionBar.style.keyline1 * A.dp : Math.max(actionBar.style.keyline2 * A.dp - actionButton.width , 0);
         }
 
         Text {

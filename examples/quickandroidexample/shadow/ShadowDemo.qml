@@ -48,7 +48,7 @@ Activity {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text : "Depth : " + (modelData + 1)
                     font.pixelSize: Style.theme.largeText.textSize * A.dp
-                    color : Style.theme.black87
+                    color : Constants.black87
                 }
             }
         }

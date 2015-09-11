@@ -35,7 +35,7 @@ Dialog {
                 verticalAlignment: Text.AlignVCenter
                 font.pixelSize: Style.theme.text.textSize * A.dp
                 wrapMode : Text.WordWrap
-                color : Style.theme.black87
+                color : Constants.black87
             }
         }
 

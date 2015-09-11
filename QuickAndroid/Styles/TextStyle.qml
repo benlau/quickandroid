@@ -7,5 +7,5 @@ import QuickAndroid 0.1
 
 QtObject {
     property int textSize : 16
-    property var textColor : Constants.black87
+    property string textColor : Constants.black87
 }
