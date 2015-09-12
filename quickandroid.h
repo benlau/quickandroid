@@ -10,8 +10,8 @@ public:
     static void registerTypes();
 
     /// Obtain the detected "dp" value.
-    /**
-     It must call the registerTypes() function before the function. Otherwise the value will be invalid.
+    /** This function has been deprecated. Please use QADevice::dp()
+       @deprecated.
      * @brief dp
      * @return The detected "dp" value
     */

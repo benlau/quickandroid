@@ -1,5 +1,6 @@
 #include <QObject>
 #include <QtQml>
+#include "qadevice.h"
 
 #ifdef Q_OS_ANDROID
 #include <QAndroidJniEnvironment>
@@ -18,14 +19,6 @@ static QJSValue provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine);
 
-#ifdef Q_OS_ANDROID
-    QAndroidJniObject activity = QAndroidJniObject::callStaticObjectMethod("org/qtproject/qt5/android/QtNative", "activity", "()Landroid/app/Activity;");
-    QAndroidJniObject resource = activity.callObjectMethod("getResources","()Landroid/content/res/Resources;");
-    QAndroidJniObject metrics = resource.callObjectMethod("getDisplayMetrics","()Landroid/util/DisplayMetrics;");
-    m_dp = metrics.getField<float>("density");
-    m_dpi = metrics.getField<int>("densityDpi");
-#endif
-
     QJSValue value = scriptEngine->newObject();
     value.setProperty("dp",m_dp);
     value.setProperty("dpi",m_dpi);
@@ -38,8 +31,23 @@ class QADeviceReigsterHelper {
 
 public:
     QADeviceReigsterHelper() {
+
+#ifdef Q_OS_ANDROID
+        QAndroidJniObject activity = QAndroidJniObject::callStaticObjectMethod("org/qtproject/qt5/android/QtNative", "activity", "()Landroid/app/Activity;");
+        QAndroidJniObject resource = activity.callObjectMethod("getResources","()Landroid/content/res/Resources;");
+        QAndroidJniObject metrics = resource.callObjectMethod("getDisplayMetrics","()Landroid/util/DisplayMetrics;");
+        m_dp = metrics.getField<float>("density");
+        m_dpi = metrics.getField<int>("densityDpi");
+#endif
+
         qmlRegisterSingletonType("QuickAndroid", 0, 1, "Device", provider);
     }
 };
 
 static QADeviceReigsterHelper registerHelper;
+
+
+qreal QADevice::dp()
+{
+    return m_dp;
+}

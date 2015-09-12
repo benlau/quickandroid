@@ -104,5 +104,6 @@
         <file>Popup.qml</file>
         <file>DropDownMenu.qml</file>
         <file>Styles/DropDownMenuStyle.qml</file>
+        <file>A.qml</file>
     </qresource>
 </RCC>

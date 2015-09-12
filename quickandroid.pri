@@ -8,14 +8,15 @@ HEADERS += \
     $$PWD/quickandroid.h \
     $$PWD/qadrawableprovider.h \
     $$PWD/qasystemdispatcher.h \
-    $$PWD/priv/qasystemdispatcherproxy.h
+    $$PWD/priv/qasystemdispatcherproxy.h \
+    $$PWD/qadevice.h
 
 SOURCES += \
     $$PWD/quickandroid.cpp \
     $$PWD/qadrawableprovider.cpp \
     $$PWD/qasystemdispatcher.cpp \
     $$PWD/priv/qasystemdispatcherproxy.cpp \
-    $$PWD/priv/qadevice.cpp
+    $$PWD/qadevice.cpp
 
 android {
     QT += androidextras
