@@ -14,7 +14,8 @@ SOURCES += \
     $$PWD/quickandroid.cpp \
     $$PWD/qadrawableprovider.cpp \
     $$PWD/qasystemdispatcher.cpp \
-    $$PWD/priv/qasystemdispatcherproxy.cpp
+    $$PWD/priv/qasystemdispatcherproxy.cpp \
+    $$PWD/priv/qadevice.cpp
 
 android {
     QT += androidextras

@@ -14,7 +14,7 @@ QtObject {
     property string white54 : "#8affffff"
     property string white38 : "#61ffffff"
 
-    property color transparent : "#00000000"
+    property string transparent : "#00000000"
 
     /* Size */
     property string small: "small"

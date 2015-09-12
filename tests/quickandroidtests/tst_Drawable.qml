@@ -41,7 +41,7 @@ Rectangle {
         content : Text {
                 anchors.centerIn: parent
                 text: "Drawable3"
-                color : Style.theme.black87
+                color : Constants.black87
                 horizontalAlignment: Text.Center
         }
     }
