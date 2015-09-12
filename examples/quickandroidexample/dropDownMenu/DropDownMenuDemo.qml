@@ -16,7 +16,7 @@ Activity {
 
         menuBar : QuickButton {
             id: menuButton
-            icon : "image://drawable/ic_menu.png?tintColor=" + escape(Constants.black87)
+            icon : A.drawable("ic_menu",Constants.black87)
             onClicked:  {
                 dropDownMenu.open();
             }
@@ -39,7 +39,7 @@ Activity {
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        color : Style.theme.black87
+        color : Constants.black87
         font.pixelSize: Style.theme.largeText.textSize * A.dp
     }
 

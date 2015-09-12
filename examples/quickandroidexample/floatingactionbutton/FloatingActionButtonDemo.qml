@@ -23,14 +23,14 @@ Activity {
                 title: "   Depth = " + modelData
                 icon: FloatingActionButton {
                     color: "red"
-                    iconSource: "image://drawable/ic_done_black_24dp?tintColor=" + escape(Style.theme.white87)
+                    iconSource: A.drawable("ic_done_black_24dp",Constants.white87);
                     depth: modelData
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
                 rightIcon: FloatingActionButton {
                     color: "blue"
-                    iconSource: "image://drawable/ic_done_black_24dp?tintColor=" + escape(Style.theme.white87)
+                    iconSource: A.drawable("ic_done_black_24dp",Constants.white87);
                     depth: modelData
                     anchors.verticalCenter: parent.verticalCenter
                     size: Constants.small

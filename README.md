@@ -59,7 +59,6 @@ int main(int argc, char *argv[])
     /* QuickAndroid Initialization */
 
     view.engine()->addImportPath("qrc:///"); // Add QuickAndroid into the import path
-    QuickAndroid::registerTypes(); // It must be called before loaded any scene
 
     /* End of QuickAndroid Initialization */
 
