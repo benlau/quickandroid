@@ -34,6 +34,13 @@ Rectangle {
             text: "Icon and Text"
         }
 
+        Button {
+            id: button5
+            text: "Icon and Text"
+            textColor: Constants.white100
+            background: Qt.resolvedUrl("./DarkButtonBackground.qml")
+        }
+
     }
 
     TestCase {

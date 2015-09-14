@@ -36,7 +36,8 @@ DISTFILES += \
     tst_TabView.qml \
     tst_Popup.qml \
     tst_DropDownMenu.qml \
-    tst_Activity.qml
+    tst_Activity.qml \
+    DarkButtonBackground.qml
 
 RESOURCES += \
     qml.qrc

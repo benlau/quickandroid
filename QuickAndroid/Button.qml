@@ -32,7 +32,7 @@ Controls.Button {
             // Ignore the fill area@ Material Design
             implicitHeight: 36 * A.dp
             implicitWidth: 36 * A.dp
-            source: Qt.resolvedUrl("./drawable/BtnDefault.qml");
+            source: control.background
             pressed: control.pressed
         }
 
