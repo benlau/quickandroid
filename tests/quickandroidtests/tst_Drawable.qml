@@ -22,7 +22,7 @@ Rectangle {
             id : itemBackground
             source : "drawable/ItemBackgroundHoloLight.qml"
             width : parent.width
-            height : 48
+            height : A.px(48)
 
             Drawable {
                 id : up
@@ -56,7 +56,7 @@ Rectangle {
                 }
             }
             width: parent.width
-            height: 48 * A.dp
+            height: A.px(48)
         }
 
     }
