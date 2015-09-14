@@ -7,6 +7,7 @@ Rectangle {
 
     property bool pressed
 
+    /// Drawable supports multiple type of source. It support "image","hex code of color","qml", Item, Component
     property var source
 
     /// The status of loading resource
@@ -52,6 +53,12 @@ Rectangle {
             }
         }
         return dp
+    }
+
+    function _createObject(source) {
+        drawable.item = source.createObject(drawable);
+        drawable.canvas = drawable.item;
+        drawable.item.anchors.fill = drawable;
     }
 
     Component {
@@ -249,7 +256,12 @@ Rectangle {
             // color can be an object or string
             drawable.color = source;
         } else if (typeof source === "object") {
-            sourceItemContainer.createObject(drawable,{ content : source })
+
+            if (String(source).indexOf("QQmlComponent") === 0) {
+                _createObject(source);
+            } else {
+                sourceItemContainer.createObject(drawable,{ content : source })
+            }
         } else {
             var qml = source.search(/\.qml$/i);
             if (qml !== -1) {

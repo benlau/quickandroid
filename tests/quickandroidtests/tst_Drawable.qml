@@ -15,35 +15,50 @@ Rectangle {
         source : "drawable/BackgroundHoloLight.qml"
     }
 
-    Drawable {
-        id : itemBackground
-        source : "drawable/ItemBackgroundHoloLight.qml"
-        width : parent.width
-        height : 48
+    Column {
+        anchors.fill: parent
 
         Drawable {
-            id : up
-            anchors.verticalCenter: parent.verticalCenter
-            source : "drawable-xxhdpi/ic_ab_back_holo_light_am.png"
-        }
-    }
+            id : itemBackground
+            source : "drawable/ItemBackgroundHoloLight.qml"
+            width : parent.width
+            height : 48
 
-    // A drawable that set source to a component
-    Drawable {
-        id : drawable3
-        anchors.top : itemBackground.bottom
-        source: Rectangle {
-            implicitWidth: 100
-            implicitHeight: 100
-            color : "#ffffff"
+            Drawable {
+                id : up
+                anchors.verticalCenter: parent.verticalCenter
+                source : "drawable-xxhdpi/ic_ab_back_holo_light_am.png"
+            }
         }
 
-        content : Text {
-                anchors.centerIn: parent
-                text: "Drawable3"
-                color : Constants.black87
-                horizontalAlignment: Text.Center
+        // A drawable that set source to a component
+        Drawable {
+            id : drawable3
+            source: Rectangle {
+                implicitWidth: 100
+                implicitHeight: 100
+                color : "#ffffff"
+            }
+
+            content : Text {
+                    anchors.centerIn: parent
+                    text: "Drawable3"
+                    color : Constants.black87
+                    horizontalAlignment: Text.Center
+            }
         }
+
+        Drawable {
+            id: drawable4
+            source: Component {
+                Rectangle {
+                    color: "red"
+                }
+            }
+            width: parent.width
+            height: 48 * A.dp
+        }
+
     }
 
     TestCase {
@@ -52,7 +67,7 @@ Rectangle {
         height : 480
         when : windowShown
 
-        function test_basic() {
+        function test_preview() {
             compare(Image.Ready , Loader.Ready)           
             compare(background.status , Loader.Ready);
 
@@ -68,6 +83,10 @@ Rectangle {
             compare(drawable3.fillArea.width,100);
             compare(drawable3.fillArea.height,100);
 
+            compare(drawable4.item,drawable4.canvas);
+            compare(String(drawable4.item).indexOf("QQuickRectangle") === 0,true);
+
+            wait(TestEnv.waitTime);
 //            wait(60000);
         }
     }
