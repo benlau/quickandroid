@@ -74,7 +74,6 @@ QtObject {
             textColor: textColorPrimary
         }
         homeAsUpIndicator : Qt.resolvedUrl("../drawable-xxhdpi/ic_ab_back_holo_light_am.png")
-        homeMarginLeft: -2*A.dp
         divider : Constants.black12
         padding: 8 * A.dp
         keyline1: theme.keyline1

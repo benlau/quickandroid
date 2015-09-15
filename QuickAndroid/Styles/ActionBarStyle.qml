@@ -14,7 +14,6 @@ QtObject {
     property var actionButtonBackground
     property TextStyle titleTextStyle
     property var homeAsUpIndicator
-    property int homeMarginLeft: -2 * A.dp
 
     property var divider : "#1A000000"
     property var padding : 8 * A.dp

@@ -32,7 +32,6 @@ Item {
         actionButtonBackground: Style.theme.actionBar.actionButtonBackground
         titleTextStyle:  Style.theme.actionBar.titleTextStyle
         homeAsUpIndicator: Style.theme.actionBar.homeAsUpIndicator
-        homeMarginLeft: Style.theme.actionBar.homeMarginLeft
         divider: Style.theme.actionBar.divider
         padding: Style.theme.actionBar.padding
     }
