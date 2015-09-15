@@ -33,27 +33,27 @@ QtObject {
     property int activityShortDuration: 150
 
     // Metric
-    property int keyline1: 16
-    property int keyline2: 72
+    property int keyline1: 16 * A.dp
+    property int keyline2: 72 * A.dp
 
     // Normal test style
     property TextStyle text : TextStyle {
-        textSize: 16
+        textSize: 16 * A.dp
         textColor: Constants.black87
     }
 
     property TextStyle smallText : TextStyle {
-        textSize: 14
+        textSize: 14 * A.dp
         textColor : Constants.black87
     }
 
     property TextStyle mediumText : TextStyle {
-        textSize: 18
+        textSize: 18 * A.dp
         textColor : Constants.black87
     }
 
     property TextStyle largeText : TextStyle {
-        textSize: 22
+        textSize: 22 * A.dp
         textColor : Constants.black87
     }
 
@@ -70,13 +70,13 @@ QtObject {
         background : "#E6E6E6"
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
         titleTextStyle: TextStyle {
-            textSize: 18
+            textSize: 18*A.dp
             textColor: textColorPrimary
         }
         homeAsUpIndicator : Qt.resolvedUrl("../drawable-xxhdpi/ic_ab_back_holo_light_am.png")
-        homeMarginLeft: -2
+        homeMarginLeft: -2*A.dp
         divider : Constants.black12
-        padding: 8
+        padding: 8 * A.dp
         keyline1: theme.keyline1
         keyline2: theme.keyline2
     }
@@ -85,7 +85,7 @@ QtObject {
         background : Qt.resolvedUrl("../drawable/SpinnerAbHoloLight.qml")
         popupBackground : Qt.resolvedUrl("../drawable/SpinnerDropdownBackground.qml")
         dropDownSelector : Qt.resolvedUrl("../drawable/ListSelectorHoloLight.qml")
-        dropDownVerticalOffset : -10
+        dropDownVerticalOffset : -10  * A.dp
         textStyle : TextStyle {
             textSize :  actionBar.titleTextStyle.textSize
             textColor :  actionBar.titleTextStyle.textColor
@@ -95,13 +95,13 @@ QtObject {
 
     property SpinnerItemStyle spinnerItem : SpinnerItemStyle {
         textStyle: mediumText
-        paddingStart: 8
-        paddingEnd: 8
+        paddingStart: 8 * A.dp
+        paddingEnd: 8 * A.dp
     }
 
     property DropDownStyle dropdown : DropDownStyle {
         background : Qt.resolvedUrl("../drawable/MenuDropdownPanelHoloLight.qml")
-        verticalOffset: -10
+        verticalOffset: -10 * A.dp
         textStyle: actionBar.titleTextStyle
 
         // Custom Style
@@ -121,9 +121,9 @@ QtObject {
         track: Qt.resolvedUrl("../drawable/SwitchBgHoloLight.qml")
         thumb: Qt.resolvedUrl("../drawable/SwitchThumbHoloLight.qml")
         textStyle: smallText
-        thumbTextPadding: 12
-        switchMinWidth: 96
-        switchPadding: 16
+        thumbTextPadding: 12 * A.dp
+        switchMinWidth: 96 * A.dp
+        switchPadding: 16 * A.dp
     }
 
     property DialogStyle dialog : DialogStyle {
@@ -138,8 +138,8 @@ QtObject {
     }
 
     property DropDownMenuStyle dropDownMenu: DropDownMenuStyle {
-        topPadding: 8
-        bottomPadding: 8
+        topPadding: 8 * A.dp
+        bottomPadding: 8 * A.dp
     }
 
     property TabBarStyle tabBar : TabBarStyle {

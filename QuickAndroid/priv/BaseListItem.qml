@@ -32,9 +32,9 @@ Rectangle {
 
     property alias rightIcon : valueHolder.children
 
-    property int dividerLeftInset : style.dividerLeftInset * A.dp
+    property int dividerLeftInset : style.dividerLeftInset
 
-    property int dividerRightInset : style.dividerRightInset * A.dp
+    property int dividerRightInset : style.dividerRightInset
 
     property bool showDivider: style.showDivider
 
@@ -48,7 +48,7 @@ Rectangle {
                    Math.max(titleMetrics.width,
                             subtitleMetrics.width) +
                    valueHolder.width +
-                   component.style.rightPadding * A.dp
+                   component.style.rightPadding
 
     anchors {
         left: parent ? parent.left : undefined
@@ -85,7 +85,7 @@ Rectangle {
             left: parent.left
             top : parent.top
             bottom : parent.bottom
-            leftMargin : component.style.leftPadding * A.dp
+            leftMargin : component.style.leftPadding
         }
 
         Image {
@@ -109,8 +109,8 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        anchors.leftMargin: _iconSet ? component.style.titleKeyline * A.dp : component.style.leftPadding * A.dp
-        anchors.topMargin: component.style.textTopPadding * A.dp
+        anchors.leftMargin: _iconSet ? component.style.titleKeyline : component.style.leftPadding
+        anchors.topMargin: component.style.textTopPadding
         anchors.rightMargin: parent.width - valueHolder.x
     }
 
@@ -125,15 +125,15 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        anchors.leftMargin: _iconSet ? component.style.titleKeyline * A.dp : component.style.leftPadding * A.dp
+        anchors.leftMargin: _iconSet ? component.style.titleKeyline : component.style.leftPadding
         anchors.rightMargin: parent.width - valueHolder.x
-        anchors.bottomMargin: component.style.textBottomPadding * A.dp
+        anchors.bottomMargin: component.style.textBottomPadding
     }
 
     Item {
         id: valueHolder
         anchors.right: parent.right
-        anchors.rightMargin: component.style.rightPadding * A.dp
+        anchors.rightMargin: component.style.rightPadding
         width: childrenRect.width
         height: parent.height
 
@@ -145,7 +145,7 @@ Rectangle {
 
            anchors.top: parent.top
            anchors.bottom: parent.bottom
-           anchors.topMargin: component.style.textTopPadding * A.dp
+           anchors.topMargin: component.style.textTopPadding
          }
     }
 

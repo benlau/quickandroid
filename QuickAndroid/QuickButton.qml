@@ -61,7 +61,7 @@ MouseArea {
 
                         verticalAlignment: Text.AlignVCenter
                         color : button.style.textStyle.textColor
-                        font.pixelSize: button.style.textStyle.textSize * A.dp
+                        font.pixelSize: button.style.textStyle.textSize
                         elide : Text.ElideLeft
                         maximumLineCount : 1
                         wrapMode: Text.WrapAnywhere

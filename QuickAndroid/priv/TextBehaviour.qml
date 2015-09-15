@@ -13,7 +13,7 @@ Item {
 
     property TextStyle textStyle
 
-    property var _pixelSize : textStyle ?  textStyle.textSize * A.dp : undefined
+    property var _pixelSize : textStyle ?  textStyle.textSize : undefined
     property var _color : textStyle ? textStyle.textColor : undefined
 
     /* textAppearance */

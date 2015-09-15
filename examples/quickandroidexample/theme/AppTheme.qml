@@ -4,8 +4,8 @@ import QuickAndroid.Styles 0.1
 pragma Singleton
 
 Theme {
-    mediumText.textSize: 18
-    smallText.textSize : 14
+    mediumText.textSize: 18 * A.dp
+    smallText.textSize : 14 * A.dp
 
     colorPrimary: "#cddc39" // Lime 500
     textColorPrimary: Constants.black87
@@ -24,7 +24,7 @@ Theme {
     // Custom Style object.
     TextStyle {
         id : customTextStyle1
-        textSize: 18
+        textSize: 18 * A.dp
         textColor : Constants.black87
     }
 }

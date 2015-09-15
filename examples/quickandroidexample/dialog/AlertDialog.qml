@@ -33,9 +33,8 @@ Dialog {
                 anchors.margins: 16 * A.dp
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pixelSize: Style.theme.text.textSize * A.dp
                 wrapMode : Text.WordWrap
-                color : Constants.black87
+                type: Constants.normalText
             }
         }
 

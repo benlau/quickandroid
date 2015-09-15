@@ -27,7 +27,7 @@ Popup {
         var w = Math.ceil(max / multipler) * multipler;
 
         scrollView.implicitWidth = w;
-        scrollView.implicitHeight = h + (style.topPadding  + style.bottomPadding) * A.dp; // + top and bottom padding
+        scrollView.implicitHeight = h + (style.topPadding  + style.bottomPadding); // + top and bottom padding
     }
 
     ScrollView {
@@ -39,11 +39,11 @@ Popup {
 
         Item {
             width: scrollView.width
-            height: childrenRect.height + (style.topPadding + style.bottomPadding) * A.dp
+            height: childrenRect.height + (style.topPadding + style.bottomPadding)
 
             Column {
                 width: scrollView.width
-                y: style.topPadding * A.dp
+                y: style.topPadding
                 Repeater {
                     id: repeater
                     width: scrollView.width

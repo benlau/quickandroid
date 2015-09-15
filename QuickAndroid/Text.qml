@@ -19,7 +19,7 @@ Quick.Text {
     // By default, it use normal text style
     property TextStyle textStyle : Style.theme.text;
 
-    font.pixelSize: component.textStyle.textSize * A.dp
+    font.pixelSize: component.textStyle.textSize
     color : component.textStyle.textColor
 
     // Set the type of the text. The text size and color will be changed according to the value.

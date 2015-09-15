@@ -5,29 +5,29 @@ import "../drawable"
 QtObject {
     property color backgroundColor : "#ffffff"
 
-    property int leftPadding: 16
-    property int rightPadding: 16
+    property int leftPadding: 16 * A.dp
+    property int rightPadding: 16 * A.dp
 
-    property int textTopPadding: 16
-    property int textBottomPadding: 20
+    property int textTopPadding: 16 * A.dp
+    property int textBottomPadding: 20 * A.dp
 
     // If icon is present, the left padding of title
-    property int titleKeyline: 72
+    property int titleKeyline: 72 * A.dp
 
     property bool showDivider: true
 
     property TextStyle titleTextStyle : TextStyle {
-        textSize: 16
+        textSize: 16 * A.dp
         textColor: Constants.black87
     }
 
     property TextStyle valueTextStyle : TextStyle {
-        textSize: 16
+        textSize: 16 * A.dp
         textColor : Constants.black54
     }
 
     property TextStyle subtitleTextStyle : TextStyle {
-        textSize: 14
+        textSize: 14 * A.dp
         textColor : Constants.black54
     }
 

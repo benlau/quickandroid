@@ -47,7 +47,7 @@ Activity {
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text : "Depth : " + (modelData + 1)
-                    font.pixelSize: Style.theme.largeText.textSize * A.dp
+                    type: Constants.largeText
                     color : Constants.black87
                 }
             }

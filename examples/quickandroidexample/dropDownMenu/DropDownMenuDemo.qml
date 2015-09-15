@@ -40,7 +40,7 @@ Activity {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         color : Constants.black87
-        font.pixelSize: Style.theme.largeText.textSize * A.dp
+        font.pixelSize: Style.theme.largeText.textSize
     }
 
 }

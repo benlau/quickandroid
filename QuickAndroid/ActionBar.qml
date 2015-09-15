@@ -79,7 +79,7 @@ Item {
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.maximumWidth: implicitWidth
-            Layout.minimumWidth: titleText.x + 8 * A.dp
+            Layout.minimumWidth: implicitWidth
 
             onClicked: actionBar.actionButtonClicked();
 
@@ -97,7 +97,7 @@ Item {
             id: spacer;
             Layout.maximumWidth: implicitWidth
             Layout.minimumWidth: implicitWidth
-            implicitWidth: actionButton.width == 0 ? actionBar.style.keyline1 * A.dp : Math.max(actionBar.style.keyline2 * A.dp - actionButton.width , 0);
+            implicitWidth: actionButton.width == 0 ? actionBar.style.keyline1 : Math.max(actionBar.style.keyline2 - actionButton.width , 0);
         }
 
         Text {
