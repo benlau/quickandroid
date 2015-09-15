@@ -8,7 +8,8 @@ Activity {
 
     actionBar: ActionBar {
         id : actionBar
-        title: "Quick Android Example Program"
+        title: "Component List"
+        showIcon: false;
         actionButtonEnabled: false
     }
 
@@ -111,11 +112,23 @@ Activity {
 
     }
 
+    VisualDataModel {
+        id: visualDataModel
+        delegate: ListItem {
+            title: model.name
+            subtitle: model.description
+            onClicked: {
+                start(Qt.resolvedUrl(model.demo));
+            }
+        }
+
+        model: listModel;
+    }
+
     ListView {
         anchors.fill: parent
 
-        model : listModel
-        delegate: listItem
+        model : visualDataModel
     }
 
 }

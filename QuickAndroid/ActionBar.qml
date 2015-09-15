@@ -69,12 +69,12 @@ Item {
         Button {
             id : actionButton
             objectName : "ActionButton"
-            implicitWidth: actionBar.iconSource !== "" ? Math.max(48 * A.dp, iconItem.width + 32 * A.dp) : 0
+            implicitWidth: actionBar.iconSource !== "" && showIcon ? Math.max(48 * A.dp, iconItem.width + 32 * A.dp) : 0
             height : actionBar.height
             background: actionBar.style.actionButtonBackground
             clip : true
 
-            property bool show : upEnabled || showIcon || showTitle
+            property bool show : showIcon
 
             Layout.fillHeight: true
             Layout.fillWidth: true
