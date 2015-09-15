@@ -8,6 +8,7 @@ Theme {
     smallText.textSize : 14
 
     colorPrimary: "#cddc39" // Lime 500
+    textColorPrimary: Constants.black87
     windowBackground: "#eeeeee";
 
     // Background with shadow
@@ -15,6 +16,7 @@ Theme {
 
     // actionBar.titleTextStyle.textSize is not allowed in QML. You should declare your own TextStyle and assign directly.
     // or modify text , smallText , mediumText and largetText
+
     actionBar.titleTextStyle : customTextStyle1;
     actionBar.iconSourceSize: Qt.size(32 * A.dp , 32 * A.dp)
 

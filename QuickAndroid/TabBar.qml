@@ -12,9 +12,12 @@ import "./priv"
 Item {
     id: component
 
-    property color backgroundColor: Style.theme.colorPrimary
-    property color indicatorColor: "#fff59d"
-    property color textColor : "#ffffff"
+    property TabBarStyle style: Style.theme.tabBar
+
+    property color backgroundColor: style.backgroundColor
+    property color indicatorColor: style.indicatorColor
+
+    property color textColor : style.textColor
 
     property ListModel tabs : ListModel {}
     property int count : tabs.count
@@ -43,6 +46,7 @@ Item {
                 width: component._itemWidth
                 height: component.height
                 active: currentIndex === model.index
+                tintColor: component.textColor
 
                 onClicked: {
                     component.currentIndex = model.index;

@@ -14,10 +14,14 @@ QtObject {
     // Color
     // Reference: https://github.com/android/platform_frameworks_base/blob/master/core/res/res/values/attrs.xml
 
-    property string colorPrimary : "#BBDEFB" // blue 100
-    property string colorPrimaryDark : "#1565C0" // blue 800
+    // Primary Color
+    property string colorPrimary : "#00BCD4" // Cyan500
+    property string colorPrimaryDark : "#00838F" // Cyan800
 
-    property string textColorPrimary : Constants.black87
+    property string colorForeground: "#FFF59D" //Yellow 200
+
+    property string textColorPrimary : Constants.white87
+
     property string textColorSecondary: Constants.black54
 
     property color windowBackground: "#EFEFEF"
@@ -35,22 +39,22 @@ QtObject {
     // Normal test style
     property TextStyle text : TextStyle {
         textSize: 16
-        textColor: textColorPrimary
+        textColor: Constants.black87
     }
 
     property TextStyle smallText : TextStyle {
         textSize: 14
-        textColor : textColorPrimary
+        textColor : Constants.black87
     }
 
     property TextStyle mediumText : TextStyle {
         textSize: 18
-        textColor : textColorPrimary
+        textColor : Constants.black87
     }
 
     property TextStyle largeText : TextStyle {
         textSize: 22
-        textColor : textColorPrimary
+        textColor : Constants.black87
     }
 
     property ActivityStyle activity : ActivityStyle {
@@ -136,6 +140,12 @@ QtObject {
     property DropDownMenuStyle dropDownMenu: DropDownMenuStyle {
         topPadding: 8
         bottomPadding: 8
+    }
+
+    property TabBarStyle tabBar : TabBarStyle {
+        backgroundColor: colorPrimary
+        indicatorColor: colorForeground
+        textColor: textColorPrimary
     }
 
     // Allow to place children under Theme.

@@ -44,7 +44,6 @@ Rectangle {
         wrapMode: Text.Wrap
         color: tab.tintColor
 
-
         Behavior on opacity {
             NumberAnimation {
                 duration: 200

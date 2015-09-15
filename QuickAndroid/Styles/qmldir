@@ -13,3 +13,4 @@ DialogStyle 0.1 DialogStyle.qml
 ActivityStyle 0.1 ActivityStyle.qml
 ListItemStyle 0.1 ListItemStyle.qml
 DropDownMenuStyle 0.1 DropDownMenuStyle.qml
+TabBarStyle 0.1 TabBarStyle.qml
