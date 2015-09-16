@@ -19,8 +19,9 @@ Item {
 
     property color textColor : style.textColor
 
-    property ListModel tabs : ListModel {}
-    property int count : tabs.count
+    property var tabs : []
+
+    property int count : tabs.length
     property int currentIndex: 0
 
     height: _textAndIcon ? 72 * A.dp : 48 * A.dp
@@ -41,19 +42,19 @@ Item {
 
             model: component.tabs
             delegate: Tab {
-                title: model.title ? model.title : ""
-                iconSource: model.iconSource ? model.iconSource : ""
+                title: modelData.title ? modelData.title : ""
+                iconSource: modelData.iconSource ? modelData.iconSource : ""
                 width: component._itemWidth
                 height: component.height
-                active: currentIndex === model.index
+                active: currentIndex === index
                 tintColor: component.textColor
 
                 onClicked: {
-                    component.currentIndex = model.index;
+                    component.currentIndex = index;
                 }
 
                 Component.onCompleted: {
-                    if (model.title && model.iconSource)
+                    if (title !=="" && iconSource !=="")
                         component._textAndIcon = true;
                 }
             }
@@ -70,8 +71,8 @@ Item {
 
         Behavior on x {
             NumberAnimation {
-                duration: 200
-                easing.type: Easing.OutQuad
+                duration: 300
+                easing.type: Easing.InOutQuad
             }
         }
 

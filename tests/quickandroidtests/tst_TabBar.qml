@@ -17,17 +17,17 @@ Rectangle {
                 right: parent.right
             }
 
-            tabs: ListModel {
-                ListElement {
+            tabs: [
+                {
                     title: "TAB A"
-                }
-                ListElement {
+                },
+                {
                     title: "TAB B"
-                }
-                ListElement {
+                },
+                {
                     title: "TAB C"
                 }
-            }
+            ]
         }
 
         TabBar {
@@ -36,6 +36,7 @@ Rectangle {
                 right: parent.right
             }
 
+            /*
             tabs: ListModel {
                 ListElement {
                     title: "TAB A"
@@ -47,6 +48,13 @@ Rectangle {
                     title: "TAB C"
                 }
             }
+            */
+
+            tabs: [
+                {title: "TAB A"},
+                {title: "TWO LINED TAB - 123456789ABCDEFGHIJKLMNOPQ"},
+                {title: "TAB C"},
+            ]
         }
 
         TabBar {
@@ -56,18 +64,18 @@ Rectangle {
                 right: parent.right
             }
 
-            tabs: ListModel {
-                ListElement {
-                    title: "TAB A"
+            tabs: [
+                {
+                    title: "TAB A",
                     iconSource : "qrc:///drawable-hdpi/ic_done_black_24dp.png"
-                }
-                ListElement {
+                },
+                {
                     title: "TWO LINED TAB - 123456789ABCDEFGHIJKLMNOPQ"
-                }
-                ListElement {
+                },
+                {
                     title: "TAB C"
                 }
-            }
+            ]
         }
 
         TabBar {
@@ -77,17 +85,17 @@ Rectangle {
                 right: parent.right
             }
 
-            tabs: ListModel {
-                ListElement {
+            tabs: [
+                {
                     iconSource : "qrc:///drawable-hdpi/ic_done_black_24dp.png"
-                }
-                ListElement {
+                },
+                {
                     iconSource : "qrc:///drawable-hdpi/ic_done_black_24dp.png"
-                }
-                ListElement {
+                },
+                {
                     title: "TAB C"
                 }
-            }
+            ]
         }
 
     }

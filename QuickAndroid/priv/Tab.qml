@@ -29,7 +29,7 @@ Rectangle {
 
     Image {
         id: icon
-        source: model.iconSource ? model.iconSource : ""
+        source: iconSource
         anchors.horizontalCenter: parent.horizontalCenter
         sourceSize: Qt.size(24 * A.dp , 24 * A.dp)
     }
@@ -43,11 +43,11 @@ Rectangle {
         elide: Text.ElideRight
         wrapMode: Text.Wrap
         color: tab.tintColor
+    }
 
-        Behavior on opacity {
-            NumberAnimation {
-                duration: 200
-            }
+    Behavior on opacity {
+        NumberAnimation {
+            duration: 200
         }
     }
 

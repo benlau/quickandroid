@@ -14,44 +14,9 @@ Activity {
         actionButtonEnabled: false
     }
 
-    Component {
-        id: listItem
-        ListItem {
-            title: model.name
-            subtitle: model.description
-
-            icon: Rectangle {
-                id: preview
-                anchors.verticalCenter: parent.verticalCenter
-                width: 48 * A.dp
-                height: 48 * A.dp
-                border.color: "#1A000000"
-                color : "#999999"
-
-                Loader {
-                    id : loader
-                    x: 1 * A.dp
-                    y: 1 * A.dp
-                    asynchronous: true
-                    visible: false
-                    source: Qt.resolvedUrl(model.preview)
-                    onLoaded: visible = true
-
-                    transform: RectToRectMatrix {
-                        source: Qt.rect(0,0,loader.width + 8 * A.dp,loader.height +8 *A.dp)
-                        dest: Qt.rect(0,0,preview.width - x * 2,preview.height - x * 2)
-                    }
-                }
-            }
-
-            onClicked: {
-                start(Qt.resolvedUrl(model.demo));
-            }
-        }
-    }
-
     ListModel {
         id: listModel
+        objectName: "ComponentListModel"
         ListElement {
             name : "Spinner"
             preview : "spinner/SpinnerPreview.qml"

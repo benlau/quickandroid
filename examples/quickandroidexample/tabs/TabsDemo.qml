@@ -8,12 +8,12 @@ Activity {
         onActionButtonClicked: back();
     }
 
-    ListModel {
-        id: colorModel
-        ListElement { title: "Blue" }
-        ListElement { title: "Green" }
-        ListElement { title: "Yellow" }
-    }
+
+    property var colorModel: [
+        { title: "Blue" },
+        { title: "Green" },
+        { title: "Yellow" }
+    ]
 
     ColumnLayout {
         anchors.fill: parent
@@ -39,7 +39,7 @@ Activity {
                 delegate: Rectangle {
                     width: tabView.width
                     height: tabView.height
-                    color: model.title
+                    color: modelData.title
                 }
             }
         }
