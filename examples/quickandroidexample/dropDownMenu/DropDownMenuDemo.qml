@@ -14,9 +14,10 @@ Activity {
         onActionButtonClicked: back();
         z: 10
 
-        menuBar : QuickButton {
+        menuBar : Button {
             id: menuButton
-            icon : A.drawable("ic_menu",Constants.black87)
+            iconSource : A.drawable("ic_menu",Constants.black87)
+            iconSourceSize: Qt.size(A.px(24),A.px(24));
             onClicked:  {
                 dropDownMenu.open();
             }

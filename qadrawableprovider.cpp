@@ -230,6 +230,10 @@ QColor QADrawableProvider::parseTintColor(const QString &query)
 
 QImage QADrawableProvider::colorize(QImage src, QColor tintColor)
 {
+    if (src.format() != QImage::Format_ARGB32) {
+        src = src.convertToFormat(QImage::Format_ARGB32);
+    }
+
     QImage dst = QImage(src.size(), src.format());
 
     gray(dst,src);

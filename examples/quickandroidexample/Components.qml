@@ -8,8 +8,9 @@ Activity {
 
     actionBar: ActionBar {
         id : actionBar
+        iconSource: A.drawable("ic_menu",Constants.black87)
         title: "Component List"
-        showIcon: false;
+        showIcon: false
         actionButtonEnabled: false
     }
 
