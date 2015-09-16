@@ -12,7 +12,7 @@ import QuickAndroid.Styles 0.1
 
 Rectangle {
     id: component
-    property ListItemStyle style: Style.theme.listItem
+    property ListItemStyle style: ThemeManager.currentTheme.listItem
 
     property string iconSource : ""
 

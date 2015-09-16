@@ -12,7 +12,7 @@ Item {
     property string textOn : qsTr("ON")
     property string textOff : qsTr("OFF")
 
-    property SwitchStyle style : Style.theme.switchStyle
+    property SwitchStyle style : ThemeManager.currentTheme.switchStyle
 
     property bool _inLeft: (thumbItem.x + thumbItem.fillArea.x) <
                            (trackItem.fillArea.width - thumbItem.fillArea.width) / 2

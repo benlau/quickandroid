@@ -13,12 +13,12 @@ Controls.Button {
 
     property size iconSourceSize
 
-    property var background : Style.theme.button.background
+    property var background : ThemeManager.currentTheme.button.background
 
-    property color textColor: Style.theme.button.textStyle.textColor
+    property color textColor: ThemeManager.currentTheme.button.textStyle.textColor
 
     /// The text size in sp unit
-    property int textSize: Style.theme.button.textStyle.textSize
+    property int textSize: ThemeManager.currentTheme.button.textStyle.textSize
 
     style: ControlsStyles.ButtonStyle {
 

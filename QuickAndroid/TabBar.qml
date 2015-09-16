@@ -12,7 +12,7 @@ import "./priv"
 Item {
     id: component
 
-    property TabBarStyle style: Style.theme.tabBar
+    property TabBarStyle style: ThemeManager.currentTheme.tabBar
 
     property color backgroundColor: style.backgroundColor
     property color indicatorColor: style.indicatorColor

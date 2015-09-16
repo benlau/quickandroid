@@ -10,7 +10,7 @@ ParallelAnimation {
         property : "opacity"
         from : 0
         to : 1
-        duration : Style.theme.activityDefaultDuration;
+        duration : ThemeManager.currentTheme.activityDefaultDuration;
     }
 
     PropertyAnimation {
@@ -18,7 +18,7 @@ ParallelAnimation {
         property : "scale"
         from : 0.9
         to : 1
-        duration : Style.theme.activityShortDuration;
+        duration : ThemeManager.currentTheme.activityShortDuration;
     }
 
 }

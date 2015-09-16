@@ -8,7 +8,7 @@ Popup {
 
     property var model : ListModel { }
 
-    property DropDownMenuStyle style: Style.theme.dropDownMenu
+    property DropDownMenuStyle style: ThemeManager.currentTheme.dropDownMenu
 
     property int _contentWidth: 56 * A.dp
 

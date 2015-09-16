@@ -22,12 +22,12 @@ Activity {
         anchors.fill: parent
 
         ListItem {
-            iconSource: "image://drawable/ic_android_black_48dp?tintColor=" + escape(Style.theme.black54)
+            iconSource: "image://drawable/ic_android_black_48dp?tintColor=" + escape(ThemeManager.currentTheme.black54)
             title: "Icon , Right Icon , Title and Subtitle"
             subtitle: "Subtitle"
             rightIcon: Image {
                 anchors.verticalCenter: parent.verticalCenter
-                source: "image://drawable/ic_done_black_24dp?tintColor=" + escape(Style.theme.black54)
+                source: "image://drawable/ic_done_black_24dp?tintColor=" + escape(ThemeManager.currentTheme.black54)
             }
         }
 

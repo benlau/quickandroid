@@ -79,7 +79,7 @@
         <file>Styles/ActionBarStyle.qml</file>
         <file>Styles/qmldir</file>
         <file>Styles/TextStyle.qml</file>
-        <file>Styles/Style.qml</file>
+        <file>Styles/ThemeManager.qml</file>
         <file>Styles/SpinnerStyle.qml</file>
         <file>Styles/SpinnerItemStyle.qml</file>
         <file>Styles/DropDownStyle.qml</file>

@@ -51,8 +51,8 @@ Activity {
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        color : Style.theme.black87
-        font.pixelSize: Style.theme.largeText.textSize * A.dp
+        color : ThemeManager.currentTheme.black87
+        font.pixelSize: ThemeManager.currentTheme.largeText.textSize * A.dp
     }
 
 }

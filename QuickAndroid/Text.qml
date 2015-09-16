@@ -17,7 +17,7 @@ Quick.Text {
     id: component
 
     // By default, it use normal text style
-    property TextStyle textStyle : Style.theme.text;
+    property TextStyle textStyle : ThemeManager.currentTheme.text;
 
     font.pixelSize: component.textStyle.textSize
     color : component.textStyle.textColor
@@ -29,19 +29,19 @@ Quick.Text {
     property string gravity: ""
 
     Modifier {
-        target: component; property: "textStyle"; value: Style.theme.text;
+        target: component; property: "textStyle"; value: ThemeManager.currentTheme.text;
         when: component.type === Constants.normalText
     }
     Modifier {
-        target: component; property: "textStyle"; value: Style.theme.smallText;
+        target: component; property: "textStyle"; value: ThemeManager.currentTheme.smallText;
         when: component.type === Constants.smallText
     }
     Modifier {
-        target: component; property: "textStyle"; value: Style.theme.mediumText;
+        target: component; property: "textStyle"; value: ThemeManager.currentTheme.mediumText;
         when: component.type === Constants.mediumText
     }
     Modifier {
-        target: component; property: "textStyle"; value: Style.theme.largeText;
+        target: component; property: "textStyle"; value: ThemeManager.currentTheme.largeText;
         when: component.type === Constants.largeText
     }
 

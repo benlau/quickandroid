@@ -12,8 +12,8 @@ Item {
 
     property string mode : "Dropdown"
 
-    property SpinnerStyle style: Style.theme.spinner
-    property SpinnerItemStyle itemStyle : Style.theme.spinnerItem
+    property SpinnerStyle style: ThemeManager.currentTheme.spinner
+    property SpinnerItemStyle itemStyle : ThemeManager.currentTheme.spinnerItem
 
     property alias delegate : dropDownList.delegate
     property alias model : dropDownList.model

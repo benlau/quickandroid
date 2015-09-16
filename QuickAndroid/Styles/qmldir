@@ -1,5 +1,5 @@
 module QuickAndroid.Style
-singleton Style 0.1 Style.qml
+singleton ThemeManager 0.1 ThemeManager.qml
 ActionBarStyle 0.1 ActionBarStyle.qml
 TextStyle 0.1 TextStyle.qml
 Theme 0.1 Theme.qml

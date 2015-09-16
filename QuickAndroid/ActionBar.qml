@@ -26,14 +26,14 @@ Item {
     property var background : style.background
 
     property ActionBarStyle style : ActionBarStyle {
-        iconSource : Style.theme.actionBar.iconSource
-        iconSourceSize : Style.theme.actionBar.iconSourceSize
-        background: Style.theme.actionBar.background
-        actionButtonBackground: Style.theme.actionBar.actionButtonBackground
-        titleTextStyle:  Style.theme.actionBar.titleTextStyle
-        homeAsUpIndicator: Style.theme.actionBar.homeAsUpIndicator
-        divider: Style.theme.actionBar.divider
-        padding: Style.theme.actionBar.padding
+        iconSource : ThemeManager.currentTheme.actionBar.iconSource
+        iconSourceSize : ThemeManager.currentTheme.actionBar.iconSourceSize
+        background: ThemeManager.currentTheme.actionBar.background
+        actionButtonBackground: ThemeManager.currentTheme.actionBar.actionButtonBackground
+        titleTextStyle:  ThemeManager.currentTheme.actionBar.titleTextStyle
+        homeAsUpIndicator: ThemeManager.currentTheme.actionBar.homeAsUpIndicator
+        divider: ThemeManager.currentTheme.actionBar.divider
+        padding: ThemeManager.currentTheme.actionBar.padding
     }
 
     property alias content : fillArea.children

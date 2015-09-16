@@ -15,7 +15,7 @@ Item {
     property int currentIndex : -1
     property var currentItem;
 
-    property DropDownStyle style : Style.theme.dropdown
+    property DropDownStyle style : ThemeManager.currentTheme.dropdown
 
     property Component delegate : QuickButton {
         id : button
