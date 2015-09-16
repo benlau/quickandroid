@@ -11,13 +11,14 @@ Theme {
     textColorPrimary: Constants.black87
     windowBackground: "#eeeeee";
 
+    // The default icon of ActionBar is a "back" image
+    actionBar.iconSource: A.drawable("ic_arrow_back",Constants.black87)
+
     // Background with shadow
-    actionBar.iconSource: A.drawable("ic_keyboard_backspace",Constants.black87)
-    actionBar.background : Qt.resolvedUrl("./ActionBarBackground.qml");
+    actionBar.background: Qt.resolvedUrl("./ActionBarBackground.qml");
 
     // actionBar.titleTextStyle.textSize is not allowed in QML. You should declare your own TextStyle and assign directly.
     // or modify text , smallText , mediumText and largetText
-
     actionBar.titleTextStyle : customTextStyle1;
     actionBar.iconSourceSize: Qt.size(24 * A.dp , 24 * A.dp)
 

@@ -25,16 +25,7 @@ Item {
 
     property var background : style.background
 
-    property ActionBarStyle style : ActionBarStyle {
-        iconSource : ThemeManager.currentTheme.actionBar.iconSource
-        iconSourceSize : ThemeManager.currentTheme.actionBar.iconSourceSize
-        background: ThemeManager.currentTheme.actionBar.background
-        actionButtonBackground: ThemeManager.currentTheme.actionBar.actionButtonBackground
-        titleTextStyle:  ThemeManager.currentTheme.actionBar.titleTextStyle
-        homeAsUpIndicator: ThemeManager.currentTheme.actionBar.homeAsUpIndicator
-        divider: ThemeManager.currentTheme.actionBar.divider
-        padding: ThemeManager.currentTheme.actionBar.padding
-    }
+    property ActionBarStyle style: ThemeManager.currentTheme.actionBar
 
     property alias content : fillArea.children
 

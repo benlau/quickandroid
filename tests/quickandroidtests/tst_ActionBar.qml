@@ -17,11 +17,14 @@ Rectangle {
             title : "Super Long Title - 01234567890123456789012345678901234567890123456789"
             anchors.fill: undefined
 
-            style.background : "#cddc39" // Lime 500
 
             menuBar: Drawable {
                 id : button1
                 source : Qt.resolvedUrl("drawable-xhdpi/ic_action_accept.png")
+            }
+
+            Component.onCompleted:  {
+                style.background = "#cddc39" // Lime 500
             }
         }
 

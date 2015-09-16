@@ -37,5 +37,6 @@
         <file>dropDownMenu/DropDownMenuDemo.qml</file>
         <file>tabs/TabsDemo.qml</file>
         <file>res/drawable-xxhdpi/ic_keyboard_backspace.png</file>
+        <file>res/drawable-xxhdpi/ic_arrow_back.png</file>
     </qresource>
 </RCC>

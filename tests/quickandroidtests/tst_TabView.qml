@@ -10,11 +10,11 @@ Rectangle {
 
     TabBar {
         id: tabBarItem
-        tabs: ListModel {
-            ListElement { title: "YELLOW" }
-            ListElement { title: "BLUE" }
-            ListElement { title: "RED" }
-        }
+        tabs: [
+             { title: "YELLOW" },
+             { title: "BLUE" },
+             { title: "RED" }
+        ]
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right

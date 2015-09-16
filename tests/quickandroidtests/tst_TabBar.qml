@@ -36,19 +36,6 @@ Rectangle {
                 right: parent.right
             }
 
-            /*
-            tabs: ListModel {
-                ListElement {
-                    title: "TAB A"
-                }
-                ListElement {
-                    title: "TWO LINED TAB - 123456789ABCDEFGHIJKLMNOPQ"
-                }
-                ListElement {
-                    title: "TAB C"
-                }
-            }
-            */
 
             tabs: [
                 {title: "TAB A"},
