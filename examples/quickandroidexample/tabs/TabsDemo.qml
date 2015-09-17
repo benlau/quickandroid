@@ -6,8 +6,15 @@ Activity {
     actionBar: ActionBar {
         title: "Tabs Demonstration"
         onActionButtonClicked: back();
-    }
+        height: style.unitHeight + tabs.height
 
+        TabBar {
+            id: tabs
+            width: parent.width
+            tabs: colorModel
+            anchors.bottom: parent.bottom
+        }
+    }
 
     property var colorModel: [
         { title: "Blue" },
@@ -15,35 +22,20 @@ Activity {
         { title: "Yellow" }
     ]
 
-    ColumnLayout {
+    TabView {
+        id: tabView
+        tabBar:tabs
+
         anchors.fill: parent
-        spacing: 0
 
-        TabBar {
-            id: tabs
-            tabs: colorModel
-
-            Layout.fillHeight: false
-            Layout.fillWidth: true
-        }
-
-        TabView {
-            id: tabView
-            tabBar:tabs
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-
-            model: VisualDataModel {
-                model: colorModel
-                delegate: Rectangle {
-                    width: tabView.width
-                    height: tabView.height
-                    color: modelData.title
-                }
+        model: VisualDataModel {
+            model: colorModel
+            delegate: Rectangle {
+                width: tabView.width
+                height: tabView.height
+                color: modelData.title
             }
         }
-
     }
 
 }

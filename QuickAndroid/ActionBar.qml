@@ -33,7 +33,7 @@ Item {
 
     signal actionButtonClicked
 
-    implicitHeight: A.dp * 48
+    implicitHeight: style.unitHeight
 
     Drawable {
         id : bg
@@ -42,7 +42,8 @@ Item {
     }
 
     RowLayout {
-        anchors.fill: parent
+        width: parent.width
+        height: style.unitHeight
         spacing : 0
 
         /*
