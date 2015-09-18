@@ -6,7 +6,8 @@ import QuickAndroid 0.1
   Author : benlau
  */
 
-QtObject {
+Style {
+    componentName: "ActionBarStyle";
     property var iconSource : ""
     property size iconSourceSize : Qt.size(24 * A.dp,24 * A.dp)
 

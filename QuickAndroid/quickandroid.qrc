@@ -101,5 +101,6 @@
         <file>Styles/DropDownMenuStyle.qml</file>
         <file>A.qml</file>
         <file>Styles/TabBarStyle.qml</file>
+        <file>Styles/Style.qml</file>
     </qresource>
 </RCC>
