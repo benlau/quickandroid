@@ -1,14 +1,14 @@
-import QtQuick 2.0
-import QuickAndroid 0.1
-
 /** Application Theme Component (based on Material Design)
 
   Author : benlau
-
+  Project: https://github.com/benlau/quickandroid
   Reference: http://developer.android.com/training/material/theme.html
  */
 
-QtObject {
+import QtQuick 2.0
+import QuickAndroid 0.1
+
+Style {
     id : theme
 
     // Color

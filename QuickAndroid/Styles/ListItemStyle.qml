@@ -1,8 +1,13 @@
+/**
+  Author: benlau
+  Project: https://github.com/benlau/quickandroid
+ */
+
 import QtQuick 2.0
 import QuickAndroid 0.1
 import "../drawable"
 
-QtObject {
+Style {
     property color backgroundColor : "#ffffff"
 
     property int leftPadding: 16 * A.dp
