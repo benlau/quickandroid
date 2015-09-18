@@ -1,13 +1,16 @@
+/** Action Bar Style
+
+  Author: benlau
+  Project: https://github.com/benlau/quickandroid
+ */
+
+
 import QtQuick 2.0
 import QuickAndroid 0.1
 
-/** Action Bar Style Component
 
-  Author : benlau
- */
 
 Style {
-    componentName: "ActionBarStyle";
     property var iconSource : ""
     property size iconSourceSize : Qt.size(24 * A.dp,24 * A.dp)
 

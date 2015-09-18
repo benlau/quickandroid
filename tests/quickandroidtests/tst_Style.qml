@@ -21,7 +21,7 @@ Rectangle {
     ActionBarStyle {
         id: style2
 
-        override:[ style1,{
+        extend:[ style1,{
             keyline2: 33,
             keyline1: 12
         }]
@@ -31,23 +31,31 @@ Rectangle {
         id: defaultStyle
     }
 
+    Component {
+        id: creator
+        ActionBarStyle {
+
+        }
+    }
+
     TestCase {
         name: "StyleTests"
         width : 480
         height : 480
         when : windowShown
 
-        function test_extend_dotted() {
-            var cloned = style1.clone(window);
-            style1.extend(cloned,{
+        function test_merge_dotted() {
+            var cloned = creator.createObject();
+            style1.merge(cloned,style1,{
                             "titleTextStyle.textSize": 99
                           })
 
             compare(cloned.titleTextStyle.textSize,99);
         }
 
-        function test_clone() {
-            var cloned = style1.clone(window);
+        function test_merge() {
+            var cloned = creator.createObject();
+            cloned.merge(cloned,style1);
             compare(cloned.iconSourceSize.width,style1.iconSourceSize.width);
             compare(cloned.titleTextStyle.textSize,23);
             compare(cloned.keyline1,8);
@@ -60,10 +68,12 @@ Rectangle {
 
         }
 
-        function test_cloneWithArg() {
-            var cloned = style1.clone(window,{
-                                       "keyline1": 36
-                                      });
+        function test_mergeWithArg() {
+            var cloned = creator.createObject();
+
+            cloned.merge(cloned,style1,{
+                           "keyline1": 36
+                          });
 
             compare(cloned.iconSourceSize.width,style1.iconSourceSize.width);
             compare(cloned.titleTextStyle.textSize,23);
@@ -76,11 +86,10 @@ Rectangle {
             compare(style1.titleTextStyle.textSize,23);
         }
 
-        function test_override() {
+        function test_extend() {
             compare(style2.keyline2,33);
             compare(style2.keyline1,12);
             compare(style2.titleTextStyle.textSize,23);
-
         }
     }
 }
