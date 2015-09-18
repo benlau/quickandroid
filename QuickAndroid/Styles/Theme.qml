@@ -80,36 +80,6 @@ QtObject {
         keyline2: theme.keyline2
     }
 
-    property SpinnerStyle spinner : SpinnerStyle {
-        background : Qt.resolvedUrl("../drawable/SpinnerAbHoloLight.qml")
-        popupBackground : Qt.resolvedUrl("../drawable/SpinnerDropdownBackground.qml")
-        dropDownSelector : Qt.resolvedUrl("../drawable/ListSelectorHoloLight.qml")
-        dropDownVerticalOffset : -10  * A.dp
-        textStyle : TextStyle {
-            textSize :  actionBar.titleTextStyle.textSize
-            textColor :  actionBar.titleTextStyle.textColor
-        }
-        divider : Qt.resolvedUrl("../drawable/DividerHorizontalHoloLight.qml");
-    }
-
-    property SpinnerItemStyle spinnerItem : SpinnerItemStyle {
-        textStyle: mediumText
-        paddingStart: 8 * A.dp
-        paddingEnd: 8 * A.dp
-    }
-
-    property DropDownStyle dropdown : DropDownStyle {
-        background : Qt.resolvedUrl("../drawable/MenuDropdownPanelHoloLight.qml")
-        verticalOffset: -10 * A.dp
-        textStyle: actionBar.titleTextStyle
-
-        // Custom Style
-        button : Qt.resolvedUrl("../drawable/BtnDropdown.qml");
-
-        windowEnterAnimation : Qt.resolvedUrl("../anim/GrowFadeIn.qml")
-        windowExitAnimation: Qt.resolvedUrl("../anim/ShrinkFadeOut.qml")
-    }
-
     property TextInputStyle textInput : TextInputStyle {
         background : "#00000000"
         textStyle : mediumText

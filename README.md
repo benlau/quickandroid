@@ -25,8 +25,8 @@ Features
 UI Components
 
     ActionBar , Activity , Application , Drawable , StateListDrawable
-    MaterialShadow , PopupMenu , Spinner , Button ,
-    Switch
+    MaterialShadow , PopupMenu , Button , Text, DropDownMenu,
+    TabBar, TabView, FloatingActionButton
 
 Utility Components
 

@@ -3,8 +3,6 @@
         <file>main.qml</file>
         <file>res/drawable-hdpi/icon.png</file>
         <file>Components.qml</file>
-        <file>spinner/SpinnerPreview.qml</file>
-        <file>spinner/SpinnerDemo.qml</file>
         <file>shadow/ShadowPreview.qml</file>
         <file>shadow/ShadowDemo.qml</file>
         <file>popupmenu/PopupMenuPreview.qml</file>

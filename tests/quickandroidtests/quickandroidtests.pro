@@ -17,7 +17,6 @@ OTHER_FILES += \
     tst_RectToRectMatrix.qml \
     tst_RectToRectMatrix.qml \
     tst_DrawableGrowBehaviour.qml \
-    tst_DropDownList.qml \
     tst_ActionBar.qml \
     tst_Shadow.qml \
     tst_Dialog.qml \
