@@ -17,25 +17,6 @@ Activity {
     ListModel {
         id: listModel
         objectName: "ComponentListModel"
-        ListElement {
-            name : "Spinner"
-            preview : "spinner/SpinnerPreview.qml"
-            demo: "spinner/SpinnerDemo.qml"
-            description: "Spinner Example"
-        }
-
-        ListElement {
-            name : "Shadow"
-            preview : "shadow/ShadowPreview.qml"
-            demo: "shadow/ShadowDemo.qml"
-            description: "Shadow, Paper components"
-        }
-
-        ListElement {
-            name : "Drop Down Menu"
-            demo: "dropDownMenu/DropDownMenuDemo.qml"
-            description: "DropDownMenu components"
-        }
 
         ListElement {
             name : "Dialog"
@@ -44,6 +25,7 @@ Activity {
             description: "Dialog Component"
         }
 
+
         ListElement {
             name: "Drawable Provider"
             demo: "drawableprovider/DrawableProviderDemo.qml"
@@ -51,9 +33,9 @@ Activity {
         }
 
         ListElement {
-            name: "ListItem"
-            demo: "listitem/ListItemDemo.qml"
-            description: "Lists: Control"
+            name : "Drop Down Menu"
+            demo: "dropDownMenu/DropDownMenuDemo.qml"
+            description: "DropDownMenu components"
         }
 
         ListElement {
@@ -67,6 +49,19 @@ Activity {
             preview : ""
             demo : "notification/NotificationDemo.qml"
             description: "Sending notification via System Dispatcher"
+        }
+
+        ListElement {
+            name: "ListItem"
+            demo: "listitem/ListItemDemo.qml"
+            description: "Lists: Control"
+        }
+
+        ListElement {
+            name : "Shadow"
+            preview : "shadow/ShadowPreview.qml"
+            demo: "shadow/ShadowDemo.qml"
+            description: "Shadow, Paper components"
         }
 
         ListElement {

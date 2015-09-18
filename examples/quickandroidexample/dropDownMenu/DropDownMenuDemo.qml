@@ -28,10 +28,22 @@ Activity {
         id: dropDownMenu
         anchorView: menuButton
         anchorPoint: Constants.rightTop
-        model: VisualItemModel {
-            ListItem { title: "Share"; showDivider: false }
-            ListItem { title: "Copy" ; showDivider: false}
-            ListItem { title: "Delete"; showDivider: false }
+        model: VisualDataModel {
+            model: ListModel {
+                ListElement { title: "Share" }
+                ListElement { title: "Copy" }
+                ListElement { title: "Delete"}
+            }
+
+            delegate: ListItem {
+                title: model.title
+                showDivider: false
+                onClicked: {
+                    dropDownMenu.close();
+                    label.text = model.title;
+                }
+            }
+
         }
     }
 

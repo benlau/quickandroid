@@ -17,14 +17,15 @@ Features
   2. Tint an image at load time
   3. Choose the best image according to current resolution automatically.
  5. Theme / Style Engine
- 6. A set of components with native look and feel on Android
- 7. Inter-thread communication manager between C++/Qt and Java/Android
+ 6. UI Components with Material Design
+ 7. IPC manager between C++/Qt and Java/Android code
   1. Auto conversion between C++ and Java data type. No need to write in JNI.
+ 8. "Apache license" - Free to use for commerical application
 
 UI Components
 
     ActionBar , Activity , Application , Drawable , StateListDrawable
-    MaterialShadow , PopupMenu , Spinner , QuickButton , 
+    MaterialShadow , PopupMenu , Spinner , Button ,
     Switch
 
 Utility Components
