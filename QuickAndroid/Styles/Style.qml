@@ -3,13 +3,16 @@ import QtQuick 2.0
 QtObject {
     property string componentName: "Style"
 
+    /// Once the component loading is completed, it will merge the items in "override" array to this object.
+    property var override: []
+
     /// Merge the contents of two or more objects together into the first object.
     function extend() {
         if (arguments.length === 0)
             return;
 
         var target = arguments[0];
-        var reserved = ["objectName","componentName","extend","clone"];
+        var reserved = ["objectName","componentName","extend","clone","override"];
 
         for (var i = 1; i< arguments.length; i++) {
             var object = arguments[i];
@@ -42,7 +45,17 @@ QtObject {
         for (var i = 1 ; i < arguments.length; i++) {
             objects.push(arguments[1])
         }
-        return extend.apply(ret,objects);
+        return extend.apply(this,objects);
+    }
+
+    Component.onCompleted: {
+        if (override.length > 0) {
+            var objects = [this];
+            for (var i in override) {
+                objects.push(override[i]);
+            }
+            extend.apply(this,objects);
+        }
     }
 }
 

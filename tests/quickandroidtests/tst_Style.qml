@@ -19,6 +19,15 @@ Rectangle {
     }
 
     ActionBarStyle {
+        id: style2
+
+        override:[ style1,{
+            keyline2: 33,
+            keyline1: 12
+        }]
+    }
+
+    ActionBarStyle {
         id: defaultStyle
     }
 
@@ -56,6 +65,13 @@ Rectangle {
             cloned.titleTextStyle.textSize = 50;
             compare(style1.iconSourceSize.width,47);
             compare(style1.titleTextStyle.textSize,23);
+        }
+
+        function test_override() {
+            compare(style2.keyline2,33);
+            compare(style2.keyline1,12);
+            compare(style2.titleTextStyle.textSize,23);
+
         }
     }
 }
