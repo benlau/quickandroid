@@ -37,6 +37,15 @@ Rectangle {
         height : 480
         when : windowShown
 
+        function test_extend_dotted() {
+            var cloned = style1.clone(window);
+            style1.extend(cloned,{
+                            "titleTextStyle.textSize": 99
+                          })
+
+            compare(cloned.titleTextStyle.textSize,99);
+        }
+
         function test_clone() {
             var cloned = style1.clone(window);
             compare(cloned.iconSourceSize.width,style1.iconSourceSize.width);

@@ -11,6 +11,9 @@ QtObject {
         if (arguments.length === 0)
             return;
 
+        if (arguments.length === 1)
+            return arguments[0];
+
         var target = arguments[0];
         var reserved = ["objectName","componentName","extend","clone","override"];
 
@@ -23,7 +26,15 @@ QtObject {
                 if (reserved.indexOf(prop) >= 0)
                     continue;
 
-                if (typeof object[prop] === "object" &&
+                if (prop.indexOf(".") >= 0) {
+                    var token = prop.split(".");
+                    var newProp = token.splice(0,1)[0];
+                    var remainingProp = token.join(".");
+                    var newObject = {};
+
+                    newObject[remainingProp] = object[prop];
+                    extend(target[newProp],newObject);
+                } else if (typeof object[prop] === "object" &&
                     String(object[prop]).indexOf("QSize") !== 0) {
                     extend(target[prop],object[prop]);
                 } else {

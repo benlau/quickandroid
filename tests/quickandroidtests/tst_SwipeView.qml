@@ -7,18 +7,6 @@ Rectangle {
     width: 480
     height: 640
 
-//    Tabs {
-//        id: tabs
-//        tabs: ListModel {
-//            ListElement { title: "YELLOW" }
-//            ListElement { title: "BLUE" }
-//            ListElement { title: "RED" }
-//        }
-//        anchors.top: parent.top
-//        anchors.left: parent.left
-//        anchors.right: parent.right
-//    }
-
     SwipeView {
         id: swipeView
         anchors.fill: parent
