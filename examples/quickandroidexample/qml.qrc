@@ -5,8 +5,6 @@
         <file>Components.qml</file>
         <file>shadow/ShadowPreview.qml</file>
         <file>shadow/ShadowDemo.qml</file>
-        <file>popupmenu/PopupMenuPreview.qml</file>
-        <file>popupmenu/PopupMenuDemo.qml</file>
         <file>res/drawable-xxhdpi/ic_menu.png</file>
         <file>dialog/AlertDialog.qml</file>
         <file>dialog/DialogPreview.qml</file>
