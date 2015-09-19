@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import QtTest 1.0
 import QuickAndroid 0.1
-import QuickAndroid.item 0.1
 
 Rectangle {
     id : rect
@@ -58,6 +57,7 @@ Rectangle {
         }
 
         ListItem {
+            id: item5
             title : "Item 5 - 12345678901234567890123456789012345678901234567890"
             subtitle : "Subtitle - 12345678901234567890123456789012345678901234567890"
             rightIcon: Image {
@@ -67,6 +67,7 @@ Rectangle {
         }
 
         ListItem {
+            id: item6
             iconSource: Qt.resolvedUrl("img/ic_action_accept.png")
             title: "Item 6"
             subtitle : "Subtitle"

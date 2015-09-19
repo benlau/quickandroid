@@ -3,8 +3,8 @@
 
 import QtQuick 2.0
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
-import "./style"
+import QuickAndroid.Styles 0.1
+import "./Styles"
 import "global.js" as Global
 
 FocusScope {
@@ -33,7 +33,7 @@ FocusScope {
         var animOptions = {
             target : current
         }
-        var animComponent = Qt.createComponent(Style.theme.activity.activityExitAnimation);
+        var animComponent = Qt.createComponent(ThemeManager.currentTheme.activity.activityExitAnimation);
 
         var anim = animComponent.createObject(null,animOptions);
 
@@ -117,7 +117,7 @@ FocusScope {
             target : next
         }
 
-        var animComponent = Qt.createComponent(Style.theme.activity.activityEnterAnimation);
+        var animComponent = Qt.createComponent(ThemeManager.currentTheme.activity.activityEnterAnimation);
 
         var anim = animComponent.createObject(null,animOptions);
         anim.onStopped.connect(function() {
@@ -163,7 +163,7 @@ FocusScope {
 
     onThemeChanged: {
         if (theme !== null)
-            Style.theme = theme;
+            ThemeManager.currentTheme = theme;
     }
 
     Component.onCompleted: {

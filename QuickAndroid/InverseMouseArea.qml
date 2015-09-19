@@ -1,37 +1,55 @@
+/**
+    Author : Ben Lau (@benlau)
+    License: Apache
+ */
+
 import QtQuick 2.0
+import QuickAndroid 0.1
 
 Item {
     id : component
-    width: 100
-    height: 62
 
-    property alias sensingArea : component
+    property Item sensingArea : null
 
-    property var _mouseArea
     signal pressed
 
-    function setupMouseArea() {
+    property var _mouseArea : null
+
+    function _setupMouseArea() {
+        if (!_mouseArea) {
+            _mouseArea = mouseAreaBuilder.createObject(component);
+        }
         var p = sensingArea;
+        if (!p)
+            p = _topMostItem();
+        _mouseArea.parent = p;
+    }
+
+    function _destroyMouseArea() {
+        if (_mouseArea) {
+            _mouseArea.destroy();
+            _mouseArea = null;
+        }
+    }
+
+    function _inBound(pt) {
+        var ret = false;
+        if (pt.x >= component.x &&
+            pt.y >= component.y &&
+            pt.x <= component.x + component.width &&
+            pt.y <= component.y + component.height) {
+            ret = true;
+        }
+        return ret;
+    }
+
+    function _topMostItem() {
+        var p = component;
 
         while (p.parent) {
             p = p.parent;
         }
-
-        if (!_mouseArea) {
-            _mouseArea = mouseAreaBuilder.createObject();
-        }
-        _mouseArea.parent = p;
-    }
-
-    function inSensingArea(pt) {
-        var ret = false;
-        if (pt.x >= sensingArea.x &&
-            pt.y >= sensingArea.y &&
-            pt.x <= sensingArea.x + sensingArea.width &&
-            pt.y <= sensingArea.y + sensingArea.height) {
-            ret = true;
-        }
-        return ret;
+        return p;
     }
 
     Component {
@@ -39,20 +57,30 @@ Item {
         MouseArea {
             propagateComposedEvents : true
             anchors.fill: parent
+            z: Constants.zInverseMouseArea
             onPressed: {
                 mouse.accepted = false;
-                var pt = mapToItem(sensingArea,mouse.x,mouse.y)
-                if (!inSensingArea(pt))
+                var pt = mapToItem(component.parent,mouse.x,mouse.y)
+                if (!_inBound(pt))
                     component.pressed();
             }
         }
     }
 
-    Component.onCompleted: setupMouseArea();
-    Component.onDestruction: {
-        if (_mouseArea)
-            _mouseArea.destroy();
+    onEnabledChanged:  {
+        _destroyMouseArea();
+        if (enabled) {
+            _setupMouseArea();
+        }
     }
 
+    Component.onCompleted: {
+        if (enabled)
+            _setupMouseArea();
+    }
+
+    Component.onDestruction: {
+        _destroyMouseArea();
+    }
 
 }

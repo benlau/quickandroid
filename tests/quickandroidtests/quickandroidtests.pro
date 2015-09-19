@@ -17,16 +17,29 @@ OTHER_FILES += \
     tst_RectToRectMatrix.qml \
     tst_RectToRectMatrix.qml \
     tst_DrawableGrowBehaviour.qml \
-    tst_DropDownList.qml \
     tst_ActionBar.qml \
     tst_Shadow.qml \
     tst_Dialog.qml \
     tst_DrawableGravityBehaviour.qml \
     tst_QATextInput.qml \
     tst_Switch.qml \
+    tst_Button.qml \
     tst_Text.qml
 
 DISTFILES += \
-    tst_QuickButton.qml \
     tst_ListItem.qml \
-    tst_FloatingActionButton.qml
+    tst_FloatingActionButton.qml \
+    tst_SwipeView.qml \
+    tst_TabBar.qml \
+    tst_TabView.qml \
+    tst_Popup.qml \
+    tst_DropDownMenu.qml \
+    tst_Activity.qml \
+    DarkButtonBackground.qml \
+    tst_Style.qml
+
+RESOURCES += \
+    qml.qrc
+
+OTHER_FILES += \
+    ../../README.md

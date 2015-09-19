@@ -5,6 +5,16 @@
 #include "quickandroid.h"
 #include "qadrawableprovider.h"
 
+static QImage scaleIfValid(const QImage &image,const QSize& requestedSize) {
+    QImage res = image;
+    if (requestedSize.isValid()) {
+        res = image.scaled(requestedSize,
+                           Qt::IgnoreAspectRatio,
+                           Qt::SmoothTransformation);
+    }
+    return res;
+}
+
 QADrawableProvider::QADrawableProvider() : QQuickImageProvider(QQmlImageProviderBase::Image)
 {
     // 50MB
@@ -32,7 +42,8 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
     if (contains(id)) {
         image = get(id);
         *size = image.size();
-        return get(id);
+        image = scaleIfValid(image,requestedSize);
+        return image;
     }
 
     // ID Parser.
@@ -70,6 +81,7 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
     if (!image.isNull()) {
         insert(id,image);
         *size = image.size();
+        image = scaleIfValid(image,requestedSize);
         return image;
     }
 
@@ -82,6 +94,7 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
 
         insert(id,image);
         *size = image.size();
+        image = scaleIfValid(image,requestedSize);
         return image;
     }
 
@@ -93,6 +106,7 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
     } else {
         insert(id,image);
         *size = image.size();
+        image = scaleIfValid(image,requestedSize);
     }
 
     return image;
@@ -216,6 +230,10 @@ QColor QADrawableProvider::parseTintColor(const QString &query)
 
 QImage QADrawableProvider::colorize(QImage src, QColor tintColor)
 {
+    if (src.format() != QImage::Format_ARGB32) {
+        src = src.convertToFormat(QImage::Format_ARGB32);
+    }
+
     QImage dst = QImage(src.size(), src.format());
 
     gray(dst,src);

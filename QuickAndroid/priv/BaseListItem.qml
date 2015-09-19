@@ -1,8 +1,7 @@
-import QtQuick 2.0
+import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
-import QuickAndroid.def 0.1
+import QuickAndroid.Styles 0.1
 
 /*
   Reference:
@@ -13,16 +12,20 @@ import QuickAndroid.def 0.1
 
 Rectangle {
     id: component
-    property ListItemStyle style: Style.theme.listItem
-
-    property string title: ""
-    property string value : ""
-    property string subtitle : ""
-
-    property bool interactive : true
-    property bool selected : false
+    property ListItemStyle style: ThemeManager.currentTheme.listItem
 
     property string iconSource : ""
+
+    property string title: ""
+
+    property string subtitle : ""
+
+    property string value : ""
+
+    property bool interactive : true
+
+    property bool selected : false
+
     property size iconSourceSize : Qt.size(-1,-1)
 
     property alias icon : iconHolder.children
@@ -30,13 +33,22 @@ Rectangle {
     property alias rightIcon : valueHolder.children
 
     property int dividerLeftInset : style.dividerLeftInset
+
     property int dividerRightInset : style.dividerRightInset
+
+    property bool showDivider: style.showDivider
 
     signal clicked();
 
     property bool _iconSet : false
 
     color : component.style.backgroundColor
+
+    implicitWidth: titleItem.x +
+                   Math.max(titleMetrics.width,
+                            subtitleMetrics.width) +
+                   valueHolder.width +
+                   component.style.rightPadding
 
     anchors {
         left: parent ? parent.left : undefined
@@ -62,7 +74,7 @@ Rectangle {
         Rectangle {
             id : mask
             anchors.fill: parent
-            color : Color.black12
+            color : Constants.black12
             visible: mouseArea.pressed
         }
     }
@@ -73,7 +85,7 @@ Rectangle {
             left: parent.left
             top : parent.top
             bottom : parent.bottom
-            leftMargin : component.style.leftPadding * A.dp
+            leftMargin : component.style.leftPadding
         }
 
         Image {
@@ -97,8 +109,8 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        anchors.leftMargin: _iconSet ? component.style.titleKeyline * A.dp : component.style.leftPadding * A.dp
-        anchors.topMargin: component.style.textTopPadding * A.dp
+        anchors.leftMargin: _iconSet ? component.style.titleKeyline : component.style.leftPadding
+        anchors.topMargin: component.style.textTopPadding
         anchors.rightMargin: parent.width - valueHolder.x
     }
 
@@ -113,15 +125,15 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        anchors.leftMargin: _iconSet ? component.style.titleKeyline * A.dp : component.style.leftPadding * A.dp
+        anchors.leftMargin: _iconSet ? component.style.titleKeyline : component.style.leftPadding
         anchors.rightMargin: parent.width - valueHolder.x
-        anchors.bottomMargin: component.style.textBottomPadding * A.dp
+        anchors.bottomMargin: component.style.textBottomPadding
     }
 
     Item {
         id: valueHolder
         anchors.right: parent.right
-        anchors.rightMargin: component.style.rightPadding * A.dp
+        anchors.rightMargin: component.style.rightPadding
         width: childrenRect.width
         height: parent.height
 
@@ -134,13 +146,13 @@ Rectangle {
            anchors.top: parent.top
            anchors.bottom: parent.bottom
            anchors.topMargin: component.style.textTopPadding
-           anchors.bottomMargin: component.style.textBottomPadding
          }
     }
 
     Loader {
         id : dividerLoader
         sourceComponent: component.style.divider
+        visible: showDivider
 
         anchors {
             left: parent.left
@@ -149,6 +161,18 @@ Rectangle {
             bottom: parent.bottom
             rightMargin: dividerRightInset
         }
+    }
+
+    TextMetrics {
+        id: titleMetrics
+        font: titleItem.font
+        text: title
+    }
+
+    TextMetrics {
+        id: subtitleMetrics
+        font: subtitleItem.font
+        text: subtitle
     }
 
 }

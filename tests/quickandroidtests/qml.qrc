@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>drawable-hdpi/ic_done_black_24dp.png</file>
+        <file>tst_Button.qml</file>
+        <file>tst_Device.qml</file>
+    </qresource>
+</RCC>

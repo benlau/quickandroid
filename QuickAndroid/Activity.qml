@@ -2,13 +2,13 @@
 
 import QtQuick 2.0
 import QuickAndroid 0.1
-import "./style"
+import "./Styles"
 
 FocusScope {
     id : activity
     focus : true
 
-    property Component actionBar : null
+    property alias actionBar : actionBarContainer.children
 
     property var application : null
 
@@ -21,9 +21,9 @@ FocusScope {
     signal back
 
     property ActivityStyle style : ActivityStyle {
-        activityEnterAnimation: Style.theme.activity.activityEnterAnimation
-        activityExitAnimation: Style.theme.activity.activityExitAnimation
-        background: Style.theme.activity.background
+        activityEnterAnimation: ThemeManager.currentTheme.activity.activityEnterAnimation
+        activityExitAnimation: ThemeManager.currentTheme.activity.activityExitAnimation
+        background: ThemeManager.currentTheme.activity.background
     }
 
     // It is emitted after the activity is started after page transition
@@ -52,7 +52,6 @@ FocusScope {
         id : backgroundDrawable
         source : activity.style.background
         anchors.fill: parent
-        z: -1
     }
 
     Keys.onReleased: {
@@ -61,10 +60,8 @@ FocusScope {
         }
     }
 
-    Loader {
-        id : actionBarLoader
-        sourceComponent: activity.actionBar
-
+    Item {
+        id: actionBarContainer
         anchors.top: parent.top
         anchors.topMargin: 0
         anchors.right: parent.right
@@ -72,13 +69,22 @@ FocusScope {
         anchors.left: parent.left
         anchors.leftMargin: 0
         z: contentHolder.z + 1;
+
+        height: children.length > 0 ? childrenRect.height : 0
     }
 
     Item {
         id: contentHolder
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: actionBarLoader.bottom
+        anchors.top: actionBarContainer.bottom
         anchors.bottom: parent.bottom
+    }
+
+    Binding {
+        target: actionBarContainer.children.length > 0 ? actionBarContainer.children[0] : null
+        when: true
+        property: "width"
+        value: activity.width
     }
 }

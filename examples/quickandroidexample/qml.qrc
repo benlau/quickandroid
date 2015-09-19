@@ -3,17 +3,12 @@
         <file>main.qml</file>
         <file>res/drawable-hdpi/icon.png</file>
         <file>Components.qml</file>
-        <file>spinner/SpinnerPreview.qml</file>
-        <file>spinner/SpinnerDemo.qml</file>
         <file>shadow/ShadowPreview.qml</file>
         <file>shadow/ShadowDemo.qml</file>
-        <file>popupmenu/PopupMenuPreview.qml</file>
-        <file>popupmenu/PopupMenuDemo.qml</file>
         <file>res/drawable-xxhdpi/ic_menu.png</file>
         <file>dialog/AlertDialog.qml</file>
         <file>dialog/DialogPreview.qml</file>
         <file>dialog/DialogDemo.qml</file>
-        <file>dummydata/A.qml</file>
         <file>textinput/TextInputPreview.qml</file>
         <file>textinput/TextInputDemo.qml</file>
         <file>switch/SwitchDemo.qml</file>
@@ -34,6 +29,10 @@
         <file>res/drawable-xxhdpi/ic_done_black_24dp.png</file>
         <file>res/drawable-xxxhdpi/ic_done_black_24dp.png</file>
         <file>floatingactionbutton/FloatingActionButtonDemo.qml</file>
-        <file>theme/AppActionBar.qml</file>
+        <file>theme/ActionBarBackground.qml</file>
+        <file>dropDownMenu/DropDownMenuDemo.qml</file>
+        <file>tabs/TabsDemo.qml</file>
+        <file>res/drawable-xxhdpi/ic_keyboard_backspace.png</file>
+        <file>res/drawable-xxhdpi/ic_arrow_back.png</file>
     </qresource>
 </RCC>

@@ -3,7 +3,7 @@ import QuickAndroid 0.1
 import "../theme"
 
 Activity {
-    actionBar: AppActionBar {
+    actionBar: ActionBar {
         id: actionBar
         upEnabled: true
         title: qsTr("Drawable Provider Demo")
@@ -15,7 +15,7 @@ Activity {
     ListModel {
         id: listModel
         ListElement {
-            source : "image://drawable/ic_android_black_48dp"
+            source :  "image://drawable/ic_android_black_48dp"
             title: "No tintColor"
         }
 

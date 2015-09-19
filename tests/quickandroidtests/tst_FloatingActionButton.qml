@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import QtTest 1.0
 import QuickAndroid 0.1
-import QuickAndroid.item 0.1
 
 Rectangle {
     id : rect
@@ -20,6 +19,7 @@ Rectangle {
         FloatingActionButton {
             color: "blue"
             iconSource: Qt.resolvedUrl("img/ic_action_accept.png")
+            iconSourceSize: Qt.size(24 * A.dp,24 * A.dp)
         }
 
     }

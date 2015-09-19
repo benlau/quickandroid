@@ -1,7 +1,7 @@
 // Modify the beahviour of Text component
 import QtQuick 2.0
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 
 Item {
     id : behaviour
@@ -13,7 +13,7 @@ Item {
 
     property TextStyle textStyle
 
-    property var _pixelSize : textStyle ?  textStyle.textSize * A.dp : undefined
+    property var _pixelSize : textStyle ?  textStyle.textSize : undefined
     property var _color : textStyle ? textStyle.textColor : undefined
 
     /* textAppearance */
@@ -23,32 +23,32 @@ Item {
     Binding { target: behaviour.target; property: "scale"; when: shrink && behaviour.target.contentWidth > behaviour.target.width; value: behaviour.target.width / behaviour.target.contentWidth}
 
     /* Gravity */
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "left";value: TextInput.AlignLeft}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "left";value: TextInput.AlignVCenter}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "left";value: Qt.AlignLeft}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "left";value: Qt.AlignVCenter}
 
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "right";value: TextInput.AlignRight}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "right";value: TextInput.AlignVCenter}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "right";value: Qt.AlignRight}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "right";value: Qt.AlignVCenter}
 
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "top";value: TextInput.AlignCenter}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "top";value: TextInput.AlignTop}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "top";value: Qt.AlignCenter}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "top";value: Qt.AlignTop}
 
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "bottom";value: TextInput.AlignCenter}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "bottom";value: TextInput.AlignBottom}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "bottom";value: Qt.AlignCenter}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "bottom";value: Qt.AlignBottom}
 
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "center";value: TextInput.AlignCenter}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "center";value: TextInput.AlignVCenter}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "center";value: Qt.AlignHCenter}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "center";value: Qt.AlignVCenter}
 
 
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "topLeft";value: TextInput.AlignLeft}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "topLeft";value: TextInput.AlignTop}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "topLeft";value: Qt.AlignLeft}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "topLeft";value: Qt.AlignTop}
 
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "topRight";value: TextInput.AlignRight}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "topRight";value: TextInput.AlignTop}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "topRight";value: Qt.AlignRight}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "topRight";value: Qt.AlignTop}
 
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "bottomLeft";value: TextInput.AlignLeft}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "bottomLeft";value: TextInput.AlignBottom}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "bottomLeft";value: Qt.AlignLeft}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "bottomLeft";value: Qt.AlignBottom}
 
-    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "bottomRight";value: TextInput.AlignRight}
-    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "bottomRight";value: TextInput.AlignBottom}
+    Binding{ target: behaviour.target;property:"horizontalAlignment";when: gravity === "bottomRight";value: Qt.AlignRight}
+    Binding{ target: behaviour.target;property:"verticalAlignment";  when: gravity === "bottomRight";value: Qt.AlignBottom}
 
 }

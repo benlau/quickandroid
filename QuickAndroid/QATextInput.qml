@@ -2,7 +2,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.priv 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 
 Item {
     id: component
@@ -22,15 +22,15 @@ Item {
 
     property alias textSelectHandleRunning : textSelectHandlePopup.active
 
-//  property TextInputStyle style : Style.theme.textInput
+//  property TextInputStyle style : ThemeManager.currentTheme.textInput
 
     property TextInputStyle style : TextInputStyle {
-        background: Style.theme.textInput.background
+        background: ThemeManager.currentTheme.textInput.background
         textStyle: TextStyle {
-            textSize: Style.theme.textInput.textStyle.textSize
-            textColor: Style.theme.textInput.textStyle.textColor
+            textSize: ThemeManager.currentTheme.textInput.textStyle.textSize
+            textColor: ThemeManager.currentTheme.textInput.textStyle.textColor
         }
-        textSelectHandle: Style.theme.textInput.textSelectHandle
+        textSelectHandle: ThemeManager.currentTheme.textInput.textSelectHandle
 
         textSelectHandleEnterAnimation : Qt.resolvedUrl("./anim/FastFadeIn.qml")
         textSelectHandleExitAnimation : Qt.resolvedUrl("./anim/FastFadeOut.qml")

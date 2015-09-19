@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 
 // It is not part of QuickAndroid yet. Still tuning the size
 Dialog {
@@ -33,9 +33,8 @@ Dialog {
                 anchors.margins: 16 * A.dp
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pixelSize: Style.theme.text.textSize * A.dp
                 wrapMode : Text.WordWrap
-                color : Style.theme.black87
+                type: Constants.normalText
             }
         }
 
@@ -49,7 +48,7 @@ Dialog {
             width: dialog.width
             height: 48 * A.dp
 
-            QuickButton {
+            Button {
                 text: qsTr("Cancel")
                 width: parent.width / 2 - 1 * A.dp
                 height: parent.height
@@ -64,7 +63,7 @@ Dialog {
                 color : "#1A000000"
             }
 
-            QuickButton {
+            Button {
                 text: qsTr("OK")
                 width: parent.width/ 2
                 height: parent.height

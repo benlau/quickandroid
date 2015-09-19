@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.priv 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 
 Item {
     id: component
@@ -12,7 +12,7 @@ Item {
     property string textOn : qsTr("ON")
     property string textOff : qsTr("OFF")
 
-    property SwitchStyle style : Style.theme.switchStyle
+    property SwitchStyle style : ThemeManager.currentTheme.switchStyle
 
     property bool _inLeft: (thumbItem.x + thumbItem.fillArea.x) <
                            (trackItem.fillArea.width - thumbItem.fillArea.width) / 2

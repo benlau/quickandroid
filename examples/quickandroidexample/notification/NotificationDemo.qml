@@ -1,12 +1,12 @@
 import QtQuick 2.2
 import QtQuick.Window 2.1
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 import "../theme"
 
 Activity {
 
-    actionBar: AppActionBar {
+    actionBar: ActionBar {
         id : actionBar
         title: "Notification"
         z: 10
@@ -20,8 +20,7 @@ Activity {
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        color : Style.theme.black87
-        font.pixelSize: Style.theme.largeText.textSize * A.dp
+        type: Constants.largeText
     }
 
     MouseArea {

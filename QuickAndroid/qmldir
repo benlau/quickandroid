@@ -11,10 +11,8 @@ MaterialShadow 0.1 MaterialShadow.qml
 PopupArea 0.1 PopupArea.qml
 PopupMenu 0.1 PopupMenu.qml
 QueuedSignal 0.1 QueuedSignal.qml
-QuickButton 0.1 QuickButton.qml
 RectToRectMatrix 0.1 RectToRectMatrix.qml
 Shadow 0.1 Shadow.qml
-Spinner 0.1 Spinner.qml
 StateListDrawable 0.1 StateListDrawable.qml
 Util 0.1 util.js
 DrawableGravityBehaviour 0.1 DrawableGravityBehaviour.qml
@@ -22,7 +20,15 @@ QATextInput 0.1 QATextInput.qml
 Modifier 0.1 Modifier.qml
 AnimatedModifier 0.1 AnimatedModifier.qml
 Switch 0.1 Switch.qml
-singleton QA 0.1 QA.qml
 Text 0.1 Text.qml
 ListItem 0.1 ListItem.qml
 FloatingActionButton 0.1 FloatingActionButton.qml
+TabBar 0.1 TabBar.qml
+SwipeView 0.1 SwipeView.qml
+TabView 0.1 TabView.qml
+Button 0.1 Button.qml
+Paper 0.1 Paper.qml
+singleton Constants 0.1 Constants.qml
+Popup 0.1 Popup.qml
+DropDownMenu 0.1 DropDownMenu.qml
+singleton A 0.1 A.qml

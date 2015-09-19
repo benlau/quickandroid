@@ -10,57 +10,68 @@
 import QtQuick 2.0
 import QtQuick 2.0 as Quick
 import QuickAndroid 0.1
-import "./style"
+import QuickAndroid.Styles 0.1
 import "./priv"
-import "./def"
 
 Quick.Text {
     id: component
 
-    font.pixelSize: Style.theme.text.textSize * A.dp
+    // By default, it use normal text style
+    property TextStyle textStyle : ThemeManager.currentTheme.text;
 
-    color : Style.theme.text.textColor
+    font.pixelSize: component.textStyle.textSize
+    color : component.textStyle.textColor
 
-    property TextStyle textStyle
-    property int textStyleType : -1
+    // Set the type of the text. The text size and color will be changed according to the value.
+    // Possible values : [Constants.smallText , Constants.normalText , Constants.mediumText , Constants.largeText ]
+    property string type : ""
 
-    // Set the font.pixelSize only by textStyleType
-    property int textSize : -1
-
-    property alias gravity : textBehaviour.gravity
-
-    TextBehaviour {
-        id: textBehaviour
-    }
+    property string gravity: ""
 
     Modifier {
-        target: textBehaviour;property: "textStyle";value: Style.theme.text;when: component.textStyleType === Constant.normalTextStyle && component.textStyle === null
+        target: component; property: "textStyle"; value: ThemeManager.currentTheme.text;
+        when: component.type === Constants.normalText
     }
     Modifier {
-        target: textBehaviour;property: "textStyle";value: Style.theme.smallText;when: component.textStyleType === Constant.smallTextStyle && component.textStyle === null
+        target: component; property: "textStyle"; value: ThemeManager.currentTheme.smallText;
+        when: component.type === Constants.smallText
     }
     Modifier {
-        target: textBehaviour;property: "textStyle";value: Style.theme.mediumText;when: component.textStyleType === Constant.mediumTextStyle && component.textStyle === null
+        target: component; property: "textStyle"; value: ThemeManager.currentTheme.mediumText;
+        when: component.type === Constants.mediumText
     }
     Modifier {
-        target: textBehaviour;property: "textStyle";value: Style.theme.largeText;when: component.textStyleType === Constant.largeTextStyle && component.textStyle === null
-    }
-    Modifier {
-        target: textBehaviour;property: "textStyle";value: component.textStyle; when: component.textStyle !== null
+        target: component; property: "textStyle"; value: ThemeManager.currentTheme.largeText;
+        when: component.type === Constants.largeText
     }
 
-    Modifier {
-        target: component.font;property: "pixelSize";value: Style.theme.text.textSize * A.dp;when: component.textSize === Constant.normalTextStyle && component.textStyle === null
-    }
-    Modifier {
-        target: component.font;property: "pixelSize";value: Style.theme.smallText.textSize * A.dp;when: component.textSize === Constant.smallTextStyle && component.textStyle === null
-    }
-    Modifier {
-        target: component.font;property: "pixelSize";value: Style.theme.mediumText.textSize * A.dp;when: component.textSize === Constant.mediumTextStyle && component.textStyle === null
-    }
-    Modifier {
-        target: component.font;property: "pixelSize";value: Style.theme.largeText.textSize * A.dp;when: component.textSize === Constant.largeTextStyle && component.textStyle === null
-    }
 
+    /* Gravity */
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "left";value: Qt.AlignLeft}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "left";value: Qt.AlignVCenter}
+
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "right";value: Qt.AlignRight}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "right";value: Qt.AlignVCenter}
+
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "top";value: Qt.AlignCenter}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "top";value: Qt.AlignTop}
+
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "bottom";value: Qt.AlignCenter}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "bottom";value: Qt.AlignBottom}
+
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "center";value: Qt.AlignHCenter}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "center";value: Qt.AlignVCenter}
+
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "topLeft";value: Qt.AlignLeft}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "topLeft";value: Qt.AlignTop}
+
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "topRight";value: Qt.AlignRight}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "topRight";value: Qt.AlignTop}
+
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "bottomLeft";value: Qt.AlignLeft}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "bottomLeft";value: Qt.AlignBottom}
+
+    Binding{ target: component;property:"horizontalAlignment";when: gravity === "bottomRight";value: Qt.AlignRight}
+    Binding{ target: component;property:"verticalAlignment";  when: gravity === "bottomRight";value: Qt.AlignBottom}
 }
 

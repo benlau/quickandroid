@@ -5,7 +5,7 @@ import QtTest 1.0
 import QuickAndroid 0.1
 import QuickAndroid.drawable 0.1
 import QuickAndroid.priv 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 
 Rectangle {
     id : rect
@@ -41,7 +41,7 @@ Rectangle {
             x: 100
             text: "Large Text"
             TextBehaviour {
-                textStyle: Style.theme.largeText
+                textStyle: ThemeManager.currentTheme.largeText
                 shrink: true
             }
         }
@@ -52,7 +52,7 @@ Rectangle {
             width: 100
             text: "Large Text"
             TextBehaviour {
-                textStyle: Style.theme.largeText
+                textStyle: ThemeManager.currentTheme.largeText
                 shrink: true
             }
         }

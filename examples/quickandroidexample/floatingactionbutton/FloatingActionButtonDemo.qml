@@ -1,10 +1,10 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 import "../theme"
 
 Activity {
-    actionBar: AppActionBar {
+    actionBar: ActionBar {
         id: actionBar
         upEnabled: true
         title: qsTr("Floating Action Button")
@@ -23,18 +23,17 @@ Activity {
                 title: "   Depth = " + modelData
                 icon: FloatingActionButton {
                     color: "red"
-                    iconSource: "image://drawable/ic_done_black_24dp?tintColor=" + escape(Style.theme.white87)
+                    iconSource: A.drawable("ic_done_black_24dp",Constants.white87);
                     depth: modelData
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
                 rightIcon: FloatingActionButton {
                     color: "blue"
-                    iconSource: "image://drawable/ic_done_black_24dp?tintColor=" + escape(Style.theme.white87)
+                    iconSource: A.drawable("ic_done_black_24dp",Constants.white87);
                     depth: modelData
                     anchors.verticalCenter: parent.verticalCenter
-                    width: 40 * A.dp
-                    height: 40 * A.dp
+                    size: Constants.small
                 }
             }
         }

@@ -1,20 +1,39 @@
+/** Floating Action Button
+
+  TODO:
+  - background property
+ */
 import QtQuick 2.0
 import QtQuick.Controls 1.2 as Controls
 import QtQuick.Controls.Styles 1.2 as ControlStyles
 import QtGraphicalEffects 1.0
 import QuickAndroid 0.1
-import QuickAndroid.style 0.1
+import QuickAndroid.Styles 0.1
 
 Controls.Button {
     id: component
 
-    width: 56 * A.dp
-    height: 56 * A.dp
+    width: size === Constants.large ? 56 * A.dp : 40 * A.dp
+    height: width
 
-    property color color : Style.theme.colorPrimary
+    property size iconSourceSize : Qt.size(24 * A.dp,24 * A.dp);
+    property color color : ThemeManager.currentTheme.colorPrimary
     property int depth: 1
 
+    // Size of button. Possible values: [Constants.large, Constants.small]
+    property string size: Constants.large
+
     style: ControlStyles.ButtonStyle {
+        label: Item {
+            anchors.centerIn: parent
+
+            Image {
+                id: icon
+                source: control.iconSource
+                sourceSize: control.iconSourceSize
+                anchors.centerIn: parent
+            }
+        }
         background: Item {
 
             RectangularGlow {
