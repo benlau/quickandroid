@@ -9,14 +9,14 @@ Features
   1. Support hardware "Back" key nagivation
   1. Dimension in "dp" unit. Scale according to screen size and the DP value from OS.
   1. Provide page transition animation
-  1. Unified “Drawable” component
-   1. A single component that supports color , image , QML component, simulated nine patch image as input source
-   1. Auto scale image to fit current screen resolution
-   1. Derived StateListDrawable for animated drawable like button
  1. Drawable Image provider
   1. Load image resource from Android resource style file tree. (e.g drawable-xxxhdpi)
   2. Tint image at load time
   3. Choose the best image according to current resolution automatically.
+ 1. Unified “Drawable” component
+  1. A single component that supports color , image , QML component, simulated nine patch image as input source
+  1. Auto scale image to fit current screen resolution
+  1. Derived StateListDrawable for animated drawable like button
  1. IPC manager between C++/Qt and Java/Android code
   1. Auto conversion between C++ and Java data type. No need to write in JNI.
  1. Theme / Style Engine
