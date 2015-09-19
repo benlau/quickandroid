@@ -48,7 +48,7 @@ Dialog {
             width: dialog.width
             height: 48 * A.dp
 
-            QuickButton {
+            Button {
                 text: qsTr("Cancel")
                 width: parent.width / 2 - 1 * A.dp
                 height: parent.height
@@ -63,7 +63,7 @@ Dialog {
                 color : "#1A000000"
             }
 
-            QuickButton {
+            Button {
                 text: qsTr("OK")
                 width: parent.width/ 2
                 height: parent.height

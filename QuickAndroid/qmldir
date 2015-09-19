@@ -11,7 +11,6 @@ MaterialShadow 0.1 MaterialShadow.qml
 PopupArea 0.1 PopupArea.qml
 PopupMenu 0.1 PopupMenu.qml
 QueuedSignal 0.1 QueuedSignal.qml
-QuickButton 0.1 QuickButton.qml
 RectToRectMatrix 0.1 RectToRectMatrix.qml
 Shadow 0.1 Shadow.qml
 StateListDrawable 0.1 StateListDrawable.qml

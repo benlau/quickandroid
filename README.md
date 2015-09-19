@@ -5,32 +5,32 @@ Quick Android - QML Theme and Component Library for Android
 Features
 --------
 
- 1. Provide “DP” unit
- 2. Page transition management
-  1. "Back" to previous page by the hardware back button
- 3. Unified “Drawable” component
-  1. A single component that supports color , image , QML component, simulated nine patch image as input source
-  2. Auto scale image to fit current screen resolution
-  3. Derived StateListDrawable for animated drawable like button
- 4. Drawable Image provider
-  1. Load image resource in Android resource style file tree. (e.g drawable-xxxhdpi)
-  2. Tint an image at load time
+ 1. UI components implemented Google's Material Design
+  1. Support hardware "Back" key nagivation
+  1. Dimension in "dp" unit. Scale according to screen size and the DP value from OS.
+  1. Provide page transition animation
+  1. Unified “Drawable” component
+   1. A single component that supports color , image , QML component, simulated nine patch image as input source
+   1. Auto scale image to fit current screen resolution
+   1. Derived StateListDrawable for animated drawable like button
+ 1. Drawable Image provider
+  1. Load image resource from Android resource style file tree. (e.g drawable-xxxhdpi)
+  2. Tint image at load time
   3. Choose the best image according to current resolution automatically.
- 5. Theme / Style Engine
- 6. UI Components with Material Design
- 7. IPC manager between C++/Qt and Java/Android code
+ 1. IPC manager between C++/Qt and Java/Android code
   1. Auto conversion between C++ and Java data type. No need to write in JNI.
- 8. "Apache license" - Free to use for commerical application
+ 1. Theme / Style Engine
+ 1. "Apache license" - Free to use for commerical application
 
 UI Components
 
     ActionBar , Activity , Application , Drawable , StateListDrawable
-    MaterialShadow , PopupMenu , Button , Text, DropDownMenu,
-    TabBar, TabView, FloatingActionButton
+    MaterialShadow , Button , Text, DropDownMenu, Paper
+    TabBar, TabView, FloatingActionButton, ListItem
 
 Utility Components
 
-    InverseMouseArea, RectToRectMatrix
+    InverseMouseArea, RectToRectMatrix, SystemDispatcher
 
 Instruction of use
 ------------------
@@ -58,7 +58,6 @@ int main(int argc, char *argv[])
     QQuickView view;
 
     /* QuickAndroid Initialization */
-
     view.engine()->addImportPath("qrc:///"); // Add QuickAndroid into the import path
 
     /* End of QuickAndroid Initialization */
@@ -77,10 +76,6 @@ int main(int argc, char *argv[])
 
     import QuickAndroid 0.1
 
-Notes of using DP
------------------
-
-You may get the DP/density value from the global variable "A.dp" after you have called the `QuickAndroid::registerTypes()` in your code. However, Qt Creator don't know the value and threfore the UI will be broken. In make it works , you have to declare a dummy data in your project. Check the example code: [dummydata/A.qml](tests/quickandroidexample/dummydata/A.qml)
 
 Demonstration
 -------------
@@ -94,13 +89,13 @@ Remarks: Daily build for non-master branch may not be working.
 License
 -------
 
-The license of this project has been changed to Apache License 2.0
+Apache License 2.0
 
 TODO
 ----
 
  1. Migrate to Material Design
- 2. Deprecate QuickButton component
+ 2. Deprecate QATextInput
 
 FAQ
 ---
@@ -120,3 +115,8 @@ Q. Any library for ...?
 
 1. Sharing
  1. [bdentino/Qtino.SharingKit](https://github.com/bdentino/Qtino.SharingKit)
+
+Related Projects
+ 1. [benlau/quickpromise](https://github.com/benlau/quickpromise) - Promise library for QML
+ 2. [benlau/quickflux](https://github.com/benlau/quickflux) - IPC/Message Queue solution for QML
+
