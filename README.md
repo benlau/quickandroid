@@ -59,6 +59,11 @@ int main(int argc, char *argv[])
 
     /* QuickAndroid Initialization */
     view.engine()->addImportPath("qrc:///"); // Add QuickAndroid into the import path
+    
+    // Setup "drawable" image provider
+    QADrawableProvider* provider = new QADrawableProvider();
+    provider->setBasePath("qrc:///res");
+    view.engine()->addImageProvider("drawable",provider)
 
     /* End of QuickAndroid Initialization */
 
@@ -84,7 +89,7 @@ An example program is available in the folder of [tests/quickandroidexample](tes
 
 Remarks: Daily build for non-master branch may not be working. 
 
-![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/examples/quickandroidexample/docs/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/docs/screenshots/example1.png)
 
 License
 -------
