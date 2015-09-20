@@ -110,6 +110,7 @@ v1.0 Roadmap
  1. RaisedButton
  1. Slider
  1. TextField
+ 1. Native Image Picker
 
 FAQ
 ---
