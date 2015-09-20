@@ -5,9 +5,9 @@ Quick Android - QML Theme and Component Library for Android
 Features
 --------
 
- 1. UI components implemented Google's Material Design
+ 1. Set of UI components implemented Google's Material Design
   1. Support hardware "Back" key nagivation
-  1. Dimension in "dp" unit. Scale according to screen size and the DP value from OS.
+  1. Dimension in "dp" unit. Auto-scale according to system's DP value.
   1. Provide page transition animation
  1. Drawable Image provider
   1. Load image resource from Android resource style file tree. (e.g drawable-xxxhdpi)
@@ -20,6 +20,8 @@ Features
  1. IPC manager between C++/Qt and Java/Android code
   1. Auto conversion between C++ and Java data type. No need to write in JNI.
  1. Theme / Style Engine
+  1. A global Theme object. Set once for all components.
+  1. Helper function to create your own derived style.
  1. "Apache license" - Free to use for commerical application
 
 UI Components
@@ -102,6 +104,13 @@ TODO
  1. Migrate to Material Design
  2. Deprecate QATextInput
 
+v1.0 Roadmap
+ 1. Switch
+ 1. NavigationDrawer
+ 1. RaisedButton
+ 1. Slider
+ 1. TextField
+
 FAQ
 ---
 
@@ -111,6 +120,10 @@ Please feel free to submit the request to our issue tracker. Moreover, you may t
 
 1. [Iktwo/components](https://github.com/Iktwo/components)
 2. [rschiang/material](https://github.com/rschiang/material)
+
+Q. No document?
+
+Just ask. Then the author will try to answer and make it as a document.
 
 Q. Looking for iOS Native Component?
 
