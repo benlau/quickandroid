@@ -99,5 +99,7 @@
         <file>Styles/Style.qml</file>
         <file>TextField.qml</file>
         <file>Styles/TextFieldStyle.qml</file>
+        <file>drawable-xxhdpi/text_select_handle_right.png</file>
+        <file>drawable-xxhdpi/text_select_handle_left.png</file>
     </qresource>
 </RCC>
