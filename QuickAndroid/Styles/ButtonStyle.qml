@@ -8,6 +8,11 @@ import QuickAndroid 0.1
 Style {
     property var background: Qt.resolvedUrl("../drawable/BtnDefault.qml");
 
+    /// Specifies that icon and background on the local filesystem should be loaded asynchronously in a separate thread. The default value is false, causing the user interface thread to block while the it is loading.
+    property bool asynchronous : false
+
+    property size iconSourceSize
+
     property TextStyle textStyle: TextStyle {
         textSize: 14 * A.dp
         textColor: "#de000000"

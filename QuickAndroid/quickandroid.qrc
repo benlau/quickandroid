@@ -97,5 +97,7 @@
         <file>A.qml</file>
         <file>Styles/TabBarStyle.qml</file>
         <file>Styles/Style.qml</file>
+        <file>TextField.qml</file>
+        <file>Styles/TextFieldStyle.qml</file>
     </qresource>
 </RCC>

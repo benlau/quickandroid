@@ -11,14 +11,19 @@ Controls.Button {
 
     id: button
 
-    property size iconSourceSize
+    property ButtonStyle aStyle: ThemeManager.currentTheme.button
 
-    property var background : ThemeManager.currentTheme.button.background
+    property size iconSourceSize : aStyle.iconSourceSize
 
-    property color textColor: ThemeManager.currentTheme.button.textStyle.textColor
+    property var background : aStyle.background
+
+    property color textColor: aStyle.textStyle.textColor
 
     /// The text size in sp unit
-    property int textSize: ThemeManager.currentTheme.button.textStyle.textSize
+    property int textSize: aStyle.textStyle.textSize
+
+    /// Specifies that icon and background on the local filesystem should be loaded asynchronously in a separate thread. The default value is false, causing the user interface thread to block while the it is loading.
+    property bool asynchronous : aStyle.asynchronous
 
     style: ControlsStyles.ButtonStyle {
 
@@ -34,6 +39,7 @@ Controls.Button {
             implicitWidth: 36 * A.dp
             source: control.background
             pressed: control.pressed
+            asynchronous: control.asynchronous
         }
 
         label: Item {
@@ -48,6 +54,7 @@ Controls.Button {
                 sourceSize: control.iconSourceSize
                 visible: control.iconSource !== null
                 anchors.centerIn: parent
+                asynchronous: control.asynchronous
             }
 
             Text {

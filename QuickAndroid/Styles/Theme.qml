@@ -25,7 +25,10 @@ Style {
     property string textColorSecondary: Constants.black54
 
     property color windowBackground: "#EFEFEF"
+
     property color navigationBarColor : "#FFFFFF"
+
+    property string colorAccent : "#448AFF"
 
     // Animation
 
@@ -115,6 +118,10 @@ Style {
         backgroundColor: colorPrimary
         indicatorColor: colorForeground
         textColor: textColorPrimary
+    }
+
+    property TextFieldStyle textField: TextFieldStyle {
+        colorAccent: theme.colorAccent
     }
 
     // Allow to place children under Theme.
