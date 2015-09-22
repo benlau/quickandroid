@@ -27,6 +27,6 @@ Style {
     property int keyline2: 72 * A.dp
 
     /// The expected height if icon, title. It is also the implicit height of Action Bar.
-    property int unitHeight: 48 * A.dp
+    property int unitHeight: 56 * A.dp
 
 }
