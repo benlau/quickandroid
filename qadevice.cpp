@@ -27,10 +27,10 @@ static QJSValue provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 }
 
 
-class QADeviceReigsterHelper {
+class QADeviceRegisterHelper {
 
 public:
-    QADeviceReigsterHelper() {
+    QADeviceRegisterHelper() {
 
 #ifdef Q_OS_ANDROID
         QAndroidJniObject activity = QAndroidJniObject::callStaticObjectMethod("org/qtproject/qt5/android/QtNative", "activity", "()Landroid/app/Activity;");
@@ -44,7 +44,7 @@ public:
     }
 };
 
-static QADeviceReigsterHelper registerHelper;
+static QADeviceRegisterHelper registerHelper;
 
 
 qreal QADevice::dp()

@@ -38,7 +38,8 @@ DISTFILES += \
     DarkButtonBackground.qml \
     tst_Style.qml \
     tst_TextField.qml \
-    Ruler.qml
+    Ruler.qml \
+    tst_MouseSensor.qml
 
 RESOURCES += \
     qml.qrc
