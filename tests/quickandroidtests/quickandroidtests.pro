@@ -39,7 +39,8 @@ DISTFILES += \
     tst_Style.qml \
     tst_TextField.qml \
     Ruler.qml \
-    tst_MouseSensor.qml
+    tst_MouseSensor.qml \
+    tst_A.qml
 
 RESOURCES += \
     qml.qrc

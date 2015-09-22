@@ -10,7 +10,8 @@ HEADERS += \
     $$PWD/qasystemdispatcher.h \
     $$PWD/priv/qasystemdispatcherproxy.h \
     $$PWD/qadevice.h \
-    $$PWD/qamousesensor.h
+    $$PWD/qamousesensor.h \
+    $$PWD/qatimer.h
 
 SOURCES += \
     $$PWD/quickandroid.cpp \
@@ -18,7 +19,8 @@ SOURCES += \
     $$PWD/qasystemdispatcher.cpp \
     $$PWD/priv/qasystemdispatcherproxy.cpp \
     $$PWD/qadevice.cpp \
-    $$PWD/qamousesensor.cpp
+    $$PWD/qamousesensor.cpp \
+    $$PWD/qatimer.cpp
 
 android {
     QT += androidextras

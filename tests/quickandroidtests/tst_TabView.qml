@@ -43,6 +43,7 @@ Rectangle {
 
         function test_preview() {
             wait(200);
+            compare(tabBarItem.currentIndex,0);
 
             wait(TestEnv.waitTime);
         }

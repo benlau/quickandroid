@@ -49,7 +49,7 @@ Rectangle {
             compare(content1.width,480);
             compare(content1.height,100);
             compare(content2.width,480);
-            compare(content2.height,100 - 48);
+            compare(content2.height,100 - 56);
 
             wait(TestEnv.waitTime);
         }
