@@ -24,6 +24,9 @@ Features
   1. Helper function to create your own derived style.
  1. "Apache license" - Free to use for commerical application
 
+System Requirements
+ 1. Qt 5.4 or above
+
 UI Components
 
     ActionBar , Activity , Application , Drawable , StateListDrawable
@@ -104,12 +107,14 @@ TODO
  1. Migrate to Material Design
  2. Deprecate QATextInput
 
-v1.0 Roadmap
+v0.1.4 
+ 1. Improved TextField for Android
+
+v1.0 
  1. Switch
  1. NavigationDrawer
  1. RaisedButton
  1. Slider
- 1. TextField
  1. Native Image Picker
 
 FAQ
