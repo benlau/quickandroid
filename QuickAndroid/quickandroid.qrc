@@ -101,5 +101,6 @@
         <file>Styles/TextFieldStyle.qml</file>
         <file>drawable-xxhdpi/text_select_handle_right.png</file>
         <file>drawable-xxhdpi/text_select_handle_left.png</file>
+        <file>Tab.qml</file>
     </qresource>
 </RCC>

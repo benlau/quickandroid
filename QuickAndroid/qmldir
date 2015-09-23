@@ -33,4 +33,4 @@ Popup 0.1 Popup.qml
 DropDownMenu 0.1 DropDownMenu.qml
 singleton A 0.1 A.qml
 TextField 0.1 TextField.qml
-
+Tab 0.1 Tab.qml
