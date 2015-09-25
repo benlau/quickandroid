@@ -47,6 +47,13 @@ Rectangle {
             }
 
         }
+
+        TextField {
+            id: text3
+            width: 400
+            text: "Disabled"
+            enabled: false
+        }
     }
 
     Column {

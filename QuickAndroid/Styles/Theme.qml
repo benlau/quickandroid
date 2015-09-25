@@ -121,7 +121,7 @@ Style {
     }
 
     property TextFieldStyle textField: TextFieldStyle {
-        colorAccent: theme.colorAccent
+        color: theme.colorAccent
     }
 
     // Allow to place children under Theme.

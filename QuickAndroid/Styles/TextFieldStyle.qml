@@ -8,6 +8,13 @@ Style {
         textColor: Constants.black87
     }
 
-    property string colorAccent
+    property TextStyle disabledTextStyle : TextStyle {
+        textSize: 16 * A.dp
+        textColor: Constants.black54
+    }
+
+    property string color
+
+    property string disabledColor : Constants.black54
 }
 
