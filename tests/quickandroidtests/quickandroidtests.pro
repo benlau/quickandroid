@@ -40,7 +40,8 @@ DISTFILES += \
     tst_TextField.qml \
     Ruler.qml \
     tst_MouseSensor.qml \
-    tst_A.qml
+    tst_A.qml \
+    tst_Line.qml
 
 RESOURCES += \
     qml.qrc
