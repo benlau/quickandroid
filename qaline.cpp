@@ -1,4 +1,5 @@
 #include <QPainter>
+#include "qadevice.h"
 #include "qaline.h"
 
 QALine::QALine(QQuickItem* parent) : QQuickPaintedItem(parent)
@@ -18,6 +19,13 @@ void QALine::paint(QPainter *painter)
     pen.setStyle((Qt::PenStyle) m_penStyle);
     pen.setWidth(m_penWidth);
     pen.setColor(m_color);
+
+//    qreal dp = QADevice::dp();
+//    QVector<qreal> pattern = pen.dashPattern();
+//    for (int i = 0 ; i < pattern.size() ; i++) {
+//        pattern[i] = pattern[i] * dp;
+//    }
+//    pen.setDashPattern(pattern);
 
     painter->setPen(pen);
 

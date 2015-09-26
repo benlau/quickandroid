@@ -28,7 +28,7 @@ Style {
 
     property color navigationBarColor : "#FFFFFF"
 
-    property string colorAccent : "#448AFF"
+    property string colorAccent : "#009688"
 
     // Animation
 

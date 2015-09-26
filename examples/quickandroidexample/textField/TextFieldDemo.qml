@@ -14,19 +14,40 @@ Activity {
         anchors.fill: parent
         anchors.leftMargin: 16 * A.dp
         anchors.rightMargin: 16 * A.dp
-
-        Control.TextField {
-            text: "Default Qt Text Field"
-        }
+        spacing: 16 * A.dp
 
         TextField {
-            text: "Text 1 - Default Style"
-        }
-
-        TextField {
-            text: "Text 2 - Default Style"
+            text: ""
             width: parent.width
         }
+
+        TextField {
+            placeholderText: "TextField with placeholder text"
+            width: parent.width
+        }
+
+        TextField {
+            text: "Disabled TextField"
+            width: parent.width
+            enabled: false
+        }
+
+        Item {
+            height: 48 * A.dp
+            width: parent.width
+        }
+
+        Control.TextField {
+            text: "Qt Default TextField"
+            width: parent.width
+        }
+
+        Control.TextField {
+            text: "Qt Default TextField [Disabled]"
+            width: parent.width
+            enabled: false
+        }
+
 
     }
 

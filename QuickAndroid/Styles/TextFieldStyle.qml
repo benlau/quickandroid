@@ -13,8 +13,11 @@ Style {
         textColor: Constants.black54
     }
 
+    // The color of underline.
     property string color
 
     property string disabledColor : Constants.black54
+
+    property string inactiveColor : Constants.black54
 }
 

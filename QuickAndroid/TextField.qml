@@ -10,7 +10,7 @@ Control.TextField {
 
     property TextFieldStyle aStyle: ThemeManager.currentTheme.textField
 
-    property color color: aStyle.colorAccent
+    property color color: aStyle.color
 
     style: ControlSyles.TextFieldStyle {
         padding.top: 16 * A.dp
@@ -26,12 +26,29 @@ Control.TextField {
         background: Item {
 
             Rectangle {
-                height: control.activeFocus ? 2 * A.dp : 1 * A.dp
-                color: control.color
+                id: inactiveUnderline
+                height: 1 * A.dp
+                color: control.aStyle.inactiveColor
                 width: parent.width
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 8 * A.dp
                 visible: enabled
+            }
+
+            Rectangle {
+                id: activeUnderline
+                height: 2 * A.dp
+                color: control.color
+                width: control.activeFocus ? parent.width : 0
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 8 * A.dp
+                anchors.horizontalCenter: parent.horizontalCenter
+                Behavior on width {
+                    NumberAnimation {
+                        duration: 300
+                        easing.type: Easing.OutSine
+                    }
+                }
             }
 
             Line {
