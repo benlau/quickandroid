@@ -116,7 +116,7 @@ Style {
 
     property TabBarStyle tabBar : TabBarStyle {
         backgroundColor: colorPrimary
-        indicatorColor: colorForeground
+        indicatorColor: colorAccent
         textColor: textColorPrimary
     }
 
