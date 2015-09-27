@@ -33,8 +33,7 @@ Controls.Button {
         padding.bottom: 0
 
         background: StateListDrawable {
-
-            // Ignore the fill area@ Material Design
+            // Ignore the fill area @ Material Design
             implicitHeight: 36 * A.dp
             implicitWidth: 36 * A.dp
             source: control.background
@@ -44,8 +43,8 @@ Controls.Button {
 
         label: Item {
             id: item
-            implicitWidth: Math.max(36 * A.dp, label.width + 16 * A.dp);
-            implicitHeight: 48 * A.dp
+            implicitWidth: Math.max(36 * A.dp, label.width + 32 * A.dp);
+            implicitHeight: 36 * A.dp
             anchors.centerIn: parent
 
             Image {

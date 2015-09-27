@@ -69,6 +69,14 @@ Style {
     property ButtonStyle button: ButtonStyle {
     }
 
+    property RaisedButtonStyle raisedButton: RaisedButtonStyle {
+        color: colorPrimary
+        textStyle: TextStyle {
+            textSize: 14 * A.dp
+            textColor: textColorPrimary
+        }
+    }
+
     property ActionBarStyle actionBar : ActionBarStyle {
         background : "#E6E6E6"
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")

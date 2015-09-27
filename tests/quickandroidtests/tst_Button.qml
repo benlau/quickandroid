@@ -40,6 +40,12 @@ Rectangle {
             background: Qt.resolvedUrl("./DarkButtonBackground.qml")
         }
 
+        RaisedButton {
+            id: button6
+            text: "Raised Button"
+            textColor: Constants.white100
+        }
+
     }
 
     TestCase {
@@ -51,13 +57,15 @@ Rectangle {
         function test_preview() {
             wait(200);
 
-            compare(button1.height,48);
-            compare(button2.height,48);
+            compare(button1.height,36);
+            compare(button2.height,36);
 
             compare(button3.height,48);
             compare(button3.width,48);
 
             compare(button4.height,48);
+
+            compare(button5.height,36);
 
             wait(TestEnv.waitTime);
         }

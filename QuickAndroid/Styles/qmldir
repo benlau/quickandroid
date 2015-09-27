@@ -13,3 +13,4 @@ DropDownMenuStyle 0.1 DropDownMenuStyle.qml
 TabBarStyle 0.1 TabBarStyle.qml
 Style 0.1 Style.qml
 TextFieldStyle 0.1 TextFieldStyle.qml
+RaisedButtonStyle 0.1 RaisedButtonStyle.qml

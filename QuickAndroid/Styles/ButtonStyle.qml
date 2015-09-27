@@ -15,7 +15,7 @@ Style {
 
     property TextStyle textStyle: TextStyle {
         textSize: 14 * A.dp
-        textColor: "#de000000"
+        textColor: Constants.black87
     }
 }
 
