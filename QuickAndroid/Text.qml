@@ -17,16 +17,24 @@ Quick.Text {
     id: component
 
     // By default, it use normal text style
-    property TextStyle textStyle : ThemeManager.currentTheme.text;
-
-    font.pixelSize: component.textStyle.textSize
-    color : component.textStyle.textColor
+    property TextStyle aStyle: ThemeManager.currentTheme.text;
+    property alias textStyle : component.aStyle
 
     // Set the type of the text. The text size and color will be changed according to the value.
     // Possible values : [Constants.smallText , Constants.normalText , Constants.mediumText , Constants.largeText ]
     property string type : ""
 
     property string gravity: ""
+
+    /// Normal text color
+    property color textColor: aStyle.textColor
+
+    property color disabledTextColor : aStyle.disabledTextColor
+
+    font.pixelSize: component.textStyle.textSize
+
+    color : enabled ? textColor : disabledTextColor
+
 
     Modifier {
         target: component; property: "textStyle"; value: ThemeManager.currentTheme.text;

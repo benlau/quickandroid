@@ -61,7 +61,12 @@ Rectangle {
             id : text7
             text: "Custom Text 3"            
             color : "green"
+        }
 
+        Text {
+            id: text8
+            text: "Normal Disabled Text"
+            enabled: false
         }
 
         Quick.Text {
