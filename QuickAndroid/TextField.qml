@@ -20,8 +20,8 @@ Control.TextField {
     }
 
     MouseSensor {
-        anchors.fill: parent
         enabled: canPaste
+        filter: textField
         onPressAndHold: {
             pasteButton.openAt(textField,cursorRectangle);
         }

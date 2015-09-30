@@ -4,9 +4,10 @@
 
 QAMouseSensor::QAMouseSensor(QQuickItem* parent) : QQuickItem(parent)
 {
-    setAcceptedMouseButtons(Qt::LeftButton);
-    setFiltersChildMouseEvents(true);
+//    setAcceptedMouseButtons(Qt::LeftButton);
+//    setFiltersChildMouseEvents(true);
     timerId = 0;
+    m_filter = 0;
 }
 
 void QAMouseSensor::mousePressEvent(QMouseEvent *event)
@@ -47,5 +48,58 @@ void QAMouseSensor::timerEvent(QTimerEvent *event)
     Q_UNUSED(event);
     timerId = 0;
     emit pressAndHold();
+}
+
+bool QAMouseSensor::eventFilter(QObject *, QEvent *event)
+{
+    if (!isEnabled())
+        return false;
+    switch (event->type()) {
+        case QEvent::MouseButtonPress:
+            mousePressEvent((QMouseEvent*) event);
+            break;
+        case QEvent::MouseMove:
+            mouseMoveEvent((QMouseEvent*) event);
+            break;
+        case QEvent::MouseButtonRelease:
+            mouseReleaseEvent((QMouseEvent*) event);
+            break;
+    }
+
+    return false;
+}
+
+void QAMouseSensor::search(QObject *object, bool installFilter)
+{
+    if (installFilter) {
+        object->installEventFilter(this);
+    } else {
+        object->removeEventFilter(this);
+    }
+
+    QObjectList children = object->children();
+
+    Q_FOREACH(QObject* child,children) {
+        search(child,installFilter);
+    }
+}
+
+QObject *QAMouseSensor::filter() const
+{
+    return m_filter;
+}
+
+void QAMouseSensor::setFilter(QObject *listenOn)
+{
+    if (m_filter) {
+        search(m_filter,false);
+    }
+
+    m_filter = listenOn;
+
+    if (m_filter) {
+        search(m_filter,true);
+    }
+
 }
 

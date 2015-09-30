@@ -9,8 +9,8 @@ Rectangle {
     width: 480
     height: 640
 
-
     Rectangle {
+        id: rect
         x: 100
         y: 100
         width: 200
@@ -37,19 +37,18 @@ Rectangle {
                 pressAndHoldCount++;
             }
 
-            MouseSensor {
-                id: sensor
-                anchors.fill: parent
-                property int pressAndHoldCount: 0
-
-                onPressAndHold: {
-                    pressAndHoldCount++;
-
-                }
-            }
         }
     }
 
+    MouseSensor {
+        id: sensor
+        filter: rect;
+        property int pressAndHoldCount: 0
+
+        onPressAndHold: {
+            pressAndHoldCount++;
+        }
+    }
 
     TestCase {
         name: "MouseSensorTests"
@@ -59,13 +58,13 @@ Rectangle {
 
         function test_preview() {
             wait(100);
-            mouseClick(sensor,0,0,Qt.LeftButton);
+            mouseClick(rect,0,0,Qt.LeftButton);
             wait(10);
             compare(mouseArea.pressedCount,1);
             compare(mouseArea.clickedCount,1);
             compare(mouseArea.pressAndHoldCount,0);
 
-            mousePress(sensor,0,0,Qt.LeftButton);
+            mousePress(rect,0,0,Qt.LeftButton);
             compare(mouseArea.pressAndHoldCount,0);
             wait(1000);
             compare(mouseArea.pressAndHoldCount,1);
