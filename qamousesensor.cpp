@@ -49,12 +49,3 @@ void QAMouseSensor::timerEvent(QTimerEvent *event)
     emit pressAndHold();
 }
 
-class QAMouseSensorRegisterHelper {
-
-public:
-    QAMouseSensorRegisterHelper() {
-        qmlRegisterType<QAMouseSensor>("QuickAndroid",0,1,"MouseSensor");
-    }
-};
-
-static QAMouseSensorRegisterHelper registerHelper;

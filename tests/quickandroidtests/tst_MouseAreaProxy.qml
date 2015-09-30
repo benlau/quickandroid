@@ -11,6 +11,7 @@ Rectangle {
 
 
     Rectangle {
+        id: rect
         x: 100
         y: 100
         width: 200
@@ -37,42 +38,52 @@ Rectangle {
                 pressAndHoldCount++;
             }
 
-            MouseSensor {
-                id: sensor
-                anchors.fill: parent
-                property int pressAndHoldCount: 0
+        }
+    }
 
-                onPressAndHold: {
-                    pressAndHoldCount++;
+    MouseAreaProxy {
+        id: proxy
+        source: rect
+        property int pressAndHoldCount: 0
+        property int clickedCount : 0
 
-                }
-            }
+        onPressAndHold: {
+            pressAndHoldCount++;
+        }
+
+        onClicked: {
+            clickedCount++;
         }
     }
 
 
     TestCase {
-        name: "MouseSensorTests"
+        name: "MouseAreaProxyTests"
         width : 480
         height : 480
         when : windowShown
 
         function test_preview() {
             wait(100);
-            mouseClick(sensor,0,0,Qt.LeftButton);
+            mouseClick(mouseArea,0,0,Qt.LeftButton);
             wait(10);
             compare(mouseArea.pressedCount,1);
             compare(mouseArea.clickedCount,1);
             compare(mouseArea.pressAndHoldCount,0);
+            compare(proxy.clickedCount,1);
 
-            mousePress(sensor,0,0,Qt.LeftButton);
+
+            mousePress(mouseArea,0,0,Qt.LeftButton);
             compare(mouseArea.pressAndHoldCount,0);
             wait(1000);
             compare(mouseArea.pressAndHoldCount,1);
-            compare(sensor.pressAndHoldCount,1);
+            compare(proxy.pressAndHoldCount,1);
+            mouseRelease(mouseArea);
 
+            mouseClick(mouseArea,0,0,Qt.LeftButton);
+            compare(mouseArea.clickedCount,2);
+            compare(proxy.clickedCount,2);
 
-            wait(TestEnv.waitTime);
         }
     }
 }
