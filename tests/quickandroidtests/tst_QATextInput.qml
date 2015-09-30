@@ -4,7 +4,7 @@ import QtQuick 2.0 as Quick
 import QtTest 1.0
 import QuickAndroid 0.1
 import QuickAndroid.drawable 0.1
-import QuickAndroid.priv 0.1
+import QuickAndroid.Private 0.1
 import QuickAndroid.Styles 0.1
 
 Rectangle {

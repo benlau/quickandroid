@@ -11,7 +11,7 @@ import QtQuick 2.0
 import QtQuick 2.0 as Quick
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
-import "./priv"
+import "./Private"
 
 Quick.Text {
     id: component
