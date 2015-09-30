@@ -5,11 +5,11 @@
  */
 
 import QtQuick 2.0
-//import QuickAndroid 0.1
+import QuickAndroid 0.1
 import "../global.js" as Global
 
 Item {
-    z: 100000
+    z: Constants.zPopupLayer
     width: parent.width
     height: parent.height
 

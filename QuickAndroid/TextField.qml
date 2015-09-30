@@ -7,6 +7,7 @@ import QuickAndroid.Private 0.1
 import "./Private"
 
 Control.TextField {
+    id: textField
     height: 48 * A.dp
 
     property TextFieldStyle aStyle: ThemeManager.currentTheme.textField
@@ -22,7 +23,7 @@ Control.TextField {
         anchors.fill: parent
         enabled: canPaste
         onPressAndHold: {
-            pasteButton.openAt(cursorRectangle);
+            pasteButton.openAt(textField,cursorRectangle);
         }
         z: 10000
     }

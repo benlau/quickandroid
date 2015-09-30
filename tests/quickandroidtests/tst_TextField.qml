@@ -11,6 +11,12 @@ Rectangle {
     VisualItemModel {
         id: visualModel
 
+        Controls.TextField {
+            id: text1
+            text: "Text 1"
+            width: 400
+        }
+
         TextField {
             id: text2
             text: "Text 2"
@@ -40,12 +46,6 @@ Rectangle {
                 height: parent.height
             }
 
-        }
-
-        Controls.TextField {
-            id: text1
-            text: "Text 1"
-            width: 400
         }
 
 
