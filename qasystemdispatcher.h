@@ -18,7 +18,7 @@ public:
      * "dispatched" signal.
      *
      */
-    Q_INVOKABLE void dispatch(QString name , QVariantMap message = QVariantMap());
+    Q_INVOKABLE void dispatch(QString type , QVariantMap message = QVariantMap());
 
     /// Register JNI native methods. This function must be called in JNI_OnLoad. Otherwise, the messenger will not be working
     static void registerNatives();
@@ -31,7 +31,7 @@ public:
 
 signals:
     /// The signal is emitted when a message is dispatched.
-    void dispatched(QString name , QVariantMap data);
+    void dispatched(QString type , QVariantMap data);
 
 private:
     explicit QASystemDispatcher(QObject* parent = 0);
