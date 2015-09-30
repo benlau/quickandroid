@@ -1,9 +1,10 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2 as Control
 import QtQuick.Controls.Styles 1.3 as ControlSyles
-import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
+import QuickAndroid 0.1
 import QuickAndroid.Private 0.1
+import "./Private"
 
 Control.TextField {
     height: 48 * A.dp
@@ -11,6 +12,20 @@ Control.TextField {
     property TextFieldStyle aStyle: ThemeManager.currentTheme.textField
 
     property color color: aStyle.color
+
+    FloatingPasteButton {
+        id: pasteButton
+        onClicked: paste();
+    }
+
+    MouseSensor {
+        anchors.fill: parent
+        enabled: canPaste
+        onPressAndHold: {
+            pasteButton.openAt(cursorRectangle);
+        }
+        z: 10000
+    }
 
     style: ControlSyles.TextFieldStyle {
         padding.top: 16 * A.dp
