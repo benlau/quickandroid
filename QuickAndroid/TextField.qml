@@ -16,17 +16,21 @@ Control.TextField {
 
     FloatingPasteButton {
         id: pasteButton
+        cursorRect: cursorRectangle;
         onClicked: paste();
+        item: textField
     }
 
     MouseSensor {
         enabled: canPaste
         filter: textField
         onPressAndHold: {
-            pasteButton.openAt(textField,cursorRectangle);
+            pasteButton.openAt();
         }
         z: 10000
     }
+
+    onTextChanged: pasteButton.close();
 
     style: ControlSyles.TextFieldStyle {
         padding.top: 16 * A.dp

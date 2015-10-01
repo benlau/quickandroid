@@ -6,12 +6,14 @@ Item {
 
     property bool isOpened: false
 
+    property Item item
     property rect itemRectAtRoot
     property rect cursorRectAtRoot
+    property rect cursorRect
 
     signal clicked
 
-    function openAt(item,cursorRect) {
+    function openAt() {
         var root = parent;
         while (root.parent) {
             root = root.parent;
@@ -19,15 +21,16 @@ Item {
 
         var tmpRect = root.mapFromItem(item.parent,item.x,item.y,item.width,item.height);
         itemRectAtRoot = Qt.rect(tmpRect.x,tmpRect.y,tmpRect.width,tmpRect.height);
-
-        tmpRect =root.mapFromItem(item,cursorRect.x,cursorRect.y,cursorRect.width,cursorRect.height);
-        cursorRectAtRoot = Qt.rect(tmpRect.x,tmpRect.y,tmpRect.width,tmpRect.height);
-
         isOpened = true;
     }
 
     function close() {
         isOpened = false;
+    }
+
+    onCursorRectChanged: {
+        var tmpRect = parent.mapFromItem(item,cursorRect.x,cursorRect.y,cursorRect.width,cursorRect.height);
+        cursorRectAtRoot = Qt.rect(tmpRect.x,tmpRect.y,tmpRect.width,tmpRect.height);
     }
 
     Component {
@@ -57,10 +60,9 @@ Item {
                     pasteButton.clicked();
                     close();
                 }
-
             }
 
-            Component.onCompleted:  {
+            function reposition() {
                 button.x = cursorRectAtRoot.x - button.width / 2
                 button.y = itemRectAtRoot.y - button.height;
                 if (button.y < 0) {
@@ -72,6 +74,15 @@ Item {
                 if (button.x + button.width > overlay.width) {
                     button.x = overlay.width- button.width
                 }
+            }
+
+            Connections {
+                target: pasteButton
+                onCursorRectAtRootChanged: reposition();
+            }
+
+            Component.onCompleted:  {
+                reposition();
             }
 
         }
