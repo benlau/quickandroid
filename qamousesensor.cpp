@@ -24,11 +24,6 @@ void QAMouseSensor::mousePressEvent(QMouseEvent *event)
 
 void QAMouseSensor::mouseMoveEvent(QMouseEvent *event)
 {
-    if (timerId != 0) {
-        killTimer(timerId);
-        timerId = 0;
-    }
-
     QQuickItem::mouseMoveEvent(event);
 }
 
@@ -54,16 +49,21 @@ bool QAMouseSensor::eventFilter(QObject *, QEvent *event)
 {
     if (!isEnabled())
         return false;
+
     switch (event->type()) {
-        case QEvent::MouseButtonPress:
-            mousePressEvent((QMouseEvent*) event);
-            break;
-        case QEvent::MouseMove:
-            mouseMoveEvent((QMouseEvent*) event);
-            break;
-        case QEvent::MouseButtonRelease:
-            mouseReleaseEvent((QMouseEvent*) event);
-            break;
+    case QEvent::MouseButtonPress:
+    mousePressEvent((QMouseEvent*) event);
+        break;
+    case QEvent::MouseMove:
+    mouseMoveEvent((QMouseEvent*) event);
+        break;
+    case QEvent::MouseButtonRelease:
+    mouseReleaseEvent((QMouseEvent*) event);
+        break;
+    case QEvent::Timer:
+        break;
+    default:
+        break;
     }
 
     return false;
