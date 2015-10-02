@@ -69,6 +69,14 @@ Rectangle {
             enabled: false
         }
 
+        Text {
+            id: text9
+            text: "Bold Text"
+            aStyle: TextStyle {
+                bold: true
+            }
+        }
+
         Quick.Text {
             id : dummy
         }

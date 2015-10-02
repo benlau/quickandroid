@@ -34,7 +34,7 @@ Quick.Text {
     font.pixelSize: component.textStyle.textSize
 
     color : enabled ? textColor : disabledTextColor
-
+    font.bold: aStyle.bold
 
     Modifier {
         target: component; property: "textStyle"; value: ThemeManager.currentTheme.text;

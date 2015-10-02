@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.Styles 0.1
 
 Item {
     id: pasteButton
@@ -55,6 +56,11 @@ Item {
                 opacity: isOpened ? 1 : 0
                 enabled: isOpened;
                 depth: 3
+                aStyle: RaisedButtonStyle {
+                    extend: [ThemeManager.currentTheme.raisedButton,{
+                        "textStyle.bold": true
+                    }]
+                }
 
                 onClicked: {
                     pasteButton.clicked();
