@@ -55,6 +55,26 @@ Rectangle {
             text: "Disabled"
             enabled: false
         }
+
+        TextField {
+            id : text4
+            width: 400
+            placeholderText: "Placeholder text"
+        }
+
+        TextField {
+            id: text5
+            width: 400
+            floatingLabelText: "Floating Label"
+        }
+
+        TextField {
+            id: text6
+            width: 400
+            floatingLabelText: "Floating Label"
+            placeholderText: "Placeholder Text"
+        }
+
     }
 
     Column {
@@ -76,6 +96,9 @@ Rectangle {
 
         function test_preview() {
             compare(text2.height, 48);
+            compare(text4.height, 48);
+            compare(text5.height, 72);
+
             wait(TestEnv.waitTime);
         }
     }

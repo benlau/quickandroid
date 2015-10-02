@@ -8,11 +8,14 @@ import "./Private"
 
 Control.TextField {
     id: textField
-    height: 48 * A.dp
+    height: hasFloatingLabel ? 72 * A.dp : 48 * A.dp
 
     property TextFieldStyle aStyle: ThemeManager.currentTheme.textField
 
     property color color: aStyle.color
+
+    property string floatingLabelText: ""
+    readonly property bool hasFloatingLabel : floatingLabelText !== ""
 
     FloatingPasteButton {
         id: pasteButton
@@ -33,7 +36,8 @@ Control.TextField {
     onTextChanged: pasteButton.close();
 
     style: ControlSyles.TextFieldStyle {
-        padding.top: 16 * A.dp
+        id: style
+        padding.top: control.hasFloatingLabel ? 40 * A.dp : 16 * A.dp
         padding.bottom: 16 * A.dp
         padding.left: 0
         padding.right: 0
@@ -81,6 +85,70 @@ Control.TextField {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 8 * A.dp
             }
+
+            Text {
+                id: floatingLabelTextItem
+                aStyle: control.aStyle.textStyle
+                enabled: false
+                text: control.floatingLabelText
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 16 * A.dp
+            }
+
+            states: [
+                State {
+                    name: "FloatingLabelOnTop"
+                    when: control.hasFloatingLabel && (control.activeFocus || control.text !=="")
+
+                    PropertyChanges {
+                        target: floatingLabelTextItem
+                        font.pixelSize: 12 * A.dp
+                        color: control.color;
+                        anchors.bottomMargin: 40 * A.dp
+                    }
+                },
+                State {
+                    name: "HasFloatingLabel"
+                    when: control.hasFloatingLabel
+
+                    PropertyChanges {
+                        target: style
+                        placeholderTextColor : Constants.transparent
+                    }
+                }
+
+            ]
+
+            transitions: [
+                Transition {
+                    from: "*"
+                    to: "FloatingLabelOnTop"
+                    reversible: true
+
+                    NumberAnimation {
+                        target: floatingLabelTextItem
+                        properties: "anchors.bottomMargin,font.pixelSize"
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                    ColorAnimation {
+                        targets: style
+                        properties: "placeHolderTextColor"
+                        duration: 50
+                        easing.type: Easing.InOutQuad
+                    }
+
+                    ColorAnimation {
+                        targets: floatingLabelTextItem
+                        properties: "color"
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                }
+
+            ]
         }
 
         property Component __selectionHandle: Image {
@@ -97,6 +165,7 @@ Control.TextField {
             x: styleData.hasSelection ? -width / 4 : -width / 2
             y: styleData.lineHeight
         }
+
     }
 }
 
