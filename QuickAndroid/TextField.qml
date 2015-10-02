@@ -116,7 +116,6 @@ Control.TextField {
                         placeholderTextColor : Constants.transparent
                     }
                 }
-
             ]
 
             transitions: [
@@ -133,22 +132,20 @@ Control.TextField {
                     }
 
                     ColorAnimation {
-                        targets: style
-                        properties: "placeHolderTextColor"
-                        duration: 50
-                        easing.type: Easing.InOutQuad
-                    }
-
-                    ColorAnimation {
                         targets: floatingLabelTextItem
                         properties: "color"
                         duration: 200
                         easing.type: Easing.InOutQuad
                     }
 
+                    ColorAnimation {
+                        targets: style
+                        properties: "placeholderTextColor"
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
                 }
-
-            ]
+            ]            
         }
 
         property Component __selectionHandle: Image {

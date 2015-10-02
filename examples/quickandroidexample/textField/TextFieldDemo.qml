@@ -10,44 +10,61 @@ Activity {
         onActionButtonClicked: back();
     }
 
-    Column {
+    Control.ScrollView {
+        id: scrollView
         anchors.fill: parent
         anchors.leftMargin: 16 * A.dp
         anchors.rightMargin: 16 * A.dp
-        spacing: 16 * A.dp
 
-        TextField {
-            text: ""
-            width: parent.width
+        Column {
+            width: scrollView.width
+            spacing: 8 * A.dp
+
+            TextField {
+                text: ""
+                width: parent.width
+            }
+
+            TextField {
+                placeholderText: "TextField with placeholder text"
+                width: parent.width
+            }
+
+            TextField {
+                floatingLabelText: "Floating Label Text"
+                width: parent.width
+            }
+
+            TextField {
+                floatingLabelText: "Floating Label Text with placeholder"
+                width: parent.width
+                placeholderText: "Placeholder Text"
+            }
+
+            TextField {
+                text: "Disabled TextField"
+                width: parent.width
+                enabled: false
+            }
+
+            Item {
+                height: 48 * A.dp
+                width: parent.width
+            }
+
+            Control.TextField {
+                text: "Qt Default TextField"
+                width: parent.width
+            }
+
+            Control.TextField {
+                text: "Qt Default TextField [Disabled]"
+                width: parent.width
+                enabled: false
+            }
+
+
         }
-
-        TextField {
-            placeholderText: "TextField with placeholder text"
-            width: parent.width
-        }
-
-        TextField {
-            text: "Disabled TextField"
-            width: parent.width
-            enabled: false
-        }
-
-        Item {
-            height: 48 * A.dp
-            width: parent.width
-        }
-
-        Control.TextField {
-            text: "Qt Default TextField"
-            width: parent.width
-        }
-
-        Control.TextField {
-            text: "Qt Default TextField [Disabled]"
-            width: parent.width
-            enabled: false
-        }
-
 
     }
 
