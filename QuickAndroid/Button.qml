@@ -63,6 +63,7 @@ Controls.Button {
                 textStyle: TextStyle {
                     textColor: button.textColor
                     textSize: button.textSize
+                    bold: button.aStyle.textStyle.bold
                 }
             }
 
