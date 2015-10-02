@@ -91,12 +91,6 @@ Style {
         keyline2: theme.keyline2
     }
 
-    property TextInputStyle textInput : TextInputStyle {
-        background : "#00000000"
-        textStyle : mediumText
-        textSelectHandle : Qt.resolvedUrl("../drawable-xxhdpi/text_select_handle_middle.png")
-    }
-
     property SwitchStyle switchStyle : SwitchStyle {
         track: Qt.resolvedUrl("../drawable/SwitchBgHoloLight.qml")
         thumb: Qt.resolvedUrl("../drawable/SwitchThumbHoloLight.qml")

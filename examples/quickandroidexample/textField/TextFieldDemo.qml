@@ -26,7 +26,7 @@ Activity {
             }
 
             TextField {
-                placeholderText: "TextField with placeholder text"
+                placeholderText: "TextField with Placeholder Text"
                 width: parent.width
             }
 
@@ -36,7 +36,7 @@ Activity {
             }
 
             TextField {
-                floatingLabelText: "Floating Label Text with placeholder"
+                floatingLabelText: "Floating Label Text with Placeholder Text"
                 width: parent.width
                 placeholderText: "Placeholder Text"
             }

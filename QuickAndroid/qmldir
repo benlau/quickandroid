@@ -16,7 +16,6 @@ Shadow 0.1 Shadow.qml
 StateListDrawable 0.1 StateListDrawable.qml
 Util 0.1 util.js
 DrawableGravityBehaviour 0.1 DrawableGravityBehaviour.qml
-QATextInput 0.1 QATextInput.qml
 Modifier 0.1 Modifier.qml
 AnimatedModifier 0.1 AnimatedModifier.qml
 Switch 0.1 Switch.qml

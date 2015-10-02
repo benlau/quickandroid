@@ -37,7 +37,6 @@
         <file>anim/FastFadeIn.qml</file>
         <file>anim/FastFadeOut.qml</file>
         <file>DrawableGravityBehaviour.qml</file>
-        <file>QATextInput.qml</file>
         <file>drawable-xxhdpi/text_select_handle_middle.png</file>
         <file>Modifier.qml</file>
         <file>AnimatedModifier.qml</file>
@@ -74,7 +73,6 @@
         <file>Styles/TextStyle.qml</file>
         <file>Styles/ThemeManager.qml</file>
         <file>Styles/ButtonStyle.qml</file>
-        <file>Styles/TextInputStyle.qml</file>
         <file>Styles/SwitchStyle.qml</file>
         <file>Styles/DialogStyle.qml</file>
         <file>Styles/ActivityStyle.qml</file>
