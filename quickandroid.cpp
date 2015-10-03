@@ -2,6 +2,7 @@
 #include <QVariantMap>
 #include "quickandroid.h"
 #include "qadevice.h"
+#include "qamousesensor.h"
 
 #ifdef Q_OS_ANDROID
 #include <QAndroidJniEnvironment>
@@ -20,3 +21,11 @@ qreal QuickAndroid::dp()
     return QADevice::dp();
 }
 
+class QuickAndroidRegisterHelper {
+public:
+    QuickAndroidRegisterHelper() {
+        qmlRegisterType<QAMouseSensor>("QuickAndroid.Private",0,1,"MouseSensor");
+    }
+};
+
+static QuickAndroidRegisterHelper registerHelper;

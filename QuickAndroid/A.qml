@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
+import QuickAndroid.Private 0.1
 pragma Singleton
 
 QtObject {
@@ -35,6 +36,10 @@ QtObject {
         return url;
     }
 
+
+    function setTimeout(func,interval) {
+        return TimerUtils.setTimeout(func,interval);
+    }
 
     Component.onCompleted: {
         dp = Device.dp;

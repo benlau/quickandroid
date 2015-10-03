@@ -4,7 +4,6 @@ ActionBarStyle 0.1 ActionBarStyle.qml
 TextStyle 0.1 TextStyle.qml
 Theme 0.1 Theme.qml
 ButtonStyle 0.1 ButtonStyle.qml
-TextInputStyle 0.1 TextInputStyle.qml
 SwitchStyle 0.1 SwitchStyle.qml
 DialogStyle 0.1 DialogStyle.qml
 ActivityStyle 0.1 ActivityStyle.qml
@@ -12,3 +11,5 @@ ListItemStyle 0.1 ListItemStyle.qml
 DropDownMenuStyle 0.1 DropDownMenuStyle.qml
 TabBarStyle 0.1 TabBarStyle.qml
 Style 0.1 Style.qml
+TextFieldStyle 0.1 TextFieldStyle.qml
+RaisedButtonStyle 0.1 RaisedButtonStyle.qml

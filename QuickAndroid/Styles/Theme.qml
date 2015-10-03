@@ -25,7 +25,10 @@ Style {
     property string textColorSecondary: Constants.black54
 
     property color windowBackground: "#EFEFEF"
+
     property color navigationBarColor : "#FFFFFF"
+
+    property string colorAccent : "#009688"
 
     // Animation
 
@@ -66,6 +69,14 @@ Style {
     property ButtonStyle button: ButtonStyle {
     }
 
+    property RaisedButtonStyle raisedButton: RaisedButtonStyle {
+        color: colorPrimary
+        textStyle: TextStyle {
+            textSize: 14 * A.dp
+            textColor: textColorPrimary
+        }
+    }
+
     property ActionBarStyle actionBar : ActionBarStyle {
         background : "#E6E6E6"
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
@@ -78,12 +89,6 @@ Style {
         padding: 8 * A.dp
         keyline1: theme.keyline1
         keyline2: theme.keyline2
-    }
-
-    property TextInputStyle textInput : TextInputStyle {
-        background : "#00000000"
-        textStyle : mediumText
-        textSelectHandle : Qt.resolvedUrl("../drawable-xxhdpi/text_select_handle_middle.png")
     }
 
     property SwitchStyle switchStyle : SwitchStyle {
@@ -113,8 +118,12 @@ Style {
 
     property TabBarStyle tabBar : TabBarStyle {
         backgroundColor: colorPrimary
-        indicatorColor: colorForeground
+        indicatorColor: colorAccent
         textColor: textColorPrimary
+    }
+
+    property TextFieldStyle textField: TextFieldStyle {
+        color: theme.colorAccent
     }
 
     // Allow to place children under Theme.

@@ -185,15 +185,17 @@ QASystemDispatcher *QASystemDispatcher::instance()
     return m_instance;
 }
 
-void QASystemDispatcher::dispatch(QString name, QVariantMap message)
+void QASystemDispatcher::dispatch(QString type, QVariantMap message)
 {
+    Q_UNUSED(type);
+    Q_UNUSED(message);
 #ifdef Q_OS_ANDROID
     QAndroidJniEnvironment env;
-    jstring jName = env->NewStringUTF(name.toLocal8Bit().data());
+    jstring jType = env->NewStringUTF(type.toLocal8Bit().data());
     jobject jData = createHashMap(message);
     QAndroidJniObject::callStaticMethod<jboolean>(JCLASS_Name, "dispatch",
                                               DISPATCH_SIGNATURE,
-                                              jName,jData);
+                                              jType,jData);
 
 #endif
 }

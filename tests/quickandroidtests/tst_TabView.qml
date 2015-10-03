@@ -27,10 +27,15 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        delegate: Rectangle {
+        delegate: Tab {
             width: tabView.width
             height: tabView.height
-            color: modelData
+
+            Rectangle {
+                anchors.fill: parent
+                color: modelData
+                opacity: isAppeared ? 1 : 0.5
+            }
         }
         model: ["yellow","blue","red"];
     }
@@ -43,6 +48,7 @@ Rectangle {
 
         function test_preview() {
             wait(200);
+            compare(tabBarItem.currentIndex,0);
 
             wait(TestEnv.waitTime);
         }

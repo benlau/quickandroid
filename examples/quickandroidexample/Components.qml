@@ -45,16 +45,16 @@ Activity {
         }
 
         ListElement {
-            name : "Inter Process Communication between Android/C++"
-            preview : ""
-            demo : "notification/NotificationDemo.qml"
-            description: "Sending notification via System Dispatcher"
-        }
-
-        ListElement {
             name: "ListItem"
             demo: "listitem/ListItemDemo.qml"
             description: "Lists: Control"
+        }
+
+        ListElement {
+            name : "Notification Example"
+            preview : ""
+            demo : "notification/NotificationDemo.qml"
+            description: "Using SystemDispatcher - IPC between C++ and Java"
         }
 
         ListElement {
@@ -68,6 +68,12 @@ Activity {
             name : "Tabs"
             description: "TabBar, TabView"
             demo : "tabs/TabsDemo.qml"
+        }
+
+        ListElement {
+            name : "TextField"
+            description: "TextField"
+            demo : "textField/TextFieldDemo.qml"
         }
 
 

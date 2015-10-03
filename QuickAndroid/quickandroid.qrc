@@ -37,7 +37,6 @@
         <file>anim/FastFadeIn.qml</file>
         <file>anim/FastFadeOut.qml</file>
         <file>DrawableGravityBehaviour.qml</file>
-        <file>QATextInput.qml</file>
         <file>drawable-xxhdpi/text_select_handle_middle.png</file>
         <file>Modifier.qml</file>
         <file>AnimatedModifier.qml</file>
@@ -54,10 +53,10 @@
         <file>drawable-xxhdpi/switch_thumb_holo_light.png</file>
         <file>drawable-xxhdpi/switch_thumb_pressed_holo_light.png</file>
         <file>Switch.qml</file>
-        <file>priv/Ghost.qml</file>
-        <file>priv/qmldir</file>
-        <file>priv/Overlay.qml</file>
-        <file>priv/TextBehaviour.qml</file>
+        <file>Private/Ghost.qml</file>
+        <file>Private/qmldir</file>
+        <file>Private/Overlay.qml</file>
+        <file>Private/TextBehaviour.qml</file>
         <file>drawable/ArtShadowDepth5.qml</file>
         <file>drawable/ArtShadowDepth4.qml</file>
         <file>drawable/ArtShadowDepth3.qml</file>
@@ -74,18 +73,17 @@
         <file>Styles/TextStyle.qml</file>
         <file>Styles/ThemeManager.qml</file>
         <file>Styles/ButtonStyle.qml</file>
-        <file>Styles/TextInputStyle.qml</file>
         <file>Styles/SwitchStyle.qml</file>
         <file>Styles/DialogStyle.qml</file>
         <file>Styles/ActivityStyle.qml</file>
         <file>Text.qml</file>
         <file>drawable/ListDivider.qml</file>
-        <file>priv/BaseListItem.qml</file>
+        <file>Private/BaseListItem.qml</file>
         <file>ListItem.qml</file>
         <file>Styles/ListItemStyle.qml</file>
         <file>FloatingActionButton.qml</file>
         <file>TabBar.qml</file>
-        <file>priv/Tab.qml</file>
+        <file>Private/Tab.qml</file>
         <file>SwipeView.qml</file>
         <file>TabView.qml</file>
         <file>Button.qml</file>
@@ -97,5 +95,13 @@
         <file>A.qml</file>
         <file>Styles/TabBarStyle.qml</file>
         <file>Styles/Style.qml</file>
+        <file>TextField.qml</file>
+        <file>Styles/TextFieldStyle.qml</file>
+        <file>drawable-xxhdpi/text_select_handle_right.png</file>
+        <file>drawable-xxhdpi/text_select_handle_left.png</file>
+        <file>Tab.qml</file>
+        <file>RaisedButton.qml</file>
+        <file>Styles/RaisedButtonStyle.qml</file>
+        <file>Private/FloatingPasteButton.qml</file>
     </qresource>
 </RCC>

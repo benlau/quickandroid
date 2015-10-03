@@ -35,7 +35,7 @@ UI Components
 
 Utility Components
 
-    InverseMouseArea, RectToRectMatrix, SystemDispatcher
+    InverseMouseArea, RectToRectMatrix, SystemDispatcher, MouseSensor
 
 Instruction of use
 ------------------
