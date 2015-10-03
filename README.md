@@ -30,8 +30,8 @@ System Requirements
 UI Components
 
     ActionBar , Activity , Application , Drawable , StateListDrawable
-    MaterialShadow , Button , Text, DropDownMenu, Paper
-    TabBar, TabView, FloatingActionButton, ListItem
+    MaterialShadow , Button , Text, TextField, DropDownMenu, Paper
+    TabBar, TabView, FloatingActionButton, ListItem, RaisedButton
 
 Utility Components
 
@@ -104,18 +104,17 @@ Apache License 2.0
 TODO
 ----
 
- 1. Migrate to Material Design
- 2. Deprecate QATextInput
-
-v0.1.4 
- 1. Improved TextField for Android
+v0.1.5
+ 1. Native Image Picker
 
 v1.0 
  1. Switch
  1. NavigationDrawer
- 1. RaisedButton
  1. Slider
- 1. Native Image Picker
+ 1. Custom page transition effect
+
+Wish
+ 1. SwipeableListItem
 
 FAQ
 ---
