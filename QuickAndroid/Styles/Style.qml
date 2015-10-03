@@ -47,7 +47,7 @@ QtObject {
 
 
     Component.onCompleted: {
-        if (extend.length > 0) {
+        if (extend && extend.length > 0) {
             var objects = [this];
             for (var i in extend) {
                 objects.push(extend[i]);

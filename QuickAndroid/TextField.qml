@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.4
 import QtQuick.Controls 1.2 as Control
 import QtQuick.Controls.Styles 1.3 as ControlSyles
 import QuickAndroid.Styles 0.1
@@ -8,7 +8,7 @@ import "./Private"
 
 Control.TextField {
     id: textField
-    height: hasFloatingLabel ? 72 * A.dp : 48 * A.dp
+    height: (hasFloatingLabel ? 72 * A.dp : 48 * A.dp) + _fontDiff
 
     property TextFieldStyle aStyle: ThemeManager.currentTheme.textField
 
@@ -16,6 +16,13 @@ Control.TextField {
 
     property string floatingLabelText: ""
     readonly property bool hasFloatingLabel : floatingLabelText !== ""
+
+    property real _fontDiff : Math.max(font.pixelSize - 16 * A.dp,0);
+
+    font.pixelSize: aStyle.textStyle.textSize
+    font.bold: aStyle.textStyle.bold
+
+    verticalAlignment: Text.AlignBottom
 
     FloatingPasteButton {
         id: pasteButton
@@ -37,15 +44,18 @@ Control.TextField {
 
     style: ControlSyles.TextFieldStyle {
         id: style
-        padding.top: control.hasFloatingLabel ? 40 * A.dp : 16 * A.dp
+        padding.top: (control.hasFloatingLabel ? 40 * A.dp : 16 * A.dp) + control._fontDiff - 2
         padding.bottom: 16 * A.dp
         padding.left: 0
         padding.right: 0
 
-        font {
-            pixelSize: enabled ? aStyle.textStyle.textSize : aStyle.disabledTextStyle.textSize
-        }
         textColor:  enabled ?  aStyle.textStyle.textColor : aStyle.disabledTextStyle.textColor
+
+        TextMetrics {
+            id: textMetrics
+            font: control.font
+            text: "012345678"
+        }
 
         background: Item {
 
@@ -104,12 +114,12 @@ Control.TextField {
                         target: floatingLabelTextItem
                         font.pixelSize: 12 * A.dp
                         color: control.color;
-                        anchors.bottomMargin: 40 * A.dp
+                        anchors.bottomMargin: 16 * A.dp + textMetrics.height + 8 * A.dp
                     }
                 },
                 State {
                     name: "HasFloatingLabel"
-                    when: control.hasFloatingLabel
+                    when: control.hasFloatingLabel                   
 
                     PropertyChanges {
                         target: style
