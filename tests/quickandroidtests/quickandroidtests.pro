@@ -40,7 +40,8 @@ DISTFILES += \
     Ruler.qml \
     tst_MouseSensor.qml \
     tst_A.qml \
-    tst_Line.qml
+    tst_Line.qml \
+    tst_BottomSheet.qml
 
 RESOURCES += \
     qml.qrc

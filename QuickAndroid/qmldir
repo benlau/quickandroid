@@ -34,4 +34,4 @@ singleton A 0.1 A.qml
 TextField 0.1 TextField.qml
 Tab 0.1 Tab.qml
 RaisedButton 0.1 RaisedButton.qml
-
+BottomSheet 0.1 BottomSheet.qml

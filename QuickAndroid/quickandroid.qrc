@@ -103,5 +103,7 @@
         <file>RaisedButton.qml</file>
         <file>Styles/RaisedButtonStyle.qml</file>
         <file>Private/FloatingPasteButton.qml</file>
+        <file>BottomSheet.qml</file>
+        <file>drawable/Mask.qml</file>
     </qresource>
 </RCC>
