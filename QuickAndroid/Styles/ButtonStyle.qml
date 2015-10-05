@@ -16,6 +16,7 @@ Style {
     property TextStyle textStyle: TextStyle {
         textSize: 14 * A.dp
         textColor: Constants.black87
+        disabledTextColor: Constants.black54
     }
 }
 

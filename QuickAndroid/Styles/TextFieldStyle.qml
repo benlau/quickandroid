@@ -6,11 +6,7 @@ Style {
     property TextStyle textStyle : TextStyle {
         textSize: 16 * A.dp
         textColor: Constants.black87
-    }
-
-    property TextStyle disabledTextStyle : TextStyle {
-        textSize: 16 * A.dp
-        textColor: Constants.black54
+        disabledTextColor: Constants.black54
     }
 
     // The color of underline.

@@ -49,7 +49,7 @@ Control.TextField {
         padding.left: 0
         padding.right: 0
 
-        textColor:  enabled ?  aStyle.textStyle.textColor : aStyle.disabledTextStyle.textColor
+        textColor:  enabled ?  aStyle.textStyle.textColor : aStyle.textStyle.disabledTextColor
 
         TextMetrics {
             id: textMetrics

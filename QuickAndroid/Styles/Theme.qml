@@ -83,6 +83,7 @@ Style {
         titleTextStyle: TextStyle {
             textSize: 18*A.dp
             textColor: textColorPrimary
+            disabledTextColor: textColorPrimary
         }
         homeAsUpIndicator : Qt.resolvedUrl("../drawable-xxhdpi/ic_ab_back_holo_light_am.png")
         divider : Constants.black12
