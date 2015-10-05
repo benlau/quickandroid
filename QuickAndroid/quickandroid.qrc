@@ -105,5 +105,6 @@
         <file>Private/FloatingPasteButton.qml</file>
         <file>BottomSheet.qml</file>
         <file>drawable/Mask.qml</file>
+        <file>ImagePicker.qml</file>
     </qresource>
 </RCC>

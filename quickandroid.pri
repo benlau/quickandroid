@@ -29,12 +29,14 @@ android {
 
     QA_JAVASRC.path = /src/quickandroid
     QA_JAVASRC.files += $$PWD/java/quickandroid/SystemDispatcher.java \
-                        $$PWD/java/quickandroid/QuickAndroidActivity.java
+                        $$PWD/java/quickandroid/QuickAndroidActivity.java \
+                        $$PWD/java/quickandroid/ImagePicker.java
 
     INSTALLS += QA_JAVASRC
 }
 
 DISTFILES += \
     $$PWD/java/quickandroid/SystemDispatcher.java \
-    $$PWD/java/quickandroid/QuickAndroidActivity.java
+    $$PWD/java/quickandroid/QuickAndroidActivity.java \
+    $$PWD/java/quickandroid/ImagePicker.java
 

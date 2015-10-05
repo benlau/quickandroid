@@ -35,3 +35,4 @@ TextField 0.1 TextField.qml
 Tab 0.1 Tab.qml
 RaisedButton 0.1 RaisedButton.qml
 BottomSheet 0.1 BottomSheet.qml
+ImagePicker 0.1 ImagePicker.qml

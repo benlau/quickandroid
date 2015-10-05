@@ -35,5 +35,8 @@
         <file>res/drawable-xxhdpi/ic_keyboard_backspace.png</file>
         <file>res/drawable-xxhdpi/ic_arrow_back.png</file>
         <file>textField/TextFieldDemo.qml</file>
+        <file>res/drawable-xxhdpi/ic_image.png</file>
+        <file>res/drawable-xxhdpi/ic_camera.png</file>
+        <file>imagePicker/ImagePickerDemo.qml</file>
     </qresource>
 </RCC>

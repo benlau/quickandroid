@@ -45,6 +45,12 @@ Activity {
         }
 
         ListElement {
+            name: "Image Picker"
+            demo: "imagePicker/ImagePickerDemo.qml"
+            description: "Pick interface via Java language binding"
+        }
+
+        ListElement {
             name: "ListItem"
             demo: "listitem/ListItemDemo.qml"
             description: "Lists: Control"
@@ -54,7 +60,7 @@ Activity {
             name : "Notification Example"
             preview : ""
             demo : "notification/NotificationDemo.qml"
-            description: "Using SystemDispatcher - IPC between C++ and Java"
+            description: "SystemDispatcher - Communication between C++ and Java"
         }
 
         ListElement {
