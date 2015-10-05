@@ -20,6 +20,13 @@ public:
      */
     Q_INVOKABLE void dispatch(QString type , QVariantMap message = QVariantMap());
 
+    /// Load a Java class
+    /** It will dispatch a message to Java and let it to load a Java class. That
+     * will force to run code in static block.
+     *
+     */
+    Q_INVOKABLE void loadClass(QString javaClassName);
+
     /// Register JNI native methods. This function must be called in JNI_OnLoad. Otherwise, the messenger will not be working
     static void registerNatives();
 
@@ -31,7 +38,7 @@ public:
 
 signals:
     /// The signal is emitted when a message is dispatched.
-    void dispatched(QString type , QVariantMap data);
+    void dispatched(QString type , QVariantMap message);
 
 private:
     explicit QASystemDispatcher(QObject* parent = 0);

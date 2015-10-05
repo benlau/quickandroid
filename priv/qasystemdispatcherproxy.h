@@ -11,10 +11,12 @@ public:
     explicit QASystemDispatcherProxy(QObject *parent = 0);
     ~QASystemDispatcherProxy();
 
-    Q_INVOKABLE void dispatch(QString name, QVariantMap message);
+    Q_INVOKABLE void dispatch(QString type, QVariantMap message);
+
+    Q_INVOKABLE void loadClass(QString className);
 
 signals:
-    void dispatched(QString name , QVariantMap data);
+    void dispatched(QString type , QVariantMap message);
 
 };
 

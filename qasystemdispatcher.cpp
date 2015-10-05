@@ -191,6 +191,7 @@ void QASystemDispatcher::dispatch(QString type, QVariantMap message)
     Q_UNUSED(message);
 #ifdef Q_OS_ANDROID
     QAndroidJniEnvironment env;
+
     jstring jType = env->NewStringUTF(type.toLocal8Bit().data());
     jobject jData = createHashMap(message);
     QAndroidJniObject::callStaticMethod<jboolean>(JCLASS_Name, "dispatch",
@@ -198,6 +199,14 @@ void QASystemDispatcher::dispatch(QString type, QVariantMap message)
                                               jType,jData);
 
 #endif
+}
+
+void QASystemDispatcher::loadClass(QString javaClassName)
+{
+    QVariantMap message;
+    message["className"] = javaClassName;
+
+    dispatch("quickandroid.SystemDispatcher.loadClass",message);
 }
 
 void QASystemDispatcher::registerNatives()
@@ -225,5 +234,8 @@ void QASystemDispatcher::registerNatives()
             return;
         }
     }
+
+    QAndroidJniObject::callStaticMethod<void>(JCLASS_Name, "init",
+                                              "()V");
 #endif
 }

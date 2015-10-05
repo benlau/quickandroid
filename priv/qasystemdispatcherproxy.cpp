@@ -14,9 +14,14 @@ QASystemDispatcherProxy::~QASystemDispatcherProxy()
 
 }
 
-void QASystemDispatcherProxy::dispatch(QString name, QVariantMap message)
+void QASystemDispatcherProxy::dispatch(QString type, QVariantMap message)
 {
-    QASystemDispatcher::instance()->dispatch(name,message);
+    QASystemDispatcher::instance()->dispatch(type,message);
+}
+
+void QASystemDispatcherProxy::loadClass(QString className)
+{
+    QASystemDispatcher::instance()->loadClass(className);
 }
 
 static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine) {

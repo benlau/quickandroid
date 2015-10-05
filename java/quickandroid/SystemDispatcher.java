@@ -10,6 +10,8 @@ import java.util.Set;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.lang.ClassLoader;
+import java.lang.reflect.Method;
 import java.lang.Thread;
 import android.util.Log;
 import android.os.Handler;
@@ -24,7 +26,7 @@ public class SystemDispatcher {
 
             @return true if the message is handled. Otherwise, it should be false.
          */
-        public void onDispatched(String name , Map message);
+        public void onDispatched(String type , Map message);
     }
 
     /**
@@ -40,8 +42,7 @@ public class SystemDispatcher {
        @threadsafe
        @remarks: The function may not be running from the UI thread. It is listener's duty to handle multiple threading issue.
      */
-    public static void dispatch(String name,Map message) {
-
+    public static void dispatch(String type,Map message) {
         try {
 
             Payload payload;
@@ -50,7 +51,7 @@ public class SystemDispatcher {
 
             if (dispatching) {
                 payload = new Payload();
-                payload.name = name;
+                payload.type = type;
                 payload.message = message;
                 queue.add(payload);
                 mutex.release();
@@ -58,10 +59,9 @@ public class SystemDispatcher {
             }
 
             dispatching = true;
-//            printMap(message);
             mutex.release();
 
-            emit(name,message); // Emit
+            emit(type,message); // Emit
 
             mutex.acquire(); // Process queued message
 
@@ -69,7 +69,7 @@ public class SystemDispatcher {
                 payload = queue.poll();
                 mutex.release();
 
-                emit(payload.name,payload.message);
+                emit(payload.type,payload.message);
 
                 mutex.acquire();
             }
@@ -102,8 +102,11 @@ public class SystemDispatcher {
         }
     }
 
-    public static String ACTIVITY_RESUME_MESSAGE = "Activity.onResume";
-    public static String ACTIVITY_RESULT_MESSAGE = "Activity.onActivityResult";
+    public static String ACTIVITY_RESUME_MESSAGE = "quickandroid.Activity.onResume";
+
+    public static String ACTIVITY_RESULT_MESSAGE = "quickandroid.Activity.onActivityResult";
+
+    public static String SYSTEM_DISPATCHER_LOAD_CLASS_MESSAGE = "quickandroid.SystemDispatcher.loadClass";
 
     /** A helper function to dispatch a massage when onResume is invoked in the Activity class
      */
@@ -125,13 +128,13 @@ public class SystemDispatcher {
     }
 
     private static class Payload {
-        public String name;
+        public String type;
         public Map message;
     }
 
     private static String TAG = "QuickAndroid";
 
-    private static Semaphore mutex = new Semaphore(1);
+    private static final Semaphore mutex = new Semaphore(1);
 
     private static Queue<Payload> queue = new LinkedList();
 
@@ -184,4 +187,31 @@ public class SystemDispatcher {
         }
 
     }
+
+    public static void loadClass(String className) {
+        try {
+            ClassLoader classLoader = SystemDispatcher.class.getClassLoader();
+            Class aClass = Class.forName(className,true,classLoader);
+//            Log.d(TAG,"Class Loaded: " + className);
+        } catch (ClassNotFoundException e) {
+            Log.e(TAG,"Failed to load class: " + className);
+            e.printStackTrace();
+        }
+   }
+
+
+   public static void init() {
+       SystemDispatcher.addListener(new SystemDispatcher.Listener() {
+           public void onDispatched(String type , Map message) {
+//               Log.d(TAG,String.format("%s %b",type ,type.equals(SYSTEM_DISPATCHER_LOAD_CLASS_MESSAGE)));
+
+               if (type.equals(SYSTEM_DISPATCHER_LOAD_CLASS_MESSAGE)) {
+                   String className = (String) message.get("className");
+                   loadClass(className);
+               }
+           }
+       });
+
+   }
+
 }
