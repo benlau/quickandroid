@@ -17,7 +17,7 @@ Features
   1. A single component that supports color , image , QML component, simulated nine patch image as input source
   1. Auto scale image to fit current screen resolution
   1. Derived StateListDrawable for animated drawable like button
- 1. IPC manager between C++/Qt and Java/Android code
+ 1. Messege queue between C++/Qt and Java/Android code
   1. Auto conversion between C++ and Java data type. No need to write in JNI.
  1. Theme / Style Engine
   1. A global Theme object. Set once for all components.
