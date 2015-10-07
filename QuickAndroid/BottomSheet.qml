@@ -7,7 +7,7 @@ Item {
     id: bottomSheet
 
     property bool isOpened: false
-    default property alias content : paper.children
+    default property alias content : dragArea.children
     property alias paper: paper
     property bool darkBackground: true
 
@@ -36,8 +36,27 @@ Item {
     Paper {
         id: paper
         width: bottomSheet.width
-        height: childrenRect.height
+        height: dragArea.height
         y: bottomSheet.height
+
+        MouseArea {
+            id: dragArea
+            width: bottomSheet.width
+            height: childrenRect.height
+
+            drag.axis: Drag.YAxis
+            drag.target: paper
+            drag.filterChildren: true
+            drag.minimumY: bottomSheet.height - paper.height
+
+            drag.onActiveChanged: {
+                if (!drag.active) {
+                    if (paper.y !== bottomSheet.height - paper.height) {
+                        close();
+                    }
+                }
+            }
+        }
     }
 
     states : [

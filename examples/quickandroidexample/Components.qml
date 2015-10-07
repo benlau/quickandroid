@@ -19,12 +19,17 @@ Activity {
         objectName: "ComponentListModel"
 
         ListElement {
+            name: "BottomSheet"
+            demo: "bottomsheet/BottomSheetDemo.qml"
+            description: "Material Design Bottom Sheet"
+        }
+
+        ListElement {
             name : "Dialog"
             preview : "dialog/DialogPreview.qml"
             demo: "dialog/DialogDemo.qml"
             description: "Dialog Component"
         }
-
 
         ListElement {
             name: "Drawable Provider"
