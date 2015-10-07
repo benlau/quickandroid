@@ -25,6 +25,27 @@ Controls.Button {
     /// Specifies that icon and background on the local filesystem should be loaded asynchronously in a separate thread. The default value is false, causing the user interface thread to block while the it is loading.
     property bool asynchronous : aStyle.asynchronous
 
+    signal pressAndHold;
+
+    Timer {
+        id: pressAndHoldTimer
+        interval: 800
+        repeat: false;
+
+        onTriggered: {
+            pressAndHold();
+        }
+    }
+
+    onPressedChanged: {
+        if (pressed) {
+            pressAndHoldTimer.start();
+        } else {
+            pressAndHoldTimer.stop();
+        }
+    }
+
+
     style: ControlsStyles.ButtonStyle {
 
         padding.left: 0

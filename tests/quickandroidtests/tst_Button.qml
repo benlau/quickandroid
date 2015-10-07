@@ -13,6 +13,13 @@ Rectangle {
         Button {
             id:button1
             text: "Button 1"
+
+            property int pressAndHoldCount: 0;
+
+            onPressAndHold: {
+                pressAndHoldCount++;
+            }
+
         }
         Button {
             id: button2
@@ -68,6 +75,36 @@ Rectangle {
             compare(button5.height,36);
 
             wait(TestEnv.waitTime);
+        }
+
+        function test_pressAndHold() {
+            button1.pressAndHoldCount = 0;
+            mousePress(button1);
+            compare(button1.pressAndHoldCount,0);
+            wait(100);
+            compare(button1.pressAndHoldCount,0);
+            wait(800);
+            compare(button1.pressAndHoldCount,1);
+
+            // Proof the timer is already stopped
+            wait(800);
+            compare(button1.pressAndHoldCount,1);
+            mouseRelease(button1);
+            wait(800);
+            compare(button1.pressAndHoldCount,1);
+            mouseRelease(button1);
+
+            // Try again
+            mousePress(button1);
+
+            wait(100);
+            compare(button1.pressAndHoldCount,1);
+            wait(800);
+            compare(button1.pressAndHoldCount,2);
+            mouseRelease(button1);
+            wait(800);
+            compare(button1.pressAndHoldCount,2);
+
         }
     }
 
