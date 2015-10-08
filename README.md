@@ -107,6 +107,7 @@ TODO
 v0.1.5
  1. Native Image Picker
  2. Redesign Dialog component in Material Design Style.
+ 3. BottomSheet
 
 v1.0 
  1. Switch
@@ -116,6 +117,7 @@ v1.0
 
 Wish
  1. SwipeableListItem
+ 2. qpm package?
 
 FAQ
 ---
