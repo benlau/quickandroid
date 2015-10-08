@@ -4,6 +4,7 @@
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
                   android:name="quickandroid.QuickAndroidActivity"
                   android:label="Quick Android Example"
+                  android:theme="@android:style/Theme.Black.NoTitleBar"        
                   android:screenOrientation="unspecified"
                   android:launchMode="singleTop">
             <intent-filter>
