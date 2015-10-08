@@ -8,6 +8,8 @@ Item {
 
     property string imageUrl: ""
 
+    signal ready();
+
     function pickImage() {
         SystemDispatcher.dispatch(m_PICK_IMAGE_MESSAGE,{});
     }
@@ -31,6 +33,7 @@ Item {
         onDispatched: {
             if (type === m_PICKED_IMAGE_MESSAGE) {
                 imageUrl = message.imageUrl;
+                ready();
             }
         }
     }

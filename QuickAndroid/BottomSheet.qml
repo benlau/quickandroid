@@ -24,7 +24,11 @@ Item {
     z: Constants.zPopupLayer
 
     Mask {
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: paper.top
+
         MouseArea {
             anchors.fill: parent
             onPressed: close();
@@ -38,6 +42,29 @@ Item {
         width: bottomSheet.width
         height: dragArea.height
         y: bottomSheet.height
+        property int targetY: bottomSheet.height - paper.height
+
+        function __onDragged() {
+            if (paper.y !== bottomSheet.height - paper.height) {
+                close();
+            }
+        }
+
+        MouseArea {
+            // Dirty hack for a bug in Qt
+            // p.s You can't reproduce on desktop. Use Android.
+            anchors.fill: parent
+
+            drag.axis: Drag.YAxis
+            drag.target: paper
+            drag.minimumY: paper.targetY
+
+            drag.onActiveChanged: {
+                if (!drag.active) {
+                    paper.__onDragged();
+                }
+            }
+        }
 
         MouseArea {
             id: dragArea
@@ -47,13 +74,11 @@ Item {
             drag.axis: Drag.YAxis
             drag.target: paper
             drag.filterChildren: true
-            drag.minimumY: bottomSheet.height - paper.height
+            drag.minimumY: paper.targetY
 
             drag.onActiveChanged: {
                 if (!drag.active) {
-                    if (paper.y !== bottomSheet.height - paper.height) {
-                        close();
-                    }
+                    paper.__onDragged();
                 }
             }
         }
