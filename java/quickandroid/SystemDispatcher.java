@@ -18,6 +18,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.content.Intent;
 import java.util.concurrent.Semaphore;
+import java.io.StringWriter;
+import java.io.PrintWriter;
 
 public class SystemDispatcher {
 
@@ -152,7 +154,13 @@ public class SystemDispatcher {
             try {
                 listener.onDispatched(name,message);
             } catch (Exception e) {
-                Log.d(TAG,e.getMessage());
+                if (e.getMessage() == null) {
+                    StringWriter errors = new StringWriter();
+                    e.printStackTrace(new PrintWriter(errors));
+                    Log.d(TAG,errors.toString());
+                } else {
+                    Log.d(TAG,e.getMessage());
+                }
             }
         }
 

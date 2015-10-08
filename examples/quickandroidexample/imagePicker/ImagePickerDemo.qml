@@ -31,13 +31,14 @@ Activity {
 
             spacing: 16 * A.dp
 
-            /*
             FloatingActionButton {
                 iconSource: A.drawable("ic_camera",Constants.black87);
                 size: Constants.small
                 color: Constants.white100
+                onClicked: {
+                    imagePicker.takePhoto();
+                }
             }
-            */
 
             FloatingActionButton {
                 iconSource: A.drawable("ic_image",Constants.black87);
