@@ -30,6 +30,7 @@ public class ImagePicker {
     private static final String TAG = "quickandroid.ImagePicker";
 
     private static Uri mPhotoUri;
+    private static Boolean broadcast = false;
 
     static {
         SystemDispatcher.addListener(new SystemDispatcher.Listener() {
@@ -56,6 +57,10 @@ public class ImagePicker {
     }
 
     static void takePhoto(Map message) {
+        if (message.containsKey("broadcast")) {
+            broadcast = (Boolean) message.get("broadcast");
+        }
+
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH.mm.ss").format(new Date());
         File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
         if(!storageDir.exists() && !storageDir.mkdir())
@@ -88,6 +93,8 @@ public class ImagePicker {
         } else if (requestCode == TAKE_PHOTO_ACTION) {
             if (data == null) {
                 importImageFromFileUri(mPhotoUri);
+                if (broadcast)
+                    broadcastToMediaScanner(mPhotoUri);
             } else {
                 importImage(data);
             }
@@ -147,8 +154,13 @@ public class ImagePicker {
         importImageFromFileUri(fileUri);
     }
 
+    private static void broadcastToMediaScanner(Uri uri) {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        mediaScanIntent.setData(uri);
 
-
+        Activity activity = org.qtproject.qt5.android.QtNative.activity();
+        activity.sendBroadcast(mediaScanIntent);
+    }
 
 }
 

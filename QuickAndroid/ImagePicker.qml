@@ -3,11 +3,8 @@ import QuickAndroid 0.1
 
 Item {
 
-    property string m_PICK_IMAGE_MESSAGE: "quickandroid.ImagePicker.pickImage";
-    property string m_PICKED_IMAGE_MESSAGE: "quickandroid.ImagePicker.pickedImage";
-
-    property string m_TAKE_PHOTO_MESSAGE: "quickandroid.ImagePicker.takePhoto";
-
+    /// If it is true, it will broadcast the taked photo to other application (e.g Let it show in Google Photos)
+    property bool broadcast: true
 
     property string imageUrl: ""
 
@@ -16,8 +13,18 @@ Item {
     }
 
     function takePhoto() {
-        SystemDispatcher.dispatch(m_TAKE_PHOTO_MESSAGE,{})
+        SystemDispatcher.dispatch(m_TAKE_PHOTO_MESSAGE,{
+                                      broadcast: broadcast
+                                  })
     }
+
+    property string m_PICK_IMAGE_MESSAGE: "quickandroid.ImagePicker.pickImage";
+    property string m_PICKED_IMAGE_MESSAGE: "quickandroid.ImagePicker.pickedImage";
+
+    property string m_TAKE_PHOTO_MESSAGE: "quickandroid.ImagePicker.takePhoto";
+
+
+
 
     Connections {
         target: SystemDispatcher
