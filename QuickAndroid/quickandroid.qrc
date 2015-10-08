@@ -106,5 +106,6 @@
         <file>BottomSheet.qml</file>
         <file>drawable/Mask.qml</file>
         <file>ImagePicker.qml</file>
+        <file>Styles/FloatingActionButtonStyle.qml</file>
     </qresource>
 </RCC>

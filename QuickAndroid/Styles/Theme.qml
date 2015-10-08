@@ -77,6 +77,10 @@ Style {
         }
     }
 
+    property FloatingActionButtonStyle floatingActionButton: FloatingActionButtonStyle {
+        color: colorAccent
+    }
+
     property ActionBarStyle actionBar : ActionBarStyle {
         background : "#E6E6E6"
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")

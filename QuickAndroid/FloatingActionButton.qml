@@ -17,11 +17,13 @@ Controls.Button {
     height: width
 
     property size iconSourceSize : Qt.size(24 * A.dp,24 * A.dp);
-    property color color : ThemeManager.currentTheme.colorAccent
+    property color color : aStyle.color
     property int depth: 1
 
     // Size of button. Possible values: [Constants.large, Constants.small]
-    property string size: Constants.large
+    property string size: aStyle.size
+
+    property FloatingActionButtonStyle aStyle : ThemeManager.currentTheme.floatingActionButton
 
     style: ControlStyles.ButtonStyle {
         label: Item {
