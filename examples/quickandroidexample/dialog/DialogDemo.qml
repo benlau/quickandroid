@@ -31,10 +31,15 @@ Activity {
         }
     }
 
-    AlertDialog {
+    Dialog {
         id: dialog
         anchors.centerIn: parent
-        message: "What do you think about QuickAndroid?"
+        title: "Dialog"
+        Text {
+            text: "Demo"
+        }
         z: 20
+
+        rejectButtonText: "OK"
     }
 }

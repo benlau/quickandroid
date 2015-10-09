@@ -1,6 +1,7 @@
 /* Popup Component
 
-  Author: @benlau
+  Author: Ben Lau
+  License: Apache-2.0
   Project: https://github.com/benlau/quickandroid
  */
 

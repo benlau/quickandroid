@@ -1,3 +1,11 @@
+/* RaisedButton Component
+
+   Author: Ben Lau
+   License: Apache-2.0
+   Project: https://github.com/benlau/quickandroid
+
+ */
+
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1

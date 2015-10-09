@@ -1,3 +1,11 @@
+/* BottomSheet Component
+
+   Author: Ben Lau
+   License: Apache-2.0
+   Project: https://github.com/benlau/quickandroid
+
+ */
+
 import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QuickAndroid 0.1

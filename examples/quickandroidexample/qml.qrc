@@ -6,7 +6,6 @@
         <file>shadow/ShadowPreview.qml</file>
         <file>shadow/ShadowDemo.qml</file>
         <file>res/drawable-xxhdpi/ic_menu.png</file>
-        <file>dialog/AlertDialog.qml</file>
         <file>dialog/DialogPreview.qml</file>
         <file>dialog/DialogDemo.qml</file>
         <file>textinput/TextInputPreview.qml</file>

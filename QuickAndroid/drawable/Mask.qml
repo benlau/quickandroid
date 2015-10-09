@@ -7,7 +7,7 @@ Rectangle {
 
     color: Constants.black100
 
-    opacity: active ? 0.5 : 0
+    opacity: active ? 0.3 : 0
 
     Behavior on opacity {
         NumberAnimation {

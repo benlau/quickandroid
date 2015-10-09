@@ -7,45 +7,44 @@ Activity {
     width: 480
     height: 640
 
-    MouseArea {
+    Button {
         anchors.centerIn: parent
-        width: 100
-        height: 100
-        onClicked : {
-            dialog1.active = !dialog1.active;
-        }
-
-        Text {
-            anchors.centerIn: parent
-            text: "Click here top launch dialog"
+        text: "Click here top launch dialog"
+        onClicked: {
+            dialog1.open();
         }
     }
 
     Dialog {
         id: dialog1
-        anchors.centerIn: parent
-        width : parent.width * 0.8
-        height: width
-//        active: true
+        title: "Dialog"
 
-        source: "#ffffff"
+        rejectButtonText: "CANCEL"
+        acceptButtonText: "OK"
 
-        MaterialShadow {
-            anchors.fill: dialog1
-            asynchronous: true
-            depth: 3
-            z: -100
-            visible: dialog1.opacity == 1
+        Column {
+            Repeater {
+                model: 10
+                delegate: Text {
+                    text: "Testing..."
+                }
+            }
+
         }
     }
 
     TestCase {
-        name: "Dialog"
+        name: "DialogTests"
         width : 480
         height : 480
         when : windowShown
 
         function test_preview() {
+            wait(100);
+            dialog1.open();
+            wait(200);
+            dialog1.close();
+
             wait(TestEnv.waitTime);
         }
     }
