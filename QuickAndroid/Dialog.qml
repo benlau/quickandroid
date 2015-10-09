@@ -38,10 +38,9 @@ Item {
 
     default property alias content: container.children
 
-    property DialogStyle style : DialogStyle {
-        windowEnterAnimation: ThemeManager.currentTheme.dialog.windowEnterAnimation
-        windowExitAnimation:  ThemeManager.currentTheme.dialog.windowExitAnimation
-    }
+    property DialogStyle aStyle : ThemeManager.currentTheme.dialog
+
+    property color tintColor: aStyle.tintColor
 
     function open() {
         isOpened = true
@@ -162,7 +161,7 @@ Item {
                 Button {
                     id: rejectButton
                     text: rejectButtonText
-                    textColor: ThemeManager.currentTheme.colorAccent
+                    textColor: tintColor
                     enabled: rejectButtonText !== ""
 
                     anchors {
@@ -178,7 +177,7 @@ Item {
                 Button {
                     id: acceptButton
                     text: acceptButtonText
-                    textColor: ThemeManager.currentTheme.colorAccent
+                    textColor: tintColor
 
                     enabled: acceptButtonText !== ""
                     anchors {

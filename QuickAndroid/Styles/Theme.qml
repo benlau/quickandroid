@@ -106,8 +106,7 @@ Style {
     }
 
     property DialogStyle dialog : DialogStyle {
-        windowEnterAnimation : Qt.resolvedUrl("../anim/GrowFadeIn.qml")
-        windowExitAnimation: Qt.resolvedUrl("../anim/ShrinkFadeOut.qml")
+        tintColor: colorAccent
     }
 
     property ListItemStyle listItem : ListItemStyle {

@@ -5,7 +5,6 @@
 import QtQuick 2.0
 
 Style {
-    property var windowEnterAnimation
-    property var windowExitAnimation
+    property string tintColor
 }
 
