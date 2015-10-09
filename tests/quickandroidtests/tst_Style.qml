@@ -91,6 +91,19 @@ Rectangle {
             compare(style2.keyline1,12);
             compare(style2.titleTextStyle.textSize,23);
         }
+
+        Component {
+            id: textStyleCreator
+            TextStyle {
+            }
+        }
+
+        function test_textStyle() {
+            // Unless it is specificed, disabledTextColor should be same as textColor by default
+            var textStyle = textStyleCreator.createObject();
+            textStyle.textColor = "#00C0C0";
+            compare(textStyle.disabledTextColor,"#00C0C0");
+        }
     }
 }
 
