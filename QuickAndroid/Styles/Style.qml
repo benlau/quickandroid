@@ -47,10 +47,15 @@ QtObject {
 
 
     Component.onCompleted: {
-        if (extend && extend.length > 0) {
+        if (extend) {
             var objects = [this];
-            for (var i in extend) {
-                objects.push(extend[i]);
+
+            if (extend.hasOwnProperty("length")) {
+                for (var i in extend) {
+                    objects.push(extend[i]);
+                }
+            } else {
+                objects.push(extend);
             }
             merge.apply(this,objects);
         }

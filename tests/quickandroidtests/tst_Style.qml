@@ -28,6 +28,15 @@ Rectangle {
     }
 
     ActionBarStyle {
+        id: style3
+
+        extend: ({
+            keyline2: 43,
+            keyline1: 9
+        })
+    }
+
+    ActionBarStyle {
         id: defaultStyle
     }
 
@@ -90,6 +99,10 @@ Rectangle {
             compare(style2.keyline2,33);
             compare(style2.keyline1,12);
             compare(style2.titleTextStyle.textSize,23);
+
+            compare(style3.keyline2,43);
+            compare(style3.keyline1,9);
+
         }
 
         Component {
