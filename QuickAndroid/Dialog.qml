@@ -33,6 +33,9 @@ Item {
 
     property bool darkBackground: true
 
+    property alias acceptButton : acceptButton
+    property alias rejectButton : rejectButton
+
     default property alias content: container.children
 
     property DialogStyle style : DialogStyle {
@@ -145,6 +148,7 @@ Item {
 
             Item {
                 id: buttonSection
+                objectName: "DialogButtonSection"
                 width: parent.width
                 height: visible ? 52 * A.dp : 0
                 enabled: visible
@@ -163,10 +167,9 @@ Item {
 
                     anchors {
                         verticalCenter: parent.verticalCenter
-                        right: acceptButtonText !== "" ? acceptButtonText.left : parent.right
+                        right: acceptButtonText !== "" ? acceptButton.left : parent.right
                         rightMargin: 8 * A.dp
                     }
-
                     onClicked: {
                         done(0);
                     }
@@ -209,15 +212,4 @@ Item {
             }
         }
     }
-
-    states: [
-        State {
-            name: "Opened"
-            when : isOpened
-
-            PropertyChanges {
-            }
-        }
-    ]
-
 }

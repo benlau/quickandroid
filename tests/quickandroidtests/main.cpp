@@ -4,6 +4,7 @@
 #include <QtCore>
 #include <QtQml>
 #include "quickandroid.h"
+#include "testable.h"
 
 int waitTime = 1000;
 
@@ -16,11 +17,22 @@ static QJSValue envProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
     return value;
 }
 
+static QObject* testableProvider(QQmlEngine* engine,QJSEngine* scriptEngine){
+    Q_UNUSED(engine);
+    Q_UNUSED(scriptEngine);
+
+
+    Testable *testable = new Testable();
+
+    return testable;
+}
+
 int main(int argc, char **argv)
 {
     QApplication a(argc, argv);
     QuickAndroid::registerTypes();
     qmlRegisterSingletonType("QuickAndroid", 0, 1, "TestEnv", envProvider);
+    qmlRegisterSingletonType<Testable>("QuickAndroid",0,1,"Testable",testableProvider);
 
     QStringList args = a.arguments();
     QString executable = args.at(0);

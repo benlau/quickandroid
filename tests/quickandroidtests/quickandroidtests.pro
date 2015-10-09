@@ -5,7 +5,8 @@ QT += qmltest qml quick
 TARGET = quickandroidtests
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    testable.cpp
 
 include(../../quickandroid.pri)
 
@@ -48,3 +49,6 @@ RESOURCES += \
 
 OTHER_FILES += \
     ../../README.md
+
+HEADERS += \
+    testable.h

@@ -29,8 +29,23 @@ Activity {
                     text: "Testing..."
                 }
             }
-
         }
+    }
+
+    Ruler {
+        id: dialog1ButtonSection
+        parent: Testable.search(dialog1,"DialogButtonSection");
+        orientation: Qt.Vertical
+        anchors.fill: parent
+    }
+
+    Ruler {
+        parent: Testable.search(dialog1,"DialogButtonSection");
+        orientation: Qt.Vertical
+        width: 20
+        height: 8
+        x: 250
+        y: 52 - 8
     }
 
     TestCase {
@@ -43,6 +58,11 @@ Activity {
             wait(100);
             dialog1.open();
             wait(200);
+
+            compare(dialog1.rejectButton.x +
+                    dialog1.rejectButton.width + 8,
+                    dialog1.acceptButton.x);
+
             dialog1.close();
 
             wait(TestEnv.waitTime);
