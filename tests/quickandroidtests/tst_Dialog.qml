@@ -32,6 +32,14 @@ Activity {
         }
     }
 
+    Dialog {
+        id: dialog2
+        Text {
+            objectName: "MessageText"
+            text: "Message"
+        }
+    }
+
     Ruler {
         id: dialog1ButtonSection
         parent: Testable.search(dialog1,"DialogButtonSection");
@@ -64,6 +72,17 @@ Activity {
                     dialog1.acceptButton.x);
 
             dialog1.close();
+
+            wait(TestEnv.waitTime);
+        }
+
+        function test_without_title_buttons() {
+            wait(100);
+            dialog2.open();
+            wait(200);
+
+            var content = Testable.search(dialog2,"ContentSection");
+            compare(content.y,24);
 
             wait(TestEnv.waitTime);
         }

@@ -88,12 +88,13 @@ Item {
             radius: 2 * A.dp
 
             property int minWidth : 280 * A.dp
-            property int minHeight: 80 * A.dp
+            property int minHeight: 112 * A.dp
 
             property bool buttonVisible: acceptButtonText !== "" || rejectButtonText !== ""
 
-            property int titleHeight: title === "" ? 0 : titleItem.height + (24 + 20) * A.dp
-            property int buttonHeight: !buttonVisible ?  0 : (52+8+24) * A.dp
+            // The height of title section
+            property int titleHeight: title === "" ? 24 * A.dp : titleItem.height + (24 + 20) * A.dp
+            property int buttonHeight: !buttonVisible ?  24 * A.dp : (52+8+24) * A.dp
             width: minWidth
             height: {
                 var res = 0;
@@ -106,6 +107,10 @@ Item {
                 }
 
                 res += container.height
+
+                if (res< minHeight)
+                    res = minHeight;
+
                 return res;
             }
 
@@ -133,6 +138,7 @@ Item {
 
             Item {
                 id: container
+                objectName: "ContentSection"
                 anchors {
                     top: parent.top
                     left: parent.left
