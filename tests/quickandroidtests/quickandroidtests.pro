@@ -42,7 +42,8 @@ DISTFILES += \
     tst_MouseSensor.qml \
     tst_A.qml \
     tst_Line.qml \
-    tst_BottomSheet.qml
+    tst_BottomSheet.qml \
+    tst_Activity_appear.qml
 
 RESOURCES += \
     qml.qrc

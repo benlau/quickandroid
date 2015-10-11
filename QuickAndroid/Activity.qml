@@ -29,6 +29,10 @@ FocusScope {
     // It is emitted after the activity is started after page transition
     signal started
 
+    signal appear();
+
+    signal disappear();
+
     function start(component,options) {
         if (!application) {
             console.warn("Can not start activity. 'application' property is not set.");

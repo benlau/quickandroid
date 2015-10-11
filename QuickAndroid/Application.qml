@@ -44,7 +44,12 @@ FocusScope {
             current.parent = null;
             // Destroy now, Otherwise Qt may crash.
             current.destroy();
+
             prev.enabled = true
+
+            if (prev.hasOwnProperty("appear"))
+                prev.appear();
+
             current = prev;
         });
 
@@ -55,8 +60,6 @@ FocusScope {
     function start(component,options) {
         var comp,
             next;
-
-        aboutToBeStarted(component,options);
 
         if (typeof component === "string") {
             comp = Qt.createComponent(component);
@@ -77,8 +80,9 @@ FocusScope {
         if (next === null) {
             console.warn("Failed to create : " + component);
             console.warn(comp.errorString());
-
         }
+
+        aboutToBeStarted(next,options);
 
         for (var i in options) {
             next[i] = options[i];
@@ -123,6 +127,10 @@ FocusScope {
         anim.onStopped.connect(function() {
 
             if (current) {
+                if (current.hasOwnProperty("disappear")) {
+                    current.disappear();
+                }
+
                 if (current.noHistory) {
                     current.parent = null;
                     current.destroy();
@@ -134,8 +142,14 @@ FocusScope {
             next.focus = true;
 
             current = next;
-            if (current.started)
+            if (current.hasOwnProperty("started")) {
                 current.started();
+            }
+
+            if (current.hasOwnProperty("appear")) {
+                current.appear();
+            }
+
             application.started(current);
             anim.destroy();
         });
