@@ -111,8 +111,8 @@ Rectangle {
         TextField {
             id: text6
             width: 400
-            floatingLabelText: "Floating Label"
-            placeholderText: "Placeholder Text"
+            floatingLabelText: "Text6 - Floating Label"
+            placeholderText: "Text6 - Placeholder Text"
         }
 
         TextField {
@@ -173,6 +173,7 @@ Rectangle {
         when : windowShown
 
         function test_preview() {
+            wait(100);
             compare(text2.height, 48);
             compare(text4.height, 48);
             compare(text5.height, 72);

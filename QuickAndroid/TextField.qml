@@ -8,21 +8,27 @@ import "./Private"
 
 Control.TextField {
     id: textField
-    height: (hasFloatingLabel ? 72 * A.dp : 48 * A.dp) + _fontDiff
+
+    property string floatingLabelText: ""
 
     property TextFieldStyle aStyle: ThemeManager.currentTheme.textField
 
+    /// The color of underline and floating text label on focus
     property color color: aStyle.color
 
-    property string floatingLabelText: ""
     readonly property bool hasFloatingLabel : floatingLabelText !== ""
 
-    property real _fontDiff : Math.max(font.pixelSize - 16 * A.dp,0);
+    property TextStyle floatingLabelTextStyle: TextStyle {
+        textColor: textField.color
+        textSize: 12 * A.dp
+    }
 
     font.pixelSize: aStyle.textStyle.textSize
     font.bold: aStyle.textStyle.bold
-
+    height: (hasFloatingLabel ? 72 * A.dp : 48 * A.dp) + _fontDiff
     verticalAlignment: Text.AlignBottom
+
+    property real _fontDiff : Math.max(font.pixelSize - 16 * A.dp,0);
 
     FloatingPasteButton {
         id: pasteButton
@@ -98,8 +104,9 @@ Control.TextField {
 
             Text {
                 id: floatingLabelTextItem
-                aStyle: control.aStyle.textStyle
-                enabled: false
+                objectName: "FloatingLabelText"
+                font.pixelSize: control.aStyle.textStyle.textSize
+                color: control.aStyle.textStyle.disabledTextColor
                 text: control.floatingLabelText
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 16 * A.dp
@@ -112,8 +119,8 @@ Control.TextField {
 
                     PropertyChanges {
                         target: floatingLabelTextItem
-                        font.pixelSize: 12 * A.dp
-                        color: control.color;
+                        font.pixelSize: control.floatingLabelTextStyle.textSize
+                        color: control.floatingLabelTextStyle.textColor;
                         anchors.bottomMargin: 16 * A.dp + textMetrics.height + 8 * A.dp
                     }
                 },
