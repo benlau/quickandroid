@@ -18,6 +18,36 @@ QString QASystemDispatcher::ACTIVITY_RESULT_MESSAGE = "Activity.onActivityResult
 #define DISPATCH_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 #define EMIT_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 
+static QVariant convertToQVariant(QAndroidJniObject value) {
+    QVariant v;
+    if (!value.isValid())
+        return v;
+
+    QAndroidJniEnvironment env;
+
+    jclass jclass_of_string = env->FindClass("java/lang/String");
+    jclass jclass_of_integer = env->FindClass("java/lang/Integer");
+    jclass jclass_of_boolean = env->FindClass("java/lang/Boolean");
+    jclass jclass_of_list = env->FindClass("java/util/List");
+
+    if (env->IsInstanceOf(value.object<jobject>(),jclass_of_boolean)) {
+        v = QVariant::fromValue<bool>(value.callMethod<jboolean>("booleanValue","()Z"));
+    } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_integer)) {
+        v = value.callMethod<jint>("intValue","()I");
+    } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_string)) {
+        v = value.toString();
+    } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_list)) {
+        QVariantList list;
+        int count = value.callMethod<jint>("size","()I");
+        for (int i = 0 ; i < count ; i++) {
+            QAndroidJniObject item = value.callObjectMethod("get","(I)Ljava/lang/Object;",i);
+            list.append(convertToQVariant(item));
+        }
+        v = list;
+    }
+
+    return v;
+}
 
 static QVariantMap createVariantMap(jobject data) {
     QVariantMap res;
@@ -42,11 +72,6 @@ static QVariantMap createVariantMap(jobject data) {
          return res;
     }
 
-    jclass jclass_of_string = env->FindClass("java/lang/String");
-    jclass jclass_of_integer = env->FindClass("java/lang/Integer");
-    jclass jclass_of_boolean = env->FindClass("java/lang/Boolean");
-
-
     // Get link to Method "iterator"
     jmethodID iteratorMethod = env->GetMethodID(jclass_of_set, "iterator", "()Ljava/util/Iterator;");
 
@@ -67,17 +92,12 @@ static QVariantMap createVariantMap(jobject data) {
         QAndroidJniObject value = entry.callObjectMethod("getValue","()Ljava/lang/Object;");
         QString k = key.toString();
 
-        if (!value.isValid())
+        QVariant v = convertToQVariant(value);
+
+        if (v.isNull())
             continue;
 
-        if (env->IsInstanceOf(value.object<jobject>(),jclass_of_boolean)) {
-            res[k] = QVariant::fromValue<bool>(value.callMethod<jboolean>("booleanValue","()Z"));
-        } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_integer)) {
-            res[k] = value.callMethod<jint>("intValue","()I");
-        } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_string)) {
-            QString v = value.toString();
-            res[k] = v;
-        }
+        res[k] = v;
     }
 
     if (env->ExceptionOccurred()) {
@@ -86,6 +106,41 @@ static QVariantMap createVariantMap(jobject data) {
     }
 
     // Delete local reference
+    return res;
+}
+
+static jobject convertToJObject(QVariant v) {
+    jobject res = 0;
+    QAndroidJniEnvironment env;
+
+    jclass booleanClass = env->FindClass("java/lang/Boolean");
+    jmethodID booleanConstructor = env->GetMethodID(booleanClass,"<init>","(Z)V");
+
+    if (v.type() == QVariant::String) {
+        QString str = v.toString();
+        res = env->NewStringUTF(str.toLocal8Bit().data());
+    } else if (v.type() == QVariant::Int) {
+        jclass integerClass = env->FindClass("java/lang/Integer");
+        jmethodID integerConstructor = env->GetMethodID(integerClass, "<init>", "(I)V");
+
+        res = env->NewObject(integerClass,integerConstructor,v.toInt());
+    } else if (v.type() == QVariant::Bool) {
+        res = env->NewObject(booleanClass,booleanConstructor,v.toBool());
+    } else  if (v.type() == QVariant::List){
+        QVariantList list = v.value<QVariantList>();
+        jclass arrayListClass = env->FindClass("java/util/ArrayList");
+        jmethodID init = env->GetMethodID(arrayListClass, "<init>", "(I)V");
+        jobject res = env->NewObject( arrayListClass, init, list.size());
+
+        jmethodID add = env->GetMethodID( arrayListClass, "add",
+                    "(Ljava/lang/Object;)Z");
+
+        for (int i = 0 ; i < list.size() ; i++) {
+            env->CallObjectMethod(res,add,convertToJObject(list.at(i)));
+        }
+    } else {
+        qWarning() << "QASystemDispatcher: Non-supported data type - " <<  v.type();
+    }
     return res;
 }
 
@@ -99,14 +154,6 @@ static jobject createHashMap(const QVariantMap &data) {
         return NULL;
     }
 
-    jclass integerClass = env->FindClass("java/lang/Integer");
-
-    jmethodID integerConstructor = env->GetMethodID(integerClass, "<init>", "(I)V");
-
-    jclass booleanClass = env->FindClass("java/lang/Boolean");
-    jmethodID booleanConstructor = env->GetMethodID(booleanClass,"<init>","(Z)V");
-
-
     jsize map_len = data.size();
 
     jmethodID init = env->GetMethodID(mapClass, "<init>", "(I)V");
@@ -114,7 +161,6 @@ static jobject createHashMap(const QVariantMap &data) {
 
     jmethodID put = env->GetMethodID( mapClass, "put",
                 "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
-
 
     QMapIterator<QString, QVariant> iter(data);
     while (iter.hasNext()) {
@@ -124,19 +170,12 @@ static jobject createHashMap(const QVariantMap &data) {
         QString key = iter.key();
         jstring jkey = env->NewStringUTF(key.toLocal8Bit().data());
         QVariant v = iter.value();
-        if (v.type() == QVariant::String) {
-            QString str = v.toString();
-            jstring vString = env->NewStringUTF(str.toLocal8Bit().data());
-            env->CallObjectMethod(hashMap,put,jkey,vString);
-        } else if (v.type() == QVariant::Int) {
-            jobject integer = env->NewObject(integerClass,integerConstructor,v.toInt());
-            env->CallObjectMethod(hashMap,put,jkey,integer);
-        } else if (v.type() == QVariant::Bool) {
-            jobject boolean = env->NewObject(booleanClass,booleanConstructor,v.toBool());
-            env->CallObjectMethod(hashMap,put,jkey,boolean);
-        } else {
-            qWarning() << "QASystemDispatcher: Non-supported data type - " <<  v.type();
-        }
+        jobject item = convertToJObject(v);
+
+        if (item == 0)
+            continue;
+
+        env->CallObjectMethod(hashMap,put,jkey,item);
      }
 
     if (env->ExceptionOccurred()) {

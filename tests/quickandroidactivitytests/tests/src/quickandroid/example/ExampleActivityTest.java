@@ -163,7 +163,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         List field5 = new ArrayList(3);
         field5.add(23);
         field5.add(true);
-        field5.add("stringStr");
+        field5.add("stringValue");
         message.put("field5",field5);
         field5 = new ArrayList(10);
 
@@ -177,7 +177,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         assertTrue(lastPayload.message.containsKey("field2"));
         assertTrue(lastPayload.message.containsKey("field3"));
         assertTrue(lastPayload.message.containsKey("field4"));
-//        assertTrue(lastPayload.message.containsKey("field5"));
+        assertTrue(lastPayload.message.containsKey("field5"));
 
         String field1 = (String)  lastPayload.message.get("field1");
         assertTrue(field1.equals("value1"));
@@ -191,10 +191,12 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         boolean field4 = (boolean)(Boolean) lastPayload.message.get("field4");
         assertEquals(field4,false);
   
-        /*
         List list = (List) lastPayload.message.get("field5");
         assertEquals(list.size(),3);
-         */
+        assertEquals((Integer) list.get(0), 23));
+        assertEquals((Boolean) list.get(1), true));
+        assertEquals( ((String) list.get(0).equals("stringValue"))));
+        
         SystemDispatcher.removeListener(listener);
     }
 

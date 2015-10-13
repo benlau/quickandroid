@@ -34,3 +34,7 @@ make
 make install INSTALL_ROOT=$ANDROID_BUILD_DIR
 $QT_ANDROID_BIN/androiddeployqt --input android-libquickandroidexample.so-deployment-settings.json --output $ANDROID_BUILD_DIR
 
+cd -
+cd tests
+ant debug
+
