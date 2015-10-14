@@ -11,6 +11,7 @@ Activity {
 
     ImagePicker {
         id: imagePicker;
+        multiple : true
     }
 
     Rectangle {
