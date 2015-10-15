@@ -124,7 +124,7 @@ Rectangle {
             aStyle: TextFieldStyle {
                 extend: [ThemeManager.currentTheme.textFieldStyle]
                 Component.onCompleted: {
-                    textStyle.textSize = 32 * A.dp
+                    text.textSize = 32 * A.dp
                 }
             }
         }
@@ -140,7 +140,7 @@ Rectangle {
             aStyle: TextFieldStyle {
                 Component.onCompleted: {
                     merge(this,ThemeManager.currentTheme.textField);
-                    textStyle.textSize = 32 * A.dp
+                    text.textSize = 32 * A.dp
                 }
             }
         }

@@ -18,14 +18,12 @@ Control.TextField {
 
     readonly property bool hasFloatingLabel : floatingLabelText !== ""
 
-    property TextStyle floatingLabelTextStyle: TextStyle {
-        textColor: textField.color
-        textSize: 12 * A.dp
-    }
+    font.pixelSize: aStyle.text.textSize
 
-    font.pixelSize: aStyle.textStyle.textSize
-    font.bold: aStyle.textStyle.bold
+    font.bold: aStyle.text.bold
+
     height: (hasFloatingLabel ? 72 * A.dp : 48 * A.dp) + _fontDiff
+
     verticalAlignment: Text.AlignBottom
 
     property real _fontDiff : Math.max(font.pixelSize - 16 * A.dp,0);
@@ -55,7 +53,7 @@ Control.TextField {
         padding.left: 0
         padding.right: 0
 
-        textColor:  enabled ?  aStyle.textStyle.textColor : aStyle.textStyle.disabledTextColor
+        textColor:  enabled ?  aStyle.text.textColor : aStyle.text.disabledTextColor
 
         TextMetrics {
             id: textMetrics
@@ -105,8 +103,8 @@ Control.TextField {
             Text {
                 id: floatingLabelTextItem
                 objectName: "FloatingLabelText"
-                font.pixelSize: control.aStyle.textStyle.textSize
-                color: control.aStyle.textStyle.disabledTextColor
+                font.pixelSize: control.aStyle.text.textSize
+                color: control.aStyle.text.disabledTextColor
                 text: control.floatingLabelText
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 16 * A.dp
@@ -119,8 +117,8 @@ Control.TextField {
 
                     PropertyChanges {
                         target: floatingLabelTextItem
-                        font.pixelSize: control.floatingLabelTextStyle.textSize
-                        color: control.floatingLabelTextStyle.textColor;
+                        font.pixelSize: 12 * A.dp
+                        color: control.color;
                         anchors.bottomMargin: 16 * A.dp + textMetrics.height + 8 * A.dp
                     }
                 },
