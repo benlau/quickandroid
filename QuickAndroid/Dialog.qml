@@ -88,6 +88,7 @@ Item {
             radius: 2 * A.dp
 
             property int minWidth : 280 * A.dp
+            property int maxWidth: 380 * A.dp
             property int minHeight: 112 * A.dp
 
             property bool buttonVisible: acceptButtonText !== "" || rejectButtonText !== ""
@@ -95,7 +96,17 @@ Item {
             // The height of title section
             property int titleHeight: title === "" ? 24 * A.dp : titleItem.height + (24 + 20) * A.dp
             property int buttonHeight: !buttonVisible ?  24 * A.dp : (52+8+24) * A.dp
-            width: minWidth
+            width: {
+                var w = paper.parent.width - 50 * A.dp;
+                if (w > maxWidth)
+                    w = maxWidth
+                if (w < minWidth)
+                    w = minWidth;
+                if (w > paper.parent.width)
+                    w = paper.parent.width;
+                return w;
+            }
+
             height: {
                 var res = 0;
                 if (title !== "") {

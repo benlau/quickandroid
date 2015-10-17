@@ -117,8 +117,6 @@ public class ImagePicker {
 
         Log.d(TAG,"importImage: uri:" + uri);
         Log.d(TAG,"importImage: type: " + data.getType());
-        if (data.hasExtra(Intent.EXTRA_STREAM))
-            Log.d(TAG,"hasExtraStream");
 
         if (data.getClipData() != null) {
             importImageFromClipData(data);
