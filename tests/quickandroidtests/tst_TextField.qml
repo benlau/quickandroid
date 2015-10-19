@@ -99,7 +99,8 @@ Rectangle {
         TextField {
             id : text4
             width: 400
-            placeholderText: "Placeholder text"
+            placeholderText: "Placeholder text (Text4)"
+            placeholderTextColor: Constants.black54
         }
 
         TextField {

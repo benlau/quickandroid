@@ -20,6 +20,8 @@ Control.TextField {
 
     readonly property bool hasFloatingLabel : floatingLabelText !== ""
 
+    property color placeholderTextColor: aStyle.placeholderTextColor
+
     font.pixelSize: aStyle.text.textSize
 
     font.bold: aStyle.text.bold
@@ -57,6 +59,7 @@ Control.TextField {
         padding.right: 0
 
         textColor:  enabled ?  aStyle.text.textColor : aStyle.text.disabledTextColor
+        placeholderTextColor: control.placeholderTextColor
 
         TextMetrics {
             id: textMetrics

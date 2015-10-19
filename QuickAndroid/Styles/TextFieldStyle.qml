@@ -17,5 +17,7 @@ Style {
     property string disabledColor : Constants.black54
 
     property string inactiveColor : Constants.black54
+
+    property string placeholderTextColor: Constants.black54
 }
 
