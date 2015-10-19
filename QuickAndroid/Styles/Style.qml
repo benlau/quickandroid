@@ -30,6 +30,11 @@ QtObject {
                     var remainingProp = token.join(".");
                     var newObject = {};
 
+                    if (!target.hasOwnProperty(newProp)) {
+                        console.warn("Style.merge() - can not merge property: \"" + prop + "\"");
+                        continue;
+                    }
+
                     newObject[remainingProp] = object[prop];
                     merge(target[newProp],newObject);
                 } else if (typeof object[prop] === "object" &&

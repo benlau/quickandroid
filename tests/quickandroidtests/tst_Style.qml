@@ -117,6 +117,15 @@ Rectangle {
             text.textColor = "#00C0C0";
             compare(text.disabledTextColor,"#00C0C0");
         }
+
+        function test_invalid() {
+            console.log("Going to test invalid data");
+            var style = creator.createObject();
+            style.merge(style,{
+                         "a.text": true
+                        });
+
+        }
     }
 }
 
