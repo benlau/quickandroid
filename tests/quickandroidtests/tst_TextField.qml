@@ -180,12 +180,24 @@ Rectangle {
         when : windowShown
 
         function test_preview() {
-            wait(100);
             compare(text2.height, 48);
             compare(text4.height, 48);
             compare(text5.height, 72);
 
+            // Text 9
+
+            var floatingLabel = Testable.search(text9,"FloatingLabelText");
+            compare(floatingLabel.font.pixelSize,12);
+            compare(floatingLabel.anchors.bottomMargin > 16,true); // Already on top
+            text9.forceActiveFocus();
+            wait(400);
+            compare(floatingLabel.color,ThemeManager.currentTheme.colorAccent);
+
+
             wait(TestEnv.waitTime);
+        }
+
+        function test_text8() {
         }
     }
 }

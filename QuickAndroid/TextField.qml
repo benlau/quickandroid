@@ -50,6 +50,7 @@ Control.TextField {
 
     style: ControlSyles.TextFieldStyle {
         id: style
+        objectName: "TextFieldStyleInstance"
         padding.top: (control.hasFloatingLabel ? 40 * A.dp : 16 * A.dp) + control._fontDiff - 2
         padding.bottom: 16 * A.dp
         padding.left: 0
@@ -64,6 +65,10 @@ Control.TextField {
         }
 
         background: Item {
+            id: bg
+            objectName: "Background"
+
+            property int floatingLabelBottomMarginOnTop : 16 * A.dp + textMetrics.height + 8 * A.dp
 
             Rectangle {
                 id: inactiveUnderline
@@ -105,11 +110,11 @@ Control.TextField {
             Text {
                 id: floatingLabelTextItem
                 objectName: "FloatingLabelText"
-                font.pixelSize: control.aStyle.textStyle.textSize
+                font.pixelSize: control.floatingLabelAlwaysOnTop ? 12 * A.dp : control.aStyle.textStyle.textSize
                 color: control.aStyle.textStyle.disabledTextColor
                 text: control.floatingLabelText
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 16 * A.dp
+                anchors.bottomMargin: control.floatingLabelAlwaysOnTop ?  bg.floatingLabelBottomMarginOnTop : 16 * A.dp
             }
 
             states: [
@@ -121,7 +126,7 @@ Control.TextField {
                         target: floatingLabelTextItem
                         font.pixelSize: 12 * A.dp
                         color: control.color;
-                        anchors.bottomMargin: 16 * A.dp + textMetrics.height + 8 * A.dp
+                        anchors.bottomMargin: bg.floatingLabelBottomMarginOnTop
                     }
                 },
                 State {
