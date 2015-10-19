@@ -47,7 +47,7 @@ Item {
                 text: _inLeft ? textOff : textOn
                 font.pixelSize: component.style.textStyle.textSize * A.dp
                 color : component.style.textStyle.textColor
-                TextBehaviour { gravity : "center" }
+                gravity: "center"
             }
 
             DrawableGravityBehaviour {

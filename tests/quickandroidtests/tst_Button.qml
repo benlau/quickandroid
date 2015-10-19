@@ -83,7 +83,7 @@ Rectangle {
             compare(button1.pressAndHoldCount,0);
             wait(100);
             compare(button1.pressAndHoldCount,0);
-            wait(800);
+            wait(810);
             compare(button1.pressAndHoldCount,1);
 
             // Proof the timer is already stopped
