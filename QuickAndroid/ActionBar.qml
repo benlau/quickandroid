@@ -27,6 +27,8 @@ Item {
 
     property ActionBarStyle style: ThemeManager.currentTheme.actionBar
 
+    property alias aStyle : actionBar.style
+
     property alias content : fillArea.children
 
     property alias actionButtonEnabled : actionButton.enabled
@@ -45,17 +47,6 @@ Item {
         width: parent.width
         height: style.unitHeight
         spacing : 0
-
-        /*
-        Drawable {
-            id : up
-            anchors.verticalCenter: parent.verticalCenter
-            source :  actionBar.style.homeAsUpIndicator
-            width : showIcon ? implicitWidth : 0
-            visible: upEnabled && showIcon
-            asynchronous: true
-        }
-        */
 
         Button {
             id : actionButton
@@ -93,6 +84,7 @@ Item {
 
         Text {
             id : titleText
+            objectName: "ActionBarTitleTextItem"
             Layout.fillHeight: true
             Layout.fillWidth: true
 
@@ -104,7 +96,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment : Text.AlignLeft
 
-            text: actionBar.style.title
+            aStyle: actionBar.style.title
         }
 
         Item {
