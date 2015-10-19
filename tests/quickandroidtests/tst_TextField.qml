@@ -124,7 +124,7 @@ Rectangle {
             aStyle: TextFieldStyle {
                 extend: [ThemeManager.currentTheme.textFieldStyle]
                 Component.onCompleted: {
-                    text.textSize = 32 * A.dp
+                    textStyle.textSize = 32 * A.dp
                 }
             }
         }
@@ -140,9 +140,16 @@ Rectangle {
             aStyle: TextFieldStyle {
                 Component.onCompleted: {
                     merge(this,ThemeManager.currentTheme.textField);
-                    text.textSize = 32 * A.dp
+                    textStyle.textSize = 32 * A.dp
                 }
             }
+        }
+
+        TextField {
+            id: text9
+            width: 400
+            floatingLabelText: "Floating Label Always on Top"
+            floatingLabelAlwaysOnTop: true
         }
     }
 

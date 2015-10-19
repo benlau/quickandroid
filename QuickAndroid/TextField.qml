@@ -11,6 +11,8 @@ Control.TextField {
 
     property string floatingLabelText: ""
 
+    property bool floatingLabelAlwaysOnTop: false;
+
     property TextFieldStyle aStyle: ThemeManager.currentTheme.textField
 
     /// The color of underline and floating text label on focus
@@ -18,9 +20,9 @@ Control.TextField {
 
     readonly property bool hasFloatingLabel : floatingLabelText !== ""
 
-    font.pixelSize: aStyle.text.textSize
+    font.pixelSize: aStyle.textStyle.textSize
 
-    font.bold: aStyle.text.bold
+    font.bold: aStyle.textStyle.bold
 
     height: (hasFloatingLabel ? 72 * A.dp : 48 * A.dp) + _fontDiff
 
@@ -53,7 +55,7 @@ Control.TextField {
         padding.left: 0
         padding.right: 0
 
-        textColor:  enabled ?  aStyle.text.textColor : aStyle.text.disabledTextColor
+        textColor:  enabled ?  aStyle.textStyle.textColor : aStyle.textStyle.disabledTextColor
 
         TextMetrics {
             id: textMetrics
@@ -103,8 +105,8 @@ Control.TextField {
             Text {
                 id: floatingLabelTextItem
                 objectName: "FloatingLabelText"
-                font.pixelSize: control.aStyle.text.textSize
-                color: control.aStyle.text.disabledTextColor
+                font.pixelSize: control.aStyle.textStyle.textSize
+                color: control.aStyle.textStyle.disabledTextColor
                 text: control.floatingLabelText
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 16 * A.dp

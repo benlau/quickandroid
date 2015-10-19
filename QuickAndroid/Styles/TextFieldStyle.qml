@@ -4,7 +4,8 @@ import QuickAndroid 0.1
 Style {
     id: style
 
-    property TextStyle text : TextStyle {
+    // The style of input text
+    property TextStyle textStyle : TextStyle {
         textSize: 16 * A.dp
         textColor: Constants.black87
         disabledTextColor: Constants.black54
