@@ -4,6 +4,7 @@ import QuickAndroid.Styles 0.1
 import "../theme"
 
 Activity {
+    id: demo
     actionBar: ActionBar {
         title: "Image Picker Demo"
         onActionButtonClicked: back();
@@ -19,9 +20,28 @@ Activity {
         color: Constants.black100
 
         Image {
+            id: image
             anchors.fill: parent
             source: imagePicker.imageUrl
             fillMode: Image.PreserveAspectFit
+            visible: imagePicker.imageUrls.length <= 1
+        }
+
+        Grid {
+            columns: 3
+            spacing: 0
+            visible: !image.visible
+
+            Repeater {
+                model: imagePicker.imageUrls
+                delegate: Image {
+                    width: demo.width / 3
+                    height: width / 4 * 3
+                    source: modelData
+                    asynchronous: true
+                    fillMode: Image.PreserveAspectCrop
+                }
+            }
         }
 
         Column {
