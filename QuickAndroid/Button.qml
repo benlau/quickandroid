@@ -17,10 +17,10 @@ Controls.Button {
 
     property var background : aStyle.background
 
-    property color textColor: aStyle.textStyle.textColor
+    property color textColor: aStyle.text.textColor
 
     /// The text size in sp unit
-    property int textSize: aStyle.textStyle.textSize
+    property int textSize: aStyle.text.textSize
 
     /// Specifies that icon and background on the local filesystem should be loaded asynchronously in a separate thread. The default value is false, causing the user interface thread to block while the it is loading.
     property bool asynchronous : aStyle.asynchronous
@@ -81,10 +81,10 @@ Controls.Button {
                 id: label
                 anchors.centerIn: parent
                 text: control.text
-                textStyle: TextStyle {
+                aStyle: TextStyle {
                     textColor: button.textColor
                     textSize: button.textSize
-                    bold: button.aStyle.textStyle.bold
+                    bold: button.aStyle.text.bold
                 }
             }
 

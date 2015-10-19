@@ -43,7 +43,7 @@ Rectangle {
         Text {
             id: text5
             text: "Custom Text"
-            textStyle : TextStyle {
+            aStyle : TextStyle {
                 textSize: 20
                 textColor : "blue"
             }

@@ -71,7 +71,7 @@ Style {
 
     property RaisedButtonStyle raisedButton: RaisedButtonStyle {
         color: colorPrimary
-        textStyle: TextStyle {
+        text: TextStyle {
             textSize: 14 * A.dp
             textColor: textColorPrimary
         }
@@ -99,7 +99,7 @@ Style {
     property SwitchStyle switchStyle : SwitchStyle {
         track: Qt.resolvedUrl("../drawable/SwitchBgHoloLight.qml")
         thumb: Qt.resolvedUrl("../drawable/SwitchThumbHoloLight.qml")
-        textStyle: smallText
+        text: smallText
         thumbTextPadding: 12 * A.dp
         switchMinWidth: 96 * A.dp
         switchPadding: 16 * A.dp

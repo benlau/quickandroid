@@ -124,7 +124,7 @@ Rectangle {
             aStyle: TextFieldStyle {
                 extend: [ThemeManager.currentTheme.textFieldStyle]
                 Component.onCompleted: {
-                    textStyle.textSize = 32 * A.dp
+                    text.textSize = 32 * A.dp
                 }
             }
         }
@@ -140,7 +140,7 @@ Rectangle {
             aStyle: TextFieldStyle {
                 Component.onCompleted: {
                     merge(this,ThemeManager.currentTheme.textField);
-                    textStyle.textSize = 32 * A.dp
+                    text.textSize = 32 * A.dp
                 }
             }
         }
@@ -190,7 +190,7 @@ Rectangle {
             compare(floatingLabel.font.pixelSize,12);
             compare(floatingLabel.anchors.bottomMargin > 16,true); // Already on top
             text9.forceActiveFocus();
-            wait(400);
+            wait(1000);
             compare(floatingLabel.color,ThemeManager.currentTheme.colorAccent);
 
 

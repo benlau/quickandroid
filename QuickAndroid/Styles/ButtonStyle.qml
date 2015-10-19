@@ -13,7 +13,7 @@ Style {
 
     property size iconSourceSize
 
-    property TextStyle textStyle: TextStyle {
+    property TextStyle text: TextStyle {
         textSize: 14 * A.dp
         textColor: Constants.black87
         disabledTextColor: Constants.black54

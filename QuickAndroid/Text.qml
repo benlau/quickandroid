@@ -18,7 +18,6 @@ Quick.Text {
 
     // By default, it use normal text style
     property TextStyle aStyle: ThemeManager.currentTheme.text;
-    property alias textStyle : component.aStyle
 
     // Set the type of the text. The text size and color will be changed according to the value.
     // Possible values : [Constants.smallText , Constants.normalText , Constants.mediumText , Constants.largeText ]
@@ -31,25 +30,25 @@ Quick.Text {
 
     property color disabledTextColor : aStyle.disabledTextColor
 
-    font.pixelSize: component.textStyle.textSize
+    font.pixelSize: component.aStyle.textSize
 
     color : enabled ? textColor : disabledTextColor
     font.bold: aStyle.bold
 
     Modifier {
-        target: component; property: "textStyle"; value: ThemeManager.currentTheme.text;
+        target: component; property: "aStyle"; value: ThemeManager.currentTheme.text;
         when: component.type === Constants.normalText
     }
     Modifier {
-        target: component; property: "textStyle"; value: ThemeManager.currentTheme.smallText;
+        target: component; property: "aStyle"; value: ThemeManager.currentTheme.smallText;
         when: component.type === Constants.smallText
     }
     Modifier {
-        target: component; property: "textStyle"; value: ThemeManager.currentTheme.mediumText;
+        target: component; property: "aStyle"; value: ThemeManager.currentTheme.mediumText;
         when: component.type === Constants.mediumText
     }
     Modifier {
-        target: component; property: "textStyle"; value: ThemeManager.currentTheme.largeText;
+        target: component; property: "aStyle"; value: ThemeManager.currentTheme.largeText;
         when: component.type === Constants.largeText
     }
 

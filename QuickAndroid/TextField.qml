@@ -20,9 +20,9 @@ Control.TextField {
 
     readonly property bool hasFloatingLabel : floatingLabelText !== ""
 
-    font.pixelSize: aStyle.textStyle.textSize
+    font.pixelSize: aStyle.text.textSize
 
-    font.bold: aStyle.textStyle.bold
+    font.bold: aStyle.text.bold
 
     height: (hasFloatingLabel ? 72 * A.dp : 48 * A.dp) + _fontDiff
 
@@ -56,7 +56,7 @@ Control.TextField {
         padding.left: 0
         padding.right: 0
 
-        textColor:  enabled ?  aStyle.textStyle.textColor : aStyle.textStyle.disabledTextColor
+        textColor:  enabled ?  aStyle.text.textColor : aStyle.text.disabledTextColor
 
         TextMetrics {
             id: textMetrics
@@ -110,8 +110,8 @@ Control.TextField {
             Text {
                 id: floatingLabelTextItem
                 objectName: "FloatingLabelText"
-                font.pixelSize: control.floatingLabelAlwaysOnTop ? 12 * A.dp : control.aStyle.textStyle.textSize
-                color: control.aStyle.textStyle.disabledTextColor
+                font.pixelSize: control.floatingLabelAlwaysOnTop ? 12 * A.dp : control.aStyle.text.textSize
+                color: control.aStyle.text.disabledTextColor
                 text: control.floatingLabelText
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: control.floatingLabelAlwaysOnTop ?  bg.floatingLabelBottomMarginOnTop : 16 * A.dp

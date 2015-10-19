@@ -103,7 +103,7 @@ Rectangle {
     Text {
         id: titleItem
         text: title
-        textStyle: component.style.titleTextStyle
+        aStyle: component.style.titleTextStyle
         elide: Text.ElideRight
         anchors.top: parent.top
         anchors.left: parent.left
@@ -118,7 +118,7 @@ Rectangle {
         id : subtitleItem
         text: subtitle
         visible : subtitle !== ""
-        textStyle: component.style.subtitleTextStyle
+        aStyle: component.style.subtitleTextStyle
         elide: Text.ElideRight
 
         anchors.bottom: parent.bottom
@@ -139,7 +139,7 @@ Rectangle {
 
         Text {
            id: valueItem
-           textStyle: component.style.valueTextStyle
+           aStyle: component.style.valueTextStyle
            text: value
            elide: Text.ElideRight
 

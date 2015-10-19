@@ -58,7 +58,7 @@ Item {
                 depth: 3
                 aStyle: RaisedButtonStyle {
                     extend: [ThemeManager.currentTheme.raisedButton,{
-                        "textStyle.bold": true
+                        "text.bold": true
                     }]
                 }
 

@@ -106,16 +106,16 @@ Rectangle {
         }
 
         Component {
-            id: textStyleCreator
+            id: textCreator
             TextStyle {
             }
         }
 
-        function test_textStyle() {
+        function test_text() {
             // Unless it is specificed, disabledTextColor should be same as textColor by default
-            var textStyle = textStyleCreator.createObject();
-            textStyle.textColor = "#00C0C0";
-            compare(textStyle.disabledTextColor,"#00C0C0");
+            var text = textCreator.createObject();
+            text.textColor = "#00C0C0";
+            compare(text.disabledTextColor,"#00C0C0");
         }
     }
 }

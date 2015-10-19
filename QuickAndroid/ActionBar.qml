@@ -104,7 +104,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment : Text.AlignLeft
 
-            textStyle: actionBar.style.titleTextStyle
+            text: actionBar.style.titleTextStyle
         }
 
         Item {

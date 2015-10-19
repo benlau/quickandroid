@@ -45,8 +45,8 @@ Item {
             content: Text {
                 id: label
                 text: _inLeft ? textOff : textOn
-                font.pixelSize: component.style.textStyle.textSize * A.dp
-                color : component.style.textStyle.textColor
+                font.pixelSize: component.style.text.textSize * A.dp
+                color : component.style.text.textColor
                 gravity: "center"
             }
 
@@ -86,8 +86,8 @@ Item {
     property real _thumbWidth: _thumbMinWidth + thumbDummy.fillArea.x + thumbDummy.fillArea.rightMargin
     property real _thumbHeight: _textHeight + 8 * A.dp + thumbDummy.fillArea.y + thumbDummy.fillArea.bottomMargin
     property real _trackWidth : _thumbMinWidth * 2
-    Text {id: textOffItem;text: textOff;font.pixelSize: component.style.textStyle.textSize * A.dp;visible: false;}
-    Text {id: textOnItem; text: textOn; font.pixelSize: component.style.textStyle.textSize * A.dp;visible: false;}
+    Text {id: textOffItem;text: textOff;font.pixelSize: component.style.text.textSize * A.dp;visible: false;}
+    Text {id: textOnItem; text: textOn; font.pixelSize: component.style.text.textSize * A.dp;visible: false;}
     Drawable{id: thumbDummy ;source: component.style.thumb;visible: false}
 
 
