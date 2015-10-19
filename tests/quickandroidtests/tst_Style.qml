@@ -12,7 +12,7 @@ Rectangle {
         id: style1
 
         iconSourceSize: Qt.size(47,47);
-        titleTextStyle: TextStyle {
+        title: TextStyle {
             textSize: 23
         }
         keyline1: 8
@@ -56,24 +56,24 @@ Rectangle {
         function test_merge_dotted() {
             var cloned = creator.createObject();
             style1.merge(cloned,style1,{
-                            "titleTextStyle.textSize": 99
+                            "title.textSize": 99
                           })
 
-            compare(cloned.titleTextStyle.textSize,99);
+            compare(cloned.title.textSize,99);
         }
 
         function test_merge() {
             var cloned = creator.createObject();
             cloned.merge(cloned,style1);
             compare(cloned.iconSourceSize.width,style1.iconSourceSize.width);
-            compare(cloned.titleTextStyle.textSize,23);
+            compare(cloned.title.textSize,23);
             compare(cloned.keyline1,8);
 
             // Proof that it is performed deep copy for Qt.size() type
             cloned.iconSourceSize.width = 45;
-            cloned.titleTextStyle.textSize = 50;
+            cloned.title.textSize = 50;
             compare(style1.iconSourceSize.width,47);
-            compare(style1.titleTextStyle.textSize,23);
+            compare(style1.title.textSize,23);
 
         }
 
@@ -85,20 +85,20 @@ Rectangle {
                           });
 
             compare(cloned.iconSourceSize.width,style1.iconSourceSize.width);
-            compare(cloned.titleTextStyle.textSize,23);
+            compare(cloned.title.textSize,23);
             compare(cloned.keyline1,36);
 
             // Proof that it is performed deep copy for Qt.size() type
             cloned.iconSourceSize.width = 33;
-            cloned.titleTextStyle.textSize = 50;
+            cloned.title.textSize = 50;
             compare(style1.iconSourceSize.width,47);
-            compare(style1.titleTextStyle.textSize,23);
+            compare(style1.title.textSize,23);
         }
 
         function test_extend() {
             compare(style2.keyline2,33);
             compare(style2.keyline1,12);
-            compare(style2.titleTextStyle.textSize,23);
+            compare(style2.title.textSize,23);
 
             compare(style3.keyline2,43);
             compare(style3.keyline1,9);

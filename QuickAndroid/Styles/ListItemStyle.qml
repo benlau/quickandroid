@@ -21,17 +21,17 @@ Style {
 
     property bool showDivider: true
 
-    property TextStyle titleTextStyle : TextStyle {
+    property TextStyle title : TextStyle {
         textSize: 16 * A.dp
         textColor: Constants.black87
     }
 
-    property TextStyle valueTextStyle : TextStyle {
+    property TextStyle valueText : TextStyle {
         textSize: 16 * A.dp
         textColor : Constants.black54
     }
 
-    property TextStyle subtitleTextStyle : TextStyle {
+    property TextStyle subtitle : TextStyle {
         textSize: 14 * A.dp
         textColor : Constants.black54
     }
