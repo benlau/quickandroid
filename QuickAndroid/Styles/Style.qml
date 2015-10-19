@@ -41,7 +41,11 @@ QtObject {
                     String(object[prop]).indexOf("QSize") !== 0) {
                     merge(target[prop],object[prop]);
                 } else {
-                    target[prop] = object[prop];
+                    try {
+                        target[prop] = object[prop];
+                    } catch (e) {
+                        console.warn("Style.merge() - can not merge property: \"" + prop + "\"");
+                    }
                 }
             }
 

@@ -121,8 +121,13 @@ Rectangle {
         function test_invalid() {
             console.log("Going to test invalid data");
             var style = creator.createObject();
+
             style.merge(style,{
                          "a.text": true
+                        });
+
+            style.merge(style,{
+                         "nonExisted": true
                         });
 
         }
