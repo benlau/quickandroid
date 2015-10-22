@@ -133,7 +133,10 @@ void QuickAndroidTests::drawableProvider()
 
     provider->setBasePath(QString(SRCDIR) + "/res");
     engine.addImageProvider("drawable",provider);
+    engine.addImportPath("qrc:///");
     engine.load(QUrl::fromLocalFile(QString(SRCDIR) + "/test_drawableprovider.qml"));
+
+    wait(1000);
 
     QObject *rootItem = engine.rootObjects().first();
 
