@@ -2,6 +2,8 @@
 #include <QCoreApplication>
 #include <QPointer>
 #include <QtCore>
+#include <QPair>
+#include <QQueue>
 #include "qasystemdispatcher.h"
 
 static QPointer<QASystemDispatcher> m_instance;
@@ -236,7 +238,24 @@ void QASystemDispatcher::dispatch(QString type, QVariantMap message)
     QAndroidJniObject::callStaticMethod<jboolean>(JCLASS_Name, "dispatch",
                                               DISPATCH_SIGNATURE,
                                               jType,jData);
+#else
+    static bool dispatching = false;
+    static QQueue<QPair<QString,QVariantMap> > queue;
 
+
+    if (dispatching) {
+        queue.enqueue(QPair<QString,QVariantMap> (type,message) );
+        return;
+    }
+
+    dispatching = true;
+    emit dispatched(type,message);
+
+    while (queue.size() > 0) {
+        QPair<QString,QVariantMap> pair = queue.dequeue();
+        emit dispatched(pair.first,pair.second);
+    }
+    dispatching = false;
 #endif
 }
 
