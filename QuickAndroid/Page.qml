@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
+import "./Transitions"
 
 FocusScope {
     id: page
@@ -18,6 +19,10 @@ FocusScope {
 
     // It is emitted when the page is not visible to user
     signal disappear();
+
+    property Component transition: GrowFadeInTransition {}
+
+    property var _transition
 
     Rectangle {
         anchors.fill: parent

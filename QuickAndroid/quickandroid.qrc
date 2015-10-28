@@ -105,5 +105,6 @@
         <file>Styles/FloatingActionButtonStyle.qml</file>
         <file>Page.qml</file>
         <file>PageStack.qml</file>
+        <file>Transitions/GrowFadeInTransition.qml</file>
     </qresource>
 </RCC>
