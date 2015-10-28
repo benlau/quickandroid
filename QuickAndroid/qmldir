@@ -14,7 +14,6 @@ QueuedSignal 0.1 QueuedSignal.qml
 RectToRectMatrix 0.1 RectToRectMatrix.qml
 Shadow 0.1 Shadow.qml
 StateListDrawable 0.1 StateListDrawable.qml
-Util 0.1 util.js
 DrawableGravityBehaviour 0.1 DrawableGravityBehaviour.qml
 Modifier 0.1 Modifier.qml
 AnimatedModifier 0.1 AnimatedModifier.qml
@@ -37,3 +36,4 @@ RaisedButton 0.1 RaisedButton.qml
 BottomSheet 0.1 BottomSheet.qml
 ImagePicker 0.1 ImagePicker.qml
 Page 0.1 Page.qml
+PageStack 0.1 PageStack.qml

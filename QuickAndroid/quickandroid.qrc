@@ -14,7 +14,7 @@
         <file>RectToRectMatrix.qml</file>
         <file>Shadow.qml</file>
         <file>StateListDrawable.qml</file>
-        <file>util.js</file>
+        <file>utils.js</file>
         <file>Dialog.qml</file>
         <file>anim/ActivityEnter.qml</file>
         <file>anim/ActivityExit.qml</file>
@@ -104,5 +104,6 @@
         <file>ImagePicker.qml</file>
         <file>Styles/FloatingActionButtonStyle.qml</file>
         <file>Page.qml</file>
+        <file>PageStack.qml</file>
     </qresource>
 </RCC>
