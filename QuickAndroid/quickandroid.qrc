@@ -103,5 +103,6 @@
         <file>drawable/Mask.qml</file>
         <file>ImagePicker.qml</file>
         <file>Styles/FloatingActionButtonStyle.qml</file>
+        <file>Page.qml</file>
     </qresource>
 </RCC>

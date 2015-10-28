@@ -44,7 +44,8 @@ DISTFILES += \
     tst_Line.qml \
     tst_BottomSheet.qml \
     tst_Activity_appear.qml \
-    tst_SystemDispatcher.qml
+    tst_SystemDispatcher.qml \
+    tst_Page.qml
 
 RESOURCES += \
     qml.qrc

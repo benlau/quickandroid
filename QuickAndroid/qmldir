@@ -36,3 +36,4 @@ Tab 0.1 Tab.qml
 RaisedButton 0.1 RaisedButton.qml
 BottomSheet 0.1 BottomSheet.qml
 ImagePicker 0.1 ImagePicker.qml
+Page 0.1 Page.qml

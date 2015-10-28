@@ -37,6 +37,8 @@ Item {
 
     implicitHeight: style.unitHeight
 
+    objectName: "ActionBar"
+
     Drawable {
         id : bg
         anchors.fill: parent
