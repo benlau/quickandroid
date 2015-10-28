@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
 import "./Transitions"
+import "./utils.js" as Utils
 
 FocusScope {
     id: page
@@ -23,6 +24,30 @@ FocusScope {
     property Component transition: GrowFadeInTransition {}
 
     property var _transition
+
+    property var stack: null
+
+    function present(source,properties,animated) {
+        if (!stack) {
+            var newPage = Utils.createObject(source,page.parent,properties);
+            newPage.anchors.fill = page;
+            return newPage;
+        }
+
+        return stack.push(source,properties,animated);
+    }
+
+    function dismiss(animated) {
+        if (!stack) {
+            disappear();
+            destroy();
+            return;
+        }
+
+        if (stack.topPage === this) {
+            stack.pop(animated);
+        } // @TODO remove middle page
+    }
 
     Rectangle {
         anchors.fill: parent

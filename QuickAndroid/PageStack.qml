@@ -7,17 +7,33 @@ Item {
 
     property var initialPage : null
 
-    property var currentPage : null
+    property var topPage : null
 
-    property var history: new Array
+    readonly property int count: pages.length
+
+    readonly property var pages : new Array
 
     function push(source,properties,animated) {
         animated = animated === undefined ? true : animated;
 
         var page = Utils.createObject(source,pageStack,properties);
-        history.push(page);
+        page.stack = pageStack;
 
-        var bottomPage = currentPage;
+        if (topPage && topPage.noHistory) {
+            topPage.disappear();
+            topPage.destroy();
+            if (pages.length >= 2) {
+                topPage = pages[pages.length - 2];
+            } else {
+                topPage = null;
+            }
+            pages[pages.length - 1] = page;
+        } else {
+            pages.push(page);
+        }
+        pagesChanged();
+
+        var bottomPage = topPage;
         if (!bottomPage)
             bottomPage = dummyPage;
 
@@ -35,7 +51,7 @@ Item {
             transition.presentTransitionFinished();
             page.appear();
             bottomPage.disappear();
-            currentPage = page;
+            topPage = page;
         }
 
         if (animated) {
@@ -44,24 +60,28 @@ Item {
         } else {
             finished();
         }
+
+        return page;
     }
 
     function pop(animated) {
-        if (history.length === 1) {
+        if (pages.length === 1) {
             return;
         }
 
         animated = animated === undefined ? true : animated;
-        var transition = currentPage._transition;
-        history.pop();
-        var prevPage = history[history.length - 1];
+        var transition = topPage._transition;
+        pages.pop();
+        pagesChanged();
+
+        var prevPage = pages[pages.length - 1];
 
         function finished() {
             transition.dismissTransitionFinished();
             prevPage.appear();
-            currentPage.disappear();
-            currentPage.destroy();
-            currentPage = prevPage;
+            topPage.disappear();
+            topPage.destroy();
+            topPage = prevPage;
         }
 
         if (animated) {

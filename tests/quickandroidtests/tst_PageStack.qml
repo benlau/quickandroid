@@ -62,7 +62,7 @@ Rectangle {
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,0);
 
-            wait(150);
+            wait(200);
             compare(p1.appearCount,1);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,1);
@@ -71,12 +71,45 @@ Rectangle {
             compare(p1.appearCount,1);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,1);
-            wait(150); // p1 is destroyed.
+            wait(200);
+            // p1 is destroyed.
             compare(initialPage.appearCount,2);
             compare(initialPage.disappearCount,1);
 
             wait(TestEnv.waitTime);
             stack.destroy();
+        }
+
+        function test_noHistory() {
+            var stack = component1.createObject(window);
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.appearCount,1);
+
+            var p1 = page1.createObject(window);
+            var p2 = page1.createObject(window);
+            p1.noHistory = true;
+
+            compare(stack.pages.length,1);
+            stack.push(p1,{},false);
+            compare(stack.pages.length,2);
+            stack.push(p2,{},false);
+            compare(stack.pages.length,2);
+            stack.destroy();
+        }
+
+        function test_present() {
+            var stack = component1.createObject(window);
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.stack,stack);
+            compare(initialPage.appearCount,1);
+            compare(stack.count,1);
+
+            var p1 = initialPage.present(page1,{},false)
+            compare(stack.pages.length,2);
+            compare(stack.count,2);
+
+            p1.dismiss(false);
+            compare(stack.count,1);
         }
     }
 
