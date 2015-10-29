@@ -2,7 +2,7 @@ import QtQuick 2.0
 import "./utils.js" as Utils
 import "./Transitions"
 
-Item {
+FocusScope {
     id: pageStack
 
     property var initialPage : null
@@ -12,6 +12,8 @@ Item {
     readonly property int count: pages.length
 
     readonly property var pages : new Array
+
+    focus: true
 
     function push(source,properties,animated) {
         animated = animated === undefined ? true : animated;
@@ -49,10 +51,14 @@ Item {
 
         function finished() {
             transition.presentTransitionFinished();
-            page.appear();
             bottomPage.disappear();
+            page.appear();
+            page.focus = true;
+            page.enabled = true;
             topPage = page;
         }
+
+        transition.presentTransitionStarted();
 
         if (animated) {
             transition.presentTransition.onStopped.connect(finished);
@@ -78,11 +84,14 @@ Item {
 
         function finished() {
             transition.dismissTransitionFinished();
-            prevPage.appear();
             topPage.disappear();
             topPage.destroy();
+            prevPage.appear();
+            prevPage.focus = true;
             topPage = prevPage;
         }
+
+        transition.dismissTransitionStarted();
 
         if (animated) {
             transition.dismissTransition.onStopped.connect(finished);
@@ -92,12 +101,16 @@ Item {
         }
     }
 
-    function back() {
-        pop();
-    }
-
     Page {
         id: dummyPage
+    }
+
+    Keys.onReleased: {
+        if (event.key === Qt.Key_Back &&
+            pages.length > 1) {
+            event.accepted = true;
+            pop();
+        }
     }
 
     Component.onCompleted: {

@@ -15,15 +15,20 @@ QtObject {
 
     signal disappear
 
-    function presentTransitionFinished() {
-
+    function presentTransitionStarted() {
         topView.x = Qt.binding(function() { return container ? container.x  : 0});
         topView.y = Qt.binding(function() { return container ? container.y : 0});
         topView.width = Qt.binding(function() { return container ? container.width : 0 });
         topView.height = Qt.binding(function() { return container ? container.height : 0});
+        topView.anchors.centerIn = topView.parent
+    }
+
+    function presentTransitionFinished() {
         bottomView.enabled = false;
         topView.enabled = true;
+    }
 
+    function dismissTransitionStarted() {
     }
 
     function dismissTransitionFinished() {

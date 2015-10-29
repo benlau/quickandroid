@@ -8,7 +8,7 @@ import "../theme"
   https://www.google.com/design/spec/components/lists-controls.html
  */
 
-Activity {
+Page {
     actionBar: ActionBar {
         id: actionBar
         upEnabled: true

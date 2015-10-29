@@ -47,9 +47,23 @@ FocusScope {
             return;
         }
 
-        if (stack.topPage === this) {
+        if (stack.topPage === page) {
             stack.pop(animated);
         } // @TODO remove middle page
+    }
+
+    function back() {
+        dismiss(true);
+    }
+
+    function onBackKeyPressed() {
+        // Override this function if you don't like this behavior
+        if (!state) {
+            return false;
+        }
+
+        state = "";
+        return true;
     }
 
     Rectangle {
@@ -91,5 +105,10 @@ FocusScope {
         value: page.width
     }
 
+    Keys.onReleased: {
+        if (event.key === Qt.Key_Back) {
+            event.accepted = onBackKeyPressed();
+        }
+    }
 }
 

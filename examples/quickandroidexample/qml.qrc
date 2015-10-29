@@ -3,11 +3,9 @@
         <file>main.qml</file>
         <file>res/drawable-hdpi/icon.png</file>
         <file>Components.qml</file>
-        <file>shadow/ShadowPreview.qml</file>
         <file>shadow/ShadowDemo.qml</file>
         <file>res/drawable-xxhdpi/ic_menu.png</file>
         <file>dialog/DialogDemo.qml</file>
-        <file>switch/SwitchPreview.qml</file>
         <file>notification/NotificationDemo.qml</file>
         <file>theme/AppTheme.qml</file>
         <file>theme/qmldir</file>

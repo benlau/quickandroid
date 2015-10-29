@@ -4,7 +4,7 @@ import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
 import "./theme"
 
-Activity {
+Page {
 
     actionBar: ActionBar {
         id : actionBar
@@ -96,7 +96,7 @@ Activity {
             title: model.name
             subtitle: model.description
             onClicked: {
-                start(Qt.resolvedUrl(model.demo));
+                present(Qt.resolvedUrl(model.demo));
             }
         }
 

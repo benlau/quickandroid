@@ -4,7 +4,7 @@ import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
 import "../theme"
 
-Activity {
+Page {
 
     actionBar: ActionBar {
         id : actionBar

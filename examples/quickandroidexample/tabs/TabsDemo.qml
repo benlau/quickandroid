@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
 
-Activity {
+Page {
     actionBar: ActionBar {
         title: "Tabs Demonstration"
         onActionButtonClicked: back();
