@@ -56,16 +56,21 @@ Rectangle {
             compare(initialPage.appearCount,1);
 
             stack.pop(); // It will do nothing
-            stack.push(page1);
-            var p1 = Testable.search(stack,"Page1");
+            compare(stack.count,1);
+
+            var p1 = stack.push(page1);
+            compare(stack.count,2);
             compare(p1.appearCount,0);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,0);
+            compare(stack.topPage,initialPage);
 
             wait(200);
-            compare(p1.appearCount,1);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,1);
+            compare(stack.topPage,p1);
+            compare(p1.appearCount,1);
+
 
             stack.pop();
             compare(p1.appearCount,1);
@@ -110,6 +115,26 @@ Rectangle {
 
             p1.dismiss(false);
             compare(stack.count,1);
+            stack.destroy();
+        }
+
+        Component {
+            id: component2
+            PageStack {
+                initialPage: Page {
+                    noHistory: true
+                }
+            }
+        }
+
+        function test_noHistory_initialPage() {
+            var stack = component2.createObject(window);
+            compare(stack.count,1);
+            var p1 = stack.push(page1,{});
+            compare(stack.count,1);
+            wait(200);
+            compare(stack.topPage,p1);
+            stack.destroy();
         }
     }
 

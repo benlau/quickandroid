@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
 import "./Transitions"
+import "./Styles"
 import "./utils.js" as Utils
 
 FocusScope {
@@ -11,7 +12,7 @@ FocusScope {
 
     property bool noHistory : false
 
-    property color backgroundColor : Constants.white100
+    property color backgroundColor : aStyle.backgroundColor
 
     default property alias content : contentHolder.data
 
@@ -26,6 +27,8 @@ FocusScope {
     property var _transition
 
     property var stack: null
+
+    property PageStyle aStyle: ThemeManager.currentTheme.page
 
     function present(source,properties,animated) {
         if (!stack) {

@@ -130,6 +130,10 @@ Style {
         color: theme.colorAccent
     }
 
+    property PageStyle page: PageStyle {
+        backgroundColor: Constants.white100
+    }
+
     // Allow to place children under Theme.
     default property alias children: theme.__children
     property list<QtObject> __children: [QtObject {}]
