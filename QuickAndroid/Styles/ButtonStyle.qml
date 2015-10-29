@@ -11,6 +11,7 @@ Style {
     /// Specifies that icon and background on the local filesystem should be loaded asynchronously in a separate thread. The default value is false, causing the user interface thread to block while the it is loading.
     property bool asynchronous : false
 
+    // Expected icon source size
     property size iconSourceSize
 
     property TextStyle text: TextStyle {

@@ -107,5 +107,6 @@
         <file>PageStack.qml</file>
         <file>Transitions/GrowFadeInTransition.qml</file>
         <file>Styles/PageStyle.qml</file>
+        <file>Styles/utils.js</file>
     </qresource>
 </RCC>

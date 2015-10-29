@@ -1,3 +1,9 @@
+/* Page Component
+   Author: Ben Lau
+   License: Apache-2.0
+   Website: https://github.com/benlau/quickandroid
+ */
+
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
