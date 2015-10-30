@@ -17,6 +17,13 @@ Rectangle {
 
             PageStack {
                 anchors.fill: parent
+                property var pushedList: new Array
+
+                property var poppedList: new Array
+
+                onPushed: pushedList.push(page);
+                onPopped: poppedList.push(page);
+
                 initialPage: Page {
                     objectName: "InitialPage"
 
@@ -54,12 +61,18 @@ Rectangle {
             var stack = component1.createObject(window);
             var initialPage = Testable.search(stack,"InitialPage");
             compare(initialPage.appearCount,1);
+            compare(stack.pushedList.length,1);
+            compare(stack.poppedList.length,0);
 
             stack.pop(); // It will do nothing
             compare(stack.count,1);
+            compare(stack.pushedList.length,1);
+            compare(stack.poppedList.length,0);
 
             var p1 = stack.push(page1);
             compare(stack.count,2);
+            compare(stack.pushedList.length,2);
+            compare(stack.poppedList.length,0);
             compare(p1.appearCount,0);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,0);
@@ -74,6 +87,8 @@ Rectangle {
 
             stack.pop();
             compare(p1.appearCount,1);
+            compare(stack.pushedList.length,2);
+            compare(stack.poppedList.length,1);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,1);
             wait(200);

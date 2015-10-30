@@ -18,6 +18,7 @@ Rectangle {
             id: page1
             Page {
                 anchors.fill: parent
+
                 actionBar: ActionBar {
                     title: "Page 1"
                 }

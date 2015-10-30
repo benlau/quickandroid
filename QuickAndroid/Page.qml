@@ -28,6 +28,12 @@ FocusScope {
     // It is emitted when the page is not visible to user
     signal disappear();
 
+    // It is emitted when the page become visible to user for first time.
+    signal presented();
+
+    // It is emitted when the page bcome invisible and will never visible again
+    signal dismissed();
+
     property Component transition: GrowFadeInTransition {}
 
     property var _transition

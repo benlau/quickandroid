@@ -19,6 +19,11 @@ FocusScope {
 
     readonly property var pages : new Array
 
+    signal pushed(Item page)
+
+    signal popped(Item page)
+
+
     focus: true
 
     function push(source,properties,animated) {
@@ -28,18 +33,24 @@ FocusScope {
         page.stack = pageStack;
 
         if (topPage && topPage.noHistory) {
-            topPage.disappear();
-            topPage.destroy();
+            var originalTopPage = topPage;
             if (pages.length >= 2) {
                 topPage = pages[pages.length - 2];
             } else {
                 topPage = null;
             }
             pages[pages.length - 1] = page;
+            pagesChanged();
+
+            originalTopPage.disappear();
+            popped(topPage);
+            originalTopPage.destroy();
+            pushed(page);
         } else {
             pages.push(page);
+            pagesChanged();
+            pushed(page);
         }
-        pagesChanged();
 
         var bottomPage = topPage;
         if (!bottomPage)
@@ -59,6 +70,7 @@ FocusScope {
             transition.presentTransitionFinished();
             bottomPage.disappear();
             page.appear();
+            page.presented();
             page.focus = true;
             page.enabled = true;
             topPage = page;
@@ -83,14 +95,16 @@ FocusScope {
 
         animated = animated === undefined ? true : animated;
         var transition = topPage._transition;
-        pages.pop();
+        var poppedPage = pages.pop();
         pagesChanged();
+        popped(poppedPage);
 
         var prevPage = pages[pages.length - 1];
 
         function finished() {
             transition.dismissTransitionFinished();
             topPage.disappear();
+            topPage.dismissed();
             topPage.destroy();
             prevPage.appear();
             prevPage.focus = true;

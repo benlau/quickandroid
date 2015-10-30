@@ -23,6 +23,7 @@ Quick.Text {
     // Possible values : [Constants.smallText , Constants.normalText , Constants.mediumText , Constants.largeText ]
     property string type : ""
 
+    // e.g Contants.center
     property string gravity: ""
 
     /// Normal text color
