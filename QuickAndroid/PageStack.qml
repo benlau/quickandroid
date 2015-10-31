@@ -52,6 +52,8 @@ FocusScope {
             pushed(page);
         }
 
+        page.aboutToPresent();
+
         var bottomPage = topPage;
         if (!bottomPage)
             bottomPage = dummyPage;
@@ -97,6 +99,7 @@ FocusScope {
         var transition = topPage._transition;
         var poppedPage = pages.pop();
         pagesChanged();
+        poppedPage.aboutToDismiss();
         popped(poppedPage);
 
         var prevPage = pages[pages.length - 1];

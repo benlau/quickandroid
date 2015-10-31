@@ -28,8 +28,12 @@ FocusScope {
     // It is emitted when the page is not visible to user
     signal disappear();
 
+    signal aboutToPresent();
+
     // It is emitted when the page become visible to user for first time.
     signal presented();
+
+    signal aboutToDismiss();
 
     // It is emitted when the page bcome invisible and will never visible again
     signal dismissed();
