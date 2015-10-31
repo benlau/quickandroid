@@ -23,68 +23,75 @@ FocusScope {
 
     signal popped(Item page)
 
-
     focus: true
 
     function push(source,properties,animated) {
-        animated = animated === undefined ? true : animated;
+        var page;
 
-        var page = Utils.createObject(source,pageStack,properties);
-        page.stack = pageStack;
+        try {
+            animated = animated === undefined ? true : animated;
 
-        if (topPage && topPage.noHistory) {
-            var originalTopPage = topPage;
-            if (pages.length >= 2) {
-                topPage = pages[pages.length - 2];
+            page = Utils.createObject(source,pageStack,properties);
+            page.stack = pageStack;
+
+            if (topPage && topPage.noHistory) {
+                var originalTopPage = topPage;
+                if (pages.length >= 2) {
+                    topPage = pages[pages.length - 2];
+                } else {
+                    topPage = null;
+                }
+                pages[pages.length - 1] = page;
+                pagesChanged();
+
+                originalTopPage.disappear();
+                popped(topPage);
+                originalTopPage.destroy();
+                pushed(page);
             } else {
-                topPage = null;
+                pages.push(page);
+                pagesChanged();
+                pushed(page);
             }
-            pages[pages.length - 1] = page;
-            pagesChanged();
 
-            originalTopPage.disappear();
-            popped(topPage);
-            originalTopPage.destroy();
-            pushed(page);
-        } else {
-            pages.push(page);
-            pagesChanged();
-            pushed(page);
-        }
+            page.aboutToPresent();
 
-        page.aboutToPresent();
+            var bottomPage = topPage;
+            if (!bottomPage)
+                bottomPage = dummyPage;
 
-        var bottomPage = topPage;
-        if (!bottomPage)
-            bottomPage = dummyPage;
+            var transitionComp = page.transition;
 
-        var transitionComp = page.transition;
+            var transition = transitionComp.createObject(page,
+                                                         {
+                                                             container: pageStack,
+                                                             topView: page,
+                                                             bottomView: bottomPage
+                                                         });
+            page._transition = transition;
 
-        var transition = transitionComp.createObject(page,
-                                                     {
-                                                         container: pageStack,
-                                                         topView: page,
-                                                         bottomView: bottomPage
-                                                     });
-        page._transition = transition;
+            function finished() {
+                transition.presentTransitionFinished();
+                bottomPage.disappear();
+                page.appear();
+                page.presented();
+                page.focus = true;
+                page.enabled = true;
+                topPage = page;
+            }
 
-        function finished() {
-            transition.presentTransitionFinished();
-            bottomPage.disappear();
-            page.appear();
-            page.presented();
-            page.focus = true;
-            page.enabled = true;
-            topPage = page;
-        }
+            transition.presentTransitionStarted();
 
-        transition.presentTransitionStarted();
+            if (animated) {
+                transition.presentTransition.onStopped.connect(finished);
+                transition.presentTransition.start();
+            } else {
+                finished();
+            }
 
-        if (animated) {
-            transition.presentTransition.onStopped.connect(finished);
-            transition.presentTransition.start();
-        } else {
-            finished();
+        } catch (e) {
+            console.error(e);
+            console.trace();
         }
 
         return page;

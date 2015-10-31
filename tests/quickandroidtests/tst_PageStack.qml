@@ -13,7 +13,7 @@ Rectangle {
         when : windowShown
 
         Component {
-            id: component1
+            id: pageStackCreator1
 
             PageStack {
                 anchors.fill: parent
@@ -58,7 +58,7 @@ Rectangle {
         }
 
         function test_preview() {
-            var stack = component1.createObject(window);
+            var stack = pageStackCreator1.createObject(window);
             var initialPage = Testable.search(stack,"InitialPage");
             compare(initialPage.appearCount,1);
             compare(stack.pushedList.length,1);
@@ -101,7 +101,7 @@ Rectangle {
         }
 
         function test_noHistory() {
-            var stack = component1.createObject(window);
+            var stack = pageStackCreator1.createObject(window);
             var initialPage = Testable.search(stack,"InitialPage");
             compare(initialPage.appearCount,1);
 
@@ -118,7 +118,7 @@ Rectangle {
         }
 
         function test_present() {
-            var stack = component1.createObject(window);
+            var stack = pageStackCreator1.createObject(window);
             var initialPage = Testable.search(stack,"InitialPage");
             compare(initialPage.stack,stack);
             compare(initialPage.appearCount,1);
@@ -150,6 +150,18 @@ Rectangle {
             wait(200);
             compare(stack.topPage,p1);
             stack.destroy();
+        }
+
+        Component {
+            id: itemCreator;
+            Item {
+
+            }
+        }
+
+        function test_error() {
+            var stack = pageStackCreator1.createObject(window);
+            stack.push(itemCreator);
         }
     }
 
