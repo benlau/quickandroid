@@ -38,7 +38,7 @@ FocusScope {
     // It is emitted when the page bcome invisible and will never visible again
     signal dismissed();
 
-    property Component transition: GrowFadeInTransition {}
+    property Component transitionAnimation: GrowFadeInTransition {}
 
     property bool isPresented: false
 

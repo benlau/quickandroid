@@ -61,7 +61,7 @@ FocusScope {
             if (!bottomPage)
                 bottomPage = dummyPage;
 
-            var transitionComp = page.transition;
+            var transitionComp = page.transitionAnimation;
 
             var transition = transitionComp.createObject(page,
                                                          {

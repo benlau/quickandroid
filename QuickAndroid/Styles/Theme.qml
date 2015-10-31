@@ -131,7 +131,7 @@ Style {
     }
 
     property PageStyle page: PageStyle {
-        backgroundColor: Constants.white100
+        backgroundColor: windowBackground
     }
 
     // Allow to place children under Theme.
