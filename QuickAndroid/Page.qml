@@ -40,6 +40,8 @@ FocusScope {
 
     property Component transition: GrowFadeInTransition {}
 
+    property bool isPresented: false
+
     property var _transition
 
     property var stack: null
@@ -80,6 +82,10 @@ FocusScope {
 
         state = "";
         return true;
+    }
+
+    onPresented: {
+        isPresented = true;
     }
 
     Rectangle {

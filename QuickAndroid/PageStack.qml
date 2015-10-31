@@ -46,6 +46,7 @@ FocusScope {
 
                 originalTopPage.disappear();
                 popped(topPage);
+                originalTopPage.parent = null;
                 originalTopPage.destroy();
                 pushed(page);
             } else {
@@ -116,6 +117,7 @@ FocusScope {
                 transition.dismissTransitionFinished();
                 topPage.disappear();
                 topPage.dismissed();
+                topPage.parent = null;
                 topPage.destroy();
                 prevPage.appear();
                 prevPage.focus = true;
