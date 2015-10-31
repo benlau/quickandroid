@@ -36,7 +36,13 @@ Item {
         parent = p;
     }
 
-    onParentChanged: overlay.placeToTop();
-    Component.onCompleted: overlay.placeToTop();
+    Component.onCompleted: {
+        overlay.placeToTop();
+        onParentChanged.connect(placeToTop);
+    }
+
+    Component.onDestruction: {
+        onParentChanged.disconnect(placeToTop);
+    }
 
 }

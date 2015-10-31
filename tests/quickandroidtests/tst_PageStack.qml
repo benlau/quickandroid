@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtTest 1.0
 import QuickAndroid 0.1
+import QuickAndroid.Private 0.1
 
 Rectangle {
     id: window
@@ -138,6 +139,9 @@ Rectangle {
             PageStack {
                 initialPage: Page {
                     noHistory: true
+
+                    Overlay {
+                    }
                 }
             }
         }
@@ -147,7 +151,10 @@ Rectangle {
             compare(stack.count,1);
             var p1 = stack.push(page1,{});
             compare(stack.count,1);
-            wait(200);
+            wait(300);
+            if (!stack.topPage) {
+                console.log(stack.count);
+            }
             compare(stack.topPage,p1);
             stack.destroy();
         }

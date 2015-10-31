@@ -99,10 +99,10 @@ Rectangle {
 
             wait(100);
             compare(button1.pressAndHoldCount,1);
-            wait(800);
+            wait(850);
             compare(button1.pressAndHoldCount,2);
             mouseRelease(button1);
-            wait(800);
+            wait(850);
             compare(button1.pressAndHoldCount,2);
 
         }
