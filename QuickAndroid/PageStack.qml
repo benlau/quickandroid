@@ -98,36 +98,42 @@ FocusScope {
     }
 
     function pop(animated) {
-        if (pages.length === 1) {
-            return;
-        }
+        try {
+            if (pages.length === 1) {
+                return;
+            }
 
-        animated = animated === undefined ? true : animated;
-        var transition = topPage._transition;
-        var poppedPage = pages.pop();
-        pagesChanged();
-        poppedPage.aboutToDismiss();
-        popped(poppedPage);
+            animated = animated === undefined ? true : animated;
+            var transition = topPage._transition;
+            var poppedPage = pages.pop();
+            pagesChanged();
+            poppedPage.aboutToDismiss();
+            popped(poppedPage);
 
-        var prevPage = pages[pages.length - 1];
+            var prevPage = pages[pages.length - 1];
 
-        function finished() {
-            transition.dismissTransitionFinished();
-            topPage.disappear();
-            topPage.dismissed();
-            topPage.destroy();
-            prevPage.appear();
-            prevPage.focus = true;
-            topPage = prevPage;
-        }
+            function finished() {
+                transition.dismissTransitionFinished();
+                topPage.disappear();
+                topPage.dismissed();
+                topPage.destroy();
+                prevPage.appear();
+                prevPage.focus = true;
+                topPage = prevPage;
+            }
 
-        transition.dismissTransitionStarted();
+            transition.dismissTransitionStarted();
 
-        if (animated) {
-            transition.dismissTransition.onStopped.connect(finished);
-            transition.dismissTransition.start();
-        } else {
-            finished();
+            if (animated) {
+                transition.dismissTransition.onStopped.connect(finished);
+                transition.dismissTransition.start();
+            } else {
+                finished();
+            }
+
+        } catch(e) {
+            console.error(e);
+            console.trace();
         }
     }
 

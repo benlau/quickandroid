@@ -9,6 +9,7 @@ import QuickAndroid 0.1
 import "../global.js" as Global
 
 Item {
+    id: overlay
     z: Constants.zPopupLayer
     width: parent.width
     height: parent.height
@@ -35,7 +36,7 @@ Item {
         parent = p;
     }
 
-    onParentChanged: placeToTop();
-    Component.onCompleted: placeToTop();
+    onParentChanged: overlay.placeToTop();
+    Component.onCompleted: overlay.placeToTop();
 
 }
