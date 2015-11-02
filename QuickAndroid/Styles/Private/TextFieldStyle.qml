@@ -128,16 +128,16 @@ TextFieldStyle {
     }
 
     property Component __selectionHandle: Image {
-        source:  Qt.resolvedUrl("./drawable-xxhdpi/text_select_handle_left.png")
-        sourceSize : Qt.size(96 * A.dp, 88 * A.dp)
+        source:  "image://quickandroid-drawable/text_select_handle_left"
+        asynchronous: true
         x: -width / 4 * 3
         y: styleData.lineHeight
     }
 
     property Component __cursorHandle: Image {
-        source: styleData.hasSelection ? Qt.resolvedUrl("./drawable-xxhdpi/text_select_handle_right.png")
-                  : Qt.resolvedUrl("./drawable-xxhdpi/text_select_handle_middle.png")
-        sourceSize : Qt.size(96 * A.dp, 88 * A.dp)
+        source: styleData.hasSelection ? "image://quickandroid-drawable/text_select_handle_right"
+                  : "image://quickandroid-drawable/text_select_handle_middle"
+        asynchronous: true
         x: styleData.hasSelection ? -width / 4 : -width / 2
         y: styleData.lineHeight
     }

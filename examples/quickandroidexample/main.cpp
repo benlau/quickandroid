@@ -36,9 +36,6 @@ int main(int argc, char *argv[])
 
     QQuickView view;
 
-
-    qDebug() << "Loop finished";
-
     /* QuickAndroid Initialization */
 
     view.engine()->addImportPath("qrc:///"); // Add QuickAndroid into the import path
@@ -52,18 +49,6 @@ int main(int argc, char *argv[])
 
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl(QStringLiteral("qrc:///main.qml")));
-
-    /*
-    QTimer timer;
-    timer.setInterval(5000);
-
-    QEventLoop loop;
-    QObject::connect(&timer,SIGNAL(timeout()),
-                     &loop,SLOT(quit()));
-
-    timer.start();
-    loop.exec();
-    */
 
     view.show();
 
