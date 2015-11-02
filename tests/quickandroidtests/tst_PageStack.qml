@@ -77,7 +77,7 @@ Rectangle {
             compare(p1.appearCount,0);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,0);
-            compare(stack.topPage,initialPage);
+            compare(stack.topPage,p1);
 
             wait(200);
             compare(initialPage.appearCount,1);
@@ -85,8 +85,8 @@ Rectangle {
             compare(stack.topPage,p1);
             compare(p1.appearCount,1);
 
-
             stack.pop();
+            compare(stack.count,1);
             compare(p1.appearCount,1);
             compare(stack.pushedList.length,2);
             compare(stack.poppedList.length,1);
@@ -151,10 +151,6 @@ Rectangle {
             compare(stack.count,1);
             var p1 = stack.push(page1,{});
             compare(stack.count,1);
-            wait(300);
-            if (!stack.topPage) {
-                console.log(stack.count);
-            }
             compare(stack.topPage,p1);
             stack.destroy();
         }

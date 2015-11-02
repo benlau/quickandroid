@@ -6,41 +6,41 @@ QtObject {
     property Item container : null;
 
     /// The view going to be presented or dismissed.
-    property Item topView : Item {}
+    property Item upperView : Item {}
 
     /// The original view.
-    property Item bottomView : Item {}
+    property Item lowerView : Item {}
 
     signal appear
 
     signal disappear
 
     function presentTransitionStarted() {
-        topView.x = Qt.binding(function() { return container ? container.x  : 0});
-        topView.y = Qt.binding(function() { return container ? container.y : 0});
-        topView.width = Qt.binding(function() { return container ? container.width : 0 });
-        topView.height = Qt.binding(function() { return container ? container.height : 0});
-        topView.anchors.centerIn = topView.parent
+        upperView.x = Qt.binding(function() { return container ? container.x  : 0});
+        upperView.y = Qt.binding(function() { return container ? container.y : 0});
+        upperView.width = Qt.binding(function() { return container ? container.width : 0 });
+        upperView.height = Qt.binding(function() { return container ? container.height : 0});
+        upperView.anchors.centerIn = upperView.parent
     }
 
     function presentTransitionFinished() {
-        bottomView.enabled = false;
-        topView.enabled = true;
+        lowerView.enabled = false;
+        upperView.enabled = true;
     }
 
     function dismissTransitionStarted() {
     }
 
     function dismissTransitionFinished() {
-        topView.visible = false;
-        topView.enabled = false;
-        bottomView.enabled = true;
+        upperView.visible = false;
+        upperView.enabled = false;
+        lowerView.enabled = true;
     }
 
     property var presentTransition: ParallelAnimation {
 
         PropertyAnimation{
-            target : topView
+            target : upperView
             property : "opacity"
             from : 0
             to : 1
@@ -49,7 +49,7 @@ QtObject {
         }
 
         PropertyAnimation {
-            target : topView
+            target : upperView
             property : "scale"
             from : 0.8
             to : 1
@@ -61,7 +61,7 @@ QtObject {
 
     property var dismissTransition: ParallelAnimation {
         PropertyAnimation{
-            target : topView
+            target : upperView
             property : "opacity"
             from : 1
             to : 0
@@ -70,7 +70,7 @@ QtObject {
         }
 
         PropertyAnimation {
-            target : topView
+            target : upperView
             property : "scale"
             from : 1
             to : 0.8

@@ -41,23 +41,29 @@ FocusScope {
                 } else {
                     topPage = null;
                 }
-                pages[pages.length - 1] = page;
+                pages.pop();
                 pagesChanged();
 
                 originalTopPage.disappear();
                 popped(topPage);
                 originalTopPage.parent = null;
                 originalTopPage.destroy();
-                pushed(page);
-            } else {
-                pages.push(page);
-                pagesChanged();
-                pushed(page);
             }
+
+            // Event flow
+            // 1) Update topPage
+            // 2) pagesChanged
+            // 3) pushed/popped
+            // 4) aboutToPresent/aboutToDismiss
+
+            var bottomPage = topPage;
+            topPage = page;
+            pages.push(page);
+            pagesChanged();
+            pushed(page);
 
             page.aboutToPresent();
 
-            var bottomPage = topPage;
             if (!bottomPage)
                 bottomPage = dummyPage;
 
@@ -66,8 +72,8 @@ FocusScope {
             var transition = transitionComp.createObject(page,
                                                          {
                                                              container: pageStack,
-                                                             topView: page,
-                                                             bottomView: bottomPage
+                                                             upperView: page,
+                                                             lowerView: bottomPage
                                                          });
             page._transition = transition;
 
@@ -78,7 +84,6 @@ FocusScope {
                 page.presented();
                 page.focus = true;
                 page.enabled = true;
-                topPage = page;
             }
 
             transition.presentTransitionStarted();
@@ -107,21 +112,21 @@ FocusScope {
             animated = animated === undefined ? true : animated;
             var transition = topPage._transition;
             var poppedPage = pages.pop();
+
+            topPage = pages[pages.length - 1];
             pagesChanged();
-            poppedPage.aboutToDismiss();
             popped(poppedPage);
 
-            var prevPage = pages[pages.length - 1];
+            poppedPage.aboutToDismiss();
 
             function finished() {
                 transition.dismissTransitionFinished();
-                topPage.disappear();
-                topPage.dismissed();
-                topPage.parent = null;
-                topPage.destroy();
-                prevPage.appear();
-                prevPage.focus = true;
-                topPage = prevPage;
+                poppedPage.disappear();
+                poppedPage.dismissed();
+                poppedPage.parent = null;
+                poppedPage.destroy();
+                topPage.appear();
+                topPage.focus = true;
             }
 
             transition.dismissTransitionStarted();
