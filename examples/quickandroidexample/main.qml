@@ -10,6 +10,7 @@ Rectangle {
 //    icon: Qt.resolvedUrl("./res/drawable-hdpi/icon.png")
 
     PageStack {
+        objectName: "PageStack";
         anchors.fill: parent
         initialPage: Components {
 

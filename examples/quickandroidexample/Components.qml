@@ -5,6 +5,75 @@ import QuickAndroid.Styles 0.1
 import "./theme"
 
 Page {
+    objectName: "ComponentPage";
+
+    property var pages: [
+        {
+            name: "BottomSheet",
+            demo: "bottomsheet/BottomSheetDemo.qml",
+            description: "Material Design Bottom Sheet"
+        },
+
+        {
+            name : "Dialog",
+            demo: "dialog/DialogDemo.qml",
+            description: "Dialog Component"
+        },
+
+        {
+            name: "Drawable Provider",
+            demo: "drawableprovider/DrawableProviderDemo.qml",
+            description: "Loading drawable resource in Android style"
+        },
+
+        {
+            name : "Drop Down Menu",
+            demo: "dropDownMenu/DropDownMenuDemo.qml",
+            description: "DropDownMenu components"
+        },
+
+        {
+            name: "Floating Action Button",
+            demo: "floatingactionbutton/FloatingActionButtonDemo.qml",
+            description: "Circled button floating above UI"
+        },
+
+        {
+            name: "Image Picker",
+            demo: "imagePicker/ImagePickerDemo.qml",
+            description: "Pick interface via Java language binding"
+        },
+
+        {
+            name: "ListItem",
+            demo: "listitem/ListItemDemo.qml",
+            description: "Lists: Control"
+        },
+
+        {
+            name : "Notification Example",
+            demo : "notification/NotificationDemo.qml",
+            description: "SystemDispatcher - Communication between C++ and Java"
+        },
+
+        {
+            name : "Shadow",
+            demo: "shadow/ShadowDemo.qml",
+            description: "Shadow, Paper components"
+        },
+
+        {
+            name : "Tabs",
+            description: "TabBar, TabView",
+            demo : "tabs/TabsDemo.qml"
+        },
+
+        {
+            name : "TextField",
+            description: "TextField",
+            demo : "textField/TextFieldDemo.qml"
+        }
+    ];
 
     actionBar: ActionBar {
         id : actionBar
@@ -14,93 +83,17 @@ Page {
         actionButtonEnabled: false
     }
 
-    ListModel {
-        id: listModel
-        objectName: "ComponentListModel"
-
-        ListElement {
-            name: "BottomSheet"
-            demo: "bottomsheet/BottomSheetDemo.qml"
-            description: "Material Design Bottom Sheet"
-        }
-
-        ListElement {
-            name : "Dialog"
-            preview : "dialog/DialogPreview.qml"
-            demo: "dialog/DialogDemo.qml"
-            description: "Dialog Component"
-        }
-
-        ListElement {
-            name: "Drawable Provider"
-            demo: "drawableprovider/DrawableProviderDemo.qml"
-            description: "Loading drawable resource in Android style"
-        }
-
-        ListElement {
-            name : "Drop Down Menu"
-            demo: "dropDownMenu/DropDownMenuDemo.qml"
-            description: "DropDownMenu components"
-        }
-
-        ListElement {
-            name: "Floating Action Button"
-            demo: "floatingactionbutton/FloatingActionButtonDemo.qml"
-            description: "Circled button floating above UI"
-        }
-
-        ListElement {
-            name: "Image Picker"
-            demo: "imagePicker/ImagePickerDemo.qml"
-            description: "Pick interface via Java language binding"
-        }
-
-        ListElement {
-            name: "ListItem"
-            demo: "listitem/ListItemDemo.qml"
-            description: "Lists: Control"
-        }
-
-        ListElement {
-            name : "Notification Example"
-            preview : ""
-            demo : "notification/NotificationDemo.qml"
-            description: "SystemDispatcher - Communication between C++ and Java"
-        }
-
-        ListElement {
-            name : "Shadow"
-            preview : "shadow/ShadowPreview.qml"
-            demo: "shadow/ShadowDemo.qml"
-            description: "Shadow, Paper components"
-        }
-
-        ListElement {
-            name : "Tabs"
-            description: "TabBar, TabView"
-            demo : "tabs/TabsDemo.qml"
-        }
-
-        ListElement {
-            name : "TextField"
-            description: "TextField"
-            demo : "textField/TextFieldDemo.qml"
-        }
-
-
-    }
-
     VisualDataModel {
         id: visualDataModel
         delegate: ListItem {
-            title: model.name
-            subtitle: model.description
+            title: modelData.name
+            subtitle: modelData.description
             onClicked: {
-                present(Qt.resolvedUrl(model.demo));
+                present(Qt.resolvedUrl(modelData.demo));
             }
         }
 
-        model: listModel;
+        model: pages;
     }
 
     ListView {
