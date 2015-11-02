@@ -126,7 +126,7 @@ Style {
         textColor: textColorPrimary
     }
 
-    property TextFieldStyle textField: TextFieldStyle {
+    property TextFieldMaterialStyle textField: TextFieldMaterialStyle {
         color: theme.colorAccent
     }
 
