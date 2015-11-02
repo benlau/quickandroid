@@ -109,5 +109,6 @@
         <file>Styles/PageStyle.qml</file>
         <file>Styles/utils.js</file>
         <file>Styles/Private/TextFieldStyle.qml</file>
+        <file>Styles/Private/TextFieldMobileStyle.qml</file>
     </qresource>
 </RCC>

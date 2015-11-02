@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.3
 import QuickAndroid 0.1
 import QuickAndroid.Private 0.1
 
-TextFieldStyle {
+TextFieldMobileStyle {
     id: style
     objectName: "TextFieldStyleInstance"
     padding.top: (control.hasFloatingLabel ? 40 * A.dp : 16 * A.dp) + control._fontDiff - 2
@@ -125,21 +125,6 @@ TextFieldStyle {
                 }
             }
         ]
-    }
-
-    property Component __selectionHandle: Image {
-        source:  "image://quickandroid-drawable/text_select_handle_left"
-        asynchronous: true
-        x: -width / 4 * 3
-        y: styleData.lineHeight
-    }
-
-    property Component __cursorHandle: Image {
-        source: styleData.hasSelection ? "image://quickandroid-drawable/text_select_handle_right"
-                  : "image://quickandroid-drawable/text_select_handle_middle"
-        asynchronous: true
-        x: styleData.hasSelection ? -width / 4 : -width / 2
-        y: styleData.lineHeight
     }
 }
 

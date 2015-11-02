@@ -61,6 +61,7 @@ Rectangle {
         function test_preview() {
             var stack = pageStackCreator1.createObject(window);
             var initialPage = Testable.search(stack,"InitialPage");
+            var pushAnimFinished = false;
             compare(initialPage.appearCount,1);
             compare(stack.pushedList.length,1);
             compare(stack.poppedList.length,0);
@@ -71,6 +72,9 @@ Rectangle {
             compare(stack.poppedList.length,0);
 
             var p1 = stack.push(page1);
+            p1._transition.presentTransition.onStopped.connect(function() {
+                pushAnimFinished = true;
+            });
             compare(stack.count,2);
             compare(stack.pushedList.length,2);
             compare(stack.poppedList.length,0);
@@ -79,7 +83,8 @@ Rectangle {
             compare(initialPage.disappearCount,0);
             compare(stack.topPage,p1);
 
-            wait(200);
+            wait(500);
+            compare(pushAnimFinished,true);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,1);
             compare(stack.topPage,p1);
@@ -92,7 +97,7 @@ Rectangle {
             compare(stack.poppedList.length,1);
             compare(initialPage.appearCount,1);
             compare(initialPage.disappearCount,1);
-            wait(200);
+            wait(500);
             // p1 is destroyed.
             compare(initialPage.appearCount,2);
             compare(initialPage.disappearCount,1);
