@@ -76,12 +76,7 @@ FocusScope {
 
     function onBackKeyPressed() {
         // Override this function if you don't like this behavior
-        if (!state) {
-            return false;
-        }
-
-        state = "";
-        return true;
+        return false;
     }
 
     onPresented: {
