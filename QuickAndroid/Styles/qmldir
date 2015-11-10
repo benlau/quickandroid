@@ -9,11 +9,11 @@ DialogStyle 0.1 DialogStyle.qml
 ActivityStyle 0.1 ActivityStyle.qml
 ListItemStyle 0.1 ListItemStyle.qml
 DropDownMenuStyle 0.1 DropDownMenuStyle.qml
-TabBarStyle 0.1 TabBarStyle.qml
 Style 0.1 Style.qml
 RaisedButtonStyle 0.1 RaisedButtonStyle.qml
 FloatingActionButtonStyle 0.1 FloatingActionButtonStyle.qml
 PageStyle 0.1 PageStyle.qml
+TabBarMaterial 0.1 TabBarMaterial.qml
 TextFieldMaterial 0.1 TextFieldMaterial.qml
 TextFieldMaterialStyle 0.1 TextFieldMaterialStyle.qml
 TextFieldPlainStyle 0.1 TextFieldPlainStyle.qml

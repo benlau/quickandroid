@@ -120,7 +120,7 @@ Style {
         bottomPadding: 8 * A.dp
     }
 
-    property TabBarStyle tabBar : TabBarStyle {
+    property TabBarMaterial tabBar : TabBarMaterial {
         backgroundColor: colorPrimary
         indicatorColor: colorAccent
         textColor: textColorPrimary

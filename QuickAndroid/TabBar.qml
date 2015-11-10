@@ -12,12 +12,13 @@ import "./Private"
 Item {
     id: component
 
-    property TabBarStyle style: ThemeManager.currentTheme.tabBar
+    property TabBarMaterial material: ThemeManager.currentTheme.tabBar
 
-    property color backgroundColor: style.backgroundColor
-    property color indicatorColor: style.indicatorColor
+    property color backgroundColor: material.backgroundColor
 
-    property color textColor : style.textColor
+    property color indicatorColor: material.indicatorColor
+
+    property color textColor : material.textColor
 
     property var tabs : []
 

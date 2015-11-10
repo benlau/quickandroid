@@ -89,7 +89,7 @@
         <file>DropDownMenu.qml</file>
         <file>Styles/DropDownMenuStyle.qml</file>
         <file>A.qml</file>
-        <file>Styles/TabBarStyle.qml</file>
+        <file>Styles/TabBarMaterial.qml</file>
         <file>Styles/Style.qml</file>
         <file>TextField.qml</file>
         <file>Styles/TextFieldMaterial.qml</file>
