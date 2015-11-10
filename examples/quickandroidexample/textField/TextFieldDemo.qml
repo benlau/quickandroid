@@ -47,6 +47,17 @@ Page {
                 enabled: false
             }
 
+            TextField {
+
+                height: 48 * A.dp
+                width: parent.width
+                placeholderText: "TextStyle with plain style"
+
+                style: TextFieldPlainStyle {
+
+                }
+            }
+
             Item {
                 height: 48 * A.dp
                 width: parent.width

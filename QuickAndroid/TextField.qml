@@ -4,8 +4,8 @@ import QtQuick.Controls.Styles 1.3 as ControlSyles
 import QuickAndroid.Styles 0.1
 import QuickAndroid 0.1
 import QuickAndroid.Private 0.1
+import "./Styles"
 import "./Private"
-import "./Styles/Private" as Priv
 
 Control.TextField {
     id: textField
@@ -14,7 +14,7 @@ Control.TextField {
 
     property bool floatingLabelAlwaysOnTop: false;
 
-    property TextFieldMaterialStyle material: ThemeManager.currentTheme.textField
+    property TextFieldMaterial material: ThemeManager.currentTheme.textField
 
     /// The color of underline and floating text label on focus
     property color color: material.color
@@ -51,6 +51,6 @@ Control.TextField {
 
     onTextChanged: pasteButton.close();
 
-    style: Priv.TextFieldStyle { }
+    style: TextFieldMaterialStyle { }
 }
 

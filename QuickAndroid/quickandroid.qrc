@@ -92,7 +92,7 @@
         <file>Styles/TabBarStyle.qml</file>
         <file>Styles/Style.qml</file>
         <file>TextField.qml</file>
-        <file>Styles/TextFieldMaterialStyle.qml</file>
+        <file>Styles/TextFieldMaterial.qml</file>
         <file>drawable-xxhdpi/text_select_handle_right.png</file>
         <file>drawable-xxhdpi/text_select_handle_left.png</file>
         <file>Tab.qml</file>
@@ -108,7 +108,7 @@
         <file>Transitions/GrowFadeInTransition.qml</file>
         <file>Styles/PageStyle.qml</file>
         <file>Styles/utils.js</file>
-        <file>Styles/Private/TextFieldStyle.qml</file>
-        <file>Styles/Private/TextFieldMobileStyle.qml</file>
+        <file>Styles/TextFieldMaterialStyle.qml</file>
+        <file>Styles/TextFieldPlainStyle.qml</file>
     </qresource>
 </RCC>

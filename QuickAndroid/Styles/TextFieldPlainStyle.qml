@@ -6,6 +6,15 @@ import QuickAndroid.Private 0.1
 
 TextFieldStyle {
 
+    padding.top: 16 * A.dp
+    padding.bottom: 16 * A.dp
+    padding.left: 0
+    padding.right: 0
+
+    background: Item {
+
+    }
+
     property Component __selectionHandle: Image {
         source:  "image://quickandroid-drawable/text_select_handle_left"
         asynchronous: true

@@ -122,7 +122,7 @@ Rectangle {
 
             placeholderText: "Larger Text Size"
 
-            material: TextFieldMaterialStyle {
+            material: TextFieldMaterial {
                 extend: [ThemeManager.currentTheme.textFieldStyle]
                 Component.onCompleted: {
                     text.textSize = 32 * A.dp
@@ -138,7 +138,7 @@ Rectangle {
             floatingLabelText: "Floating Label"
             placeholderText: "Larger Text Size"
 
-            material: TextFieldMaterialStyle {
+            material: TextFieldMaterial {
                 Component.onCompleted: {
                     merge(this,ThemeManager.currentTheme.textField);
                     text.textSize = 32 * A.dp
