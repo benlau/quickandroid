@@ -66,7 +66,7 @@ Style {
         background: windowBackground
     }
 
-    property ButtonStyle button: ButtonStyle {
+    property ButtonMaterial button: ButtonMaterial {
     }
 
     property RaisedButtonStyle raisedButton: RaisedButtonStyle {

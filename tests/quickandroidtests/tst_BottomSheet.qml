@@ -38,7 +38,6 @@ Rectangle {
 
         function test_preview() {
             wait(200);
-            console.log(sheet1.paper.height);
             sheet1.open();
             wait(TestEnv.waitTime);
         }

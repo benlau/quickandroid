@@ -68,7 +68,7 @@
         <file>Styles/qmldir</file>
         <file>Styles/TextMaterial.qml</file>
         <file>Styles/ThemeManager.qml</file>
-        <file>Styles/ButtonStyle.qml</file>
+        <file>Styles/ButtonMaterial.qml</file>
         <file>Styles/SwitchStyle.qml</file>
         <file>Styles/DialogStyle.qml</file>
         <file>Styles/ActivityStyle.qml</file>
@@ -110,5 +110,6 @@
         <file>Styles/utils.js</file>
         <file>Styles/TextFieldMaterialStyle.qml</file>
         <file>Styles/TextFieldPlainStyle.qml</file>
+        <file>Styles/ButtonMaterialStyle.qml</file>
     </qresource>
 </RCC>

@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-ButtonStyle {
+ButtonMaterial {
     property string color
     property int depth : 1
 }
