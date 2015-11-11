@@ -5,7 +5,7 @@ Style {
     id: style
 
     // The style of input text
-    property TextStyle text : TextStyle {
+    property TextMaterial text : TextMaterial {
         textSize: 16 * A.dp
         textColor: Constants.black87
         disabledTextColor: Constants.black54

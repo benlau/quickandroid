@@ -12,7 +12,7 @@ Rectangle {
         id: style1
 
         iconSourceSize: Qt.size(47,47);
-        title: TextStyle {
+        title: TextMaterial {
             textSize: 23
         }
         keyline1: 8
@@ -107,7 +107,7 @@ Rectangle {
 
         Component {
             id: textCreator
-            TextStyle {
+            TextMaterial {
             }
         }
 

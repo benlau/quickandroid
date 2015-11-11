@@ -65,7 +65,7 @@ Rectangle {
             width: window.width
             background: Constants.white100
             aStyle: ActionBarStyle {
-                title: TextStyle {
+                title: TextMaterial {
                     textColor: "#FF0000"
                 }
             }

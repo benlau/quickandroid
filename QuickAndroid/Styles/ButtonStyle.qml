@@ -14,7 +14,7 @@ Style {
     // Expected icon source size
     property size iconSourceSize
 
-    property TextStyle text: TextStyle {
+    property TextMaterial text: TextMaterial {
         textSize: 14 * A.dp
         textColor: Constants.black87
         disabledTextColor: Constants.black54

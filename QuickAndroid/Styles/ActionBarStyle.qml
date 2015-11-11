@@ -16,7 +16,7 @@ Style {
 
     property var background
     property var actionButtonBackground
-    property TextStyle title : TextStyle {}
+    property TextMaterial title : TextMaterial {}
     property var homeAsUpIndicator
 
     property var divider : "#1A000000"

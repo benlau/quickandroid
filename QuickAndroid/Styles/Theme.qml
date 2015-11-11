@@ -40,22 +40,22 @@ Style {
     property int keyline2: 72 * A.dp
 
     // Normal test style
-    property TextStyle text : TextStyle {
+    property TextMaterial text : TextMaterial {
         textSize: 16 * A.dp
         textColor: Constants.black87
     }
 
-    property TextStyle smallText : TextStyle {
+    property TextMaterial smallText : TextMaterial {
         textSize: 14 * A.dp
         textColor : Constants.black87
     }
 
-    property TextStyle mediumText : TextStyle {
+    property TextMaterial mediumText : TextMaterial {
         textSize: 18 * A.dp
         textColor : Constants.black87
     }
 
-    property TextStyle largeText : TextStyle {
+    property TextMaterial largeText : TextMaterial {
         textSize: 22 * A.dp
         textColor : Constants.black87
     }
@@ -71,7 +71,7 @@ Style {
 
     property RaisedButtonStyle raisedButton: RaisedButtonStyle {
         color: colorPrimary
-        text: TextStyle {
+        text: TextMaterial {
             textSize: 14 * A.dp
             textColor: textColorPrimary
         }
@@ -84,7 +84,7 @@ Style {
     property ActionBarStyle actionBar : ActionBarStyle {
         background : "#E6E6E6"
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
-        title: TextStyle {
+        title: TextMaterial {
             textSize: 18*A.dp
             textColor: textColorPrimary
             disabledTextColor: textColorPrimary

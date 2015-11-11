@@ -87,7 +87,7 @@ Controls.Button {
                 id: label
                 anchors.centerIn: parent
                 text: control.text
-                aStyle: TextStyle {
+                material: TextMaterial {
                     textColor: button.textColor
                     textSize: button.textSize
                     bold: button.aStyle.text.bold

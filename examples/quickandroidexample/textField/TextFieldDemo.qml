@@ -51,7 +51,7 @@ Page {
 
                 height: 48 * A.dp
                 width: parent.width
-                placeholderText: "TextStyle with plain style"
+                placeholderText: "TextMaterial with plain style"
 
                 style: TextFieldPlainStyle {
 

@@ -17,14 +17,14 @@ Theme {
     // Background with shadow
     actionBar.background: Qt.resolvedUrl("./ActionBarBackground.qml");
 
-    // actionBar.title.textSize is not allowed in QML. You should declare your own TextStyle and assign directly.
+    // actionBar.title.textSize is not allowed in QML. You should declare your own TextMaterial and assign directly.
     // or modify text , smallText , mediumText and largetText
-    actionBar.title : customTextStyle1;
+    actionBar.title : customTextMaterial1;
     actionBar.iconSourceSize: Qt.size(24 * A.dp , 24 * A.dp)
 
     // Custom Style object.
-    TextStyle {
-        id : customTextStyle1
+    TextMaterial {
+        id : customTextMaterial1
         textSize: 18 * A.dp
         textColor : Constants.black87
     }
