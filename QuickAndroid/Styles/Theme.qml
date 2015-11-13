@@ -77,7 +77,7 @@ Style {
         }
     }
 
-    property FloatingActionButtonStyle floatingActionButton: FloatingActionButtonStyle {
+    property FloatingActionButtonMaterial floatingActionButton: FloatingActionButtonMaterial {
         color: colorAccent
     }
 

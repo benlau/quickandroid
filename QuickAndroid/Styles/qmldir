@@ -11,7 +11,8 @@ ListItemMaterial 0.1 ListItemMaterial.qml
 DropDownMenuMaterial 0.1 DropDownMenuMaterial.qml
 Style 0.1 Style.qml
 RaisedButtonStyle 0.1 RaisedButtonStyle.qml
-FloatingActionButtonStyle 0.1 FloatingActionButtonStyle.qml
+FloatingActionButtonMaterial 0.1 FloatingActionButtonMaterial.qml
+FloatingActionButtonMaterialStyle 0.1 FloatingActionButtonMaterialStyle.qml
 PageMaterial 0.1 PageMaterial.qml
 TabBarMaterial 0.1 TabBarMaterial.qml
 TextFieldMaterial 0.1 TextFieldMaterial.qml

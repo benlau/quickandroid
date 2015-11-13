@@ -102,7 +102,7 @@
         <file>BottomSheet.qml</file>
         <file>drawable/Mask.qml</file>
         <file>ImagePicker.qml</file>
-        <file>Styles/FloatingActionButtonStyle.qml</file>
+        <file>Styles/FloatingActionButtonMaterial.qml</file>
         <file>Page.qml</file>
         <file>PageStack.qml</file>
         <file>Transitions/GrowFadeInTransition.qml</file>
@@ -111,5 +111,6 @@
         <file>Styles/TextFieldMaterialStyle.qml</file>
         <file>Styles/TextFieldPlainStyle.qml</file>
         <file>Styles/ButtonMaterialStyle.qml</file>
+        <file>Styles/FloatingActionButtonMaterialStyle.qml</file>
     </qresource>
 </RCC>
