@@ -38,9 +38,9 @@ Item {
 
     default property alias content: container.children
 
-    property DialogStyle aStyle : ThemeManager.currentTheme.dialog
+    property DialogMaterial material : ThemeManager.currentTheme.dialog
 
-    property color tintColor: aStyle.tintColor
+    property color tintColor: material.tintColor
 
     function open() {
         isOpened = true

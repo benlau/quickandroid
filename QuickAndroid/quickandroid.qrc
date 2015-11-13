@@ -70,7 +70,7 @@
         <file>Styles/ThemeManager.qml</file>
         <file>Styles/ButtonMaterial.qml</file>
         <file>Styles/SwitchStyle.qml</file>
-        <file>Styles/DialogStyle.qml</file>
+        <file>Styles/DialogMaterial.qml</file>
         <file>Styles/ActivityStyle.qml</file>
         <file>Text.qml</file>
         <file>drawable/ListDivider.qml</file>

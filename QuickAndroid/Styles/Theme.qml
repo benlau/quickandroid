@@ -105,7 +105,7 @@ Style {
         switchPadding: 16 * A.dp
     }
 
-    property DialogStyle dialog : DialogStyle {
+    property DialogMaterial dialog : DialogMaterial {
         tintColor: colorAccent
     }
 

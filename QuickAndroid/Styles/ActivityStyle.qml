@@ -1,4 +1,5 @@
 /**
+  @deprecated
   Author: benlau
   Project: https://github.com/benlau/quickandroid
  */

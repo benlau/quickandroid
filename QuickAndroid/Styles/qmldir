@@ -5,7 +5,7 @@ Theme 0.1 Theme.qml
 ButtonMaterial 0.1 ButtonMaterial.qml
 ButtonMaterialStyle 0.1 ButtonMaterialStyle.qml
 SwitchStyle 0.1 SwitchStyle.qml
-DialogStyle 0.1 DialogStyle.qml
+DialogMaterial 0.1 DialogMaterial.qml
 ActivityStyle 0.1 ActivityStyle.qml
 ListItemStyle 0.1 ListItemStyle.qml
 DropDownMenuStyle 0.1 DropDownMenuStyle.qml
