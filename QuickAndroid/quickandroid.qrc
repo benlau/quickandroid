@@ -76,7 +76,7 @@
         <file>drawable/ListDivider.qml</file>
         <file>Private/BaseListItem.qml</file>
         <file>ListItem.qml</file>
-        <file>Styles/ListItemStyle.qml</file>
+        <file>Styles/ListItemMaterial.qml</file>
         <file>FloatingActionButton.qml</file>
         <file>TabBar.qml</file>
         <file>Private/Tab.qml</file>
@@ -87,7 +87,7 @@
         <file>Constants.qml</file>
         <file>Popup.qml</file>
         <file>DropDownMenu.qml</file>
-        <file>Styles/DropDownMenuStyle.qml</file>
+        <file>Styles/DropDownMenuMaterial.qml</file>
         <file>A.qml</file>
         <file>Styles/TabBarMaterial.qml</file>
         <file>Styles/Style.qml</file>
@@ -106,7 +106,7 @@
         <file>Page.qml</file>
         <file>PageStack.qml</file>
         <file>Transitions/GrowFadeInTransition.qml</file>
-        <file>Styles/PageStyle.qml</file>
+        <file>Styles/PageMaterial.qml</file>
         <file>Styles/utils.js</file>
         <file>Styles/TextFieldMaterialStyle.qml</file>
         <file>Styles/TextFieldPlainStyle.qml</file>

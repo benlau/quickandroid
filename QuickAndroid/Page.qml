@@ -18,7 +18,7 @@ FocusScope {
 
     property bool noHistory : false
 
-    property color backgroundColor : aStyle.backgroundColor
+    property color backgroundColor : material.backgroundColor
 
     default property alias content : contentHolder.data
 
@@ -46,7 +46,7 @@ FocusScope {
 
     property var stack: null
 
-    property PageStyle aStyle: ThemeManager.currentTheme.page
+    property PageMaterial material: ThemeManager.currentTheme.page
 
     function present(source,properties,animated) {
         if (!stack) {

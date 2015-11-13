@@ -109,13 +109,13 @@ Style {
         tintColor: colorAccent
     }
 
-    property ListItemStyle listItem : ListItemStyle {
+    property ListItemMaterial listItem : ListItemMaterial {
         leftPadding: keyline1
         rightPadding: keyline1
         titleKeyline: keyline2
     }
 
-    property DropDownMenuStyle dropDownMenu: DropDownMenuStyle {
+    property DropDownMenuMaterial dropDownMenu: DropDownMenuMaterial {
         topPadding: 8 * A.dp
         bottomPadding: 8 * A.dp
     }
@@ -130,7 +130,7 @@ Style {
         color: theme.colorAccent
     }
 
-    property PageStyle page: PageStyle {
+    property PageMaterial page: PageMaterial {
         backgroundColor: windowBackground
     }
 

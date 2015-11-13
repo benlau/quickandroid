@@ -12,7 +12,7 @@ import QuickAndroid.Styles 0.1
 
 Rectangle {
     id: component
-    property ListItemStyle style: ThemeManager.currentTheme.listItem
+    property ListItemMaterial material: ThemeManager.currentTheme.listItem
 
     property string iconSource : ""
 
@@ -32,23 +32,23 @@ Rectangle {
 
     property alias rightIcon : valueHolder.children
 
-    property int dividerLeftInset : style.dividerLeftInset
+    property int dividerLeftInset : material.dividerLeftInset
 
-    property int dividerRightInset : style.dividerRightInset
+    property int dividerRightInset : material.dividerRightInset
 
-    property bool showDivider: style.showDivider
+    property bool showDivider: material.showDivider
 
     signal clicked();
 
     property bool _iconSet : false
 
-    color : component.style.backgroundColor
+    color : component.material.backgroundColor
 
     implicitWidth: titleItem.x +
                    Math.max(titleMetrics.width,
                             subtitleMetrics.width) +
                    valueHolder.width +
-                   component.style.rightPadding
+                   component.material.rightPadding
 
     anchors {
         left: parent ? parent.left : undefined
@@ -85,7 +85,7 @@ Rectangle {
             left: parent.left
             top : parent.top
             bottom : parent.bottom
-            leftMargin : component.style.leftPadding
+            leftMargin : component.material.leftPadding
         }
 
         Image {
@@ -103,14 +103,14 @@ Rectangle {
     Text {
         id: titleItem
         text: title
-        material: component.style.title
+        material: component.material.title
         elide: Text.ElideRight
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
 
-        anchors.leftMargin: _iconSet ? component.style.titleKeyline : component.style.leftPadding
-        anchors.topMargin: component.style.textTopPadding
+        anchors.leftMargin: _iconSet ? component.material.titleKeyline : component.material.leftPadding
+        anchors.topMargin: component.material.textTopPadding
         anchors.rightMargin: parent.width - valueHolder.x
     }
 
@@ -118,40 +118,40 @@ Rectangle {
         id : subtitleItem
         text: subtitle
         visible : subtitle !== ""
-        material: component.style.subtitle
+        material: component.material.subtitle
         elide: Text.ElideRight
 
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
 
-        anchors.leftMargin: _iconSet ? component.style.titleKeyline : component.style.leftPadding
+        anchors.leftMargin: _iconSet ? component.material.titleKeyline : component.material.leftPadding
         anchors.rightMargin: parent.width - valueHolder.x
-        anchors.bottomMargin: component.style.textBottomPadding
+        anchors.bottomMargin: component.material.textBottomPadding
     }
 
     Item {
         id: valueHolder
         anchors.right: parent.right
-        anchors.rightMargin: component.style.rightPadding
+        anchors.rightMargin: component.material.rightPadding
         width: childrenRect.width
         height: parent.height
 
         Text {
            id: valueItem
-           material: component.style.valueText
+           material: component.material.valueText
            text: value
            elide: Text.ElideRight
 
            anchors.top: parent.top
            anchors.bottom: parent.bottom
-           anchors.topMargin: component.style.textTopPadding
+           anchors.topMargin: component.material.textTopPadding
          }
     }
 
     Loader {
         id : dividerLoader
-        sourceComponent: component.style.divider
+        sourceComponent: component.material.divider
         visible: showDivider
 
         anchors {
