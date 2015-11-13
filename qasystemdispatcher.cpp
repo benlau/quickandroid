@@ -235,7 +235,7 @@ void QASystemDispatcher::dispatch(QString type, QVariantMap message)
 
     jstring jType = env->NewStringUTF(type.toLocal8Bit().data());
     jobject jData = createHashMap(message);
-    QAndroidJniObject::callStaticMethod<jboolean>(JCLASS_Name, "dispatch",
+    QAndroidJniObject::callStaticMethod<void>(JCLASS_Name, "dispatch",
                                               DISPATCH_SIGNATURE,
                                               jType,jData);
 #else
