@@ -1,14 +1,14 @@
-/** Action Bar Style
+/* ActionBar Material Design Parameter
 
-  Author: benlau
-  Project: https://github.com/benlau/quickandroid
- */
+   Author: Ben Lau
 
+   License: Apache-2.0
+
+   Project Site: https://github.com/benlau/quickandroid
+*/
 
 import QtQuick 2.0
 import QuickAndroid 0.1
-
-
 
 Style {
     property var iconSource : ""

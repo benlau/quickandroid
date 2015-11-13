@@ -64,7 +64,7 @@
         <file>drawable-xxhdpi/art_shadow_depth_2.png</file>
         <file>drawable-xxhdpi/art_shadow_depth_1.png</file>
         <file>Styles/Theme.qml</file>
-        <file>Styles/ActionBarStyle.qml</file>
+        <file>Styles/ActionBarMaterial.qml</file>
         <file>Styles/qmldir</file>
         <file>Styles/TextMaterial.qml</file>
         <file>Styles/ThemeManager.qml</file>

@@ -1,6 +1,6 @@
 module QuickAndroid.Style
 singleton ThemeManager 0.1 ThemeManager.qml
-ActionBarStyle 0.1 ActionBarStyle.qml
+ActionBarMaterial 0.1 ActionBarMaterial.qml
 Theme 0.1 Theme.qml
 ButtonMaterial 0.1 ButtonMaterial.qml
 ButtonMaterialStyle 0.1 ButtonMaterialStyle.qml

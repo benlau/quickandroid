@@ -81,7 +81,7 @@ Style {
         color: colorAccent
     }
 
-    property ActionBarStyle actionBar : ActionBarStyle {
+    property ActionBarMaterial actionBar : ActionBarMaterial {
         background : "#E6E6E6"
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
         title: TextMaterial {

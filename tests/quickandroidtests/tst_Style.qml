@@ -8,7 +8,7 @@ Rectangle {
     width: 480
     height: 640
 
-    ActionBarStyle {
+    ActionBarMaterial {
         id: style1
 
         iconSourceSize: Qt.size(47,47);
@@ -18,7 +18,7 @@ Rectangle {
         keyline1: 8
     }
 
-    ActionBarStyle {
+    ActionBarMaterial {
         id: style2
 
         extend:[ style1,{
@@ -27,7 +27,7 @@ Rectangle {
         }]
     }
 
-    ActionBarStyle {
+    ActionBarMaterial {
         id: style3
 
         extend: ({
@@ -36,13 +36,13 @@ Rectangle {
         })
     }
 
-    ActionBarStyle {
+    ActionBarMaterial {
         id: defaultStyle
     }
 
     Component {
         id: creator
-        ActionBarStyle {
+        ActionBarMaterial {
 
         }
     }
