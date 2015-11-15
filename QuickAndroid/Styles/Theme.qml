@@ -69,7 +69,7 @@ Style {
     property ButtonMaterial button: ButtonMaterial {
     }
 
-    property RaisedButtonStyle raisedButton: RaisedButtonStyle {
+    property RaisedButtonMaterial raisedButton: RaisedButtonMaterial {
         color: colorPrimary
         text: TextMaterial {
             textSize: 14 * A.dp

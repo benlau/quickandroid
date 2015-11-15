@@ -13,10 +13,10 @@ import QuickAndroid.Styles 0.1
 Button {
     id: button
 
-    property RaisedButtonStyle aStyle: ThemeManager.currentTheme.raisedButton
+    property RaisedButtonMaterial material: ThemeManager.currentTheme.raisedButton
 
-    property string color: aStyle.color
-    property int depth: aStyle.depth
+    property string color: material.color
+    property int depth: material.depth
 
     background: Rectangle {
         property bool pressed: false

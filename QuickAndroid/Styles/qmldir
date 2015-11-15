@@ -10,7 +10,7 @@ ActivityStyle 0.1 ActivityStyle.qml
 ListItemMaterial 0.1 ListItemMaterial.qml
 DropDownMenuMaterial 0.1 DropDownMenuMaterial.qml
 Style 0.1 Style.qml
-RaisedButtonStyle 0.1 RaisedButtonStyle.qml
+RaisedButtonMaterial 0.1 RaisedButtonMaterial.qml
 FloatingActionButtonMaterial 0.1 FloatingActionButtonMaterial.qml
 FloatingActionButtonMaterialStyle 0.1 FloatingActionButtonMaterialStyle.qml
 PageMaterial 0.1 PageMaterial.qml
