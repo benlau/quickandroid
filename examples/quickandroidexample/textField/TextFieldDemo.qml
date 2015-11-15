@@ -13,11 +13,10 @@ Page {
     Control.ScrollView {
         id: scrollView
         anchors.fill: parent
-        anchors.leftMargin: 16 * A.dp
-        anchors.rightMargin: 16 * A.dp
 
         Column {
-            width: scrollView.width
+            x: 16 * A.dp
+            width: scrollView.width - 32 * A.dp
             spacing: 8 * A.dp
 
             TextField {

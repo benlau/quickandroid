@@ -31,6 +31,8 @@ Control.TextField {
 
     verticalAlignment: Text.AlignBottom
 
+    textColor: material.text.textColor
+
     property real _fontDiff : Math.max(font.pixelSize - 16 * A.dp,0);
 
     FloatingPasteButton {

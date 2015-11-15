@@ -6,7 +6,7 @@ Page {
     actionBar: ActionBar {
         title: "Tabs Demonstration"
         onActionButtonClicked: back();
-        height: style.unitHeight + tabs.height
+        height: material.unitHeight + tabs.height
 
         TabBar {
             id: tabs

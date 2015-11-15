@@ -11,6 +11,10 @@ TextFieldStyle {
     padding.left: 0
     padding.right: 0
 
+    textColor: control.enabled ? control.textColor : Qt.lighter(control.textColor,150);
+
+    placeholderTextColor: control.placeholderTextColor
+
     background: Item {
 
     }

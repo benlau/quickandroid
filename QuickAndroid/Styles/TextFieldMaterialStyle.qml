@@ -5,15 +5,16 @@ import QuickAndroid 0.1
 import QuickAndroid.Private 0.1
 
 TextFieldPlainStyle {
+
     id: style
+
     objectName: "TextFieldStyleInstance"
     padding.top: (control.hasFloatingLabel ? 40 * A.dp : 16 * A.dp) + control._fontDiff - 2
     padding.bottom: 16 * A.dp
     padding.left: 0
     padding.right: 0
 
-    textColor:  enabled ?  control.material.text.textColor : control.material.text.disabledTextColor
-    placeholderTextColor: control.placeholderTextColor
+    textColor:  control.enabled ? control.textColor : control.material.text.disabledTextColor
 
     TextMetrics {
         id: textMetrics
