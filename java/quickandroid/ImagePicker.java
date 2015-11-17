@@ -102,13 +102,11 @@ public class ImagePicker {
         if (requestCode == PICK_IMAGE_ACTION) {
             importImage(data);
         } else if (requestCode == TAKE_PHOTO_ACTION) {
-            if (data == null) {
-                importImageFromFileUri(mPhotoUri);
-                if (broadcast)
-                    broadcastToMediaScanner(mPhotoUri);
-            } else {
-                importImage(data);
-            }
+            // Android 4.x. data will be null.
+            // Android 6.x. data is not null
+            importImageFromFileUri(mPhotoUri);
+            if (broadcast)
+                broadcastToMediaScanner(mPhotoUri);
         }
     }
 
