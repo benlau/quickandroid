@@ -32,5 +32,6 @@
         <file>res/drawable-xxhdpi/ic_camera.png</file>
         <file>imagePicker/ImagePickerDemo.qml</file>
         <file>bottomsheet/BottomSheetDemo.qml</file>
+        <file>button/ButtonDemo.qml</file>
     </qresource>
 </RCC>

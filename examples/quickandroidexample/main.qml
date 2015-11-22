@@ -6,14 +6,11 @@ import "./theme"
 Rectangle {
     width: 480
     height: 640
-//    iconSource : "image://drawable/icon.png"
-//    icon: Qt.resolvedUrl("./res/drawable-hdpi/icon.png")
 
     PageStack {
         objectName: "PageStack";
         anchors.fill: parent
         initialPage: Components {
-
         }
     }
 

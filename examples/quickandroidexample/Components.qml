@@ -15,6 +15,12 @@ Page {
         },
 
         {
+            name: "Button",
+            demo: "button/ButtonDemo.qml",
+            description: "Button Component"
+        },
+
+        {
             name : "Dialog",
             demo: "dialog/DialogDemo.qml",
             description: "Dialog Component"
