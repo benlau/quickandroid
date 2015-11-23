@@ -10,7 +10,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 
-Style {
+Material {
     property var iconSource : ""
     property size iconSourceSize : Qt.size(24 * A.dp,24 * A.dp)
 

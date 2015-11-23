@@ -8,7 +8,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 
-Style {
+Material {
     id : theme
 
     // Color
@@ -94,15 +94,6 @@ Style {
         padding: 8 * A.dp
         keyline1: theme.keyline1
         keyline2: theme.keyline2
-    }
-
-    property SwitchStyle switchStyle : SwitchStyle {
-        track: Qt.resolvedUrl("../drawable/SwitchBgHoloLight.qml")
-        thumb: Qt.resolvedUrl("../drawable/SwitchThumbHoloLight.qml")
-        text: smallText
-        thumbTextPadding: 12 * A.dp
-        switchMinWidth: 96 * A.dp
-        switchPadding: 16 * A.dp
     }
 
     property DialogMaterial dialog : DialogMaterial {

@@ -7,7 +7,7 @@ import QtQuick 2.0
 import QuickAndroid 0.1
 import "../drawable"
 
-Style {
+Material {
     property color backgroundColor : "#ffffff"
 
     property int leftPadding: 16 * A.dp

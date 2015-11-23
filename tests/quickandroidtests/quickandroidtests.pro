@@ -22,7 +22,6 @@ OTHER_FILES += \
     tst_Shadow.qml \
     tst_Dialog.qml \
     tst_DrawableGravityBehaviour.qml \
-    tst_Switch.qml \
     tst_Button.qml \
     tst_Text.qml
 

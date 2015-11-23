@@ -4,7 +4,7 @@
  */
 import QtQuick 2.0
 
-Style {
+Material {
     property string tintColor
 }
 

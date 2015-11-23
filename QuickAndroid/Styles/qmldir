@@ -4,12 +4,11 @@ ActionBarMaterial 0.1 ActionBarMaterial.qml
 Theme 0.1 Theme.qml
 ButtonMaterial 0.1 ButtonMaterial.qml
 ButtonMaterialStyle 0.1 ButtonMaterialStyle.qml
-SwitchStyle 0.1 SwitchStyle.qml
 DialogMaterial 0.1 DialogMaterial.qml
 ActivityStyle 0.1 ActivityStyle.qml
 ListItemMaterial 0.1 ListItemMaterial.qml
 DropDownMenuMaterial 0.1 DropDownMenuMaterial.qml
-Style 0.1 Style.qml
+Material 0.1 Material.qml
 RaisedButtonMaterial 0.1 RaisedButtonMaterial.qml
 FloatingActionButtonMaterial 0.1 FloatingActionButtonMaterial.qml
 FloatingActionButtonMaterialStyle 0.1 FloatingActionButtonMaterialStyle.qml

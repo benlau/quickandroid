@@ -40,16 +40,6 @@
         <file>drawable-xxhdpi/text_select_handle_middle.png</file>
         <file>Modifier.qml</file>
         <file>AnimatedModifier.qml</file>
-        <file>drawable/SwitchBgHoloLight.qml</file>
-        <file>drawable-xxhdpi/switch_bg_holo_light.png</file>
-        <file>drawable-xxhdpi/switch_bg_focused_holo_light.png</file>
-        <file>drawable-xxhdpi/switch_bg_disabled_holo_light.png</file>
-        <file>drawable/SwitchThumbHoloLight.qml</file>
-        <file>drawable-xxhdpi/switch_thumb_activated_holo_light.png</file>
-        <file>drawable-xxhdpi/switch_thumb_disabled_holo_light.png</file>
-        <file>drawable-xxhdpi/switch_thumb_holo_light.png</file>
-        <file>drawable-xxhdpi/switch_thumb_pressed_holo_light.png</file>
-        <file>Switch.qml</file>
         <file>Private/Ghost.qml</file>
         <file>Private/qmldir</file>
         <file>Private/Overlay.qml</file>
@@ -69,7 +59,6 @@
         <file>Styles/TextMaterial.qml</file>
         <file>Styles/ThemeManager.qml</file>
         <file>Styles/ButtonMaterial.qml</file>
-        <file>Styles/SwitchStyle.qml</file>
         <file>Styles/DialogMaterial.qml</file>
         <file>Styles/ActivityStyle.qml</file>
         <file>Text.qml</file>
@@ -90,7 +79,7 @@
         <file>Styles/DropDownMenuMaterial.qml</file>
         <file>A.qml</file>
         <file>Styles/TabBarMaterial.qml</file>
-        <file>Styles/Style.qml</file>
+        <file>Styles/Material.qml</file>
         <file>TextField.qml</file>
         <file>Styles/TextFieldMaterial.qml</file>
         <file>drawable-xxhdpi/text_select_handle_right.png</file>

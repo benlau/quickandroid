@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 
-Style {
+Material {
     id: style
 
     // The style of input text
