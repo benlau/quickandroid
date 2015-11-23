@@ -1,6 +1,7 @@
 #include <QObject>
 #include <QtQml>
 #include "qadevice.h"
+#include "qadrawableprovider.h"
 
 #ifdef Q_OS_ANDROID
 #include <QAndroidJniEnvironment>
@@ -22,6 +23,12 @@ static QJSValue provider(QQmlEngine *engine, QJSEngine *scriptEngine)
     QJSValue value = scriptEngine->newObject();
     value.setProperty("dp",m_dp);
     value.setProperty("dpi",m_dpi);
+
+    if (!engine->imageProvider("quickandroid-drawable")) {
+        QADrawableProvider* provider = new QADrawableProvider();
+        provider->setBasePath("qrc:///QuickAndroid");
+        engine->addImageProvider("quickandroid-drawable",provider);
+    }
 
     return value;
 }

@@ -24,7 +24,7 @@ Rectangle {
             }
 
             Component.onCompleted:  {
-                style.background = "#cddc39" // Lime 500
+                material.background = "#cddc39" // Lime 500
             }
         }
 
@@ -60,9 +60,15 @@ Rectangle {
         }
 
         ActionBar {
+            id: actionBar4
             title: "Actoin Bar 4"
             width: window.width
             background: Constants.white100
+            material: ActionBarMaterial {
+                title: TextMaterial {
+                    textColor: "#FF0000"
+                }
+            }
         }
     }
 
@@ -87,6 +93,9 @@ Rectangle {
         when : windowShown
 
         function test_preview() {
+            var title = Testable.search(actionBar4,"ActionBarTitleTextItem");
+            compare(title.color,"#ff0000");
+
             wait(TestEnv.waitTime);
         }
     }

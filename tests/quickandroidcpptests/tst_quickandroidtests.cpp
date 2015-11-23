@@ -116,14 +116,33 @@ void QuickAndroidTests::runExample()
     view.setResizeMode(QQuickView::SizeRootObjectToView);
 
     view.engine()->addImportPath("qrc:///");
+    QADrawableProvider* provider = new QADrawableProvider();
+    provider->setBasePath("qrc://res");
+    view.engine()->addImageProvider("drawable",provider);
     view.setSource(QUrl("qrc:/main.qml"));
     view.show();
+
+    QQuickItem * componentPage = view.rootObject()->findChild<QQuickItem*>("ComponentPage");
+    QVERIFY(componentPage);
+
+    QQuickItem * pageStack = view.rootObject()->findChild<QQuickItem*>("PageStack");
+    QVERIFY(pageStack);
+
+    QVariantList pages = componentPage->property("pages").toList();
+
+    for (int i = 0 ; i < pages.count() ; i++) {
+        QVariantMap item = pages.at(i).toMap();
+        QString url = "qrc:/" + item["demo"].toString();
+        QMetaObject::invokeMethod(pageStack,"push", Q_ARG(QVariant, url), Q_ARG(QVariant,QVariant()), Q_ARG(QVariant,QVariant()));
+        wait(300);
+        QMetaObject::invokeMethod(pageStack,"pop", Q_ARG(QVariant,QVariant()));
+        wait(300);
+    }
 
     wait(1000);
 
     QList<QQmlError> errors = view.errors();
     QVERIFY(errors.size() == 0);
-
 }
 
 void QuickAndroidTests::drawableProvider()
@@ -133,7 +152,10 @@ void QuickAndroidTests::drawableProvider()
 
     provider->setBasePath(QString(SRCDIR) + "/res");
     engine.addImageProvider("drawable",provider);
+    engine.addImportPath("qrc:///");
     engine.load(QUrl::fromLocalFile(QString(SRCDIR) + "/test_drawableprovider.qml"));
+
+    wait(1000);
 
     QObject *rootItem = engine.rootObjects().first();
 

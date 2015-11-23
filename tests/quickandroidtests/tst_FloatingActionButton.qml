@@ -22,6 +22,10 @@ Rectangle {
             iconSourceSize: Qt.size(24 * A.dp,24 * A.dp)
         }
 
+        FloatingActionButton {
+            // default
+        }
+
     }
 
 

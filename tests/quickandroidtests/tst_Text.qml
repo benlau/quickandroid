@@ -43,7 +43,7 @@ Rectangle {
         Text {
             id: text5
             text: "Custom Text"
-            textStyle : TextStyle {
+            material: TextMaterial {
                 textSize: 20
                 textColor : "blue"
             }
@@ -72,7 +72,7 @@ Rectangle {
         Text {
             id: text9
             text: "Bold Text"
-            aStyle: TextStyle {
+            material: TextMaterial {
                 bold: true
             }
         }

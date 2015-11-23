@@ -8,7 +8,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 
-Style {
+Material {
     id : theme
 
     // Color
@@ -40,22 +40,22 @@ Style {
     property int keyline2: 72 * A.dp
 
     // Normal test style
-    property TextStyle text : TextStyle {
+    property TextMaterial text : TextMaterial {
         textSize: 16 * A.dp
         textColor: Constants.black87
     }
 
-    property TextStyle smallText : TextStyle {
+    property TextMaterial smallText : TextMaterial {
         textSize: 14 * A.dp
         textColor : Constants.black87
     }
 
-    property TextStyle mediumText : TextStyle {
+    property TextMaterial mediumText : TextMaterial {
         textSize: 18 * A.dp
         textColor : Constants.black87
     }
 
-    property TextStyle largeText : TextStyle {
+    property TextMaterial largeText : TextMaterial {
         textSize: 22 * A.dp
         textColor : Constants.black87
     }
@@ -66,23 +66,28 @@ Style {
         background: windowBackground
     }
 
-    property ButtonStyle button: ButtonStyle {
+    property ButtonMaterial button: ButtonMaterial {
     }
 
-    property RaisedButtonStyle raisedButton: RaisedButtonStyle {
+    property RaisedButtonMaterial raisedButton: RaisedButtonMaterial {
         color: colorPrimary
-        textStyle: TextStyle {
+        text: TextMaterial {
             textSize: 14 * A.dp
             textColor: textColorPrimary
         }
     }
 
-    property ActionBarStyle actionBar : ActionBarStyle {
+    property FloatingActionButtonMaterial floatingActionButton: FloatingActionButtonMaterial {
+        color: colorAccent
+    }
+
+    property ActionBarMaterial actionBar : ActionBarMaterial {
         background : "#E6E6E6"
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
-        titleTextStyle: TextStyle {
+        title: TextMaterial {
             textSize: 18*A.dp
             textColor: textColorPrimary
+            disabledTextColor: textColorPrimary
         }
         homeAsUpIndicator : Qt.resolvedUrl("../drawable-xxhdpi/ic_ab_back_holo_light_am.png")
         divider : Constants.black12
@@ -91,39 +96,33 @@ Style {
         keyline2: theme.keyline2
     }
 
-    property SwitchStyle switchStyle : SwitchStyle {
-        track: Qt.resolvedUrl("../drawable/SwitchBgHoloLight.qml")
-        thumb: Qt.resolvedUrl("../drawable/SwitchThumbHoloLight.qml")
-        textStyle: smallText
-        thumbTextPadding: 12 * A.dp
-        switchMinWidth: 96 * A.dp
-        switchPadding: 16 * A.dp
+    property DialogMaterial dialog : DialogMaterial {
+        tintColor: colorAccent
     }
 
-    property DialogStyle dialog : DialogStyle {
-        windowEnterAnimation : Qt.resolvedUrl("../anim/GrowFadeIn.qml")
-        windowExitAnimation: Qt.resolvedUrl("../anim/ShrinkFadeOut.qml")
-    }
-
-    property ListItemStyle listItem : ListItemStyle {
+    property ListItemMaterial listItem : ListItemMaterial {
         leftPadding: keyline1
         rightPadding: keyline1
         titleKeyline: keyline2
     }
 
-    property DropDownMenuStyle dropDownMenu: DropDownMenuStyle {
+    property DropDownMenuMaterial dropDownMenu: DropDownMenuMaterial {
         topPadding: 8 * A.dp
         bottomPadding: 8 * A.dp
     }
 
-    property TabBarStyle tabBar : TabBarStyle {
+    property TabBarMaterial tabBar : TabBarMaterial {
         backgroundColor: colorPrimary
         indicatorColor: colorAccent
         textColor: textColorPrimary
     }
 
-    property TextFieldStyle textField: TextFieldStyle {
+    property TextFieldMaterial textField: TextFieldMaterial {
         color: theme.colorAccent
+    }
+
+    property PageMaterial page: PageMaterial {
+        backgroundColor: windowBackground
     }
 
     // Allow to place children under Theme.

@@ -17,39 +17,39 @@ Quick.Text {
     id: component
 
     // By default, it use normal text style
-    property TextStyle aStyle: ThemeManager.currentTheme.text;
-    property alias textStyle : component.aStyle
+    property TextMaterial material: ThemeManager.currentTheme.text;
 
     // Set the type of the text. The text size and color will be changed according to the value.
     // Possible values : [Constants.smallText , Constants.normalText , Constants.mediumText , Constants.largeText ]
     property string type : ""
 
+    // e.g Contants.center
     property string gravity: ""
 
     /// Normal text color
-    property color textColor: aStyle.textColor
+    property color textColor: material.textColor
 
-    property color disabledTextColor : aStyle.disabledTextColor
+    property color disabledTextColor : material.disabledTextColor
 
-    font.pixelSize: component.textStyle.textSize
+    font.pixelSize: component.material.textSize
 
     color : enabled ? textColor : disabledTextColor
-    font.bold: aStyle.bold
+    font.bold: material.bold
 
     Modifier {
-        target: component; property: "textStyle"; value: ThemeManager.currentTheme.text;
+        target: component; property: "material"; value: ThemeManager.currentTheme.text;
         when: component.type === Constants.normalText
     }
     Modifier {
-        target: component; property: "textStyle"; value: ThemeManager.currentTheme.smallText;
+        target: component; property: "material"; value: ThemeManager.currentTheme.smallText;
         when: component.type === Constants.smallText
     }
     Modifier {
-        target: component; property: "textStyle"; value: ThemeManager.currentTheme.mediumText;
+        target: component; property: "material"; value: ThemeManager.currentTheme.mediumText;
         when: component.type === Constants.mediumText
     }
     Modifier {
-        target: component; property: "textStyle"; value: ThemeManager.currentTheme.largeText;
+        target: component; property: "material"; value: ThemeManager.currentTheme.largeText;
         when: component.type === Constants.largeText
     }
 

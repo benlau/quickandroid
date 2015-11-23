@@ -98,8 +98,8 @@ QImage QADrawableProvider::requestImage(const QString &id, QSize *size, const QS
         return image;
     }
 
-    // Load from drawable
-    image = loadPrefix(m_basePath + "/drawable/" + filename,1.0);
+    // Load from drawable/ folder
+    image = loadPrefix(m_basePath + "/drawable/" + filename, tintColor, 1.0);
 
     if (image.isNull()) {
         qWarning() << QString("Failed to load image://drawable/%1").arg(id);

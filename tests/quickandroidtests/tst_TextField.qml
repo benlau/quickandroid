@@ -99,7 +99,8 @@ Rectangle {
         TextField {
             id : text4
             width: 400
-            placeholderText: "Placeholder text"
+            placeholderText: "Placeholder text (Text4)"
+            placeholderTextColor: Constants.black54
         }
 
         TextField {
@@ -111,8 +112,8 @@ Rectangle {
         TextField {
             id: text6
             width: 400
-            floatingLabelText: "Floating Label"
-            placeholderText: "Placeholder Text"
+            floatingLabelText: "Text6 - Floating Label"
+            placeholderText: "Text6 - Placeholder Text"
         }
 
         TextField {
@@ -121,10 +122,10 @@ Rectangle {
 
             placeholderText: "Larger Text Size"
 
-            aStyle: TextFieldStyle {
+            material: TextFieldMaterial {
                 extend: [ThemeManager.currentTheme.textFieldStyle]
                 Component.onCompleted: {
-                    textStyle.textSize = 32 * A.dp
+                    text.textSize = 32 * A.dp
                 }
             }
         }
@@ -137,12 +138,19 @@ Rectangle {
             floatingLabelText: "Floating Label"
             placeholderText: "Larger Text Size"
 
-            aStyle: TextFieldStyle {
+            material: TextFieldMaterial {
                 Component.onCompleted: {
                     merge(this,ThemeManager.currentTheme.textField);
-                    textStyle.textSize = 32 * A.dp
+                    text.textSize = 32 * A.dp
                 }
             }
+        }
+
+        TextField {
+            id: text9
+            width: 400
+            floatingLabelText: "Floating Label Always on Top"
+            floatingLabelAlwaysOnTop: true
         }
     }
 
@@ -177,7 +185,20 @@ Rectangle {
             compare(text4.height, 48);
             compare(text5.height, 72);
 
+            // Text 9
+
+            var floatingLabel = Testable.search(text9,"FloatingLabelText");
+            compare(floatingLabel.font.pixelSize,12);
+            compare(floatingLabel.anchors.bottomMargin > 16,true); // Already on top
+            text9.forceActiveFocus();
+            wait(1000);
+            compare(floatingLabel.color,ThemeManager.currentTheme.colorAccent);
+
+
             wait(TestEnv.waitTime);
+        }
+
+        function test_text8() {
         }
     }
 }

@@ -1,3 +1,11 @@
+/* RaisedButton Component
+
+   Author: Ben Lau
+   License: Apache-2.0
+   Project: https://github.com/benlau/quickandroid
+
+ */
+
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
@@ -5,13 +13,16 @@ import QuickAndroid.Styles 0.1
 Button {
     id: button
 
-    property RaisedButtonStyle aStyle: ThemeManager.currentTheme.raisedButton
+    property RaisedButtonMaterial material: ThemeManager.currentTheme.raisedButton
 
-    property string color: aStyle.color
-    property int depth: aStyle.depth
+    property color color: material.color
+    property int depth: material.depth
 
     background: Rectangle {
+
         property bool pressed: false
+        opacity: button.enabled ? 1 : material.disabledOpacity
+
         color: button.color
 
         MaterialShadow {

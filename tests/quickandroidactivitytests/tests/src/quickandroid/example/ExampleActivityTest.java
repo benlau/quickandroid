@@ -47,6 +47,9 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
 
         mActivity = instrumentation.startActivitySync(intent);
         launched = true;
+        
+        instrumentation.waitForIdleSync();
+        sleep(5000);
     }
 
     private int counter = 0;
@@ -57,7 +60,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void onDispatched(String name , Map data) {
-                Log.v(TAG,"Listener::post");
+                Log.v(TAG,"Listener::onDispatched " + name);
 
                 if (name.equals("testSendMessage")) {
                     counter++;
@@ -83,6 +86,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
 
     public void testDispatchReentrant() {
         startActivity();
+        Log.v(TAG,"testDispatchReentrant");
         messages = new ArrayList();
 
         final String messageName = "testReentrant";
@@ -130,12 +134,18 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
 
     /** Verify the data convension function between C++ and Java */
     public void testDispatchTypes() {
-
+        startActivity();
+        
+        Log.v(TAG,"testDispatchTypes");
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
-            public void onDispatched(String name , Map message) {
+            public void onDispatched(String type , Map message) {
+                Log.v(TAG,"testDispatchTypes - onDispatched:" + type);
+                if (!type.equals("Automater::response")) 
+                    return;
+                
                 Payload payload = new Payload();
-                payload.name = name;
+                payload.name = type;
                 payload.message = message;
 
                 lastPayload = payload;
@@ -149,13 +159,25 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         message.put("field2",10);
         message.put("field3",true);
         message.put("field4",false);
+        
+        List field5 = new ArrayList(3);
+        field5.add(23);
+        field5.add(true);
+        field5.add("stringValue");
+        message.put("field5",field5);
+        field5 = new ArrayList(10);
+
+        assertTrue(lastPayload == null);
 
         SystemDispatcher.dispatch("Automater::echo",message);
+        sleep(500);
 
         assertTrue(lastPayload != null);
         assertTrue(lastPayload.message.containsKey("field1"));
         assertTrue(lastPayload.message.containsKey("field2"));
         assertTrue(lastPayload.message.containsKey("field3"));
+        assertTrue(lastPayload.message.containsKey("field4"));
+        assertTrue(lastPayload.message.containsKey("field5"));
 
         String field1 = (String)  lastPayload.message.get("field1");
         assertTrue(field1.equals("value1"));
@@ -168,7 +190,13 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
 
         boolean field4 = (boolean)(Boolean) lastPayload.message.get("field4");
         assertEquals(field4,false);
-
+  
+        List list = (List) lastPayload.message.get("field5");
+        assertEquals(list.size(),3);
+        assertEquals((Integer) list.get(0), 23));
+        assertEquals((Boolean) list.get(1), true));
+        assertEquals( ((String) list.get(0).equals("stringValue"))));
+        
         SystemDispatcher.removeListener(listener);
     }
 
@@ -199,6 +227,13 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
 
     }
 
+    private void sleep(int timeout) {
+        try {
+            Thread.sleep(timeout);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }        
+    }
 
 
 

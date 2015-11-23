@@ -3,7 +3,7 @@ import QtQuick.Controls 1.3 as Control
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
 
-Activity {
+Page {
 
     actionBar: ActionBar {
         title: "TextField Demo"
@@ -13,11 +13,10 @@ Activity {
     Control.ScrollView {
         id: scrollView
         anchors.fill: parent
-        anchors.leftMargin: 16 * A.dp
-        anchors.rightMargin: 16 * A.dp
 
         Column {
-            width: scrollView.width
+            x: 16 * A.dp
+            width: scrollView.width - 32 * A.dp
             spacing: 8 * A.dp
 
             TextField {
@@ -45,6 +44,17 @@ Activity {
                 text: "Disabled TextField"
                 width: parent.width
                 enabled: false
+            }
+
+            TextField {
+
+                height: 48 * A.dp
+                width: parent.width
+                placeholderText: "TextMaterial with plain style"
+
+                style: TextFieldPlainStyle {
+
+                }
             }
 
             Item {

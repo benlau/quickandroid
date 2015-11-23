@@ -8,7 +8,7 @@ Popup {
 
     property var model : ListModel { }
 
-    property DropDownMenuStyle style: ThemeManager.currentTheme.dropDownMenu
+    property DropDownMenuMaterial material: ThemeManager.currentTheme.dropDownMenu
 
     property int _contentWidth: 56 * A.dp
 
@@ -27,7 +27,7 @@ Popup {
         var w = Math.ceil(max / multipler) * multipler;
 
         scrollView.implicitWidth = w;
-        scrollView.implicitHeight = h + (style.topPadding  + style.bottomPadding); // + top and bottom padding
+        scrollView.implicitHeight = h + (material.topPadding  + material.bottomPadding); // + top and bottom padding
     }
 
     ScrollView {
@@ -39,11 +39,11 @@ Popup {
 
         Item {
             width: scrollView.width
-            height: childrenRect.height + (style.topPadding + style.bottomPadding)
+            height: childrenRect.height + (material.topPadding + material.bottomPadding)
 
             Column {
                 width: scrollView.width
-                y: style.topPadding
+                y: material.topPadding
                 Repeater {
                     id: repeater
                     width: scrollView.width

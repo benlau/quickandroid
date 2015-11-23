@@ -2,7 +2,8 @@ import QtQuick 2.0
 import QuickAndroid 0.1
 import "../theme"
 
-Activity {
+Page {
+
     actionBar: ActionBar {
         id: actionBar
         upEnabled: true

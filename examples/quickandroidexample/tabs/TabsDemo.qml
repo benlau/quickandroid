@@ -2,11 +2,11 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
 
-Activity {
+Page {
     actionBar: ActionBar {
         title: "Tabs Demonstration"
         onActionButtonClicked: back();
-        height: style.unitHeight + tabs.height
+        height: material.unitHeight + tabs.height
 
         TabBar {
             id: tabs

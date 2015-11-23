@@ -49,7 +49,9 @@ int main(int argc, char *argv[])
 
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl(QStringLiteral("qrc:///main.qml")));
+
     view.show();
+
 
     /* Testing Code. Not needed for regular project */
     Automator* automator = new Automator();

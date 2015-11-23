@@ -5,7 +5,8 @@ QT += qmltest qml quick
 TARGET = quickandroidtests
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    testable.cpp
 
 include(../../quickandroid.pri)
 
@@ -21,7 +22,6 @@ OTHER_FILES += \
     tst_Shadow.qml \
     tst_Dialog.qml \
     tst_DrawableGravityBehaviour.qml \
-    tst_Switch.qml \
     tst_Button.qml \
     tst_Text.qml
 
@@ -40,10 +40,18 @@ DISTFILES += \
     Ruler.qml \
     tst_MouseSensor.qml \
     tst_A.qml \
-    tst_Line.qml
+    tst_Line.qml \
+    tst_BottomSheet.qml \
+    tst_Activity_appear.qml \
+    tst_SystemDispatcher.qml \
+    tst_Page.qml \
+    tst_PageStack.qml
 
 RESOURCES += \
     qml.qrc
 
 OTHER_FILES += \
     ../../README.md
+
+HEADERS += \
+    testable.h

@@ -8,17 +8,17 @@ Rectangle {
     width: 480
     height: 640
 
-    ActionBarStyle {
+    ActionBarMaterial {
         id: style1
 
         iconSourceSize: Qt.size(47,47);
-        titleTextStyle: TextStyle {
+        title: TextMaterial {
             textSize: 23
         }
         keyline1: 8
     }
 
-    ActionBarStyle {
+    ActionBarMaterial {
         id: style2
 
         extend:[ style1,{
@@ -27,13 +27,22 @@ Rectangle {
         }]
     }
 
-    ActionBarStyle {
+    ActionBarMaterial {
+        id: style3
+
+        extend: ({
+            keyline2: 43,
+            keyline1: 9
+        })
+    }
+
+    ActionBarMaterial {
         id: defaultStyle
     }
 
     Component {
         id: creator
-        ActionBarStyle {
+        ActionBarMaterial {
 
         }
     }
@@ -47,24 +56,24 @@ Rectangle {
         function test_merge_dotted() {
             var cloned = creator.createObject();
             style1.merge(cloned,style1,{
-                            "titleTextStyle.textSize": 99
+                            "title.textSize": 99
                           })
 
-            compare(cloned.titleTextStyle.textSize,99);
+            compare(cloned.title.textSize,99);
         }
 
         function test_merge() {
             var cloned = creator.createObject();
             cloned.merge(cloned,style1);
             compare(cloned.iconSourceSize.width,style1.iconSourceSize.width);
-            compare(cloned.titleTextStyle.textSize,23);
+            compare(cloned.title.textSize,23);
             compare(cloned.keyline1,8);
 
             // Proof that it is performed deep copy for Qt.size() type
             cloned.iconSourceSize.width = 45;
-            cloned.titleTextStyle.textSize = 50;
+            cloned.title.textSize = 50;
             compare(style1.iconSourceSize.width,47);
-            compare(style1.titleTextStyle.textSize,23);
+            compare(style1.title.textSize,23);
 
         }
 
@@ -76,20 +85,51 @@ Rectangle {
                           });
 
             compare(cloned.iconSourceSize.width,style1.iconSourceSize.width);
-            compare(cloned.titleTextStyle.textSize,23);
+            compare(cloned.title.textSize,23);
             compare(cloned.keyline1,36);
 
             // Proof that it is performed deep copy for Qt.size() type
             cloned.iconSourceSize.width = 33;
-            cloned.titleTextStyle.textSize = 50;
+            cloned.title.textSize = 50;
             compare(style1.iconSourceSize.width,47);
-            compare(style1.titleTextStyle.textSize,23);
+            compare(style1.title.textSize,23);
         }
 
         function test_extend() {
             compare(style2.keyline2,33);
             compare(style2.keyline1,12);
-            compare(style2.titleTextStyle.textSize,23);
+            compare(style2.title.textSize,23);
+
+            compare(style3.keyline2,43);
+            compare(style3.keyline1,9);
+
+        }
+
+        Component {
+            id: textCreator
+            TextMaterial {
+            }
+        }
+
+        function test_text() {
+            // Unless it is specificed, disabledTextColor should be same as textColor by default
+            var text = textCreator.createObject();
+            text.textColor = "#00C0C0";
+            compare(text.disabledTextColor,"#00C0C0");
+        }
+
+        function test_invalid() {
+            console.log("Going to test invalid data");
+            var style = creator.createObject();
+
+            style.merge(style,{
+                         "a.text": true
+                        });
+
+            style.merge(style,{
+                         "nonExisted": true
+                        });
+
         }
     }
 }

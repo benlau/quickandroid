@@ -30,3 +30,14 @@ Build Instruction
  1. The program will be deployed to your device. It is so easy!
 
 ![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/tests/quickandroidexample/docs/screenshot.png)
+
+FAQ
+---
+
+1) How to prevent to show a scene with only application title on startup?
+
+Add the following attribute to AndroidManifest.xml within activity tag
+
+```
+android:theme="@android:style/Theme.Black.NoTitleBar"
+```

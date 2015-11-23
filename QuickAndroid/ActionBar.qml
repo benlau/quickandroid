@@ -11,21 +11,19 @@ Item {
 
     property alias title : titleText.text
 
-//    property alias homeIcon : home.source
-
     property bool showTitle : true
 
     property alias menuBar : menuBarRegion.children
 
     property bool upEnabled : false
 
-    property string iconSource : style.iconSource
+    property string iconSource : material.iconSource
 
-    property size iconSourceSize : style.iconSourceSize
+    property size iconSourceSize : material.iconSourceSize
 
-    property var background : style.background
+    property var background : material.background
 
-    property ActionBarStyle style: ThemeManager.currentTheme.actionBar
+    property ActionBarMaterial material: ThemeManager.currentTheme.actionBar
 
     property alias content : fillArea.children
 
@@ -33,7 +31,9 @@ Item {
 
     signal actionButtonClicked
 
-    implicitHeight: style.unitHeight
+    implicitHeight: material.unitHeight
+
+    objectName: "ActionBar"
 
     Drawable {
         id : bg
@@ -43,26 +43,15 @@ Item {
 
     RowLayout {
         width: parent.width
-        height: style.unitHeight
+        height: material.unitHeight
         spacing : 0
-
-        /*
-        Drawable {
-            id : up
-            anchors.verticalCenter: parent.verticalCenter
-            source :  actionBar.style.homeAsUpIndicator
-            width : showIcon ? implicitWidth : 0
-            visible: upEnabled && showIcon
-            asynchronous: true
-        }
-        */
 
         Button {
             id : actionButton
             objectName : "ActionButton"
             implicitWidth: actionBar.iconSource !== "" && showIcon ? Math.max(48 * A.dp, iconItem.width + 32 * A.dp) : 0
             height : actionBar.height
-            background: actionBar.style.actionButtonBackground
+            background: actionBar.material.actionButtonBackground
             clip : true
 
             property bool show : showIcon
@@ -76,7 +65,7 @@ Item {
 
             Image {
                 id: iconItem
-                x: actionBar.style.keyline1
+                x: actionBar.material.keyline1
 
                 anchors.verticalCenter: parent.verticalCenter
                 source: actionBar.iconSource
@@ -88,11 +77,12 @@ Item {
             id: spacer;
             Layout.maximumWidth: implicitWidth
             Layout.minimumWidth: implicitWidth
-            implicitWidth: actionButton.width == 0 ? actionBar.style.keyline1 : Math.max(actionBar.style.keyline2 - actionButton.width , 0);
+            implicitWidth: actionButton.width == 0 ? actionBar.material.keyline1 : Math.max(actionBar.material.keyline2 - actionButton.width , 0);
         }
 
         Text {
             id : titleText
+            objectName: "ActionBarTitleTextItem"
             Layout.fillHeight: true
             Layout.fillWidth: true
 
@@ -104,7 +94,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment : Text.AlignLeft
 
-            textStyle: actionBar.style.titleTextStyle
+            material: actionBar.material.title
         }
 
         Item {

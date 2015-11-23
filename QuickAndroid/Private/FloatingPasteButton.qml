@@ -56,9 +56,9 @@ Item {
                 opacity: isOpened ? 1 : 0
                 enabled: isOpened;
                 depth: 3
-                aStyle: RaisedButtonStyle {
+                material: RaisedButtonMaterial {
                     extend: [ThemeManager.currentTheme.raisedButton,{
-                        "textStyle.bold": true
+                        "text.bold": true
                     }]
                 }
 
