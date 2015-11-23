@@ -15,11 +15,14 @@ Button {
 
     property RaisedButtonMaterial material: ThemeManager.currentTheme.raisedButton
 
-    property string color: material.color
+    property color color: material.color
     property int depth: material.depth
 
     background: Rectangle {
+
         property bool pressed: false
+        opacity: button.enabled ? 1 : material.disabledOpacity
+
         color: button.color
 
         MaterialShadow {

@@ -33,6 +33,7 @@ ButtonStyle {
             visible: control.iconSource !== null
             anchors.centerIn: parent
             asynchronous: control.asynchronous
+            opacity: control.enabled ? 1 : control.material.disabledOpacity
         }
 
         Text {
@@ -40,9 +41,10 @@ ButtonStyle {
             anchors.centerIn: parent
             text: control.text
             material: TextMaterial {
-                textColor: button.textColor
-                textSize: button.textSize
-                bold: button.material.text.bold
+                textColor: control.textColor
+                textSize: control.textSize
+                bold: control.material.text.bold
+                disabledTextColor: control.material.text.disabledTextColor
             }
         }
 
