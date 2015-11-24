@@ -41,6 +41,19 @@ Utility Components
 
     InverseMouseArea, RectToRectMatrix, SystemDispatcher, MouseSensor
 
+Installation Instruction (qpm)
+==============================
+
+ 1) Run `qpm install`
+ 
+    qpm install com.github.benlau.quickandroid
+    
+ 2) Include vendor/vendor.pri in your .pro file
+
+You may skip this step if you are already using qpm
+
+    include(vendor/vendor.pri)
+
 Installation Instruction 
 ------------------------
 
