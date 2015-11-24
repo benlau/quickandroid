@@ -7,8 +7,10 @@
 #include <QQuickWindow>
 #include <QQuickView>
 #include <QQuickItem>
+#include <QPainter>
 #include "quickandroid.h"
 #include "qadrawableprovider.h"
+#include "qaimagewriter.h"
 
 class QuickAndroidTests : public QObject
 {
@@ -25,6 +27,8 @@ private Q_SLOTS:
 
     void drawableProvider();
     void drawableProvider_tintColor();
+
+    void imageWriter();
 };
 
 void wait(int msec)
@@ -210,6 +214,42 @@ void QuickAndroidTests::drawableProvider_tintColor()
 
     engine.removeImageProvider("drawable");
 
+}
+
+void QuickAndroidTests::imageWriter()
+{
+    QImage image(100,100,QImage::Format_RGB32);
+    QPainter painter(&image);
+
+    QBrush brush;
+    brush.setColor(Qt::red);
+    brush.setStyle(Qt::SolidPattern);
+    painter.setBrush(brush);
+    painter.fillRect(QRect(0,0,100,100),brush);
+    painter.end();
+
+    // Save image to cache Dir
+    QAImageWriter writer;
+    QCOMPARE(writer.running(), false);
+
+    // If it is not set during save(). It will generate a url for save automatically
+    QVERIFY(writer.fileUrl() == "");
+
+    writer.setImage(image);
+
+    writer.save(); // Don't give any name
+
+    QCOMPARE(writer.running(), true);
+    QEventLoop loop;
+    connect(&writer,SIGNAL(finished()),
+            &loop,SLOT(quit()));
+    loop.exec();
+
+    QCOMPARE(writer.running(), false);
+    qDebug() << "Saved" << writer.fileUrl();
+    QVERIFY(writer.fileUrl() != "");
+
+    writer.clear();
 }
 
 QTEST_MAIN(QuickAndroidTests)

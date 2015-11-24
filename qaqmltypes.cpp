@@ -3,6 +3,7 @@
 #include "qamousesensor.h"
 #include "qatimer.h"
 #include "priv/qasystemdispatcherproxy.h"
+#include "qaimagewriter.h"
 
 static QObject *systemDispatcherProvider(QQmlEngine *engine, QJSEngine *scriptEngine) {
     Q_UNUSED(engine);
@@ -33,6 +34,7 @@ public:
         qmlRegisterType<QALine>("QuickAndroid.Private",0,1,"Line");
         qmlRegisterType<QAMouseSensor>("QuickAndroid.Private",0,1,"MouseSensor");
         qmlRegisterSingletonType("QuickAndroid.Private", 0, 1, "TimerUtils", timerProvider);
+        qmlRegisterType<QAImageWriter>("QuickAndroid.Private",0,1,"ImageWriter");
     }
 };
 
