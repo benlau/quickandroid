@@ -1,6 +1,6 @@
 {
   "name": "com.github.benlau.quickandroid",
-  "description": "",
+  "description": "Material Design Component and Support Library for Android",
   "author": {
     "name": "Ben Lau",
     "email": "xbenlau@gmail.com"
@@ -11,7 +11,7 @@
   },
   "version": {
     "label": "0.1.5",
-    "revision": "1",
+    "revision": "2",
     "fingerprint": ""
   },
   "dependencies": [
