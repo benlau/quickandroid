@@ -29,25 +29,29 @@ System Requirements
 
 UI Components
 
-    ActionBar , Activity , Application , Drawable , StateListDrawable
-    MaterialShadow , Button , Text, TextField, DropDownMenu, Paper
+    ActionBar , Button , BottomSheet , Drawable , StateListDrawable
+    Page , PageStack , MaterialShadow , Text, TextField, DropDownMenu, Paper
     TabBar, TabView, FloatingActionButton, ListItem, RaisedButton
+
+Native Components
+
+    ImagePicker
 
 Utility Components
 
     InverseMouseArea, RectToRectMatrix, SystemDispatcher, MouseSensor
 
-Instruction of use
-------------------
+Installation Instruction 
+------------------------
 
- 1) Clone this repository / download release and bundle the folder within your source tree.
+ 1) Download a release and bundle the folder within your source tree.
 
  2) Add this line to your profile file(.pro):
 
     include(quickandroid/quickandroid.pri) # You should modify the path by yourself
 
- 3) Modify your main.cpp
-
+Initalization
+-------------
 
 ```
 
@@ -82,7 +86,7 @@ int main(int argc, char *argv[])
 
 ```
 
- 4) Import the package within your QML file by :
+Import the package within your QML file by :
 
     import QuickAndroid 0.1
 
