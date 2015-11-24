@@ -22,7 +22,8 @@ SOURCES += \
     $$PWD/qadevice.cpp \
     $$PWD/qamousesensor.cpp \
     $$PWD/qatimer.cpp \
-    $$PWD/qaline.cpp
+    $$PWD/qaline.cpp \
+    $$PWD/qaqmltypes.cpp
 
 android {
     QT += androidextras
