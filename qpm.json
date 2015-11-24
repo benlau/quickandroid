@@ -1,0 +1,22 @@
+{
+  "name": "com.github.benlau.quickandroid",
+  "description": "",
+  "author": {
+    "name": "Ben Lau",
+    "email": "xbenlau@gmail.com"
+  },
+  "repository": {
+    "type": "GITHUB",
+    "url": "git@github.com:benlau/quickandroid.git"
+  },
+  "version": {
+    "label": "0.1.5",
+    "revision": "1",
+    "fingerprint": ""
+  },
+  "dependencies": [
+  ],
+  "license": "APACHE_2_0",
+  "pri_filename": "quickandroid.pri",
+  "webpage": ""
+}
