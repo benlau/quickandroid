@@ -34,52 +34,66 @@ Quick.Text {
     font.pixelSize: component.material.textSize
 
     color : enabled ? textColor : disabledTextColor
+
     font.bold: material.bold
 
-    Modifier {
-        target: component; property: "material"; value: ThemeManager.currentTheme.text;
-        when: component.type === Constants.normalText
+    onTypeChanged: {
+        switch (type) {
+        case Constants.normalText:
+            material = ThemeManager.currentTheme.text;
+            break;
+        case Constants.smallText:
+            material = ThemeManager.currentTheme.smallText;
+            break;
+        case Constants.largeText:
+            material = ThemeManager.currentTheme.largeText;
+            break;
+        case Constants.mediumText:
+            material = ThemeManager.currentTheme.mediumText;
+            break;
+        }
     }
-    Modifier {
-        target: component; property: "material"; value: ThemeManager.currentTheme.smallText;
-        when: component.type === Constants.smallText
+
+    onGravityChanged: {
+        switch (gravity) {
+        case Constants.left:
+            component.horizontalAlignment = Qt.AlignLeft;
+            component.verticalAlignment = Qt.AlignVCenter;
+            break;
+        case Constants.right:
+            component.horizontalAlignment = Qt.AlignRight;
+            component.verticalAlignment = Qt.AlignVCenter;
+            break;
+        case Constants.top:
+            component.horizontalAlignment = Qt.AlignCenter;
+            component.verticalAlignment = Qt.AlignTop;
+            break;
+        case Constants.bottom:
+            component.horizontalAlignment = Qt.AlignCenter;
+            component.verticalAlignment = Qt.AlignBottom;
+            break;
+        case Constants.center:
+            component.horizontalAlignment = Qt.AlignHCenter;
+            component.verticalAlignment = Qt.AlignVCenter;
+            break;
+        case "topLeft":
+            component.horizontalAlignment = Qt.AlignLeft;
+            component.verticalAlignment = Qt.AlignTop;
+            break;
+        case "topRight":
+            component.horizontalAlignment = Qt.AlignRight;
+            component.verticalAlignment = Qt.AlignTop;
+            break;
+        case "bottomLeft":
+            component.horizontalAlignment = Qt.AlignLeft;
+            component.verticalAlignment = Qt.AlignBottom;
+            break;
+        case "bottomRight":
+            component.horizontalAlignment = Qt.AlignRight;
+            component.verticalAlignment = Qt.AlignBottom;
+            break;
+        }
+
     }
-    Modifier {
-        target: component; property: "material"; value: ThemeManager.currentTheme.mediumText;
-        when: component.type === Constants.mediumText
-    }
-    Modifier {
-        target: component; property: "material"; value: ThemeManager.currentTheme.largeText;
-        when: component.type === Constants.largeText
-    }
-
-
-    /* Gravity */
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "left";value: Qt.AlignLeft}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "left";value: Qt.AlignVCenter}
-
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "right";value: Qt.AlignRight}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "right";value: Qt.AlignVCenter}
-
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "top";value: Qt.AlignCenter}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "top";value: Qt.AlignTop}
-
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "bottom";value: Qt.AlignCenter}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "bottom";value: Qt.AlignBottom}
-
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "center";value: Qt.AlignHCenter}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "center";value: Qt.AlignVCenter}
-
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "topLeft";value: Qt.AlignLeft}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "topLeft";value: Qt.AlignTop}
-
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "topRight";value: Qt.AlignRight}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "topRight";value: Qt.AlignTop}
-
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "bottomLeft";value: Qt.AlignLeft}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "bottomLeft";value: Qt.AlignBottom}
-
-    Binding{ target: component;property:"horizontalAlignment";when: gravity === "bottomRight";value: Qt.AlignRight}
-    Binding{ target: component;property:"verticalAlignment";  when: gravity === "bottomRight";value: Qt.AlignBottom}
 }
 
