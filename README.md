@@ -121,20 +121,18 @@ Apache License 2.0
 TODO
 ----
 
-v0.1.5
- 1. Native Image Picker
- 2. Redesign Dialog component in Material Design Style.
- 3. BottomSheet
+v0.1.6
+ 1. Ink
 
 v1.0 
  1. Switch
  1. NavigationDrawer
  1. Slider
- 1. Custom page transition effect
 
 Wish
  1. SwipeableListItem
- 2. qpm package?
+ 2. AssetsManager
+ 3. Haptic Feedback
 
 FAQ
 ---
