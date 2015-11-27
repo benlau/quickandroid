@@ -1,0 +1,14 @@
+project = QuickAndroid
+url = https://github.com/benlau/quickandroid
+description = Qt's Material Design and Support Library for Android
+sourcedirs = ./
+sourcedirs += ../QuickAndroid
+exampledirs += ../examples/quickandroidexample/
+sources.fileextensions = "*.qml *.qdoc *.cpp"
+headers.fileextensions = "*.h"
+version = 0.1
+syntaxhighlighting = true
+sourceencoding = UTF-8
+outputencoding = UTF-8
+outputdir                  = html
+outputformats              = HTML
