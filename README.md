@@ -44,6 +44,8 @@ Utility Components
 Installation Instruction (qpm)
 ==============================
 
+For user who are already using qpm from [qpm.io](https://qpm.io)
+
  1) Run `qpm install`
  
     qpm install com.github.benlau.quickandroid
