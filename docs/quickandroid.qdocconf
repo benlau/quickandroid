@@ -12,3 +12,10 @@ sourceencoding = UTF-8
 outputencoding = UTF-8
 outputdir                  = html
 outputformats              = HTML
+
+HTML.templatedir = .
+HTML.stylesheets = style/style.css
+
+HTML.headerstyles = \
+    "  <link rel=\"stylesheet\" type=\"text/css\" href=\"style/style.css\" />\n"
+
