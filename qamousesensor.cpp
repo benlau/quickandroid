@@ -4,8 +4,6 @@
 
 QAMouseSensor::QAMouseSensor(QQuickItem* parent) : QQuickItem(parent)
 {
-//    setAcceptedMouseButtons(Qt::LeftButton);
-//    setFiltersChildMouseEvents(true);
     timerId = 0;
     m_filter = 0;
 }

@@ -4,6 +4,12 @@ import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
 import "global.js" as Global
 
+/*!
+   \qmltype ActionBar
+   \inqmlmodule QuickAndrid 0.1
+   \brief Action Bar Component
+ */
+
 Item {
     id: actionBar
 
