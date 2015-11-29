@@ -14,8 +14,8 @@ outputdir                  = html
 outputformats              = HTML
 
 HTML.templatedir = .
-HTML.stylesheets = style/style.css
+HTML.stylesheets = $$QT_INSTALL_DOCS/global/html/style/offline.css
 
 HTML.headerstyles = \
-    "  <link rel=\"stylesheet\" type=\"text/css\" href=\"style/style.css\" />\n"
+    "  <link rel=\"stylesheet\" type=\"text/css\" href=\"style/offline.css\" />\n"
 
