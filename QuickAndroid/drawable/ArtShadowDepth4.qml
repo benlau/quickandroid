@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QuickAndroid 0.1
 
 BorderImage {
     id : borderImage
@@ -6,22 +7,22 @@ BorderImage {
     readonly property bool ninePatch : true
     property alias fillArea : fillAreaItem
 
-    source : Qt.resolvedUrl("../drawable-xxhdpi/art_shadow_depth_4.png")
+    source: "image://quickandroid-drawable/art_shadow_depth_4";
 
-    border.left : 108
-    border.right : 108
-    border.top : 108
-    border.bottom : 108
+    border.left : 36 * A.dp
+    border.right : 36 * A.dp
+    border.top : 36 * A.dp
+    border.bottom : 36 * A.dp
 
     Item {
         id : fillAreaItem
         anchors.fill: parent
-        anchors.leftMargin: 108
-        anchors.rightMargin: 108
-        anchors.topMargin: 108
-        anchors.bottomMargin: 108
-        readonly property int rightMargin: 108
-        readonly property int bottomMargin: 108
+        anchors.leftMargin: 36 * A.dp
+        anchors.rightMargin: 36 * A.dp
+        anchors.topMargin: 36 * A.dp
+        anchors.bottomMargin: 36 * A.dp
+        readonly property int rightMargin: 36 * A.dp
+        readonly property int bottomMargin: 36 * A.dp
 
     }
 
