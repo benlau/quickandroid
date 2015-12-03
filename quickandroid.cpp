@@ -15,9 +15,8 @@ void QuickAndroid::registerTypes()
     // Keep here for compatible purpose only.
 }
 
-
 qreal QuickAndroid::dp()
 {
-    return QADevice::dp();
+    return QADevice::readDp();
 }
 

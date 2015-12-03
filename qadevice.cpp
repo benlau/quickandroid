@@ -16,13 +16,30 @@
 static qreal m_dp = 1;
 static qreal m_dpi = 72;
 
-static QJSValue provider(QQmlEngine *engine, QJSEngine *scriptEngine)
+QADevice::QADevice(QObject *parent) : QObject(parent)
 {
-    Q_UNUSED(engine);
+}
 
-    QJSValue value = scriptEngine->newObject();
-    value.setProperty("dp",m_dp);
-    value.setProperty("dpi",m_dpi);
+qreal QADevice::readDp()
+{
+    return m_dp;
+}
+
+qreal QADevice::dp()
+{
+    return m_dp;
+}
+
+qreal QADevice::dpi()
+{
+    return m_dpi;
+}
+
+static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
+    Q_UNUSED(engine);
+    Q_UNUSED(scriptEngine);
+
+    QADevice* device = new QADevice();
 
     if (!engine->imageProvider("quickandroid-drawable")) {
         QADrawableProvider* provider = new QADrawableProvider();
@@ -30,9 +47,8 @@ static QJSValue provider(QQmlEngine *engine, QJSEngine *scriptEngine)
         engine->addImageProvider("quickandroid-drawable",provider);
     }
 
-    return value;
+    return device;
 }
-
 
 class QADeviceRegisterHelper {
 
@@ -47,14 +63,9 @@ public:
         m_dpi = metrics.getField<int>("densityDpi");
 #endif
 
-        qmlRegisterSingletonType("QuickAndroid", 0, 1, "Device", provider);
+        qmlRegisterSingletonType<QADevice>("QuickAndroid", 0, 1, "Device", provider);
     }
 };
 
 static QADeviceRegisterHelper registerHelper;
 
-
-qreal QADevice::dp()
-{
-    return m_dp;
-}
