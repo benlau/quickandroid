@@ -15,6 +15,7 @@
 
 static qreal m_dp = 1;
 static qreal m_dpi = 72;
+static bool m_isTablet = false;
 
 QADevice::QADevice(QObject *parent) : QObject(parent)
 {
@@ -25,14 +26,19 @@ qreal QADevice::readDp()
     return m_dp;
 }
 
-qreal QADevice::dp()
+qreal QADevice::dp() const
 {
     return m_dp;
 }
 
-qreal QADevice::dpi()
+qreal QADevice::dpi() const
 {
     return m_dpi;
+}
+
+qreal QADevice::isTablet() const
+{
+    return m_isTablet;
 }
 
 static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
@@ -61,6 +67,15 @@ public:
         QAndroidJniObject metrics = resource.callObjectMethod("getDisplayMetrics","()Landroid/util/DisplayMetrics;");
         m_dp = metrics.getField<float>("density");
         m_dpi = metrics.getField<int>("densityDpi");
+
+        /* Is Tablet. Experimental code */
+
+        QAndroidJniObject configuration = resource.callObjectMethod("getConfiguration","()Landroid/content/res/Configuration;");
+        int screenLayout = configuration.getField<int>("screenLayout");
+        int SCREENLAYOUT_SIZE_MASK = QAndroidJniObject::getStaticField<int>("android/content/res/Configuration","SCREENLAYOUT_SIZE_MASK");
+        int SCREENLAYOUT_SIZE_LARGE = QAndroidJniObject::getStaticField<int>("android/content/res/Configuration","SCREENLAYOUT_SIZE_LARGE");
+
+        m_isTablet = (screenLayout & SCREENLAYOUT_SIZE_MASK) >= SCREENLAYOUT_SIZE_LARGE;
 #endif
 
         qmlRegisterSingletonType<QADevice>("QuickAndroid", 0, 1, "Device", provider);
