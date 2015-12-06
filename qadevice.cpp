@@ -1,5 +1,6 @@
 #include <QObject>
 #include <QtQml>
+#include <QSysInfo>
 #include "qadevice.h"
 #include "qadrawableprovider.h"
 
@@ -39,6 +40,11 @@ qreal QADevice::dpi() const
 qreal QADevice::isTablet() const
 {
     return m_isTablet;
+}
+
+QString QADevice::os() const
+{
+    return QSysInfo::productType();
 }
 
 static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
