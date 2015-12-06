@@ -113,23 +113,24 @@ void QuickAndroidTests::runExample()
 {
 
     QQuickView view;
-//    QQmlApplicationEngine engine;
-    view.setMinimumSize(QSize(480,640));
-    view.setWidth(480);
-    view.setHeight(640);
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
+    QQmlApplicationEngine engine;
+    engine.addImportPath("qrc:///");
 
-    view.engine()->addImportPath("qrc:///");
     QADrawableProvider* provider = new QADrawableProvider();
     provider->setBasePath("qrc://res");
-    view.engine()->addImageProvider("drawable",provider);
-    view.setSource(QUrl("qrc:/main.qml"));
-    view.show();
+    engine.addImageProvider("drawable",provider);
+    engine.load(QUrl("qrc:/main.qml"));
 
-    QQuickItem * componentPage = view.rootObject()->findChild<QQuickItem*>("ComponentPage");
+    QObject* firstObject = engine.rootObjects().first();
+    QQuickWindow *window = qobject_cast<QQuickWindow*>(firstObject);
+    QVERIFY(window);
+
+    QObject* rootItem = window->children().first();
+
+    QQuickItem * componentPage = rootItem->findChild<QQuickItem*>("ComponentPage");
     QVERIFY(componentPage);
 
-    QQuickItem * pageStack = view.rootObject()->findChild<QQuickItem*>("PageStack");
+    QQuickItem * pageStack = qobject_cast<QQuickItem*>(rootItem);
     QVERIFY(pageStack);
 
     QVariantList pages = componentPage->property("pages").toList();
