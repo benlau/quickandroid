@@ -15,7 +15,8 @@ Theme {
     actionBar.iconSource: A.drawable("ic_arrow_back",Constants.black87)
 
     // Background with shadow
-    actionBar.background: Qt.resolvedUrl("./ActionBarBackground.qml");
+    actionBar.background: ActionBarBackground {
+    }
 
     // actionBar.title.textSize is not allowed in QML. You should declare your own TextMaterial and assign directly.
     // or modify text , smallText , mediumText and largetText

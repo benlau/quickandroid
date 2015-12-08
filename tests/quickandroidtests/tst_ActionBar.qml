@@ -24,7 +24,7 @@ Rectangle {
             }
 
             Component.onCompleted:  {
-                material.background = "#cddc39" // Lime 500
+                material.backgroundColor = "#cddc39" // Lime 500
             }
         }
 
@@ -63,7 +63,7 @@ Rectangle {
             id: actionBar4
             title: "Actoin Bar 4"
             width: window.width
-            background: Constants.white100
+            backgroundColor: Constants.white100
             material: ActionBarMaterial {
                 title: TextMaterial {
                     textColor: "#FF0000"

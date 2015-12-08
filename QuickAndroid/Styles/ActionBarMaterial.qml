@@ -1,20 +1,30 @@
-/* ActionBar Material Design Parameter
-
+/* Quick Android Project
    Author: Ben Lau
-
    License: Apache-2.0
-
-   Project Site: https://github.com/benlau/quickandroid
+   Web: https://github.com/benlau/quickandroid
 */
 
 import QtQuick 2.0
 import QuickAndroid 0.1
 
+/*!
+   \qmltype ActionBarMaterial
+   \inqmlmodule QuickAndrid.Styles 0.1
+   \brief Parameter for ActionBar Material Design Style
+ */
+
 Material {
+    id: material
     property var iconSource : ""
+
     property size iconSourceSize : Qt.size(24 * A.dp,24 * A.dp)
 
-    property var background
+    property color backgroundColor
+
+    property Component background : Rectangle {
+        color: controls.backgroundColor
+    }
+
     property var actionButtonBackground
     property TextMaterial title : TextMaterial {}
     property var homeAsUpIndicator

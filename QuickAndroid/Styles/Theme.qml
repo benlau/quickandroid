@@ -82,7 +82,7 @@ Material {
     }
 
     property ActionBarMaterial actionBar : ActionBarMaterial {
-        background : "#E6E6E6"
+        backgroundColor: colorPrimary
         actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
         title: TextMaterial {
             textSize: 18*A.dp

@@ -8,6 +8,7 @@ import "global.js" as Global
    \qmltype ActionBar
    \inqmlmodule QuickAndrid 0.1
    \brief Action Bar Component
+
  */
 
 Item {
@@ -27,7 +28,18 @@ Item {
 
     property size iconSourceSize : material.iconSourceSize
 
-    property var background : material.background
+    /*!
+      \qmlproperty Component background background
+
+      This property holds the component to use as the background.
+     */
+    property Component background : material.background
+
+    /*!
+      This property holds the color used to fill the action bar.
+     */
+
+    property color backgroundColor : material.backgroundColor
 
     property ActionBarMaterial material: ThemeManager.currentTheme.actionBar
 
@@ -41,10 +53,10 @@ Item {
 
     objectName: "ActionBar"
 
-    Drawable {
-        id : bg
+    Loader {
+        property var controls : actionBar
         anchors.fill: parent
-        source: actionBar.background
+        sourceComponent: actionBar.background
     }
 
     RowLayout {

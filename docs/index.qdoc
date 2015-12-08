@@ -1,6 +1,9 @@
 /*!
     \page index.html
-    \title QuickAndroid
+    \title QuickAndroid Project
 
-    \l ActionBar
+    \list
+      \li \l ActionBar
+      \li \l ThemeManager
+    \endlist
  */
