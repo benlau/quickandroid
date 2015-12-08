@@ -22,10 +22,13 @@ Material {
     property color backgroundColor
 
     property Component background : Rectangle {
-        color: controls.backgroundColor
+        color: control.backgroundColor
     }
 
-    property var actionButtonBackground
+    property Component actionButtonBackground: Rectangle {
+        color: control.pressed ? "#1A000000" : Constants.transparent
+    }
+
     property TextMaterial title : TextMaterial {}
     property var homeAsUpIndicator
 

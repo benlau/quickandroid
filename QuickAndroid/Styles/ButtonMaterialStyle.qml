@@ -6,18 +6,18 @@ import QuickAndroid.Styles 0.1
 
 ButtonStyle {
 
+    id: style
+
     padding.left: 0
     padding.right: 0
     padding.top: 0
     padding.bottom: 0
 
-    background: StateListDrawable {
-        // Ignore the fill area @ Material Design
-        implicitHeight: 36 * A.dp
-        implicitWidth: 36 * A.dp
-        source: control.background
-        pressed: control.pressed
-        asynchronous: control.asynchronous
+    property var _control : control
+
+    background: Loader {
+        property var control: style._control
+        sourceComponent: control.background
     }
 
     label: Item {

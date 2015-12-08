@@ -16,11 +16,11 @@ Button {
     property RaisedButtonMaterial material: ThemeManager.currentTheme.raisedButton
 
     property color color: material.color
+
     property int depth: material.depth
 
     background: Rectangle {
 
-        property bool pressed: false
         opacity: button.enabled ? 1 : material.disabledOpacity
 
         color: button.color
@@ -34,7 +34,7 @@ Button {
 
         Rectangle {
             anchors.fill: parent
-            color:  pressed ? "#1A000000" : Constants.transparent
+            color: button.pressed ? button.material.colorPressed : Constants.transparent
         }
     }
 }

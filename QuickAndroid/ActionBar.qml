@@ -1,3 +1,9 @@
+/* Quick Android Project
+   Author: Ben Lau
+   License: Apache-2.0
+   Web: https://github.com/benlau/quickandroid
+*/
+
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
@@ -8,7 +14,6 @@ import "global.js" as Global
    \qmltype ActionBar
    \inqmlmodule QuickAndrid 0.1
    \brief Action Bar Component
-
  */
 
 Item {
@@ -54,7 +59,7 @@ Item {
     objectName: "ActionBar"
 
     Loader {
-        property var controls : actionBar
+        property var control : actionBar
         anchors.fill: parent
         sourceComponent: actionBar.background
     }

@@ -21,7 +21,7 @@ Controls.Button {
 
     property size iconSourceSize : material.iconSourceSize
 
-    property var background : material.background
+    property Component background : material.background
 
     property color textColor: material.text.textColor
 
