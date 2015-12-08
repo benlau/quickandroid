@@ -70,7 +70,7 @@ Material {
     }
 
     property RaisedButtonMaterial raisedButton: RaisedButtonMaterial {
-        color: colorPrimary
+        backgroundColor: colorPrimary
         text: TextMaterial {
             textSize: 14 * A.dp
             textColor: textColorPrimary

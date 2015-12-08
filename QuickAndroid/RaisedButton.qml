@@ -15,7 +15,7 @@ Button {
 
     property RaisedButtonMaterial material: ThemeManager.currentTheme.raisedButton
 
-    property color color: material.color
+    property color backgroundColor: material.backgroundColor
 
     property int depth: material.depth
 
@@ -23,7 +23,7 @@ Button {
 
         opacity: button.enabled ? 1 : material.disabledOpacity
 
-        color: button.color
+        color: button.backgroundColor
 
         MaterialShadow {
             asynchronous: true

@@ -50,7 +50,7 @@ Item {
 
             RaisedButton {
                 id: button
-                color: "#E4E4E4";
+                backgroundColor: "#E4E4E4";
                 text: qsTr("PASTE");
 
                 opacity: isOpened ? 1 : 0
