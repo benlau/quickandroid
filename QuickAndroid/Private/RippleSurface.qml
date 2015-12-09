@@ -68,7 +68,7 @@ Item {
                 duration: 500
                 from: 0
                 to: maxRadius
-                easing.type: Easing.InOutQuad
+                easing.type: Easing.OutQuad
             }
 
             NumberAnimation {
@@ -78,7 +78,7 @@ Item {
                 from: 0
                 to: 1
                 duration: 200
-                easing.type: Easing.InOutQuad
+                easing.type: Easing.OutQuad
             }
 
             NumberAnimation {

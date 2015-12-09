@@ -13,6 +13,7 @@ Material {
 
     property Component background: Rectangle {
         clip: true
+        color: Constants.transparent
 
         RippleSurface {
             id: surface
