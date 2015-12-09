@@ -16,6 +16,7 @@ function merge() {
         var object = arguments[i];
 
         for (var prop in object) {
+
             if (prop.match(/Changed$/))
                 continue;
             if (reserved.indexOf(prop) >= 0)
@@ -34,6 +35,11 @@ function merge() {
 
                 newObject[remainingProp] = object[prop];
                 merge(target[newProp],newObject);
+
+            } else if (String(object[prop]).indexOf("QQmlComponent") === 0) {
+
+                target[prop] = object[prop];
+
             } else if (typeof object[prop] === "object" &&
                 String(object[prop]).indexOf("QSize") !== 0) {
                 merge(target[prop],object[prop]);
