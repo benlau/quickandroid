@@ -4,6 +4,7 @@ import "./Private"
 
 MouseArea {
     id: ink
+    clip: true
 
     RippleSurface {
         id: surface;

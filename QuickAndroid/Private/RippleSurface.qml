@@ -3,6 +3,10 @@ import QuickAndroid 0.1
 
 Item {
 
+    id: rippleSurface
+
+    property color color : Constants.black12
+
     function tap(x,y) {
 
         if (_currentRipple) {
@@ -27,7 +31,7 @@ Item {
 
         Rectangle {
             id: ripple
-            property real maxRadius : Math.max(ink.width,ink.height) * 2
+            property real maxRadius : Math.max(ink.width,ink.height) * 1.4
             property real centerX : 0
             property real centerY : 0
 
@@ -39,11 +43,16 @@ Item {
             }
 
             function stop() {
-                fadeInAnimation.stop();
-                fadeOutAnimation.start();
+                if (fadeInAnimation.running) {
+                    fadeInAnimation.onStopped.connect(function() {
+                        fadeOutAnimation.start();
+                    });
+                } else {
+                    fadeOutAnimation.start();
+                }
             }
 
-            color: Constants.black12
+            color: rippleSurface.color
             width: radius * 2
             height: radius *2
             radius: 0
@@ -76,7 +85,7 @@ Item {
                 id: fadeOutAnimation
                 target: ripple
                 property: "opacity"
-                duration: 300
+                duration: 200
                 to: 0
                 easing.type: Easing.InOutQuad
                 onStopped: {

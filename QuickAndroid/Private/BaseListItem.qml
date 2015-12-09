@@ -1,3 +1,9 @@
+/* Quick Android Project
+   Author: Ben Lau
+   License: Apache-2.0
+   Web: https://github.com/benlau/quickandroid
+*/
+
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QuickAndroid 0.1
@@ -65,18 +71,11 @@ Rectangle {
         }
     }
 
-    MouseArea {
+    Ink {
         id: mouseArea
         anchors.fill: parent
         enabled: component.interactive
         onClicked: component.clicked();
-
-        Rectangle {
-            id : mask
-            anchors.fill: parent
-            color : Constants.black12
-            visible: mouseArea.pressed
-        }
     }
 
     Item {
