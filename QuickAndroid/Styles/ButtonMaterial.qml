@@ -6,12 +6,33 @@
 
 import QtQuick 2.0
 import QuickAndroid 0.1
+import "../Private"
 
 Material {
     id: buttonMaterial
 
     property Component background: Rectangle {
-        color: control.pressed ? buttonMaterial.colorPressed : Constants.transparent
+        clip: true
+
+        RippleSurface {
+            id: surface
+            anchors.fill: parent
+
+            Connections {
+                target: control.__behavior
+                onPressed: {
+                    surface.tap(mouse.x,mouse.y);
+                }
+
+                onReleased: {
+                    surface.clear();
+                }
+
+                onCanceled: {
+                    surface.clear();
+                }
+            }
+        }
     }
 
     /// Specifies that icon and background on the local filesystem should be loaded asynchronously in a separate thread. The default value is false, causing the user interface thread to block while the it is loading.

@@ -1,6 +1,17 @@
+/* Quick Android Project
+   Author: Ben Lau
+   License: Apache-2.0
+   Web: https://github.com/benlau/quickandroid
+*/
+
 #include <QtQml>
 #include <QEvent>
 #include "qamousesensor.h"
+
+/*!
+ * \brief QAMouseSensor::QAMouseSensor
+ * \param parent
+ */
 
 QAMouseSensor::QAMouseSensor(QQuickItem* parent) : QQuickItem(parent)
 {
@@ -10,6 +21,8 @@ QAMouseSensor::QAMouseSensor(QQuickItem* parent) : QQuickItem(parent)
 
 void QAMouseSensor::mousePressEvent(QMouseEvent *event)
 {
+    qDebug() << "press event";
+
     if (timerId != 0) {
         killTimer(timerId);
         timerId = 0;

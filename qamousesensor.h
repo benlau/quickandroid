@@ -3,7 +3,9 @@
 
 #include <QQuickItem>
 
-/// MouseSensor is a non-blockable MouseArea item. It will propagate all the event to parent component.
+/*!
+ * \brief MouseSensor is a non-blockable MouseArea item. It will propagate all the event to parent component.
+ */
 
 class QAMouseSensor : public QQuickItem
 {

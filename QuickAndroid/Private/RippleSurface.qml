@@ -13,7 +13,7 @@ Item {
             _currentRipple.stop();
         }
 
-        _currentRipple = rippleCreator.createObject(ink)
+        _currentRipple = rippleCreator.createObject(rippleSurface)
         _currentRipple.start(x,y);
     }
 
@@ -31,7 +31,7 @@ Item {
 
         Rectangle {
             id: ripple
-            property real maxRadius : Math.max(ink.width,ink.height) * 1.4
+            property real maxRadius : Math.max(rippleSurface.width,rippleSurface.height)
             property real centerX : 0
             property real centerY : 0
 

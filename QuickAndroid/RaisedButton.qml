@@ -9,6 +9,7 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
+import "./Private"
 
 Button {
     id: button
@@ -24,6 +25,7 @@ Button {
         opacity: button.enabled ? 1 : material.disabledOpacity
 
         color: button.backgroundColor
+        clip: true
 
         MaterialShadow {
             asynchronous: true
@@ -32,9 +34,24 @@ Button {
             depth: button.depth
         }
 
-        Rectangle {
+        RippleSurface {
+            id: surface
             anchors.fill: parent
-            color: button.pressed ? button.material.colorPressed : Constants.transparent
+
+            Connections {
+                target: control.__behavior
+                onPressed: {
+                    surface.tap(mouse.x,mouse.y);
+                }
+
+                onReleased: {
+                    surface.clear();
+                }
+
+                onCanceled: {
+                    surface.clear();
+                }
+            }
         }
     }
 }
