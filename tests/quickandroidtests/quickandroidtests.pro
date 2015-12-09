@@ -45,7 +45,8 @@ DISTFILES += \
     tst_Activity_appear.qml \
     tst_SystemDispatcher.qml \
     tst_Page.qml \
-    tst_PageStack.qml
+    tst_PageStack.qml \
+    tst_Ink.qml
 
 RESOURCES += \
     qml.qrc
