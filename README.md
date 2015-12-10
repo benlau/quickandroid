@@ -115,6 +115,14 @@ Remarks: Daily build for non-master branch may not be working.
 
 ![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/docs/screenshots/example1.png)
 
+Class Reference
+---------------
+
+Writing...
+[Quick Android Class Reference](http://benlau.github.io/quickandroid/)
+
+If you have any question, please feel free toask.
+
 License
 -------
 
@@ -145,10 +153,6 @@ Please feel free to submit the request to our issue tracker. Moreover, you may t
 
 1. [Iktwo/components](https://github.com/Iktwo/components)
 2. [rschiang/material](https://github.com/rschiang/material)
-
-Q. No document?
-
-Just ask. Then the author will try to answer and make it as a document.
 
 Q. Looking for iOS Native Component?
 
