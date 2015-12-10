@@ -57,7 +57,7 @@ ButtonStyle {
             anchors.centerIn: parent
             width: parent.width
             height: parent.height
-            color: component.color
+            color: control.backgroundColor
             radius: width / 2
             clip: true
 

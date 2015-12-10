@@ -6,10 +6,14 @@ Item {
     id: tab
 
     property string title
+
     property string iconSource
+
     property color tintColor: "#fff"
 
     property bool active: false
+
+    property color colorPressed : Constants.black12
 
     signal clicked
 
@@ -19,6 +23,7 @@ Item {
 
     Ink {
         id: mouseArea
+        color: colorPressed
         anchors.fill: parent
         onClicked: {
             tab.clicked();

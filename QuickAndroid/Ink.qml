@@ -6,8 +6,11 @@ MouseArea {
     id: ink
     clip: true
 
+    property color color: Constants.black12
+
     RippleSurface {
         id: surface;
+        color: ink.color
         anchors.fill: parent
     }
 

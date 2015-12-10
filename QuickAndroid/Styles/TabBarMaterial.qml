@@ -13,5 +13,7 @@ Material {
     // It can't change the size of text
     property color textColor: Constants.white87
 
+    property color colorPressed: Constants.black12
+
 }
 

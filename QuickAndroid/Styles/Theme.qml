@@ -30,6 +30,8 @@ Material {
 
     property string colorAccent : "#009688"
 
+    property color colorPressed: Constants.black12
+
     // Animation
 
     property int activityDefaultDuration: 220
@@ -67,9 +69,11 @@ Material {
     }
 
     property ButtonMaterial button: ButtonMaterial {
+        colorPressed: theme.colorPressed
     }
 
     property RaisedButtonMaterial raisedButton: RaisedButtonMaterial {
+        colorPressed: theme.colorPressed
         backgroundColor: colorPrimary
         text: TextMaterial {
             textSize: 14 * A.dp
@@ -78,7 +82,8 @@ Material {
     }
 
     property FloatingActionButtonMaterial floatingActionButton: FloatingActionButtonMaterial {
-        color: colorAccent
+        backgroundColor: colorAccent
+        colorPressed: theme.colorPressed
     }
 
     property ActionBarMaterial actionBar : ActionBarMaterial {
@@ -115,6 +120,7 @@ Material {
         backgroundColor: colorPrimary
         indicatorColor: colorAccent
         textColor: textColorPrimary
+        colorPressed: theme.colorPressed
     }
 
     property TextFieldMaterial textField: TextFieldMaterial {
