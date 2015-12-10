@@ -15,24 +15,9 @@ Material {
         clip: true
         color: Constants.transparent
 
-        RippleSurface {
-            id: surface
+        ButtonInk {
             anchors.fill: parent
-
-            Connections {
-                target: control.__behavior
-                onPressed: {
-                    surface.tap(mouse.x,mouse.y);
-                }
-
-                onReleased: {
-                    surface.clear();
-                }
-
-                onCanceled: {
-                    surface.clear();
-                }
-            }
+            color: colorPressed
         }
     }
 

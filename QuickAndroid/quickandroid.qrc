@@ -103,5 +103,6 @@
         <file>Styles/FloatingActionButtonMaterialStyle.qml</file>
         <file>Ink.qml</file>
         <file>Private/RippleSurface.qml</file>
+        <file>Private/ButtonInk.qml</file>
     </qresource>
 </RCC>

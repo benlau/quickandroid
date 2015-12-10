@@ -7,6 +7,8 @@ Item {
 
     property color color : Constants.black12
 
+    property real maxRadius : Math.max(rippleSurface.width,rippleSurface.height)
+
     function tap(x,y) {
 
         if (_currentRipple) {
@@ -31,7 +33,6 @@ Item {
 
         Rectangle {
             id: ripple
-            property real maxRadius : Math.max(rippleSurface.width,rippleSurface.height)
             property real centerX : 0
             property real centerY : 0
 

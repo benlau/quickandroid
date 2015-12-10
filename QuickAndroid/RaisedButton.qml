@@ -34,24 +34,9 @@ Button {
             depth: button.depth
         }
 
-        RippleSurface {
-            id: surface
+        ButtonInk {
             anchors.fill: parent
-
-            Connections {
-                target: control.__behavior
-                onPressed: {
-                    surface.tap(mouse.x,mouse.y);
-                }
-
-                onReleased: {
-                    surface.clear();
-                }
-
-                onCanceled: {
-                    surface.clear();
-                }
-            }
+            color: material.colorPressed
         }
     }
 }

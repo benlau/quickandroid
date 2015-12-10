@@ -3,8 +3,10 @@ import QtQuick.Controls 1.3
 import QtQuick.Controls.Styles 1.3
 import QuickAndroid 0.1
 import QtGraphicalEffects 1.0
+import "../Private"
 
 ButtonStyle {
+
     label: Item {
         anchors.centerIn: parent
 
@@ -57,18 +59,15 @@ ButtonStyle {
             height: parent.height
             color: component.color
             radius: width / 2
-        }
+            clip: true
 
-        Rectangle {
-            id: mask
-            anchors.centerIn: parent
-            width: parent.width
-            height: parent.height
-            color: "#1F000000"
-            radius: width / 2
-            visible: component.pressed
+            ButtonInk {
+                anchors.fill: parent
+                color: control.material.colorPressed
+                maxRadius: control.width / 2
+                alwaysCenter: true
+            }
         }
-
     }
 
 
