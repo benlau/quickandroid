@@ -47,7 +47,8 @@ DISTFILES += \
     tst_Page.qml \
     tst_PageStack.qml \
     tst_Ink.qml \
-    TestSuite.qml
+    TestSuite.qml \
+    components/DummyPage.qml
 
 RESOURCES += \
     qml.qrc

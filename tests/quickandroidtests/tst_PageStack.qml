@@ -267,6 +267,46 @@ Rectangle {
 
             stack.destroy();
         }
+
+        function test_push_string_asynchronous() {
+            var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = true;
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.appearCount,1);
+            compare(stack.running, false);
+
+            var p1 = stack.push(Qt.resolvedUrl("./components/DummyPage.qml"));
+            compare(p1 !== undefined, true);
+            compare(isIncubator(p1), true);
+            compare(stack.running, true);
+
+            // It is still creating and not pushed. So it is "1"
+            compare(stack.pages.length,1);
+
+            var p2 = stack.push(Qt.resolvedUrl("./components/DummyPage.qml"));
+            compare(isIncubator(p2), true);
+            compare(stack.pages.length,1);
+            compare(p2 !== undefined, true);
+
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+            compare(stack.pages.length,3);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            compare(stack.running, true);
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+
+            compare(stack.pages.length, 1);
+
+            stack.destroy();
+        }
+
     }
 
 }

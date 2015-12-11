@@ -37,7 +37,7 @@ FocusScope {
 
     focus: true
 
-    property bool asynchronous: false;
+    property bool asynchronous: true;
 
     property var _queue : new Array
 
@@ -90,26 +90,40 @@ FocusScope {
         }
     }
 
+    property var _currentIncubator;
+
     // Before real push, verify the page object. If it is an incubate object, wait until it is loaded.
-    function _prePush(page, animated, incubator) {
-        if (!incubator) {
+    function _prePush(page, animated, isIncubator) {
+        if (!isIncubator) {
             _realPush(page, animated);
         } else {
-            switch (page.status) {
-            case Component.Error:
-                console.warn("PageStack: Failed to create push object");
-                _processNext();
-                break;
-            case Component.Ready:
-                console.log("ready");
-                _realPush(page.object, animated);
-                break;
-            default: // Loading
+            if (page.status === Component.Loading) {
+
+                // QTBUG-35587: Keep a reference to the incubator to avoid GC.
+                _currentIncubator = page;
+
                 page.onStatusChanged = function(status) {
-                    _prePush(page, animated, incubator);
+                    _prePushIncubator(page, animated);
                 };
-                break;
+
+            } else {
+                _prePushIncubator(page, animated);
             }
+        }
+    }
+
+    function _prePushIncubator(incubator, animated) {
+        switch (incubator.status) {
+        case Component.Error:
+            console.warn("PageStack: Failed to create push object");
+            _processNext();
+            break;
+        case Component.Ready:
+            _realPush(incubator.object, animated);
+            break;
+        default:
+            console.warn("Unexcepted error");
+            break;
         }
     }
 
@@ -119,6 +133,7 @@ FocusScope {
         try {
             running = true;
             page.stack = pageStack;
+            page.parent = pageStack;
 
             if (topPage && topPage.noHistory) {
                 var originalTopPage = topPage;

@@ -19,7 +19,10 @@ function createObject(source,parent,options, asynchronous) {
     options = options === undefined ? {} : options;
 
     if (typeof source === "string") {
-        var comp = Qt.createComponent(source);
+        var comp;
+
+        comp = Qt.createComponent(source);
+
         if (comp === undefined || comp.status === 3) { // Component.Error
             console.warn("Error loading QML source: ",source);
             console.warn(comp.errorString());
