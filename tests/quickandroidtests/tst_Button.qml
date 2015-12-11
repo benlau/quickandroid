@@ -17,7 +17,6 @@ Rectangle {
             property int pressAndHoldCount: 0;
 
             onPressAndHold: {
-                console.log("press and hold");
                 pressAndHoldCount++;
             }
         }

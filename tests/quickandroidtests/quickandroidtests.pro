@@ -46,7 +46,8 @@ DISTFILES += \
     tst_SystemDispatcher.qml \
     tst_Page.qml \
     tst_PageStack.qml \
-    tst_Ink.qml
+    tst_Ink.qml \
+    TestSuite.qml
 
 RESOURCES += \
     qml.qrc

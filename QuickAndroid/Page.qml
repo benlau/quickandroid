@@ -1,4 +1,4 @@
-/* Page Component
+/* Quick Android Project
    Author: Ben Lau
    License: Apache-2.0
    Website: https://github.com/benlau/quickandroid
@@ -10,6 +10,12 @@ import QuickAndroid 0.1
 import "./Transitions"
 import "./Styles"
 import "./utils.js" as Utils
+
+/*!
+   \qmltype Page
+   \inqmlmodule QuickAndrid 0.1
+   \brief Page Component
+ */
 
 FocusScope {
     id: page
@@ -92,7 +98,6 @@ FocusScope {
         // Block mouse area to parent
         anchors.fill: parent
     }
-
 
     ColumnLayout {
         anchors.fill: parent

@@ -8,7 +8,7 @@ Rectangle {
     width : 480
     height : 640
 
-    TestCase {
+    TestSuite {
         id: testCase
         name: "PageStackTests"
         when : windowShown
@@ -169,7 +169,45 @@ Rectangle {
 
         function test_error() {
             var stack = pageStackCreator1.createObject(window);
+            // push a not page item
             stack.push(itemCreator);
+            compare(stack.running, false);
+            stack.destroy();
+        }
+
+        function test_queue() {
+            var stack = pageStackCreator1.createObject(window);
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.appearCount,1);
+            compare(stack.running, false);
+
+            var p1 = stack.push(page1);
+            compare(p1 !== undefined, true);
+            compare(stack.running, true);
+            compare(stack.pages.length,2);
+
+            var p2 = stack.push(page1);
+            compare(stack.pages.length,2);
+            compare(p2 !== undefined, true);
+
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+            compare(stack.pages.length,3);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            compare(stack.running, true);
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+
+            compare(stack.pages.length, 1);
+
+            stack.destroy();
+
         }
     }
 

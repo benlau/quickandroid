@@ -21,8 +21,6 @@ QAMouseSensor::QAMouseSensor(QQuickItem* parent) : QQuickItem(parent)
 
 void QAMouseSensor::mousePressEvent(QMouseEvent *event)
 {
-    qDebug() << "press event";
-
     if (timerId != 0) {
         killTimer(timerId);
         timerId = 0;
