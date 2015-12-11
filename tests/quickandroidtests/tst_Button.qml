@@ -86,7 +86,7 @@ Rectangle {
             wait(810);
             compare(button1.pressAndHoldCount,1);
 
-            // Proof the timer is already stopped
+            // Prove the timer is already stopped
             wait(800);
             compare(button1.pressAndHoldCount,1);
             mouseRelease(button1);
@@ -104,7 +104,6 @@ Rectangle {
             mouseRelease(button1);
             wait(850);
             compare(button1.pressAndHoldCount,2);
-
         }
     }
 

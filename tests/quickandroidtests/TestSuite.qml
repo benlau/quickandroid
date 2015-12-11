@@ -15,6 +15,7 @@ TestCase {
             time+=10;
 
             if (time > timeout) {
+                console.log("waitFor() - timeout");
                 break;
             }
         }

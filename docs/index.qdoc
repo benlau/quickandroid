@@ -4,6 +4,12 @@
 
     \list
       \li \l ActionBar
+      \li \l Button
+      \li \l Page
+      \li \l PageStack
+    \endlist
+
+    \list
       \li \l ThemeManager
     \endlist
 

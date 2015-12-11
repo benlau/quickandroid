@@ -37,20 +37,25 @@ FocusScope {
 
     focus: true
 
+    property bool asynchronous: false;
+
     property var _queue : new Array
 
-    function push(source,properties,animated) {
-        var page = _create(source, properties);
+    function push(source, properties, animated) {
+        var res  = _create(source, properties);
 
         if (running) {
             _enqueue({op: "push",
-                      page: page,
-                      animated: animated});
+                      page: res.object,
+                      incubator: res.incubator,
+                      animated: animated}
+                     );
         } else {
-            _realPush(page, animated);
+            running = true;
+            _prePush(res.object, animated, res.incubator);
         }
 
-        return page;
+        return res.object;
     }
 
     function pop(animated) {
@@ -58,14 +63,17 @@ FocusScope {
             _enqueue({op: "pop",
                       animated: animated});
         } else {
+            running = true;
             _realPop();
         }
     }
 
+    // Enqueue an task to be executed when previous tasks are finished.
     function _enqueue(task) {
         _queue.push(task);
     }
 
+    // Dequeue and process the returned task. If no any task leave, set "running" to false
     function _processNext() {
 
         if (_queue.length === 0) {
@@ -76,9 +84,32 @@ FocusScope {
         var task = _queue.shift();
 
         if (task.op === "push") {
-            _realPush(task.page, task.animated);
+            _prePush(task.page, task.animated, task.incubator);
         } else {
             _realPop(task.animated);
+        }
+    }
+
+    // Before real push, verify the page object. If it is an incubate object, wait until it is loaded.
+    function _prePush(page, animated, incubator) {
+        if (!incubator) {
+            _realPush(page, animated);
+        } else {
+            switch (page.status) {
+            case Component.Error:
+                console.warn("PageStack: Failed to create push object");
+                _processNext();
+                break;
+            case Component.Ready:
+                console.log("ready");
+                _realPush(page.object, animated);
+                break;
+            default: // Loading
+                page.onStatusChanged = function(status) {
+                    _prePush(page, animated, incubator);
+                };
+                break;
+            }
         }
     }
 
@@ -204,8 +235,13 @@ FocusScope {
     }
 
     function _create(source, properties) {
-        // @TODO - support asynchronous
-        return Utils.createObject(source, pageStack, properties);
+        var incubator = asynchronous && (typeof (source)  === "string" || String(source).indexOf("QQmlComponent") === 0);
+        var object = Utils.createObject(source, pageStack, properties, asynchronous);
+
+        return {
+            object: object,
+            incubator: incubator
+        }
     }
 
     Page {
