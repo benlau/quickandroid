@@ -39,20 +39,18 @@ FocusScope {
 
     property bool asynchronous: true;
 
-    property var _queue : new Array
-
     function push(source, properties, animated) {
-        var res  = _create(source, properties);
+        var res  = priv._create(source, properties);
 
         if (running) {
-            _enqueue({op: "push",
+            priv._enqueue({op: "push",
                       page: res.object,
                       incubator: res.incubator,
                       animated: animated}
                      );
         } else {
             running = true;
-            _prePush(res.object, animated, res.incubator);
+            priv._prePush(res.object, animated, res.incubator);
         }
 
         return res.object;
@@ -60,204 +58,214 @@ FocusScope {
 
     function pop(animated) {
         if (running) {
-            _enqueue({op: "pop",
+            priv._enqueue({op: "pop",
                       animated: animated});
         } else {
             running = true;
-            _realPop();
+            priv._realPop();
         }
     }
 
-    // Enqueue an task to be executed when previous tasks are finished.
-    function _enqueue(task) {
-        _queue.push(task);
-    }
+    Item {
+        id: priv;
 
-    // Dequeue and process the returned task. If no any task leave, set "running" to false
-    function _processNext() {
+        // Keep a reference to the incubator object after dequeue. (Ref: QTBUG-35587)
+        property var _currentIncubator;
 
-        if (_queue.length === 0) {
-            running = false;
-            return;
+        property var _queue : new Array
+
+        // Enqueue an task to be executed when previous tasks are finished.
+        function _enqueue(task) {
+            _queue.push(task);
         }
 
-        var task = _queue.shift();
+        // Dequeue and process the returned task. If no any task leave, set "running" to false
+        function _processNext() {
 
-        if (task.op === "push") {
-            _prePush(task.page, task.animated, task.incubator);
-        } else {
-            _realPop(task.animated);
-        }
-    }
-
-    property var _currentIncubator;
-
-    // Before real push, verify the page object. If it is an incubate object, wait until it is loaded.
-    function _prePush(page, animated, isIncubator) {
-        if (!isIncubator) {
-            _realPush(page, animated);
-        } else {
-            if (page.status === Component.Loading) {
-
-                // QTBUG-35587: Keep a reference to the incubator to avoid GC.
-                _currentIncubator = page;
-
-                page.onStatusChanged = function(status) {
-                    _prePushIncubator(page, animated);
-                };
-
-            } else {
-                _prePushIncubator(page, animated);
-            }
-        }
-    }
-
-    function _prePushIncubator(incubator, animated) {
-        switch (incubator.status) {
-        case Component.Error:
-            console.warn("PageStack: Failed to create push object");
-            _processNext();
-            break;
-        case Component.Ready:
-            _realPush(incubator.object, animated);
-            break;
-        default:
-            console.warn("Unexcepted error");
-            break;
-        }
-    }
-
-    function _realPush(page, animated) {
-        animated = animated === undefined ? true : animated;
-
-        try {
-            running = true;
-            page.stack = pageStack;
-            page.parent = pageStack;
-
-            if (topPage && topPage.noHistory) {
-                var originalTopPage = topPage;
-                if (pages.length >= 2) {
-                    topPage = pages[pages.length - 2];
-                } else {
-                    topPage = null;
-                }
-                pages.pop();
-                pagesChanged();
-
-                originalTopPage.disappear();
-                popped(originalTopPage);
-                originalTopPage.parent = null;
-                originalTopPage.destroy();
-            }
-
-            // Event flow
-            // 1) Update topPage
-            // 2) pagesChanged
-            // 3) pushed/popped
-            // 4) aboutToPresent/aboutToDismiss
-
-            var bottomPage = topPage;
-            topPage = page;
-            pages.push(page);
-            pagesChanged();
-            pushed(page);
-
-            page.aboutToPresent();
-
-            if (!bottomPage)
-                bottomPage = dummyPage;
-
-            var transitionComp = page.transitionAnimation;
-
-            var transition = transitionComp.createObject(page,
-                                                         {
-                                                             container: pageStack,
-                                                             upperView: page,
-                                                             lowerView: bottomPage
-                                                         });
-            page._transition = transition;
-
-            function finished() {
-                transition.presentTransitionFinished();
-                bottomPage.disappear();
-                page.appear();
-                page.presented();
-                page.focus = true;
-                page.enabled = true;
-                _processNext();
-            }
-
-            transition.presentTransitionStarted();
-
-            if (animated) {
-                transition.presentTransition.onStopped.connect(finished);
-                transition.presentTransition.start();
-            } else {
-                finished();
-            }
-        } catch (e) {
-            console.error(e);
-            console.trace();
-            _processNext();
-        }
-    }
-
-    function _realPop(animated) {
-        animated = animated === undefined ? true : animated;
-        running = true;
-
-        try {
-            if (pages.length === 1) {
-                _processNext();
+            if (_queue.length === 0) {
+                running = false;
                 return;
             }
 
-            var transition = topPage._transition;
-            var poppedPage = pages.pop();
+            var task = _queue.shift();
 
-            topPage = pages[pages.length - 1];
-            pagesChanged();
-            popped(poppedPage);
+            if (task.op === "push") {
+                _prePush(task.page, task.animated, task.incubator);
+            } else {
+                _realPop(task.animated);
+            }
+        }
 
-            poppedPage.aboutToDismiss();
+        // Before real push, verify the page object. If it is an incubate object, wait until it is loaded.
+        function _prePush(page, animated, isIncubator) {
+            if (!isIncubator) {
+                _realPush(page, animated);
+            } else {
+                if (page.status === Component.Loading) {
 
-            function finished() {
-                transition.dismissTransitionFinished();
-                poppedPage.disappear();
-                poppedPage.dismissed();
-                poppedPage.parent = null;
-                poppedPage.destroy();
-                topPage.appear();
-                topPage.focus = true;
+                    // QTBUG-35587: Keep a reference to the incubator to avoid GC.
+                    _currentIncubator = page;
+
+                    page.onStatusChanged = function(status) {
+                        _prePushIncubator(page, animated);
+                    };
+
+                } else {
+                    _prePushIncubator(page, animated);
+                }
+            }
+        }
+
+        function _prePushIncubator(incubator, animated) {
+            switch (incubator.status) {
+            case Component.Error:
+                console.warn("PageStack: Failed to create push object");
+                _processNext();
+                break;
+            case Component.Ready:
+                _realPush(incubator.object, animated);
+                break;
+            default:
+                console.warn("Unexcepted error");
+                break;
+            }
+        }
+
+        function _realPush(page, animated) {
+            animated = animated === undefined ? true : animated;
+
+            try {
+                running = true;
+                page.stack = pageStack;
+                page.parent = pageStack;
+
+                if (topPage && topPage.noHistory) {
+                    var originalTopPage = topPage;
+                    if (pages.length >= 2) {
+                        topPage = pages[pages.length - 2];
+                    } else {
+                        topPage = null;
+                    }
+                    pages.pop();
+                    pagesChanged();
+
+                    originalTopPage.disappear();
+                    popped(originalTopPage);
+                    originalTopPage.parent = null;
+                    originalTopPage.destroy();
+                }
+
+                // Event flow
+                // 1) Update topPage
+                // 2) pagesChanged
+                // 3) pushed/popped
+                // 4) aboutToPresent/aboutToDismiss
+
+                var bottomPage = topPage;
+                topPage = page;
+                pages.push(page);
+                pagesChanged();
+                pushed(page);
+
+                page.aboutToPresent();
+
+                if (!bottomPage)
+                    bottomPage = dummyPage;
+
+                var transitionComp = page.transitionAnimation;
+
+                var transition = transitionComp.createObject(page,
+                                                             {
+                                                                 container: pageStack,
+                                                                 upperView: page,
+                                                                 lowerView: bottomPage
+                                                             });
+                page._transition = transition;
+
+                function finished() {
+                    transition.presentTransitionFinished();
+                    bottomPage.disappear();
+                    page.appear();
+                    page.presented();
+                    page.focus = true;
+                    page.enabled = true;
+                    _processNext();
+                }
+
+                transition.presentTransitionStarted();
+
+                if (animated) {
+                    transition.presentTransition.onStopped.connect(finished);
+                    transition.presentTransition.start();
+                } else {
+                    finished();
+                }
+            } catch (e) {
+                console.error(e);
+                console.trace();
                 _processNext();
             }
+        }
 
-            transition.dismissTransitionStarted();
+        function _realPop(animated) {
+            animated = animated === undefined ? true : animated;
+            running = true;
 
-            if (animated) {
-                transition.dismissTransition.onStopped.connect(finished);
-                transition.dismissTransition.start();
-            } else {
-                finished();
+            try {
+                if (pages.length === 1) {
+                    _processNext();
+                    return;
+                }
+
+                var transition = topPage._transition;
+                var poppedPage = pages.pop();
+
+                topPage = pages[pages.length - 1];
+                pagesChanged();
+                popped(poppedPage);
+
+                poppedPage.aboutToDismiss();
+
+                function finished() {
+                    transition.dismissTransitionFinished();
+                    poppedPage.disappear();
+                    poppedPage.dismissed();
+                    poppedPage.parent = null;
+                    poppedPage.destroy();
+                    topPage.appear();
+                    topPage.focus = true;
+                    _processNext();
+                }
+
+                transition.dismissTransitionStarted();
+
+                if (animated) {
+                    transition.dismissTransition.onStopped.connect(finished);
+                    transition.dismissTransition.start();
+                } else {
+                    finished();
+                }
+
+            } catch(e) {
+                console.error(e);
+                console.trace();
+                _processNext();
             }
-
-        } catch(e) {
-            console.error(e);
-            console.trace();
-            _processNext();
         }
+
+        function _create(source, properties) {
+            var incubator = asynchronous && (typeof (source)  === "string" || String(source).indexOf("QQmlComponent") === 0);
+            var object = Utils.createObject(source, pageStack, properties, asynchronous);
+
+            return {
+                object: object,
+                incubator: incubator
+            }
+        }
+
     }
 
-    function _create(source, properties) {
-        var incubator = asynchronous && (typeof (source)  === "string" || String(source).indexOf("QQmlComponent") === 0);
-        var object = Utils.createObject(source, pageStack, properties, asynchronous);
 
-        return {
-            object: object,
-            incubator: incubator
-        }
-    }
 
     Page {
         id: dummyPage
