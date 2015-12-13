@@ -34,7 +34,7 @@ Item {
     property size iconSourceSize : material.iconSourceSize
 
     /*!
-      \qmlproperty Component background background
+      \qmlproperty Component background
 
       This property holds the component to use as the background.
      */

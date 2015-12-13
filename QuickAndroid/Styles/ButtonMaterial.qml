@@ -15,7 +15,8 @@ Material {
         clip: true
         color: Constants.transparent
 
-        ButtonInk {
+        Ink {
+            mouseArea: control.__behavior
             anchors.fill: parent
             color: colorPressed
         }

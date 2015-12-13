@@ -61,11 +61,12 @@ ButtonStyle {
             radius: width / 2
             clip: true
 
-            ButtonInk {
+            Ink {
                 anchors.fill: parent
                 color: control.material.colorPressed
+                mouseArea: control.__behavior
                 maxRadius: control.width / 2
-                alwaysCenter: true
+                centered: true
             }
         }
     }

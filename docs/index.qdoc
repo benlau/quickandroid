@@ -5,6 +5,7 @@
     \list
       \li \l ActionBar
       \li \l Button
+      \li \l Ink
       \li \l Page
       \li \l PageStack
     \endlist

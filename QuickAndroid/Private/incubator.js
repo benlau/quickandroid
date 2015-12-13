@@ -80,6 +80,7 @@ Incubator.prototype._onFinished = function(err, object) {
 
     if (err !== null) {
         this.status = QtQuick.Component.Error;
+        this.errorString = err;
     } else {
         this.status = QtQuick.Component.Ready;
     }

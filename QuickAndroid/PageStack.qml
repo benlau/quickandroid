@@ -120,7 +120,8 @@ FocusScope {
         function _prePushIncubator(incubator, animated) {
             switch (incubator.status) {
             case Component.Error:
-                console.warn("PageStack: Failed to create push object");
+                console.warn("PageStack: Failed to create push object.");
+                console.warn(incubator.errorString);
                 _processNext();
                 break;
             case Component.Ready:

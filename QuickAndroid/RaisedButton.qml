@@ -34,7 +34,8 @@ Button {
             depth: button.depth
         }
 
-        ButtonInk {
+        Ink {
+            mouseArea: control.__behavior
             anchors.fill: parent
             color: material.colorPressed
         }
