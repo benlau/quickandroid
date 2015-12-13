@@ -28,7 +28,6 @@ function createObject(source,parent,options, asynchronous) {
             console.warn(comp.errorString());
             return;
         }
-//        view = comp.createObject(parent,options || {});
         source = comp;
     }
 

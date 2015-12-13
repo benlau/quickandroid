@@ -7,6 +7,7 @@
 import QtQuick 2.0
 import "./utils.js" as Utils
 import "./Transitions"
+import "./Private/incubator.js" as Incubator
 
 /*!
    \qmltype PageStack
@@ -26,7 +27,7 @@ FocusScope {
     readonly property var pages : new Array
 
     /*!
-      It is true if the page is either of pushing or poping.
+      It is true if the page is either in pushing or popping.
      */
 
     property bool running: false
@@ -40,20 +41,19 @@ FocusScope {
     property bool asynchronous: true;
 
     function push(source, properties, animated) {
-        var res  = priv._create(source, properties);
+        var page  = priv._create(source, properties);
 
         if (running) {
             priv._enqueue({op: "push",
-                      page: res.object,
-                      incubator: res.incubator,
+                      page: page,
                       animated: animated}
                      );
         } else {
             running = true;
-            priv._prePush(res.object, animated, res.incubator);
+            priv._prePush(page, animated);
         }
 
-        return res.object;
+        return page;
     }
 
     function pop(animated) {
@@ -98,21 +98,16 @@ FocusScope {
 
         // Before real push, verify the page object. If it is an incubate object, wait until it is loaded.
         function _prePush(page, animated, isIncubator) {
-            if (!isIncubator) {
+            if (!Incubator.isIncubator(page)) {
                 _realPush(page, animated);
             } else {
-                if (page.status === Component.Loading) {
+                _currentIncubator = page;
 
-                    // QTBUG-35587: Keep a reference to the incubator to avoid GC.
-                    _currentIncubator = page;
+                page.addListener(function() {
+                    _prePushIncubator(page,animated);
+                });
 
-                    page.onStatusChanged = function(status) {
-                        _prePushIncubator(page, animated);
-                    };
-
-                } else {
-                    _prePushIncubator(page, animated);
-                }
+                page.create();
             }
         }
 
@@ -254,15 +249,15 @@ FocusScope {
         }
 
         function _create(source, properties) {
-            var incubator = asynchronous && (typeof (source)  === "string" || String(source).indexOf("QQmlComponent") === 0);
-            var object = Utils.createObject(source, pageStack, properties, asynchronous);
-
-            return {
-                object: object,
-                incubator: incubator
+            var object;
+            if (asynchronous && Incubator.support(source)) {
+                object = Incubator.create(source, pageStack, properties)
+            } else {
+                object = Utils.createObject(source, pageStack, properties);
             }
-        }
 
+            return object;
+        }
     }
 
 
