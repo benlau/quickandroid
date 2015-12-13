@@ -41,6 +41,12 @@ FocusScope {
     property bool asynchronous: true;
 
     function push(source, properties, animated) {
+        properties = properties === undefined ? {} : properties;
+
+        if (asynchronous) {
+            properties["visible"] = false;
+        }
+
         var page  = priv._create(source, properties);
 
         if (running) {
@@ -130,9 +136,9 @@ FocusScope {
             animated = animated === undefined ? true : animated;
 
             try {
-                running = true;
                 page.stack = pageStack;
                 page.parent = pageStack;
+                page.visible = true;
 
                 if (topPage && topPage.noHistory) {
                     var originalTopPage = topPage;
@@ -204,7 +210,6 @@ FocusScope {
 
         function _realPop(animated) {
             animated = animated === undefined ? true : animated;
-            running = true;
 
             try {
                 if (pages.length === 1) {
