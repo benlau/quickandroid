@@ -5,19 +5,30 @@ import QuickAndroid.Styles 0.1
 import "./theme"
 
 Window {
+    id: window;
     width: 480
     height: 640
     visible: true
-    color: "#000000"
 
-    PageStack {
-        objectName: "PageStack";
+    // Use a background similar to splash screen.
+    color: "#FFFFFF"
+
+    // Prevent screen flicker
+    Loader {
+        id: loader
         anchors.fill: parent
-        initialPage: Components {
+        asynchronous: true
+
+        sourceComponent: PageStack {
+            id: stack
+            objectName: "PageStack";
+            anchors.fill: parent
+            initialPage: Components {
+            }
         }
     }
 
     Component.onCompleted: {
-        ThemeManager.currentTheme = AppTheme;
+        ThemeManager.currentTheme = AppTheme
     }
 }
