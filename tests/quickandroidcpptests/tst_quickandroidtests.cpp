@@ -121,6 +121,8 @@ void QuickAndroidTests::runExample()
     engine.addImageProvider("drawable",provider);
     engine.load(QUrl("qrc:/main.qml"));
 
+    wait(800);
+
     QObject* firstObject = engine.rootObjects().first();
     QQuickWindow *window = qobject_cast<QQuickWindow*>(firstObject);
     QVERIFY(window);
@@ -130,7 +132,7 @@ void QuickAndroidTests::runExample()
     QQuickItem * componentPage = rootItem->findChild<QQuickItem*>("ComponentPage");
     QVERIFY(componentPage);
 
-    QQuickItem * pageStack = qobject_cast<QQuickItem*>(rootItem);
+    QQuickItem * pageStack = rootItem->findChild<QQuickItem*>("PageStack");
     QVERIFY(pageStack);
 
     QVariantList pages = componentPage->property("pages").toList();
