@@ -282,7 +282,7 @@ FocusScope {
 
     Component.onCompleted: {
         if (initialPage !== null) {
-            push(initialPage,{},false);
+            push(initialPage, {}, false);
         }
     }
 }
