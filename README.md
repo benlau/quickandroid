@@ -115,13 +115,12 @@ Remarks: Daily build for non-master branch may not be working.
 
 ![Screenshot](https://raw.githubusercontent.com/benlau/quickandroid/master/docs/screenshots/example1.png)
 
-Class Reference
+Class Reference (Under Construction)
 ---------------
 
-Writing...
 [Quick Android Class Reference](http://benlau.github.io/quickandroid/)
 
-If you have any question, please feel free toask.
+If you have any question, please feel free to ask.
 
 License
 -------
