@@ -40,7 +40,20 @@ FocusScope {
 
     property bool asynchronous: true;
 
+    /*!
+      This property hold an indicator to enable queued push/pop while it is running.
+
+      The default value is false.
+     */
+
+    property bool queueEnabled: false;
+
     function push(source, properties, animated) {
+
+        if (running && !queueEnabled) {
+            return;
+        }
+
         properties = properties === undefined ? {} : properties;
 
         if (asynchronous) {
@@ -63,6 +76,10 @@ FocusScope {
     }
 
     function pop(animated) {
+        if (running && !queueEnabled) {
+            return;
+        }
+
         if (running) {
             priv._enqueue({op: "pop",
                       animated: animated});

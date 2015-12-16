@@ -186,6 +186,8 @@ Rectangle {
         function test_queue() {
             var stack = pageStackCreator1.createObject(window);
             stack.asynchronous = false;
+            stack.queueEnabled = true;
+
             var initialPage = Testable.search(stack,"InitialPage");
             compare(initialPage.appearCount,1);
             compare(stack.running, false);
@@ -232,6 +234,7 @@ Rectangle {
         function test_push_asynchronous() {
             var stack = pageStackCreator1.createObject(window);
             stack.asynchronous = true;
+            stack.queueEnabled = true;
             var initialPage = Testable.search(stack,"InitialPage");
             compare(initialPage.appearCount,1);
             compare(stack.running, false);
@@ -271,6 +274,8 @@ Rectangle {
         function test_push_string_asynchronous() {
             var stack = pageStackCreator1.createObject(window);
             stack.asynchronous = true;
+            stack.queueEnabled = true;
+
             var initialPage = Testable.search(stack,"InitialPage");
             compare(initialPage.appearCount,1);
             compare(stack.running, false);
@@ -305,6 +310,24 @@ Rectangle {
             stack.destroy();
         }
 
+        function test_disableQueue() {
+            var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = true;
+            stack.queueEnabled = false;
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.appearCount,1);
+            compare(stack.running, false);
+
+            var p1 = stack.push(page1);
+            compare(stack.running, true);
+            var p2 = stack.push(page1);
+            compare(p2, undefined);
+            waitFor(stack, "running", false);
+            compare(stack.pages.length,2);
+
+
+            stack.destroy();
+        }
     }
 
 }
