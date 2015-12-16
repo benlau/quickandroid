@@ -13,15 +13,31 @@ Window {
 
     visible: false;
 
-    /* Tips to prevent screen flicker from splash screen to your application
+    /* Fast Splash Screen Setup Instruction
 
-      1. Set Window.color to a color which is similar to splash screen / Theme.windowBackground
-      2. Set visible of Window to false until your content is loaded
-      3. Use an asynchronous Loader for your content. Set opacity to 0.
-      4. Once everything is ready, set Window.visible to true and perform a fade-in animation on Loader
+      1. Create a custom theme (apptheme.qml) and set windowBackground to @drawable/splash.xml (Your splash screen drawable)
+
+      2. Within AndroidManifest.xml, set android.app.splash_screen_drawable to @drawable/splash.xml
+
+        <!-- Splash screen -->
+            <meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/splash"/>
+        <!-- Splash screen -->
+
+      That will show a splash screen while Qt is loading. However, screen flicker will happen when your Window
+      item is shown. To prevent screen flicker completely, you could setup your main.qml accoroding to step 3.
+
+      3. In your main.qml (the one with Window component)
+
+      3.1. Set Window.color to a color which is similar to splash screen / Theme.windowBackground
+
+      3.2. Set visible of Window to false until your content is loaded. (Keep Android splash screen while loading)
+
+      3.3. Use an asynchronous Loader for your content. Set opacity to 0.
+
+      3.4. Once everything is ready, set Window.visible to true and perform a fade-in animation on Loader
+
      */
 
-    // Prevent screen flicker
     Loader {
         id: loader
         anchors.fill: parent
