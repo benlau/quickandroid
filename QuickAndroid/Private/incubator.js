@@ -25,29 +25,42 @@ Incubator.prototype.create = function() {
     this.status = QtQuick.Component.Loading;
     if (typeof this.source === "string") {
         this._createComponent();
-    } else {
+    } else if (String(this.source).indexOf("QQmlComponent") === 0 ) {
         this.component = this.source;
-        this._incubateObject();
+        this._verifyComponent();
+    } else {
+        this._onFinished("Incubator.create() - Invalid source type");
     }
 }
 
 Incubator.prototype._createComponent = function() {
-    var incubator = this;
     var component = Qt.createComponent(this.source, QtQuick.Component.Asynchronous);
     this.component = component;
+    this._verifyComponent();
+}
+
+Incubator.prototype._verifyComponent = function() {
+    var incubator = this;
+    var component = this.component;
 
     function last() {
-        if (component.status === QtQuick.Component.Ready) {
-            incubator._incubateObject();
-        } else {
-            incubator._onFinished(component.errorString());
-        }
+        incubator._processComponent();
     }
 
     if (component.status === QtQuick.Component.Loading) {
         component.statusChanged.connect(last);
     } else {
         last();
+    }
+}
+
+Incubator.prototype._processComponent = function() {
+    var component = this.component;
+
+    if (component.status === QtQuick.Component.Ready) {
+        this._incubateObject();
+    } else {
+        this._onFinished(component.errorString());
     }
 }
 

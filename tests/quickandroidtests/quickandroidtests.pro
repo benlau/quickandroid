@@ -48,6 +48,7 @@ DISTFILES += \
     tst_Page.qml \
     tst_PageStack.qml \
     tst_Ink.qml \
+    tst_Incubator.qml \
     TestSuite.qml \
     components/DummyPage.qml \
     tst_Dialog_activeFocus.qml
