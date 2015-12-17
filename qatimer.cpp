@@ -41,23 +41,3 @@ void QATimer::onTriggered()
 
     timer->deleteLater();
 }
-
-static QJSValue provider(QQmlEngine* engine , QJSEngine *scriptEngine) {
-    Q_UNUSED(engine);
-
-    QATimer* timer = new QATimer();
-
-    QJSValue value = scriptEngine->newQObject(timer);
-    return value;
-}
-
-class QATimerRegisterHelper {
-
-public:
-    QATimerRegisterHelper() {
-        qmlRegisterSingletonType("QuickAndroid.Private", 0, 1, "TimerUtils", provider);
-    }
-};
-
-static QATimerRegisterHelper registerHelper;
-

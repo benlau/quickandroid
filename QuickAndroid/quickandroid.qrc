@@ -101,5 +101,8 @@
         <file>Styles/TextFieldPlainStyle.qml</file>
         <file>Styles/ButtonMaterialStyle.qml</file>
         <file>Styles/FloatingActionButtonMaterialStyle.qml</file>
+        <file>Ink.qml</file>
+        <file>Private/RippleSurface.qml</file>
+        <file>Private/incubator.js</file>
     </qresource>
 </RCC>

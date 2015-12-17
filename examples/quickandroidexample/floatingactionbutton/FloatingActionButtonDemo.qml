@@ -22,14 +22,14 @@ Page {
                 height: 72 * A.dp
                 title: "   Depth = " + modelData
                 icon: FloatingActionButton {
-                    color: "red"
+                    backgroundColor: "red"
                     iconSource: A.drawable("ic_done_black_24dp",Constants.white87);
                     depth: modelData
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
                 rightIcon: FloatingActionButton {
-                    color: "blue"
+                    backgroundColor: "blue"
                     iconSource: A.drawable("ic_done_black_24dp",Constants.white87);
                     depth: modelData
                     anchors.verticalCenter: parent.verticalCenter

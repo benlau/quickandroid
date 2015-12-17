@@ -1,11 +1,20 @@
+/* Quick Android Project
+   Author: Ben Lau
+   License: Apache-2.0
+   Web: https://github.com/benlau/quickandroid
+*/
+
 #include <QtQml>
 #include <QEvent>
 #include "qamousesensor.h"
 
+/*!
+ * \brief QAMouseSensor::QAMouseSensor
+ * \param parent
+ */
+
 QAMouseSensor::QAMouseSensor(QQuickItem* parent) : QQuickItem(parent)
 {
-//    setAcceptedMouseButtons(Qt::LeftButton);
-//    setFiltersChildMouseEvents(true);
     timerId = 0;
     m_filter = 0;
 }

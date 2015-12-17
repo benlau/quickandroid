@@ -13,6 +13,8 @@ public:
 
     Q_INVOKABLE QObject* search(QQuickItem* root,QString name);
 
+    Q_INVOKABLE QList<QObject*> filter(QObject* root, QVariantMap fields);
+
 signals:
 
 public slots:

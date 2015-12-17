@@ -23,7 +23,8 @@ OTHER_FILES += \
     tst_Dialog.qml \
     tst_DrawableGravityBehaviour.qml \
     tst_Button.qml \
-    tst_Text.qml
+    tst_Text.qml \
+    ../../docs/index.qdoc
 
 DISTFILES += \
     tst_ListItem.qml \
@@ -45,7 +46,11 @@ DISTFILES += \
     tst_Activity_appear.qml \
     tst_SystemDispatcher.qml \
     tst_Page.qml \
-    tst_PageStack.qml
+    tst_PageStack.qml \
+    tst_Ink.qml \
+    TestSuite.qml \
+    components/DummyPage.qml \
+    tst_Dialog_activeFocus.qml
 
 RESOURCES += \
     qml.qrc

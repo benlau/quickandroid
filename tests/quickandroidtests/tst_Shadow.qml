@@ -23,6 +23,7 @@ Rectangle {
                     asynchronous: true
                     anchors.fill: card
                     depth: modelData + 1
+//                    shader: true
                 }
 
                 Rectangle {
@@ -42,9 +43,7 @@ Rectangle {
         when : windowShown
 
         function test_basic() {
-            // Wait until all the UI is already
-
-//            wait(60000);
+            wait(TestEnv.waitTime);
         }
     }
 

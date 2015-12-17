@@ -23,23 +23,3 @@ void QASystemDispatcherProxy::loadClass(QString className)
 {
     QASystemDispatcher::instance()->loadClass(className);
 }
-
-static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
-    Q_UNUSED(engine);
-    Q_UNUSED(scriptEngine);
-
-    QASystemDispatcherProxy* object = new QASystemDispatcherProxy();
-
-    return object;
-}
-
-class QASystemDispatcherProxyRegisterHelper {
-
-public:
-    QASystemDispatcherProxyRegisterHelper() {
-        qmlRegisterSingletonType<QASystemDispatcherProxy>("QuickAndroid", 0, 1,
-                                                          "SystemDispatcher", provider);
-    }
-};
-
-static QASystemDispatcherProxyRegisterHelper registerHelper;

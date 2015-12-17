@@ -1,4 +1,4 @@
-/* Dialog Component
+/* Quick Android Project
 
    Author: Ben Lau
    License: Apache-2.0
@@ -14,7 +14,13 @@ import "./Styles"
 import "./Private"
 import "./drawable"
 
-Item {
+/*!
+   \qmltype Dialog
+   \inqmlmodule QuickAndrid 0.1
+   \brief Dialog Component
+ */
+
+FocusScope {
     id: dialog
 
     signal rejected
@@ -31,9 +37,15 @@ Item {
 
     property bool isOpened: false
 
+    /*! This property hold an indicator to choose to show a dark background behind the dialog.
+
+      The default value is true.
+     */
+
     property bool darkBackground: true
 
     property alias acceptButton : acceptButton
+
     property alias rejectButton : rejectButton
 
     default property alias content: container.children
@@ -41,6 +53,8 @@ Item {
     property DialogMaterial material : ThemeManager.currentTheme.dialog
 
     property color tintColor: material.tintColor
+
+    focus: isOpened;
 
     function open() {
         isOpened = true
@@ -66,6 +80,14 @@ Item {
             accepted();
         }
         close();
+    }
+
+    Keys.onReleased: {
+        if (event.key === Qt.Key_Back ||
+            event.key === Qt.Key_Escape) {
+            dialog.isOpened = false;
+            event.accepted = true;
+        }
     }
 
     Overlay {
@@ -125,7 +147,6 @@ Item {
                 return res;
             }
 
-            focus: isOpened
             opacity: isOpened ? 1 : 0
             enabled: isOpened
 
@@ -217,14 +238,6 @@ Item {
                     easing.type: Easing.InOutQuad
                 }
 
-            }
-
-            Keys.onReleased: {
-                if (event.key === Qt.Key_Back ||
-                    event.key === Qt.Key_Escape) {
-                    dialog.isOpened = false;
-                    event.accepted = true;
-                }
             }
         }
     }

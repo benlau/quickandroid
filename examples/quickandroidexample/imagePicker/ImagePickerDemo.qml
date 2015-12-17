@@ -55,7 +55,7 @@ Page {
             FloatingActionButton {
                 iconSource: A.drawable("ic_camera",Constants.black87);
                 size: Constants.small
-                color: Constants.white100
+                backgroundColor: Constants.white100
                 onClicked: {
                     imagePicker.takePhoto();
                 }
@@ -64,7 +64,7 @@ Page {
             FloatingActionButton {
                 iconSource: A.drawable("ic_image",Constants.black87);
                 size: Constants.small
-                color: Constants.white100
+                backgroundColor: Constants.white100
                 onClicked: {
                     imagePicker.pickImage();
                 }

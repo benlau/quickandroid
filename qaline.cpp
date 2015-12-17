@@ -101,14 +101,3 @@ void QALine::setOrientation(int orientation)
     update();
     emit orientationChanged();
 }
-
-class QALineRegisterHelper {
-
-public:
-    QALineRegisterHelper() {
-        qmlRegisterType<QALine>("QuickAndroid.Private",0,1,"Line");
-    }
-};
-
-static QALineRegisterHelper registerHelper;
-

@@ -30,6 +30,8 @@ Material {
 
     property string colorAccent : "#009688"
 
+    property color colorPressed: Constants.black12
+
     // Animation
 
     property int activityDefaultDuration: 220
@@ -67,10 +69,12 @@ Material {
     }
 
     property ButtonMaterial button: ButtonMaterial {
+        colorPressed: theme.colorPressed
     }
 
     property RaisedButtonMaterial raisedButton: RaisedButtonMaterial {
-        color: colorPrimary
+        colorPressed: theme.colorPressed
+        backgroundColor: colorPrimary
         text: TextMaterial {
             textSize: 14 * A.dp
             textColor: textColorPrimary
@@ -78,12 +82,13 @@ Material {
     }
 
     property FloatingActionButtonMaterial floatingActionButton: FloatingActionButtonMaterial {
-        color: colorAccent
+        backgroundColor: colorAccent
+        colorPressed: theme.colorPressed
     }
 
     property ActionBarMaterial actionBar : ActionBarMaterial {
-        background : "#E6E6E6"
-        actionButtonBackground : Qt.resolvedUrl("../drawable/ItemBackgroundHoloLight.qml")
+        backgroundColor: colorPrimary
+        actionButtonBackground :button.background
         title: TextMaterial {
             textSize: 18*A.dp
             textColor: textColorPrimary
@@ -115,6 +120,7 @@ Material {
         backgroundColor: colorPrimary
         indicatorColor: colorAccent
         textColor: textColorPrimary
+        colorPressed: theme.colorPressed
     }
 
     property TextFieldMaterial textField: TextFieldMaterial {

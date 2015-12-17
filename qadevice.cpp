@@ -1,5 +1,6 @@
 #include <QObject>
 #include <QtQml>
+#include <QSysInfo>
 #include "qadevice.h"
 #include "qadrawableprovider.h"
 
@@ -8,21 +9,65 @@
 #include <QAndroidJniObject>
 #endif
 
-/* Register a Device singleton object in QuickAndroid package. It provides
- * device related information.
- *
+/*!
+   \qmltype Device
+   \instantiates QADevice
+   \inqmlmodule QuickAndroid 1.0
+   \inherits QtObject
+   \brief Provider of device related information
+
  */
 
 static qreal m_dp = 1;
 static qreal m_dpi = 72;
+static bool m_isTablet = false;
 
-static QJSValue provider(QQmlEngine *engine, QJSEngine *scriptEngine)
+QADevice::QADevice(QObject *parent) : QObject(parent)
 {
-    Q_UNUSED(engine);
+}
 
-    QJSValue value = scriptEngine->newObject();
-    value.setProperty("dp",m_dp);
-    value.setProperty("dpi",m_dpi);
+qreal QADevice::readDp()
+{
+    return m_dp;
+}
+
+qreal QADevice::dp() const
+{
+    return m_dp;
+}
+
+qreal QADevice::dpi() const
+{
+    return m_dpi;
+}
+
+/*!
+  \qmlproperty bool Device::isTablet
+
+   This property hold an indicator for tablet device
+ */
+
+qreal QADevice::isTablet() const
+{
+    return m_isTablet;
+}
+
+/*!
+  \qmlproperty string Device::os
+
+   This property hold the name of the type of current running OS
+ */
+
+QString QADevice::os() const
+{
+    return QSysInfo::productType();
+}
+
+static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
+    Q_UNUSED(engine);
+    Q_UNUSED(scriptEngine);
+
+    QADevice* device = new QADevice();
 
     if (!engine->imageProvider("quickandroid-drawable")) {
         QADrawableProvider* provider = new QADrawableProvider();
@@ -30,9 +75,8 @@ static QJSValue provider(QQmlEngine *engine, QJSEngine *scriptEngine)
         engine->addImageProvider("quickandroid-drawable",provider);
     }
 
-    return value;
+    return device;
 }
-
 
 class QADeviceRegisterHelper {
 
@@ -45,16 +89,20 @@ public:
         QAndroidJniObject metrics = resource.callObjectMethod("getDisplayMetrics","()Landroid/util/DisplayMetrics;");
         m_dp = metrics.getField<float>("density");
         m_dpi = metrics.getField<int>("densityDpi");
+
+        /* Is Tablet. Experimental code */
+
+        QAndroidJniObject configuration = resource.callObjectMethod("getConfiguration","()Landroid/content/res/Configuration;");
+        int screenLayout = configuration.getField<int>("screenLayout");
+        int SCREENLAYOUT_SIZE_MASK = QAndroidJniObject::getStaticField<int>("android/content/res/Configuration","SCREENLAYOUT_SIZE_MASK");
+        int SCREENLAYOUT_SIZE_LARGE = QAndroidJniObject::getStaticField<int>("android/content/res/Configuration","SCREENLAYOUT_SIZE_LARGE");
+
+        m_isTablet = (screenLayout & SCREENLAYOUT_SIZE_MASK) >= SCREENLAYOUT_SIZE_LARGE;
 #endif
 
-        qmlRegisterSingletonType("QuickAndroid", 0, 1, "Device", provider);
+        qmlRegisterSingletonType<QADevice>("QuickAndroid", 0, 1, "Device", provider);
     }
 };
 
 static QADeviceRegisterHelper registerHelper;
 
-
-qreal QADevice::dp()
-{
-    return m_dp;
-}

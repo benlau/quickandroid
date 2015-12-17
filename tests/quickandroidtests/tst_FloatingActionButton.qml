@@ -13,11 +13,11 @@ Rectangle {
         anchors.leftMargin: 16
 
         FloatingActionButton {
-            color: "Red"
+            backgroundColor: "Red"
         }
 
         FloatingActionButton {
-            color: "blue"
+            backgroundColor: "blue"
             iconSource: Qt.resolvedUrl("img/ic_action_accept.png")
             iconSourceSize: Qt.size(24 * A.dp,24 * A.dp)
         }

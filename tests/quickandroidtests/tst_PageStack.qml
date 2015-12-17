@@ -2,13 +2,14 @@ import QtQuick 2.0
 import QtTest 1.0
 import QuickAndroid 0.1
 import QuickAndroid.Private 0.1
+import "../../QuickAndroid/utils.js" as Utils
 
 Rectangle {
     id: window
     width : 480
     height : 640
 
-    TestCase {
+    TestSuite {
         id: testCase
         name: "PageStackTests"
         when : windowShown
@@ -60,6 +61,8 @@ Rectangle {
 
         function test_preview() {
             var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = false;
+
             var initialPage = Testable.search(stack,"InitialPage");
             var pushAnimFinished = false;
             compare(initialPage.appearCount,1);
@@ -125,6 +128,8 @@ Rectangle {
 
         function test_present() {
             var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = false;
+
             var initialPage = Testable.search(stack,"InitialPage");
             compare(initialPage.stack,stack);
             compare(initialPage.appearCount,1);
@@ -153,6 +158,8 @@ Rectangle {
 
         function test_noHistory_initialPage() {
             var stack = component2.createObject(window);
+            stack.asynchronous = false;
+
             compare(stack.count,1);
             var p1 = stack.push(page1,{});
             compare(stack.count,1);
@@ -169,7 +176,157 @@ Rectangle {
 
         function test_error() {
             var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = false;
+            // push a not page item
             stack.push(itemCreator);
+            compare(stack.running, false);
+            stack.destroy();
+        }
+
+        function test_queue() {
+            var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = false;
+            stack.queueEnabled = true;
+
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.appearCount,1);
+            compare(stack.running, false);
+
+            var p1 = stack.push(page1);
+            compare(p1 !== undefined, true);
+            compare(stack.running, true);
+            compare(stack.pages.length,2);
+
+            var p2 = stack.push(page1);
+            compare(stack.pages.length,2);
+            compare(p2 !== undefined, true);
+
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+            compare(stack.pages.length,3);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            compare(stack.running, true);
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+
+            compare(stack.pages.length, 1);
+
+            stack.destroy();
+
+        }
+
+        function test_createObject_asynchronous() {
+            var incubator = Utils.createObject(page1, window, {}, true);
+            compare(incubator.status !== undefined, true);
+            compare(incubator.object !== undefined, true);
+        }
+
+        function isIncubator(object) {
+            return object.status !== undefined && object.object !== undefined;
+        }
+
+        function test_push_asynchronous() {
+            var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = true;
+            stack.queueEnabled = true;
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.appearCount,1);
+            compare(stack.running, false);
+
+            var p1 = stack.push(page1);
+            compare(p1 !== undefined, true);
+            compare(isIncubator(p1), true);
+            compare(stack.running, true);
+
+            // It is still creating and not pushed. So it is "1"
+            compare(stack.pages.length,1);
+
+            var p2 = stack.push(page1);
+            compare(isIncubator(p2), true);
+            compare(stack.pages.length,1);
+            compare(p2 !== undefined, true);
+
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+            compare(stack.pages.length,3);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            compare(stack.running, true);
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+
+            compare(stack.pages.length, 1);
+
+            stack.destroy();
+        }
+
+        function test_push_string_asynchronous() {
+            var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = true;
+            stack.queueEnabled = true;
+
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.appearCount,1);
+            compare(stack.running, false);
+
+            var p1 = stack.push(Qt.resolvedUrl("./components/DummyPage.qml"));
+            compare(p1 !== undefined, true);
+            compare(stack.running, true);
+
+            // It is still creating and not pushed. So it is "1"
+            compare(stack.pages.length,1);
+
+            var p2 = stack.push(Qt.resolvedUrl("./components/DummyPage.qml"));
+            compare(stack.pages.length,1);
+            compare(p2 !== undefined, true);
+
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+            compare(stack.pages.length,3);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            stack.pop();
+            compare(stack.pages.length,2);
+
+            compare(stack.running, true);
+            waitFor(stack, "running", false);
+            compare(stack.running, false);
+
+            compare(stack.pages.length, 1);
+
+            stack.destroy();
+        }
+
+        function test_disableQueue() {
+            var stack = pageStackCreator1.createObject(window);
+            stack.asynchronous = true;
+            stack.queueEnabled = false;
+            var initialPage = Testable.search(stack,"InitialPage");
+            compare(initialPage.appearCount,1);
+            compare(stack.running, false);
+
+            var p1 = stack.push(page1);
+            compare(stack.running, true);
+            var p2 = stack.push(page1);
+            compare(p2, undefined);
+            waitFor(stack, "running", false);
+            compare(stack.pages.length,2);
+
+
+            stack.destroy();
         }
     }
 

@@ -2,25 +2,28 @@ import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
 
-Rectangle {
+Item {
     id: tab
-    //@TODO - Change to use Button
 
     property string title
+
     property string iconSource
+
     property color tintColor: "#fff"
 
     property bool active: false
+
+    property color colorPressed : Constants.black12
 
     signal clicked
 
     height: 48 * A.dp
 
-    color: mouseArea.pressed ? "#1F000000" : "#00000000"
     opacity: tab.active ? 1 : 0.7
 
-    MouseArea {
+    Ink {
         id: mouseArea
+        color: colorPressed
         anchors.fill: parent
         onClicked: {
             tab.clicked();

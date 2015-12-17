@@ -16,7 +16,7 @@ Controls.Button {
     height: width
 
     property size iconSourceSize : Qt.size(24 * A.dp,24 * A.dp);
-    property color color : material.color
+    property color backgroundColor : material.backgroundColor
     property int depth: 1
 
     // Size of button. Possible values: [Constants.large, Constants.small]

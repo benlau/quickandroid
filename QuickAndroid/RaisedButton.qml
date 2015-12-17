@@ -9,21 +9,23 @@
 import QtQuick 2.0
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
+import "./Private"
 
 Button {
     id: button
 
     property RaisedButtonMaterial material: ThemeManager.currentTheme.raisedButton
 
-    property color color: material.color
+    property color backgroundColor: material.backgroundColor
+
     property int depth: material.depth
 
     background: Rectangle {
 
-        property bool pressed: false
         opacity: button.enabled ? 1 : material.disabledOpacity
 
-        color: button.color
+        color: button.backgroundColor
+        clip: true
 
         MaterialShadow {
             asynchronous: true
@@ -32,9 +34,10 @@ Button {
             depth: button.depth
         }
 
-        Rectangle {
+        Ink {
+            mouseArea: control.__behavior
             anchors.fill: parent
-            color:  pressed ? "#1A000000" : Constants.transparent
+            color: material.colorPressed
         }
     }
 }

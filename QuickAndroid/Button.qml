@@ -1,4 +1,4 @@
-/* Page Component
+/* Quick Android Project
    Author: Ben Lau
    License: Apache-2.0
    Website: https://github.com/benlau/quickandroid
@@ -9,9 +9,14 @@ import QtQuick.Controls 1.2 as Controls
 import QtQuick.Controls.Styles 1.2 as ControlsStyles
 import QuickAndroid 0.1
 import QuickAndroid.Styles 0.1
-import "./drawable"
+import QuickAndroid.Private 0.1
 
-/// Button Component
+
+/*!
+   \qmltype Button
+   \inqmlmodule QuickAndrid 0.1
+   \brief Button Component
+ */
 
 Controls.Button {
 
@@ -21,7 +26,7 @@ Controls.Button {
 
     property size iconSourceSize : material.iconSourceSize
 
-    property var background : material.background
+    property Component background : material.background
 
     property color textColor: material.text.textColor
 

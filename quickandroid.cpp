@@ -15,17 +15,8 @@ void QuickAndroid::registerTypes()
     // Keep here for compatible purpose only.
 }
 
-
 qreal QuickAndroid::dp()
 {
-    return QADevice::dp();
+    return QADevice::readDp();
 }
 
-class QuickAndroidRegisterHelper {
-public:
-    QuickAndroidRegisterHelper() {
-        qmlRegisterType<QAMouseSensor>("QuickAndroid.Private",0,1,"MouseSensor");
-    }
-};
-
-static QuickAndroidRegisterHelper registerHelper;

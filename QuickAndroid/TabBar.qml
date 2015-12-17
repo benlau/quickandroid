@@ -20,6 +20,8 @@ Item {
 
     property color textColor : material.textColor
 
+    property color colorPressed: material.colorPressed
+
     property var tabs : []
 
     property int count : tabs.length
@@ -49,6 +51,7 @@ Item {
                 height: component.height
                 active: currentIndex === index
                 tintColor: component.textColor
+                colorPressed: component.colorPressed
 
                 onClicked: {
                     component.currentIndex = index;

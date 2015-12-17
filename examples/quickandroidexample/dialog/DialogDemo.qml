@@ -15,17 +15,10 @@ Page {
 
     }
 
-    Text {
+    Button {
         id: label
         text : "Press to launch dialog"
-        anchors.fill: parent
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-        type: Constants.largeText
-    }
-
-    MouseArea {
-        anchors.fill: parent
+        anchors.centerIn: parent
         onClicked: {
             dialog.open();
         }
