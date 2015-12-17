@@ -3,6 +3,7 @@ url = https://github.com/benlau/quickandroid
 description = Qt's Material Design and Support Library for Android
 sourcedirs = ./
 sourcedirs += ../QuickAndroid
+sourcedirs += ../
 exampledirs += ../examples/quickandroidexample/
 sources.fileextensions = "*.qml *.qdoc *.cpp"
 headers.fileextensions = "*.h"

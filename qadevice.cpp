@@ -9,9 +9,13 @@
 #include <QAndroidJniObject>
 #endif
 
-/* Register a Device singleton object in QuickAndroid package. It provides
- * device related information.
- *
+/*!
+   \qmltype Device
+   \instantiates QADevice
+   \inqmlmodule QuickAndroid 1.0
+   \inherits QtObject
+   \brief Provider of device related information
+
  */
 
 static qreal m_dp = 1;
@@ -37,10 +41,22 @@ qreal QADevice::dpi() const
     return m_dpi;
 }
 
+/*!
+  \qmlproperty bool Device::isTablet
+
+   This property hold an indicator for tablet device
+ */
+
 qreal QADevice::isTablet() const
 {
     return m_isTablet;
 }
+
+/*!
+  \qmlproperty string Device::os
+
+   This property hold the name of the type of current running OS
+ */
 
 QString QADevice::os() const
 {

@@ -2,6 +2,8 @@
     \page index.html
     \title QuickAndroid Project
 
+UI Components
+
     \list
       \li \l ActionBar
       \li \l Button
@@ -10,6 +12,13 @@
       \li \l Page
       \li \l PageStack
     \endlist
+
+Utilities
+    \list
+      \li \l Device
+    \endlist
+
+Styles
 
     \list
       \li \l ActionBarMaterial
