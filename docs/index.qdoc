@@ -6,22 +6,57 @@ UI Components
 
     \list
       \li \l ActionBar
+      \li \l BottomSheet
       \li \l Button
       \li \l Dialog
+      \li \l DropDownMenu
+      \li \l FloatingActionButton
       \li \l Ink
+      \li \l ListItem
+      \li \l MaterialShadow
       \li \l Page
       \li \l PageStack
+      \li \l Paper
+      \li \l Popup
+      \li \l TabBar
+      \li \l TabView 
+      \li \l Text
+      \li \l TextField
     \endlist
 
-Utilities
+Singleton Components
     \list
       \li \l Device
+      \li \l Constants
     \endlist
 
-Styles
+Native Components
+    \list
+      \li \l ImagePicker
+    \endlist
 
+Utility Components
+    \list
+      \li \l InverseMouseArea
+      \li \l RectToRectMatrix
+    \endlist
+
+
+Styles
     \list
       \li \l ActionBarMaterial
+      \li \l ButtonMaterial
+      \li \l DialogMaterial
+      \li \l DropDownMenuMaterial
+      \li \l FloatingActionButtonMaterial
+      \li \l ListItemMaterial
+      \li \l Material
+      \li \l PageMaterial
+      \li \l RaisedButtonMaterial
+      \li \l TabBarMaterial
+      \li \l TextFieldMaterial
+      \li \l TextMaterial
+      \li \l Theme
       \li \l ThemeManager
     \endlist
 
