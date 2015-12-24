@@ -26,6 +26,7 @@ UI Components
 
 Singleton Components
     \list
+      \li \l A
       \li \l Device
       \li \l Constants
     \endlist
