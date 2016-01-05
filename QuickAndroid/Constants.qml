@@ -1,5 +1,17 @@
+/* Quick Android Project
+   Author: Ben Lau
+   License: Apache-2.0
+   Web: https://github.com/benlau/quickandroid
+*/
+
 import QtQuick 2.0
 pragma Singleton
+
+/*!
+   \qmltype Constants
+   \inqmlmodule QuickAndrid
+   \brief Constants table
+ */
 
 QtObject {
     property string black : "#000000"

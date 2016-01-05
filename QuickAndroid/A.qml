@@ -12,7 +12,7 @@ pragma Singleton
 
 /*!
    \qmltype A
-   \inqmlmodule QuickAndrid 0.1
+   \inqmlmodule QuickAndrid
    \brief A helper component to access Android specific information
  */
 
