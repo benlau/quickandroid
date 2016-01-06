@@ -50,6 +50,13 @@ MouseArea {
 
     property alias maxRadius: surface.maxRadius
 
+    /*! \qmlproperty real minRadius
+
+      This property holds the min radius of ripple
+     */
+
+    property alias minRadius: surface.minRadius
+
     RippleSurface {
         id: surface;
         color: ink.color
