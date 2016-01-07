@@ -40,7 +40,9 @@ Window {
 
     Loader {
         id: loader
-        anchors.fill: parent
+        parent: null
+        width: window.width
+        height: window.height
         asynchronous: true
         opacity: 0
         focus: true;
@@ -52,7 +54,10 @@ Window {
 
                 onPresented: {
                     window.visible = true;
-                    loader.opacity = 1;
+                    A.setTimeout(function() {
+                        loader.parent = window.contentItem;
+                        loader.opacity = 1;
+                    }, 34);
                 }
             }
         }
