@@ -9,7 +9,7 @@ Rectangle {
 
     Drawable {
         id : drawable
-        source : "drawable/MenuDropdownPanelHoloLight.qml"
+        source : Qt.resolvedUrl("./drawable/MenuDropdownPanelHoloLight.qml")
 
         DrawableGrowBehaviour {
             id : behaviour
@@ -19,7 +19,7 @@ Rectangle {
     Drawable {
         id : drawable2
         x: 150
-        source : "drawable/MenuDropdownPanelHoloLight.qml"
+        source : Qt.resolvedUrl("./drawable/MenuDropdownPanelHoloLight.qml")
 
 
         DrawableGrowBehaviour {

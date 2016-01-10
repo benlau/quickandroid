@@ -51,7 +51,8 @@ DISTFILES += \
     tst_Incubator.qml \
     TestSuite.qml \
     components/DummyPage.qml \
-    tst_Dialog_activeFocus.qml
+    tst_Dialog_activeFocus.qml \
+    drawable/MenuDropdownPanelHoloLight.qml
 
 RESOURCES += \
     qml.qrc

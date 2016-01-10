@@ -27,10 +27,8 @@
         <file>drawable/ic_ab_back_holo_light_am.png</file>
         <file>drawable/ItemBackgroundHoloLight.qml</file>
         <file>drawable/ListSelectorHoloLight.qml</file>
-        <file>drawable/MenuDropdownPanelHoloLight.qml</file>
         <file>drawable/Triangle.qml</file>
         <file>drawable-xxhdpi/ic_ab_back_holo_light_am.png</file>
-        <file>drawable-xxhdpi/menu_dropdown_panel_holo_light.png</file>
         <file>qmldir</file>
         <file>global.js</file>
         <file>drawable/qmldir</file>
