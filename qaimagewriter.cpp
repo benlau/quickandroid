@@ -76,6 +76,10 @@ void QAImageWriter::setImage(const QImage &image)
 
 void QAImageWriter::save(QString fileUrl)
 {
+    if (!fileUrl.isNull()) {
+        setFileUrl(fileUrl);
+    }
+
     if (m_running) {
         qWarning() << "ImageWriter::save() - It is already running.";
         return;

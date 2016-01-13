@@ -8,6 +8,8 @@ TEMPLATE = app
 SOURCES += main.cpp \
     testable.cpp
 
+QMAKE_CXXFLAGS += -Wall -Werror
+
 include(../../quickandroid.pri)
 
 OTHER_FILES += \
