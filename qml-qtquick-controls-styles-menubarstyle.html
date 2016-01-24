@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- MenuBarStyle.qml -->
+  <title>MenuBarStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">MenuBarStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$MenuBarStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-menubar.html">MenuBar</a> <a href="#details">More...</a></p>
+<!-- @@@MenuBarStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.3</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-menubarstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-menubarstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-menubarstyle.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-menubarstyle.html#itemDelegate-prop">itemDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-menubarstyle.html#menuStyle-prop">menuStyle</a></b></b> : Component</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-menubarstyle.html#formatMnemonic-method">formatMnemonic</a></b></b>(<i>text</i>,  <i>underline</i>)</li>
+</ul>
+<!-- $$$MenuBarStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p><b>Note: </b>Styling menu bars may not be supported on platforms using native menu bars through their QPA plugin.</p><!-- @@@MenuBarStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background for the full menu bar.</p>
+<p>The background will be extended to the full containing window width. Its height will always fit all of the menu bar items. The final size will include the paddings.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="font-prop"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-qtquick-controls-styles-menubarstyle.html#font-prop">font</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The font of the control.</p>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.3.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$itemDelegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="itemDelegate-prop"><td class="tblQmlPropNode"><p><a name="itemDelegate-prop"></a><span class="name">itemDelegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The menu bar item.</p>
+<a name="styledata-properties"></a><p>This item has to be configured using the <b>styleData</b> object which is in scope, and contains the following read-only properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><b>styleData.index</b> : int</td><td >The index of the menu item in its menu.</td></tr>
+<tr valign="top" class="even"><td ><b>styleData.selected</b> : bool</td><td ><code>true</code> if the menu item is selected.</td></tr>
+<tr valign="top" class="odd"><td ><b>styleData.open</b> : bool</td><td ><code>true</code> when the pull down menu is open.</td></tr>
+<tr valign="top" class="even"><td ><b>styleData.text</b> : string</td><td >The menu bar item's text.</td></tr>
+<tr valign="top" class="odd"><td ><b>styleData.underlineMnemonic</b> : bool</td><td >When <code>true</code>, the style should underline the menu item's label mnemonic.</td></tr>
+</table></div>
+</div></div><!-- @@@itemDelegate -->
+<br/>
+<!-- $$$menuStyle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="menuStyle-prop"><td class="tblQmlPropNode"><p><a name="menuStyle-prop"></a><span class="name">menuStyle</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style component for the menubar's own menus and their submenus.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-menustyle.html">MenuStyle</a>.</p>
+</div></div><!-- @@@menuStyle -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$formatMnemonic -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="formatMnemonic-method"><td class="tblQmlFuncNode"><p><a name="formatMnemonic-method"></a><span class="name">formatMnemonic</span>(<i> text</i>, <i> underline</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns a formatted string to render mnemonics for a given menu item.</p>
+<p>The mnemonic character is prefixed by an ampersand in the original string.</p>
+<p>Passing <code>true</code> for <code>underline</code> will underline the mnemonic character (e.g&#x2e;, <code>formatMnemonic(&quot;&amp;File&quot;, true)</code> will return <code>&quot;&lt;u&gt;F&lt;/u&gt;ile&quot;</code>). Passing <code>false</code> for <code>underline</code> will return the plain text form (e.g&#x2e;, <code>formatMnemonic(&quot;&amp;File&quot;, false)</code> will return <code>&quot;File&quot;</code>).</p>
+<p><b>See also </b><a href="qml-qtquick-controls-label.html">Label</a>.</p>
+</div></div><!-- @@@formatMnemonic -->
+<br/>
+</body>
+</html>

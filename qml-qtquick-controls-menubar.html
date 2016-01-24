@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- MenuBar.qml -->
+  <title>MenuBar QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">MenuBar QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$MenuBar-brief -->
+<p>Provides a horizontal menu bar. <a href="#details">More...</a></p>
+<!-- @@@MenuBar -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-menubar-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-menubar.html#style-prop">style</a></b></b> : Component</li>
+</ul>
+<!-- $$$MenuBar-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image menubar.png]</font></p><p><a href="qml-qtquick-controls-menubar.html">MenuBar</a> can be added to an <a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a>, providing menu options to access additional functionality of the application.</p>
+<pre class="cpp">ApplicationWindow {
+    <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    menuBar: MenuBar {
+        Menu {
+            title: <span class="string">&quot;File&quot;</span>
+            MenuItem { text: <span class="string">&quot;Open...&quot;</span> }
+            MenuItem { text: <span class="string">&quot;Close&quot;</span> }
+        }
+
+        Menu {
+            title: <span class="string">&quot;Edit&quot;</span>
+            MenuItem { text: <span class="string">&quot;Cut&quot;</span> }
+            MenuItem { text: <span class="string">&quot;Copy&quot;</span> }
+            MenuItem { text: <span class="string">&quot;Paste&quot;</span> }
+        }
+    }
+}</pre>
+<p><b>See also </b><a href="qml-qtquick-controls-applicationwindow.html#menuBar-prop">ApplicationWindow::menuBar</a>.</p>
+<!-- @@@MenuBar -->
+<h2>Property Documentation</h2>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.2.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-menubarstyle.html">MenuBarStyle</a>.</p>
+</div></div><!-- @@@style -->
+<br/>
+</body>
+</html>

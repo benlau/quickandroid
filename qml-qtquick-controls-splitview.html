@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- SplitView.qml -->
+  <title>SplitView QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">SplitView QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$SplitView-brief -->
+<p>Lays out items with a draggable splitter between each item. <a href="#details">More...</a></p>
+<!-- @@@SplitView -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-splitview-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-splitview.html#handleDelegate-prop">handleDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-splitview.html#orientation-prop">orientation</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-splitview.html#resizing-prop">resizing</a></b></b> : bool</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-splitview.html#addItem-method">addItem</a></b></b>(<i>item</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-splitview.html#removeItem-method">removeItem</a></b></b>(<i>item</i>)</li>
+</ul>
+<!-- $$$SplitView-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image splitview.png]</font></p><p><a href="qml-qtquick-controls-splitview.html">SplitView</a> is a control that lays out items horizontally or vertically with a draggable splitter between each item.</p>
+<p>There will always be one (and only one) item in the <a href="qml-qtquick-controls-splitview.html">SplitView</a> that has Layout.fillWidth set to <code>true</code> (or Layout.fillHeight, if orientation is Qt.Vertical). This means that the item will get all leftover space when other items have been laid out. By default, the last visible child of the <a href="qml-qtquick-controls-splitview.html">SplitView</a> will have this set, but it can be changed by explicitly setting fillWidth to <code>true</code> on another item. As the fillWidth item will automatically be resized to fit the extra space, explicit assignments to width and height will be ignored (but Layout.minimumWidth and Layout.maximumWidth will still be respected).</p>
+<p>A handle can belong to the item either on the left or top side, or on the right or bottom side:</p>
+<ul>
+<li>If the fillWidth item is to the right: the handle belongs to the left item.</li>
+<li>if the fillWidth item is on the left: the handle belongs to the right item.</li>
+</ul>
+<p>This will again control which item gets resized when the user drags a handle, and which handle gets hidden when an item is told to hide.</p>
+<p><a href="qml-qtquick-controls-splitview.html">SplitView</a> supports setting attached Layout properties on child items, which means that you can set the following attached properties for each child:</p>
+<ul>
+<li>Layout.minimumWidth</li>
+<li>Layout.minimumHeight</li>
+<li>Layout.maximumWidth</li>
+<li>Layout.maximumHeight</li>
+<li>Layout.fillWidth (<code>true</code> for only one child)</li>
+<li>Layout.fillHeight (<code>true</code> for only one child)</li>
+</ul>
+<p><b>Note: </b>Please import QtQuick.Layout 1.0 in your QML file in order to use the Layout attached properties inside <a href="qml-qtquick-controls-splitview.html">SplitView</a>.</p><p>Example:</p>
+<p>To create a <a href="qml-qtquick-controls-splitview.html">SplitView</a> with three items, and let the center item get superfluous space, one could do the following:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-splitview.html">SplitView</a></span> {
+    <span class="name">anchors</span>.fill: <span class="name">parent</span>
+    <span class="name">orientation</span>: <span class="name">Qt</span>.<span class="name">Horizontal</span>
+
+    <span class="type">Rectangle</span> {
+        <span class="name">width</span>: <span class="number">200</span>
+        <span class="name">Layout</span>.maximumWidth: <span class="number">400</span>
+        <span class="name">color</span>: <span class="string">&quot;lightblue&quot;</span>
+        <span class="type">Text</span> {
+            <span class="name">text</span>: <span class="string">&quot;View 1&quot;</span>
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+        }
+    }
+    <span class="type">Rectangle</span> {
+        <span class="name">id</span>: <span class="name">centerItem</span>
+        <span class="name">Layout</span>.minimumWidth: <span class="number">50</span>
+        <span class="name">Layout</span>.fillWidth: <span class="number">true</span>
+        <span class="name">color</span>: <span class="string">&quot;lightgray&quot;</span>
+        <span class="type">Text</span> {
+            <span class="name">text</span>: <span class="string">&quot;View 2&quot;</span>
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+        }
+    }
+    <span class="type">Rectangle</span> {
+        <span class="name">width</span>: <span class="number">200</span>
+        <span class="name">color</span>: <span class="string">&quot;lightgreen&quot;</span>
+        <span class="type">Text</span> {
+            <span class="name">text</span>: <span class="string">&quot;View 3&quot;</span>
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+        }
+    }
+}</pre>
+<!-- @@@SplitView -->
+<h2>Property Documentation</h2>
+<!-- $$$handleDelegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="handleDelegate-prop"><td class="tblQmlPropNode"><p><a name="handleDelegate-prop"></a><span class="name">handleDelegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the delegate that will be instantiated between each child item. Inside the delegate the following properties are available:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >readonly property bool styleData.index</td><td >Specifies the index of the splitter handle. The handle between the first and the second item will get index 0, the next handle index 1 etc.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool styleData.hovered</td><td >The handle is being hovered.</td></tr>
+<tr valign="top" class="odd"><td >readonly property bool styleData.pressed</td><td >The handle is being pressed.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool styleData.resizing</td><td >The handle is being dragged.</td></tr>
+</table></div>
+</div></div><!-- @@@handleDelegate -->
+<br/>
+<!-- $$$orientation -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="orientation-prop"><td class="tblQmlPropNode"><p><a name="orientation-prop"></a><span class="name">orientation</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the orientation of the <a href="qml-qtquick-controls-splitview.html">SplitView</a>. The value can be either <code>Qt.Horizontal</code> or <code>Qt.Vertical</code>. The default value is <code>Qt.Horizontal</code>.</p>
+</div></div><!-- @@@orientation -->
+<br/>
+<!-- $$$resizing -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="resizing-prop"><td class="tblQmlPropNode"><p><a name="resizing-prop"></a><span class="name">resizing</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This propery is <code>true</code> when the user is resizing any of the items by dragging on the splitter handles.</p>
+</div></div><!-- @@@resizing -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$addItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="addItem-method"><td class="tblQmlFuncNode"><p><a name="addItem-method"></a><span class="name">addItem</span>(<i> item</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Add an item to the end of the view.</p>
+<p>This QML method was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@addItem -->
+<br/>
+<!-- $$$removeItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="removeItem-method"><td class="tblQmlFuncNode"><p><a name="removeItem-method"></a><span class="name">removeItem</span>(<i> item</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Remove <i>item</i> from the view.</p>
+<p>This QML method was introduced in  QtQuick.Controls 1.4.</p>
+</div></div><!-- @@@removeItem -->
+<br/>
+</body>
+</html>

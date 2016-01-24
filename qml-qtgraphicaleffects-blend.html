@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Blend.qml -->
+  <title>Blend QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Blend QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Blend-brief -->
+<p>Merges two source items by using a blend mode. <a href="#details">More...</a></p>
+<!-- @@@Blend -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtGraphicalEffects .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtGraphicalEffects 1.0</td></tr></table></div><ul>
+<li><a href="qml-qtgraphicaleffects-blend-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-blend.html#cached-prop">cached</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-blend.html#mode-prop">mode</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-blend.html#source-prop">source</a></b></b> : variant</li>
+</ul>
+<!-- $$$Blend-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>Blend mode can be selected with the <a href="qml-qtgraphicaleffects-blend.html#mode-prop">mode</a> property.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >source</th><th ><a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a></th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_bug.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Original_butterfly.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_bug_and_butterfly.png]</font></p></td></tr>
+</table></div>
+<a name="example"></a>
+<h2 id="example">Example</h2>
+<p>The following example shows how to apply the effect.</p>
+<pre class="qml"></pre>
+<!-- @@@Blend -->
+<h2>Property Documentation</h2>
+<!-- $$$cached -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cached-prop"><td class="tblQmlPropNode"><p><a name="cached-prop"></a><span class="name">cached</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property allows the effect output pixels to be cached in order to improve the rendering performance.</p>
+<p>Every time the source or effect properties are changed, the pixels in the cache must be updated. Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.</p>
+<p>It is recommended to disable the cache when the source or the effect properties are animated.</p>
+<p>By default, the property is set to false.</p>
+</div></div><!-- @@@cached -->
+<br/>
+<!-- $$$foregroundSource -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="foregroundSource-prop"><td class="tblQmlPropNode"><p><a name="foregroundSource-prop"></a><span class="name">foregroundSource</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the item that is going to be blended over the <a href="qml-qtgraphicaleffects-blend.html#source-prop">source</a>.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting foregroundSource to the effect's parent.</p></div></div><!-- @@@foregroundSource -->
+<br/>
+<!-- $$$mode -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="mode-prop"><td class="tblQmlPropNode"><p><a name="mode-prop"></a><span class="name">mode</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the mode which is used when <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is blended over source. Values are case insensitive.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >mode</th><th >description</th></tr></thead>
+<tr valign="top" class="odd"><td >normal</td><td >The pixel component values from <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> are written over source by using alpha blending.</td></tr>
+<tr valign="top" class="even"><td >addition</td><td >The pixel component values from source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> are added together and written.</td></tr>
+<tr valign="top" class="odd"><td >average</td><td >The pixel component values from source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> are averaged and written.</td></tr>
+<tr valign="top" class="even"><td >color</td><td >The lightness value from source is combined with hue and saturation from <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> and written.</td></tr>
+<tr valign="top" class="odd"><td >colorBurn</td><td >The darker pixels from source are darkened more, if both source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> pixels are light the result is light.</td></tr>
+<tr valign="top" class="even"><td >colorDodge</td><td >The lighter pixels from source are lightened more, if both source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> pixels are dark the result is dark.</td></tr>
+<tr valign="top" class="odd"><td >darken</td><td >The darker pixel component value from source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is written.</td></tr>
+<tr valign="top" class="even"><td >darkerColor</td><td >The lower luminance pixel rgb-value from source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is written.</td></tr>
+<tr valign="top" class="odd"><td >difference</td><td >The absolute pixel component value difference between source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is written.</td></tr>
+<tr valign="top" class="even"><td >divide</td><td >The pixel component values from source is divided by the value from <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> and written.</td></tr>
+<tr valign="top" class="odd"><td >exclusion</td><td >The pixel component value difference with reduced contrast between source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is written.</td></tr>
+<tr valign="top" class="even"><td >hardLight</td><td >The pixel component values from source are lightened or darkened according to <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> values and written.</td></tr>
+<tr valign="top" class="odd"><td >hue</td><td >The hue value from <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is combined with saturation and lightness from source and written.</td></tr>
+<tr valign="top" class="even"><td >lighten</td><td >The lightest pixel component value from source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is written.</td></tr>
+<tr valign="top" class="odd"><td >lighterColor</td><td >The higher luminance pixel rgb-value from source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is written.</td></tr>
+<tr valign="top" class="even"><td >lightness</td><td >The lightness value from <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is combined with hue and saturation from source and written.</td></tr>
+<tr valign="top" class="odd"><td >multiply</td><td >The pixel component values from source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> are multiplied together and written.</td></tr>
+<tr valign="top" class="even"><td >negation</td><td >The inverted absolute pixel component value difference between source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is written.</td></tr>
+<tr valign="top" class="odd"><td >saturation</td><td >The saturation value from <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is combined with hue and lightness from source and written.</td></tr>
+<tr valign="top" class="even"><td >screen</td><td >The pixel values from source and <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> are negated, then multiplied, negated again, and written.</td></tr>
+<tr valign="top" class="odd"><td >subtract</td><td >Pixel value from <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is subracted from source and written.</td></tr>
+<tr valign="top" class="even"><td >softLight</td><td >The pixel component values from source are lightened or darkened slightly according to <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> values and written.</td></tr>
+</table></div>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Example source</th><th >Example <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_bug.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Original_butterfly.png]</font></p></td></tr>
+</table></div>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different mode values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> mode: normal </b></td><td ><b> mode: addition </b></td><td ><b> mode: average </b></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode4.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode5.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode6.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> mode: color </b></td><td ><b> mode: colorBurn </b></td><td ><b> mode: colorDodge </b></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode7.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode8.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode9.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> mode: darken </b></td><td ><b> mode: darkerColor </b></td><td ><b> mode: difference </b></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode10.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode11.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode12.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> mode: divide </b></td><td ><b> mode: exclusion </b></td><td ><b> mode: hardlight </b></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode13.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode14.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode15.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> mode: hue </b></td><td ><b> mode: lighten </b></td><td ><b> mode: lighterColor </b></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode16.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode17.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode18.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> mode: lightness </b></td><td ><b> mode: negation </b></td><td ><b> mode: multiply </b></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode19.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode20.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode21.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> mode: saturation </b></td><td ><b> mode: screen </b></td><td ><b> mode: subtract </b></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Blend_mode22.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> mode: softLight </b></td></tr>
+</table></div>
+</div></div><!-- @@@mode -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="source-prop"><td class="tblQmlPropNode"><p><a name="source-prop"></a><span class="name">source</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the source item that is going to be the base when <a href="qml-qtgraphicaleffects-blend.html#foregroundSource-prop">foregroundSource</a> is blended over it.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting source to the effect's parent.</p></div></div><!-- @@@source -->
+<br/>
+</body>
+</html>

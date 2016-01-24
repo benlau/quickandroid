@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ProgressBar.qml -->
+  <title>ProgressBar QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ProgressBar QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ProgressBar-brief -->
+<p>A progress indicator. <a href="#details">More...</a></p>
+<!-- @@@ProgressBar -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-progressbar-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-progressbar.html#hovered-prop">hovered</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-progressbar.html#indeterminate-prop">indeterminate</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-progressbar.html#maximumValue-prop">maximumValue</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-progressbar.html#minimumValue-prop">minimumValue</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-progressbar.html#orientation-prop">orientation</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-progressbar.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-progressbar.html#value-prop">value</a></b></b> : real</li>
+</ul>
+<!-- $$$ProgressBar-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image progressbar.png]</font></p><p>The <a href="qml-qtquick-controls-progressbar.html">ProgressBar</a> is used to give an indication of the progress of an operation. <a href="qml-qtquick-controls-progressbar.html#value-prop">value</a> is updated regularly and must be between <a href="qml-qtquick-controls-progressbar.html#minimumValue-prop">minimumValue</a> and <a href="qml-qtquick-controls-progressbar.html#maximumValue-prop">maximumValue</a>.</p>
+<pre class="cpp">Column {
+    ProgressBar {
+        value: <span class="number">0.5</span>
+    }
+    ProgressBar {
+        indeterminate: <span class="keyword">true</span>
+    }
+}</pre>
+<p>You can create a custom appearance for a <a href="qml-qtquick-controls-progressbar.html">ProgressBar</a> by assigning a <a href="qml-qtquick-controls-styles-progressbarstyle.html">ProgressBarStyle</a>.</p>
+<!-- @@@ProgressBar -->
+<h2>Property Documentation</h2>
+<!-- $$$hovered -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="hovered-prop"><td class="tblQmlPropNode"><p><a name="hovered-prop"></a><span class="qmlreadonly">read-only</span><span class="name">hovered</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the control is being hovered.</p>
+</div></div><!-- @@@hovered -->
+<br/>
+<!-- $$$indeterminate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="indeterminate-prop"><td class="tblQmlPropNode"><p><a name="indeterminate-prop"></a><span class="name">indeterminate</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property toggles indeterminate mode. When the actual progress is unknown, use this option. The progress bar will be animated as a busy indicator instead. The default value is <code>false</code>.</p>
+</div></div><!-- @@@indeterminate -->
+<br/>
+<!-- $$$maximumValue -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maximumValue-prop"><td class="tblQmlPropNode"><p><a name="maximumValue-prop"></a><span class="name">maximumValue</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is the progress bar's maximum value. The <a href="qml-qtquick-controls-progressbar.html#value-prop">value</a> is clamped to this value. If maximumValue is smaller than <a href="qml-qtquick-controls-progressbar.html#minimumValue-prop">minimumValue</a>, <a href="qml-qtquick-controls-progressbar.html#minimumValue-prop">minimumValue</a> will be enforced. The default value is <code>1</code>.</p>
+</div></div><!-- @@@maximumValue -->
+<br/>
+<!-- $$$minimumValue -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minimumValue-prop"><td class="tblQmlPropNode"><p><a name="minimumValue-prop"></a><span class="name">minimumValue</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is the progress bar's minimum value. The <a href="qml-qtquick-controls-progressbar.html#value-prop">value</a> is clamped to this value. The default value is <code>0</code>.</p>
+</div></div><!-- @@@minimumValue -->
+<br/>
+<!-- $$$orientation -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="orientation-prop"><td class="tblQmlPropNode"><p><a name="orientation-prop"></a><span class="name">orientation</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the orientation of the progress bar.</p>
+<ul>
+<li>Qt.Horizontal - Horizontal orientation. (Default)</li>
+<li>Qt.Vertical - Vertical orientation.</li>
+</ul>
+</div></div><!-- @@@orientation -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$value -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="value-prop"><td class="tblQmlPropNode"><p><a name="value-prop"></a><span class="name">value</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the progress bar's current value. Attempting to change the current value to one outside the minimum-maximum range has no effect on the current value.</p>
+<p>The default value is <code>0</code>.</p>
+</div></div><!-- @@@value -->
+<br/>
+</body>
+</html>

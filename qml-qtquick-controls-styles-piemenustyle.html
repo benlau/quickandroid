@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- PieMenuStyle.qml -->
+  <title>PieMenuStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">PieMenuStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$PieMenuStyle-brief -->
+<p>Provides custom styling for PieMenu. <a href="#details">More...</a></p>
+<!-- @@@PieMenuStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.5</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-piemenustyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#backgroundColor-prop">backgroundColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#cancel-prop">cancel</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#cancelRadius-prop">cancelRadius</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#control-prop">control</a></b></b> : PieMenu</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#endAngle-prop">endAngle</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#menuItem-prop">menuItem</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#radius-prop">radius</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#selectionColor-prop">selectionColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#shadowColor-prop">shadowColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#shadowRadius-prop">shadowRadius</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#shadowSpread-prop">shadowSpread</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#startAngle-prop">startAngle</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#title-prop">title</a></b></b> : Component</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#sectionCenterAngle-method">sectionCenterAngle</a></b></b>(<i>itemIndex</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#sectionEndAngle-method">sectionEndAngle</a></b></b>(<i>itemIndex</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-piemenustyle.html#sectionStartAngle-method">sectionStartAngle</a></b></b>(<i>itemIndex</i>)</li>
+</ul>
+<!-- $$$PieMenuStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p><a href="qml-qtquick-controls-styles-piemenustyle.html">PieMenuStyle</a> is a style for PieMenu that draws each section of the menu as a filled &quot;slice&quot;.</p>
+<p>You can create a custom pie menu by replacing the following delegates:</p>
+<ul>
+<li><a href="qml-qtquick-controls-styles-piemenustyle.html#background-prop">background</a></li>
+<li><a href="qml-qtquick-controls-styles-piemenustyle.html#cancel-prop">cancel</a></li>
+<li><a href="qml-qtquick-controls-styles-piemenustyle.html#menuItem-prop">menuItem</a></li>
+<li><a href="qml-qtquick-controls-styles-piemenustyle.html#title-prop">title</a></li>
+</ul>
+<p>To customize the appearance of each <a href="qml-qtquick-controls-styles-piemenustyle.html#menuItem-prop">menuItem</a> without having to define your own, you can use the <a href="qml-qtquick-controls-styles-piemenustyle.html#backgroundColor-prop">backgroundColor</a> and <a href="qml-qtquick-controls-styles-piemenustyle.html#selectionColor-prop">selectionColor</a> properties. To customize the drop shadow, use the <a href="qml-qtquick-controls-styles-piemenustyle.html#shadowColor-prop">shadowColor</a>, <a href="qml-qtquick-controls-styles-piemenustyle.html#shadowRadius-prop">shadowRadius</a> and <a href="qml-qtquick-controls-styles-piemenustyle.html#shadowSpread-prop">shadowSpread</a> properties.</p>
+<p>Icons that are too large for the section that they are in will be scaled down appropriately.</p>
+<p>To style individual sections of the menu, use the <a href="qml-qtquick-controls-styles-piemenustyle.html#menuItem-prop">menuItem</a> component:</p>
+<pre class="cpp">PieMenuStyle {
+    shadowRadius: <span class="number">0</span>
+
+    menuItem: Item {
+        id: item
+        rotation: <span class="operator">-</span><span class="number">90</span> <span class="operator">+</span> sectionCenterAngle(styleData<span class="operator">.</span>index)
+
+        Rectangle {
+            width: parent<span class="operator">.</span>height <span class="operator">*</span> <span class="number">0.2</span>
+            height: width
+            color: <span class="string">&quot;darkorange&quot;</span>
+            radius: width <span class="operator">/</span> <span class="number">2</span>
+            anchors<span class="operator">.</span>right: parent<span class="operator">.</span>right
+            anchors<span class="operator">.</span>verticalCenter: parent<span class="operator">.</span>verticalCenter
+
+            Text {
+                id: textItem
+                text: control<span class="operator">.</span>menuItems<span class="operator">[</span>styleData<span class="operator">.</span>index<span class="operator">]</span><span class="operator">.</span>text
+                anchors<span class="operator">.</span>centerIn: parent
+                color: control<span class="operator">.</span>currentIndex <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> styleData<span class="operator">.</span>index <span class="operator">?</span> <span class="string">&quot;red&quot;</span> : <span class="string">&quot;white&quot;</span>
+                rotation: <span class="operator">-</span>item<span class="operator">.</span>rotation
+            }
+        }
+    }
+}</pre>
+<p class="centerAlign"><font color="red">[Missing image piemenu-menuitem-example.png]</font></p><!-- @@@PieMenuStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background of the menu.</p>
+<p>By default, there is no background defined.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$backgroundColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="backgroundColor-prop"><td class="tblQmlPropNode"><p><a name="backgroundColor-prop"></a><span class="name">backgroundColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background color.</p>
+</div></div><!-- @@@backgroundColor -->
+<br/>
+<!-- $$$cancel -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cancel-prop"><td class="tblQmlPropNode"><p><a name="cancel-prop"></a><span class="name">cancel</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The cancel component of the menu.</p>
+<p>This is an area in the center of the menu that closes the menu when clicked.</p>
+<p>By default, it is not visible.</p>
+</div></div><!-- @@@cancel -->
+<br/>
+<!-- $$$cancelRadius -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cancelRadius-prop"><td class="tblQmlPropNode"><p><a name="cancelRadius-prop"></a><span class="name">cancelRadius</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The radius of the area that is used to cancel the menu.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-piemenustyle.html#radius-prop">radius</a>.</p>
+</div></div><!-- @@@cancelRadius -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type">PieMenu</span></p></td></tr></table></div></div><div class="qmldoc"><p>The PieMenu that this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$endAngle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="endAngle-prop"><td class="tblQmlPropNode"><p><a name="endAngle-prop"></a><span class="name">endAngle</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The angle (in degrees) at which the last menu item will be drawn.</p>
+<p>The absolute range formed by <a href="qml-qtquick-controls-styles-piemenustyle.html#startAngle-prop">startAngle</a> and <i>endAngle</i> must be less than or equal to <code>360</code> degrees.</p>
+<p>Menu items are displayed clockwise when <a href="qml-qtquick-controls-styles-piemenustyle.html#startAngle-prop">startAngle</a> is less than <i>endAngle</i>, otherwise they are displayed anti-clockwise.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-piemenustyle.html#startAngle-prop">startAngle</a>.</p>
+</div></div><!-- @@@endAngle -->
+<br/>
+<!-- $$$menuItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="menuItem-prop"><td class="tblQmlPropNode"><p><a name="menuItem-prop"></a><span class="name">menuItem</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This component defines each section of the pie menu.</p>
+<p>This component covers the width and height of the control.</p>
+<p>No mouse events are propagated to this component, which means that controls like Button will not function when used within it. You can check if the mouse is over this section by comparing <code>control.currentIndex</code> to <code>styleData.index</code>.</p>
+<p>Each instance of this component has access to the following properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><code>readonly property int</code> <b>styleData.index</b></td><td >The index of this menu item.</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property bool</code> <b>styleData.hovered</b></td><td ><code>true</code> if this menu item is under the mouse.</td></tr>
+<tr valign="top" class="odd"><td ><code>readonly property bool</code> <b>styleData.pressed</b></td><td ><code>true</code> if the mouse is pressed down on this menu item.</td></tr>
+</table></div>
+</div></div><!-- @@@menuItem -->
+<br/>
+<!-- $$$radius -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="radius-prop"><td class="tblQmlPropNode"><p><a name="radius-prop"></a><span class="qmlreadonly">read-only</span><span class="name">radius</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The distance from the center of the menu to the outer edge of the menu.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-piemenustyle.html#cancelRadius-prop">cancelRadius</a>.</p>
+</div></div><!-- @@@radius -->
+<br/>
+<!-- $$$selectionColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionColor-prop"><td class="tblQmlPropNode"><p><a name="selectionColor-prop"></a><span class="name">selectionColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The selection color.</p>
+</div></div><!-- @@@selectionColor -->
+<br/>
+<!-- $$$shadowColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="shadowColor-prop"><td class="tblQmlPropNode"><p><a name="shadowColor-prop"></a><span class="name">shadowColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The shadow color.</p>
+</div></div><!-- @@@shadowColor -->
+<br/>
+<!-- $$$shadowRadius -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="shadowRadius-prop"><td class="tblQmlPropNode"><p><a name="shadowRadius-prop"></a><span class="name">shadowRadius</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The shadow radius.</p>
+</div></div><!-- @@@shadowRadius -->
+<br/>
+<!-- $$$shadowSpread -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="shadowSpread-prop"><td class="tblQmlPropNode"><p><a name="shadowSpread-prop"></a><span class="name">shadowSpread</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The shadow spread.</p>
+</div></div><!-- @@@shadowSpread -->
+<br/>
+<!-- $$$startAngle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="startAngle-prop"><td class="tblQmlPropNode"><p><a name="startAngle-prop"></a><span class="name">startAngle</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The angle (in degrees) at which the first menu item will be drawn.</p>
+<p>The absolute range formed by <i>startAngle</i> and <a href="qml-qtquick-controls-styles-piemenustyle.html#endAngle-prop">endAngle</a> must be less than or equal to <code>360</code> degrees.</p>
+<p>Menu items are displayed clockwise when <i>startAngle</i> is less than <a href="qml-qtquick-controls-styles-piemenustyle.html#endAngle-prop">endAngle</a>, otherwise they are displayed anti-clockwise.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-piemenustyle.html#endAngle-prop">endAngle</a>.</p>
+</div></div><!-- @@@startAngle -->
+<br/>
+<!-- $$$title -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="title-prop"><td class="tblQmlPropNode"><p><a name="title-prop"></a><span class="name">title</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The component that displays the text of the currently selected menu item, or the title if there is no current item.</p>
+<p>The current item's text is available via the <code>styleData.text</code> property.</p>
+</div></div><!-- @@@title -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$sectionCenterAngle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="sectionCenterAngle-method"><td class="tblQmlFuncNode"><p><a name="sectionCenterAngle-method"></a><span class="name">sectionCenterAngle</span>(<i> itemIndex</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the center of the section at <i>itemIndex</i> as an angle in degrees.</p>
+</div></div><!-- @@@sectionCenterAngle -->
+<br/>
+<!-- $$$sectionEndAngle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="sectionEndAngle-method"><td class="tblQmlFuncNode"><p><a name="sectionEndAngle-method"></a><span class="name">sectionEndAngle</span>(<i> itemIndex</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the end of the section at <i>itemIndex</i> as an angle in degrees.</p>
+</div></div><!-- @@@sectionEndAngle -->
+<br/>
+<!-- $$$sectionStartAngle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="sectionStartAngle-method"><td class="tblQmlFuncNode"><p><a name="sectionStartAngle-method"></a><span class="name">sectionStartAngle</span>(<i> itemIndex</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the start of the section at <i>itemIndex</i> as an angle in degrees.</p>
+</div></div><!-- @@@sectionStartAngle -->
+<br/>
+</body>
+</html>

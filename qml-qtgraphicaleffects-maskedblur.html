@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- MaskedBlur.qml -->
+  <title>MaskedBlur QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">MaskedBlur QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$MaskedBlur-brief -->
+<p>Applies a blur effect with a varying intesity. <a href="#details">More...</a></p>
+<!-- @@@MaskedBlur -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtGraphicalEffects .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtGraphicalEffects 1.0</td></tr></table></div><ul>
+<li><a href="qml-qtgraphicaleffects-maskedblur-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-maskedblur.html#cached-prop">cached</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-maskedblur.html#fast-prop">fast</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-maskedblur.html#maskSource-prop">maskSource</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-maskedblur.html#radius-prop">radius</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-maskedblur.html#source-prop">source</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-maskedblur.html#transparentBorder-prop">transparentBorder</a></b></b> : bool</li>
+</ul>
+<!-- $$$MaskedBlur-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p><a href="qml-qtgraphicaleffects-maskedblur.html">MaskedBlur</a> effect softens the image by blurring it. The intensity of the blur can be controlled for each pixel using <a href="qml-qtgraphicaleffects-maskedblur.html#maskSource-prop">maskSource</a> so that some parts of the source are blurred more than others. By default the effect produces a high quality result, thus the rendering speed may not be the highest possible. The rendering speed is reduced especially if the <a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a> is large. For use cases that require faster rendering speed and the highest possible visual quality is not necessary, property <a href="qml-qtgraphicaleffects-maskedblur.html#fast-prop">fast</a> can be set to true.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Source</th><th >MaskSource</th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_bug.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_mask.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_bug.png]</font></p></td></tr>
+</table></div>
+<a name="example"></a>
+<h2 id="example">Example</h2>
+<p>The following example shows how to apply the effect.</p>
+<pre class="qml"></pre>
+<!-- @@@MaskedBlur -->
+<h2>Property Documentation</h2>
+<!-- $$$cached -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cached-prop"><td class="tblQmlPropNode"><p><a name="cached-prop"></a><span class="name">cached</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property allows the effect output pixels to be cached in order to improve the rendering performance. Every time the source or effect properties are changed, the pixels in the cache must be updated. Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.</p>
+<p>It is recommended to disable the cache when the source or the effect properties are animated.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+</div></div><!-- @@@cached -->
+<br/>
+<!-- $$$fast -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="fast-prop"><td class="tblQmlPropNode"><p><a name="fast-prop"></a><span class="name">fast</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property selects the blurring algorithm that is used to produce the blur. Setting this to true enables fast algorithm, setting value to false produces higher quality result.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different fast values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_fast1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_fast2.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> fast: false </b></td><td ><b> fast: true </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#radius-prop">radius</a>: 16</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#radius-prop">radius</a>: 16</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a>: 24</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#transparentBorder-prop">transparentBorder</a>: false</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#transparentBorder-prop">transparentBorder</a>: false</td></tr>
+</table></div>
+</div></div><!-- @@@fast -->
+<br/>
+<!-- $$$maskSource -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maskSource-prop"><td class="tblQmlPropNode"><p><a name="maskSource-prop"></a><span class="name">maskSource</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the item that is controlling the final intensity of the blur. The pixel alpha channel value from maskSource defines the actual blur radius that is going to be used for blurring the corresponding source pixel.</p>
+<p>Opaque maskSource pixels produce blur with specified <a href="qml-qtgraphicaleffects-maskedblur.html#radius-prop">radius</a>, while transparent pixels suppress the blur completely. Semitransparent maskSource pixels produce blur with a radius that is interpolated according to the pixel transparency level.</p>
+</div></div><!-- @@@maskSource -->
+<br/>
+<!-- $$$radius -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="radius-prop"><td class="tblQmlPropNode"><p><a name="radius-prop"></a><span class="name">radius</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the distance of the neighboring pixels which affect the blurring of an individual pixel. A larger radius increases the blur effect.</p>
+<p>Depending on the radius value, value of the <a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a> should be set to sufficiently large to ensure the visual quality.</p>
+<p>The value ranges from 0.0 (no blur) to inf. By default, the property is set to <code>0.0</code> (no blur).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different radius values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_radius1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_radius2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_radius3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> radius: 0 </b></td><td ><b> radius: 8 </b></td><td ><b> radius: 16 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a>: 24</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#transparentBorder-prop">transparentBorder</a>: false</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#transparentBorder-prop">transparentBorder</a>: false</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#transparentBorder-prop">transparentBorder</a>: false</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#fast-prop">fast</a>: false</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#fast-prop">fast</a>: false</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#fast-prop">fast</a>: false</td></tr>
+</table></div>
+</div></div><!-- @@@radius -->
+<br/>
+<!-- $$$samples -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="samples-prop"><td class="tblQmlPropNode"><p><a name="samples-prop"></a><span class="name">samples</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines how many samples are taken per pixel when blur calculation is done. Larger value produces better quality, but is slower to render.</p>
+<p>Ideally, this value should be twice as large as the highest required radius value, for example, if the radius is animated between 0.0 and 4.0, samples should be set to 8.</p>
+<p>The value ranges from 0 to 32. By default, the property is set to <code>0</code>.</p>
+<p>This property is not intended to be animated. Changing this property may cause the underlying OpenGL shaders to be recompiled.</p>
+<p>When <a href="qml-qtgraphicaleffects-maskedblur.html#fast-prop">fast</a> property is set to true, this property has no effect.</p>
+</div></div><!-- @@@samples -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="source-prop"><td class="tblQmlPropNode"><p><a name="source-prop"></a><span class="name">source</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the source item that is going to be blurred.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting source to the effect's parent.</p></div></div><!-- @@@source -->
+<br/>
+<!-- $$$transparentBorder -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="transparentBorder-prop"><td class="tblQmlPropNode"><p><a name="transparentBorder-prop"></a><span class="name">transparentBorder</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the blur behavior near the edges of the item, where the pixel blurring is affected by the pixels outside the source edges.</p>
+<p>If the property is set to <code>true</code>, the pixels outside the source are interpreted to be transparent, which is similar to OpenGL clamp-to-border extension. The blur is expanded slightly outside the effect item area.</p>
+<p>If the property is set to <code>false</code>, the pixels outside the source are interpreted to contain the same color as the pixels at the edge of the item, which is similar to OpenGL clamp-to-edge behavior. The blur does not expand outside the effect item area.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different transparentBorder values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_transparentBorder1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image MaskedBlur_transparentBorder2.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> transparentBorder: false </b></td><td ><b> transparentBorder: true </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#radius-prop">radius</a>: 64</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#radius-prop">radius</a>: 64</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#samples-prop">samples</a>: 24</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-maskedblur.html#fast-prop">fast</a>: true</td><td ><a href="qml-qtgraphicaleffects-maskedblur.html#fast-prop">fast</a>: true</td></tr>
+</table></div>
+</div></div><!-- @@@transparentBorder -->
+<br/>
+</body>
+</html>

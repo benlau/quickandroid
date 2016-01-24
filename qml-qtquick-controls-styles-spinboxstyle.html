@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- SpinBoxStyle.qml -->
+  <title>SpinBoxStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">SpinBoxStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$SpinBoxStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-spinbox.html">SpinBox</a> <a href="#details">More...</a></p>
+<!-- @@@SpinBoxStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.2</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-spinboxstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#control-prop">control</a></b></b> : SpinBox</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#decrementControl-prop">decrementControl</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#horizontalAlignment-prop">horizontalAlignment</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#incrementControl-prop">incrementControl</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#renderType-prop">renderType</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#selectedTextColor-prop">selectedTextColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#selectionColor-prop">selectionColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-spinboxstyle.html#textColor-prop">textColor</a></b></b> : color</li>
+</ul>
+<!-- $$$SpinBoxStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-spinbox.html">SpinBox</a></span> {
+    <span class="name">style</span>: <span class="name">SpinBoxStyle</span>{
+        <span class="name">background</span>: <span class="name">Rectangle</span> {
+            <span class="name">implicitWidth</span>: <span class="number">100</span>
+            <span class="name">implicitHeight</span>: <span class="number">20</span>
+            <span class="name">border</span>.color: <span class="string">&quot;gray&quot;</span>
+            <span class="name">radius</span>: <span class="number">2</span>
+        }
+    }
+}</pre>
+<!-- @@@SpinBoxStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background of the <a href="qml-qtquick-controls-spinbox.html">SpinBox</a>.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-spinbox.html">SpinBox</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-spinbox.html">SpinBox</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$decrementControl -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="decrementControl-prop"><td class="tblQmlPropNode"><p><a name="decrementControl-prop"></a><span class="name">decrementControl</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The button used to decrement the value.</p>
+</div></div><!-- @@@decrementControl -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="font-prop"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-qtquick-controls-styles-spinboxstyle.html#font-prop">font</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The font of the control.</p>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.3.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$horizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="horizontalAlignment-prop"><td class="tblQmlPropNode"><p><a name="horizontalAlignment-prop"></a><span class="name">horizontalAlignment</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the default text aligment.</p>
+<p>The supported values are:</p>
+<ul>
+<li>Qt.AlignLeft</li>
+<li>Qt.AlignHCenter</li>
+<li>Qt.AlignRight</li>
+</ul>
+<p>The default value is Qt.AlignRight</p>
+</div></div><!-- @@@horizontalAlignment -->
+<br/>
+<!-- $$$incrementControl -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="incrementControl-prop"><td class="tblQmlPropNode"><p><a name="incrementControl-prop"></a><span class="name">incrementControl</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The button used to increment the value.</p>
+</div></div><!-- @@@incrementControl -->
+<br/>
+<!-- $$$renderType -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="renderType-prop"><td class="tblQmlPropNode"><p><a name="renderType-prop"></a><span class="name">renderType</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>Override the default rendering type for the control.</p>
+<p>Supported render types are:</p>
+<ul>
+<li>Text.QtRendering</li>
+<li>Text.NativeRendering</li>
+</ul>
+<p>The default value is platform dependent.</p>
+<p><b>See also </b>Text::renderType.</p>
+</div></div><!-- @@@renderType -->
+<br/>
+<!-- $$$selectedTextColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectedTextColor-prop"><td class="tblQmlPropNode"><p><a name="selectedTextColor-prop"></a><span class="name">selectedTextColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The highlighted text color, used in selections.</p>
+</div></div><!-- @@@selectedTextColor -->
+<br/>
+<!-- $$$selectionColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionColor-prop"><td class="tblQmlPropNode"><p><a name="selectionColor-prop"></a><span class="name">selectionColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The text highlight color, used behind selections.</p>
+</div></div><!-- @@@selectionColor -->
+<br/>
+<!-- $$$textColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textColor-prop"><td class="tblQmlPropNode"><p><a name="textColor-prop"></a><span class="name">textColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The text color.</p>
+</div></div><!-- @@@textColor -->
+<br/>
+</body>
+</html>

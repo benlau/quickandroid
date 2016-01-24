@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- BusyIndicator.qml -->
+  <title>BusyIndicator QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">BusyIndicator QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$BusyIndicator-brief -->
+<p>A busy indicator. <a href="#details">More...</a></p>
+<!-- @@@BusyIndicator -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.2</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-busyindicator-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-busyindicator.html#running-prop">running</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-busyindicator.html#style-prop">style</a></b></b> : Component</li>
+</ul>
+<!-- $$$BusyIndicator-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image busyindicator.png]</font></p><p>The busy indicator should be used to indicate activity while content is being loaded or the UI is blocked waiting for a resource to become available.</p>
+<p>The following snippet shows how to use the <a href="qml-qtquick-controls-busyindicator.html">BusyIndicator</a>:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-busyindicator.html">BusyIndicator</a></span> {
+    <span class="name">running</span>: <span class="name">image</span>.<span class="name">status</span> <span class="operator">===</span> <span class="name">Image</span>.<span class="name">Loading</span>
+}</pre>
+<p>You can create a custom appearance for a Busy Indicator by assigning a <a href="qml-qtquick-controls-styles-busyindicatorstyle.html">BusyIndicatorStyle</a>.</p>
+<!-- @@@BusyIndicator -->
+<h2>Property Documentation</h2>
+<!-- $$$running -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="running-prop"><td class="tblQmlPropNode"><p><a name="running-prop"></a><span class="name">running</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the busy indicator is currently indicating activity.</p>
+<p><b>Note: </b>The indicator is only visible when this property is set to <code>true</code>.</p><p>The default value is <code>true</code>.</p>
+</div></div><!-- @@@running -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+</body>
+</html>

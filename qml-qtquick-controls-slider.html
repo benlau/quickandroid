@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Slider.qml -->
+  <title>Slider QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Slider QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Slider-brief -->
+<p>Provides a vertical or horizontal slider control. <a href="#details">More...</a></p>
+<!-- @@@Slider -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-slider-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#hovered-prop">hovered</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#maximumValue-prop">maximumValue</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#minimumValue-prop">minimumValue</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#orientation-prop">orientation</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#pressed-prop">pressed</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#stepSize-prop">stepSize</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#tickmarksEnabled-prop">tickmarksEnabled</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#updateValueWhileDragging-prop">updateValueWhileDragging</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-slider.html#value-prop">value</a></b></b> : real</li>
+</ul>
+<!-- $$$Slider-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image slider.png]</font></p><p>The slider is the classic control for providing a bounded value. It lets the user move a slider handle along a horizontal or vertical groove and translates the handle's position into a value within the legal range.</p>
+<pre class="cpp">Slider {
+    value: <span class="number">0.5</span>
+}</pre>
+<p>The slider value is by default in the range [0, 1]. If integer values are needed, you can set the <a href="qml-qtquick-controls-slider.html#stepSize-prop">stepSize</a>.</p>
+<p>You can create a custom appearance for a Slider by assigning a <a href="qml-qtquick-controls-styles-sliderstyle.html">SliderStyle</a>.</p>
+<!-- @@@Slider -->
+<h2>Property Documentation</h2>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="activeFocusOnPress-prop"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the slider should receive active focus when pressed.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$hovered -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="hovered-prop"><td class="tblQmlPropNode"><p><a name="hovered-prop"></a><span class="qmlreadonly">read-only</span><span class="name">hovered</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the slider handle is being hovered.</p>
+</div></div><!-- @@@hovered -->
+<br/>
+<!-- $$$maximumValue -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maximumValue-prop"><td class="tblQmlPropNode"><p><a name="maximumValue-prop"></a><span class="name">maximumValue</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the maximum value of the slider. The default value is <code>1.0</code>.</p>
+</div></div><!-- @@@maximumValue -->
+<br/>
+<!-- $$$minimumValue -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minimumValue-prop"><td class="tblQmlPropNode"><p><a name="minimumValue-prop"></a><span class="name">minimumValue</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the minimum value of the slider. The default value is <code>0.0</code>.</p>
+</div></div><!-- @@@minimumValue -->
+<br/>
+<!-- $$$orientation -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="orientation-prop"><td class="tblQmlPropNode"><p><a name="orientation-prop"></a><span class="name">orientation</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the layout orientation of the slider. The default value is <code>Qt.Horizontal</code>.</p>
+</div></div><!-- @@@orientation -->
+<br/>
+<!-- $$$pressed -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pressed-prop"><td class="tblQmlPropNode"><p><a name="pressed-prop"></a><span class="qmlreadonly">read-only</span><span class="name">pressed</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the slider handle is being pressed.</p>
+</div></div><!-- @@@pressed -->
+<br/>
+<!-- $$$stepSize -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="stepSize-prop"><td class="tblQmlPropNode"><p><a name="stepSize-prop"></a><span class="name">stepSize</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates the slider step size.</p>
+<p>A value of 0 indicates that the value of the slider operates in a continuous range between <a href="qml-qtquick-controls-slider.html#minimumValue-prop">minimumValue</a> and <a href="qml-qtquick-controls-slider.html#maximumValue-prop">maximumValue</a>.</p>
+<p>Any non 0 value indicates a discrete stepSize. The following example will generate a slider with integer values in the range [0-5].</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-slider.html">Slider</a></span> {
+    <span class="name">maximumValue</span>: <span class="number">5.0</span>
+    <span class="name">stepSize</span>: <span class="number">1.0</span>
+}</pre>
+<p>The default value is <code>0.0</code>.</p>
+</div></div><!-- @@@stepSize -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$tickmarksEnabled -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tickmarksEnabled-prop"><td class="tblQmlPropNode"><p><a name="tickmarksEnabled-prop"></a><span class="name">tickmarksEnabled</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the slider should display tickmarks at step intervals. Tick mark spacing is calculated based on the <a href="qml-qtquick-controls-slider.html#stepSize-prop">stepSize</a> property.</p>
+<p>The default value is <code>false</code>.</p>
+<p><b>Note: </b>This property may be ignored on some platforms when using the native style (e.g&#x2e; Android).</p></div></div><!-- @@@tickmarksEnabled -->
+<br/>
+<!-- $$$updateValueWhileDragging -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="updateValueWhileDragging-prop"><td class="tblQmlPropNode"><p><a name="updateValueWhileDragging-prop"></a><span class="name">updateValueWhileDragging</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the current <a href="qml-qtquick-controls-slider.html#value-prop">value</a> should be updated while the user is moving the slider handle, or only when the button has been released. This property could for instance be modified if changing the slider value would turn out to be too time consuming.</p>
+<p>The default value is <code>true</code>.</p>
+</div></div><!-- @@@updateValueWhileDragging -->
+<br/>
+<!-- $$$value -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="value-prop"><td class="tblQmlPropNode"><p><a name="value-prop"></a><span class="name">value</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the current value of the slider. The default value is <code>0.0</code>.</p>
+</div></div><!-- @@@value -->
+<br/>
+</body>
+</html>

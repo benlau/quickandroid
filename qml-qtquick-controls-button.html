@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Button.qml -->
+  <title>Button QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Button QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Button-brief -->
+<p>A push button with a text label. <a href="#details">More...</a></p>
+<!-- @@@Button -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qtquick-controls-toolbutton.html">ToolButton</a>.</p>
+</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-button-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#action-prop">action</a></b></b> : Action</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#checkable-prop">checkable</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#checked-prop">checked</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#exclusiveGroup-prop">exclusiveGroup</a></b></b> : ExclusiveGroup</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#hovered-prop">hovered</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#iconName-prop">iconName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#iconSource-prop">iconSource</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#isDefault-prop">isDefault</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#menu-prop">menu</a></b></b> : Menu</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#pressed-prop">pressed</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#text-prop">text</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#tooltip-prop">tooltip</a></b></b> : string</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-button.html#clicked-signal">clicked</a></b></b>()</li>
+</ul>
+<!-- $$$Button-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image button.png]</font></p><p>The push button is perhaps the most commonly used widget in any graphical user interface. Pushing (or clicking) a button commands the computer to perform some action or answer a question. Common examples of buttons are OK, Apply, Cancel, Close, Yes, No, and Help buttons.</p>
+<pre class="qml"><span class="type">Button</span> {
+    <span class="name">text</span>: <span class="string">&quot;Button&quot;</span>
+}</pre>
+<p>Button is similar to the QPushButton widget.</p>
+<p>You can create a custom appearance for a Button by assigning a <a href="qml-qtquick-controls-styles-buttonstyle.html">ButtonStyle</a>.</p>
+<!-- @@@Button -->
+<h2>Property Documentation</h2>
+<!-- $$$action -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="action-prop"><td class="tblQmlPropNode"><p><a name="action-prop"></a><span class="name">action</span> : <span class="type">Action</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the associated button action.</p>
+<p>If a button has an action associated, the action defines the button's properties like checked, text, tooltip etc.</p>
+<p>When an action is set, it's still possible to override the <a href="qml-qtquick-controls-private-basicbutton.html#text-prop">text</a>, <a href="qml-qtquick-controls-private-basicbutton.html#tooltip-prop">tooltip</a>, <a href="qml-qtquick-controls-private-basicbutton.html#iconSource-prop">iconSource</a>, and <a href="qml-qtquick-controls-private-basicbutton.html#iconName-prop">iconName</a> properties.</p>
+<p>The default value is <code>null</code>.</p>
+</div></div><!-- @@@action -->
+<br/>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="activeFocusOnPress-prop"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property specifies whether the button should gain active focus when pressed.</p>
+<p>The default value is <code>false</code>.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$checkable -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="checkable-prop"><td class="tblQmlPropNode"><p><a name="checkable-prop"></a><span class="name">checkable</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the button is checkable.</p>
+<p>The default value is <code>false</code>.</p>
+</div></div><!-- @@@checkable -->
+<br/>
+<!-- $$$checked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="checked-prop"><td class="tblQmlPropNode"><p><a name="checked-prop"></a><span class="name">checked</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the button is checked.</p>
+<p>Only checkable buttons can be checked.</p>
+<p>The default value is <code>false</code>.</p>
+</div></div><!-- @@@checked -->
+<br/>
+<!-- $$$exclusiveGroup -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="exclusiveGroup-prop"><td class="tblQmlPropNode"><p><a name="exclusiveGroup-prop"></a><span class="name">exclusiveGroup</span> : <span class="type">ExclusiveGroup</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the ExclusiveGroup that the button belongs to.</p>
+<p>The default value is <code>null</code>.</p>
+</div></div><!-- @@@exclusiveGroup -->
+<br/>
+<!-- $$$hovered -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="hovered-prop"><td class="tblQmlPropNode"><p><a name="hovered-prop"></a><span class="qmlreadonly">read-only</span><span class="name">hovered</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the control is being hovered.</p>
+</div></div><!-- @@@hovered -->
+<br/>
+<!-- $$$iconName -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="iconName-prop"><td class="tblQmlPropNode"><p><a name="iconName-prop"></a><span class="name">iconName</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>The image label source as theme name. When an icon from the platform icon theme is found, this takes precedence over <a href="qml-qtquick-controls-private-basicbutton.html#iconSource-prop">iconSource</a>.</p>
+</div></div><!-- @@@iconName -->
+<br/>
+<!-- $$$iconSource -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="iconSource-prop"><td class="tblQmlPropNode"><p><a name="iconSource-prop"></a><span class="name">iconSource</span> : <span class="type">url</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the icon shown on the button. If the button has no icon, the iconSource property will be an empty string.</p>
+<p>The default value is the empty string.</p>
+</div></div><!-- @@@iconSource -->
+<br/>
+<!-- $$$isDefault -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="isDefault-prop"><td class="tblQmlPropNode"><p><a name="isDefault-prop"></a><span class="name">isDefault</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the push button is the default button. Default buttons decide what happens when the user presses enter in a dialog without giving a button explicit focus.</p>
+<p><b>Note: </b>This property only changes the appearance of the button. The expected behavior needs to be implemented by the user.</p><p>The default value is <code>false</code>.</p>
+</div></div><!-- @@@isDefault -->
+<br/>
+<!-- $$$menu -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="menu-prop"><td class="tblQmlPropNode"><p><a name="menu-prop"></a><span class="name">menu</span> : <span class="type"><a href="qml-qtquick-controls-menu.html">Menu</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>Assign a <a href="qml-qtquick-controls-menu.html">Menu</a> to this property to get a pull-down menu button.</p>
+<p>The default value is <code>null</code>.</p>
+</div></div><!-- @@@menu -->
+<br/>
+<!-- $$$pressed -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pressed-prop"><td class="tblQmlPropNode"><p><a name="pressed-prop"></a><span class="qmlreadonly">read-only</span><span class="name">pressed</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the button is being pressed.</p>
+</div></div><!-- @@@pressed -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="text-prop"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="name">text</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the text shown on the button. If the button has no text, the text property will be an empty string.</p>
+<p>The default value is the empty string.</p>
+</div></div><!-- @@@text -->
+<br/>
+<!-- $$$tooltip -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tooltip-prop"><td class="tblQmlPropNode"><p><a name="tooltip-prop"></a><span class="name">tooltip</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the button tooltip.</p>
+</div></div><!-- @@@tooltip -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$clicked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="clicked-signal"><td class="tblQmlFuncNode"><p><a name="clicked-signal"></a><span class="name">clicked</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>This signal is emitted when the button is clicked.</p>
+</div></div><!-- @@@clicked -->
+<br/>
+</body>
+</html>

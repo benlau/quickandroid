@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ToolBar.qml -->
+  <title>ToolBar QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ToolBar QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ToolBar-brief -->
+<p>Contains <a href="qml-qtquick-controls-toolbutton.html">ToolButton</a> and related controls. <a href="#details">More...</a></p>
+<!-- @@@ToolBar -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-toolbar-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-toolbar.html#contentItem-prop">contentItem</a></b></b> : Item</li>
+</ul>
+<!-- $$$ToolBar-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image toolbar.png]</font></p><p>The common way of using <a href="qml-qtquick-controls-toolbar.html">ToolBar</a> is in relation to <a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a>. It provides styling and is generally designed to work well with <a href="qml-qtquick-controls-toolbutton.html">ToolButton</a> as well as other controls.</p>
+<p>Note that the <a href="qml-qtquick-controls-toolbar.html">ToolBar</a> does not provide a layout of its own, but requires you to position its contents, for instance by creating a RowLayout.</p>
+<p>If only a single item is used within the <a href="qml-qtquick-controls-toolbar.html">ToolBar</a>, it will resize to fit the implicitHeight of its contained item. This makes it particularly suitable for use together with layouts. Otherwise the height is platform dependent.</p>
+<pre class="cpp">ApplicationWindow {
+    <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    toolBar:ToolBar {
+        RowLayout {
+            anchors<span class="operator">.</span>fill: parent
+            ToolButton {
+                iconSource: <span class="string">&quot;new.png&quot;</span>
+            }
+            ToolButton {
+                iconSource: <span class="string">&quot;open.png&quot;</span>
+            }
+            ToolButton {
+                iconSource: <span class="string">&quot;save-as.png&quot;</span>
+            }
+            Item { Layout<span class="operator">.</span>fillWidth: <span class="keyword">true</span> }
+            CheckBox {
+                text: <span class="string">&quot;Enabled&quot;</span>
+                checked: <span class="keyword">true</span>
+                Layout<span class="operator">.</span>alignment: <span class="type">Qt</span><span class="operator">.</span>AlignRight
+            }
+        }
+    }
+}</pre>
+<!-- @@@ToolBar -->
+<h2>Property Documentation</h2>
+<!-- $$$contentItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentItem-prop"><td class="tblQmlPropNode"><p><a name="contentItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">contentItem</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the content Item of the tool bar.</p>
+<p>Items declared as children of a <a href="qml-qtquick-controls-toolbar.html">ToolBar</a> are automatically parented to the <a href="qml-qtquick-controls-toolbar.html">ToolBar</a>'s contentItem. Items created dynamically need to be explicitly parented to the contentItem:</p>
+<p><b>Note: </b>The implicit size of the <a href="qml-qtquick-controls-toolbar.html">ToolBar</a> is calculated based on the size of its content. If you want to anchor items inside the tool bar, you must specify an explicit width and height on the <a href="qml-qtquick-controls-toolbar.html">ToolBar</a> itself.</p></div></div><!-- @@@contentItem -->
+<br/>
+</body>
+</html>

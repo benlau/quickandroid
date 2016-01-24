@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- RadioButton.qml -->
+  <title>RadioButton QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">RadioButton QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$RadioButton-brief -->
+<p>A radio button with a text label. <a href="#details">More...</a></p>
+<!-- @@@RadioButton -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-radiobutton-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-radiobutton.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-radiobutton.html#checked-prop">checked</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-radiobutton.html#exclusiveGroup-prop">exclusiveGroup</a></b></b> : ExclusiveGroup</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-radiobutton.html#hovered-prop">hovered</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-radiobutton.html#pressed-prop">pressed</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-radiobutton.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-radiobutton.html#text-prop">text</a></b></b> : string</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-radiobutton.html#clicked-signal">clicked</a></b></b>()</li>
+</ul>
+<!-- $$$RadioButton-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image radiobutton.png]</font></p><p>A <a href="qml-qtquick-controls-radiobutton.html">RadioButton</a> is an option button that can be switched on (checked) or off (unchecked). Radio buttons typically present the user with a &quot;one of many&quot; choices. In a group of radio buttons, only one radio button can be checked at a time; if the user selects another button, the previously selected button is switched off.</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-groupbox.html">GroupBox</a></span> {
+    <span class="name">title</span>: <span class="string">&quot;Tab Position&quot;</span>
+
+    <span class="type">RowLayout</span> {
+        <span class="type">ExclusiveGroup</span> { <span class="name">id</span>: <span class="name">tabPositionGroup</span> }
+        <span class="type"><a href="qml-qtquick-controls-radiobutton.html">RadioButton</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Top&quot;</span>
+            <span class="name">checked</span>: <span class="number">true</span>
+            <span class="name">exclusiveGroup</span>: <span class="name">tabPositionGroup</span>
+        }
+        <span class="type"><a href="qml-qtquick-controls-radiobutton.html">RadioButton</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Bottom&quot;</span>
+            <span class="name">exclusiveGroup</span>: <span class="name">tabPositionGroup</span>
+        }
+    }
+}</pre>
+<p>You can create a custom appearance for a <a href="qml-qtquick-controls-radiobutton.html">RadioButton</a> by assigning a <a href="qml-qtquick-controls-styles-radiobuttonstyle.html">RadioButtonStyle</a>.</p>
+<!-- @@@RadioButton -->
+<h2>Property Documentation</h2>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="activeFocusOnPress-prop"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is <code>true</code> if the control takes the focus when it is pressed; forceActiveFocus() will be called on the control.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$checked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="checked-prop"><td class="tblQmlPropNode"><p><a name="checked-prop"></a><span class="name">checked</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is <code>true</code> if the control is checked.</p>
+</div></div><!-- @@@checked -->
+<br/>
+<!-- $$$exclusiveGroup -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="exclusiveGroup-prop"><td class="tblQmlPropNode"><p><a name="exclusiveGroup-prop"></a><span class="name">exclusiveGroup</span> : <span class="type">ExclusiveGroup</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property stores the ExclusiveGroup that the control belongs to.</p>
+</div></div><!-- @@@exclusiveGroup -->
+<br/>
+<!-- $$$hovered -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="hovered-prop"><td class="tblQmlPropNode"><p><a name="hovered-prop"></a><span class="qmlreadonly">read-only</span><span class="name">hovered</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the control is being hovered.</p>
+</div></div><!-- @@@hovered -->
+<br/>
+<!-- $$$pressed -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pressed-prop"><td class="tblQmlPropNode"><p><a name="pressed-prop"></a><span class="name">pressed</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is <code>true</code> if the control is being pressed. Set this property to manually invoke a mouse click.</p>
+</div></div><!-- @@@pressed -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="text-prop"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="name">text</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the text that the label should display.</p>
+</div></div><!-- @@@text -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$clicked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="clicked-signal"><td class="tblQmlFuncNode"><p><a name="clicked-signal"></a><span class="name">clicked</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Emitted whenever the control is clicked.</p>
+</div></div><!-- @@@clicked -->
+<br/>
+</body>
+</html>

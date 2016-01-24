@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TextFieldStyle.qml -->
+  <title>TextFieldStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TextFieldStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$TextFieldStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-textfield.html">TextField</a>. <a href="#details">More...</a></p>
+<!-- @@@TextFieldStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-textfieldstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#control-prop">control</a></b></b> : TextField</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#passwordCharacter-prop">passwordCharacter</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#placeholderTextColor-prop">placeholderTextColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#renderType-prop">renderType</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#selectedTextColor-prop">selectedTextColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#selectionColor-prop">selectionColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textfieldstyle.html#textColor-prop">textColor</a></b></b> : color</li>
+</ul>
+<!-- $$$TextFieldStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>Example:</p>
+<pre class="qml"><span class="type">TextField</span> {
+    <span class="name">style</span>: <span class="name">TextFieldStyle</span> {
+        <span class="name">textColor</span>: <span class="string">&quot;black&quot;</span>
+        <span class="name">background</span>: <span class="name">Rectangle</span> {
+            <span class="name">radius</span>: <span class="number">2</span>
+            <span class="name">implicitWidth</span>: <span class="number">100</span>
+            <span class="name">implicitHeight</span>: <span class="number">24</span>
+            <span class="name">border</span>.color: <span class="string">&quot;#333&quot;</span>
+            <span class="name">border</span>.width: <span class="number">1</span>
+        }
+    }
+}</pre>
+<!-- @@@TextFieldStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background of the text field.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type">TextField</span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-textfield.html">TextField</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="font-prop"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-qtquick-controls-styles-textfieldstyle.html#font-prop">font</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The current font.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$passwordCharacter -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="passwordCharacter-prop"><td class="tblQmlPropNode"><p><a name="passwordCharacter-prop"></a><span class="name">passwordCharacter</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>The password character that is displayed when echoMode on the <a href="qml-qtquick-controls-textfield.html">TextField</a> is set to TextInput.Password or TextInput.PasswordEchoOnEdit.</p>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.4.</p>
+</div></div><!-- @@@passwordCharacter -->
+<br/>
+<!-- $$$placeholderTextColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="placeholderTextColor-prop"><td class="tblQmlPropNode"><p><a name="placeholderTextColor-prop"></a><span class="name">placeholderTextColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The placeholder text color, used when the text field is empty.</p>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.1.</p>
+</div></div><!-- @@@placeholderTextColor -->
+<br/>
+<!-- $$$renderType -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="renderType-prop"><td class="tblQmlPropNode"><p><a name="renderType-prop"></a><span class="name">renderType</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>Override the default rendering type for the control.</p>
+<p>Supported render types are:</p>
+<ul>
+<li>Text.QtRendering</li>
+<li>Text.NativeRendering</li>
+</ul>
+<p>The default value is platform dependent.</p>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.1.</p>
+<p><b>See also </b>Text::renderType.</p>
+</div></div><!-- @@@renderType -->
+<br/>
+<!-- $$$selectedTextColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectedTextColor-prop"><td class="tblQmlPropNode"><p><a name="selectedTextColor-prop"></a><span class="name">selectedTextColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The highlighted text color, used in selections.</p>
+</div></div><!-- @@@selectedTextColor -->
+<br/>
+<!-- $$$selectionColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionColor-prop"><td class="tblQmlPropNode"><p><a name="selectionColor-prop"></a><span class="name">selectionColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The text highlight color, used behind selections.</p>
+</div></div><!-- @@@selectionColor -->
+<br/>
+<!-- $$$textColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textColor-prop"><td class="tblQmlPropNode"><p><a name="textColor-prop"></a><span class="name">textColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The text color.</p>
+</div></div><!-- @@@textColor -->
+<br/>
+</body>
+</html>

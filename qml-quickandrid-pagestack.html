@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- PageStack.qml -->
+  <title>PageStack QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">PageStack QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$PageStack-brief -->
+<p><a href="qml-quickandrid-pagestack.html">PageStack</a> Component <a href="#details">More...</a></p>
+<!-- @@@PageStack -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QuickAndrid .</td></tr></table></div><ul>
+<li><a href="qml-quickandrid-pagestack-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#asynchronous-prop">asynchronous</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#count-prop">count</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#initialPage-prop">initialPage</a></b></b> : var</li>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#pages-prop">pages</a></b></b> : var</li>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#queueEnabled-prop">queueEnabled</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#running-prop">running</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#topPage-prop">topPage</a></b></b> : var</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#popped-signal">popped</a></b></b>(Item <i>page</i>)</li>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#pushed-signal">pushed</a></b></b>(Item <i>page</i>)</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#pop-method">pop</a></b></b>(<i>animated</i>)</li>
+<li class="fn"><b><b><a href="qml-quickandrid-pagestack.html#push-method">push</a></b></b>(<i>source</i>,  <i>properties</i>,  <i>animated</i>)</li>
+</ul>
+<!-- $$$PageStack-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<!-- @@@PageStack -->
+<h2>Property Documentation</h2>
+<!-- $$$asynchronous -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="asynchronous-prop"><td class="tblQmlPropNode"><p><a name="asynchronous-prop"></a><span class="name">asynchronous</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@asynchronous -->
+<br/>
+<!-- $$$count -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="count-prop"><td class="tblQmlPropNode"><p><a name="count-prop"></a><span class="qmlreadonly">read-only</span><span class="name">count</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@count -->
+<br/>
+<!-- $$$initialPage -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="initialPage-prop"><td class="tblQmlPropNode"><p><a name="initialPage-prop"></a><span class="name">initialPage</span> : <span class="type">var</span></p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@initialPage -->
+<br/>
+<!-- $$$pages -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pages-prop"><td class="tblQmlPropNode"><p><a name="pages-prop"></a><span class="qmlreadonly">read-only</span><span class="name">pages</span> : <span class="type">var</span></p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@pages -->
+<br/>
+<!-- $$$queueEnabled -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="queueEnabled-prop"><td class="tblQmlPropNode"><p><a name="queueEnabled-prop"></a><span class="name">queueEnabled</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property hold an indicator to enable queued push/pop while it is running.</p>
+<p>The default value is false.</p>
+</div></div><!-- @@@queueEnabled -->
+<br/>
+<!-- $$$running -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="running-prop"><td class="tblQmlPropNode"><p><a name="running-prop"></a><span class="name">running</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>It is true if the page is either in pushing or popping.</p>
+</div></div><!-- @@@running -->
+<br/>
+<!-- $$$topPage -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="topPage-prop"><td class="tblQmlPropNode"><p><a name="topPage-prop"></a><span class="name">topPage</span> : <span class="type">var</span></p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@topPage -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$popped -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="popped-signal"><td class="tblQmlFuncNode"><p><a name="popped-signal"></a><span class="name">popped</span>(<span class="type">Item</span><i> page</i>)</p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@popped -->
+<br/>
+<!-- $$$pushed -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pushed-signal"><td class="tblQmlFuncNode"><p><a name="pushed-signal"></a><span class="name">pushed</span>(<span class="type">Item</span><i> page</i>)</p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@pushed -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$pop -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pop-method"><td class="tblQmlFuncNode"><p><a name="pop-method"></a><span class="name">pop</span>(<i> animated</i>)</p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@pop -->
+<br/>
+<!-- $$$push -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="push-method"><td class="tblQmlFuncNode"><p><a name="push-method"></a><span class="name">push</span>(<i> source</i>, <i> properties</i>, <i> animated</i>)</p></td></tr></table></div></div><div class="qmldoc"></div></div><!-- @@@push -->
+<br/>
+</body>
+</html>

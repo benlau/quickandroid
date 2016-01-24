@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ThresholdMask.qml -->
+  <title>ThresholdMask QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ThresholdMask QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ThresholdMask-brief -->
+<p>Masks the source item with another item and applies a threshold value. <a href="#details">More...</a></p>
+<!-- @@@ThresholdMask -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtGraphicalEffects .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtGraphicalEffects 1.0</td></tr></table></div><ul>
+<li><a href="qml-qtgraphicaleffects-thresholdmask-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-thresholdmask.html#cached-prop">cached</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-thresholdmask.html#maskSource-prop">maskSource</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-thresholdmask.html#source-prop">source</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-thresholdmask.html#spread-prop">spread</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-thresholdmask.html#threshold-prop">threshold</a></b></b> : real</li>
+</ul>
+<!-- $$$ThresholdMask-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>The masking behavior can be controlled with the <a href="qml-qtgraphicaleffects-thresholdmask.html#threshold-prop">threshold</a> value for the mask pixels.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Source</th><th >MaskSource</th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_bug.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_mask.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_bug.png]</font></p></td></tr>
+</table></div>
+<a name="example"></a>
+<h2 id="example">Example</h2>
+<p>The following example shows how to apply the effect.</p>
+<pre class="qml"></pre>
+<!-- @@@ThresholdMask -->
+<h2>Property Documentation</h2>
+<!-- $$$cached -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cached-prop"><td class="tblQmlPropNode"><p><a name="cached-prop"></a><span class="name">cached</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property allows the effect output pixels to be cached in order to improve the rendering performance.</p>
+<p>Every time the source or effect properties are changed, the pixels in the cache must be updated. Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.</p>
+<p>It is recommended to disable the cache when the source or the effect properties are animated.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+</div></div><!-- @@@cached -->
+<br/>
+<!-- $$$maskSource -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maskSource-prop"><td class="tblQmlPropNode"><p><a name="maskSource-prop"></a><span class="name">maskSource</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the item that is going to be used as the mask. Mask item gets rendered into an intermediate pixel buffer and the alpha values from the result are used to determine the source item's pixels visibility in the display.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Original</th><th >Mask</th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_bug.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_mask.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_bug.png]</font></p></td></tr>
+</table></div>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting maskSource to the effect's parent.</p></div></div><!-- @@@maskSource -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="source-prop"><td class="tblQmlPropNode"><p><a name="source-prop"></a><span class="name">source</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the source item that is going to be masked.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting source to the effect's parent.</p></div></div><!-- @@@source -->
+<br/>
+<!-- $$$spread -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="spread-prop"><td class="tblQmlPropNode"><p><a name="spread-prop"></a><span class="name">spread</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the smoothness of the mask edges near the <a href="qml-qtgraphicaleffects-thresholdmask.html#threshold-prop">threshold</a> alpha value. Setting spread to 0.0 uses mask normally with the specified threshold. Setting higher spread values softens the transition from the transparent mask pixels towards opaque mask pixels by adding interpolated values between them.</p>
+<p>The value ranges from 0.0 (sharp mask edge) to 1.0 (smooth mask edge). By default, the property is set to <code>0.0</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different spread values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_spread1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_spread2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_spread3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> spread: 0.0 </b></td><td ><b> spread: 0.2 </b></td><td ><b> spread: 0.8 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-thresholdmask.html#threshold-prop">threshold</a>: 0.4</td><td ><a href="qml-qtgraphicaleffects-thresholdmask.html#threshold-prop">threshold</a>: 0.4</td><td ><a href="qml-qtgraphicaleffects-thresholdmask.html#threshold-prop">threshold</a>: 0.4</td></tr>
+</table></div>
+</div></div><!-- @@@spread -->
+<br/>
+<!-- $$$threshold -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="threshold-prop"><td class="tblQmlPropNode"><p><a name="threshold-prop"></a><span class="name">threshold</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines a threshold value for the mask pixels. The mask pixels that have an alpha value below this property are used to completely mask away the corresponding pixels from the source item. The mask pixels that have a higher alpha value are used to alphablend the source item to the display.</p>
+<p>The value ranges from 0.0 (alpha value 0) to 1.0 (alpha value 255). By default, the property is set to <code>0.0</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different threshold values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_threshold1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_threshold2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image ThresholdMask_threshold3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> threshold: 0.0 </b></td><td ><b> threshold: 0.5 </b></td><td ><b> threshold: 0.7 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-thresholdmask.html#spread-prop">spread</a>: 0.2</td><td ><a href="qml-qtgraphicaleffects-thresholdmask.html#spread-prop">spread</a>: 0.2</td><td ><a href="qml-qtgraphicaleffects-thresholdmask.html#spread-prop">spread</a>: 0.2</td></tr>
+</table></div>
+</div></div><!-- @@@threshold -->
+<br/>
+</body>
+</html>

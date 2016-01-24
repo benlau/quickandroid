@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- LevelAdjust.qml -->
+  <title>LevelAdjust QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">LevelAdjust QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$LevelAdjust-brief -->
+<p>Adjusts color levels in the RGBA color space. <a href="#details">More...</a></p>
+<!-- @@@LevelAdjust -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtGraphicalEffects .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtGraphicalEffects 1.0</td></tr></table></div><ul>
+<li><a href="qml-qtgraphicaleffects-leveladjust-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-leveladjust.html#cached-prop">cached</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-leveladjust.html#source-prop">source</a></b></b> : variant</li>
+</ul>
+<!-- $$$LevelAdjust-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>This effect adjusts the source item colors separately for each color channel. Source item contrast can be adjusted and color balance altered.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Source</th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_butterfly.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_butterfly.png]</font></p></td></tr>
+</table></div>
+<a name="example"></a>
+<h2 id="example">Example</h2>
+<p>The following example shows how to apply the effect.</p>
+<pre class="qml"></pre>
+<!-- @@@LevelAdjust -->
+<h2>Property Documentation</h2>
+<!-- $$$cached -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cached-prop"><td class="tblQmlPropNode"><p><a name="cached-prop"></a><span class="name">cached</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property allows the effect output pixels to be cached in order to improve the rendering performance.</p>
+<p>Every time the source or effect properties are changed, the pixels in the cache must be updated. Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.</p>
+<p>It is recommended to disable the cache when the source or the effect properties are animated.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+</div></div><!-- @@@cached -->
+<br/>
+<!-- $$$gamma -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="gamma-prop"><td class="tblQmlPropNode"><p><a name="gamma-prop"></a><span class="name">gamma</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the change factor for how the value of each pixel color channel is altered according to the equation:</p>
+<pre class="cpp">result<span class="operator">.</span>rgb <span class="operator">=</span> pow(original<span class="operator">.</span>rgb<span class="operator">,</span> <span class="number">1.0</span> <span class="operator">/</span> gamma<span class="operator">.</span>rgb);</pre>
+<p>Setting the gamma values under QtVector3d(1.0, 1.0, 1.0) makes the image darker, the values above QtVector3d(1.0, 1.0, 1.0) lighten it.</p>
+<p>The value ranges from QtVector3d(0.0, 0.0, 0.0) (darkest) to inf (lightest). By default, the property is set to <code>QtVector3d(1.0, 1.0, 1.0)</code> (no change).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different gamma values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_gamma1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_gamma2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_gamma3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> gamma: Qt.vector3d(1.0, 1.0, 1.0) </b></td><td ><b> gamma: Qt.vector3d(1.0, 0.4, 2.0) </b></td><td ><b> gamma: Qt.vector3d(1.0, 0.1, 4.0) </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td></tr>
+</table></div>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Pixel color channel luminance curves of the above images.</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_default_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_gamma2_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_gamma3_curve.png]</font></p></td></tr>
+<tr valign="top" class="even"><td >X-axis: pixel original luminance</td><td ></td><td ></td></tr>
+<tr valign="top" class="odd"><td >Y-axis: color channel luminance with effect applied</td><td ></td><td ></td></tr>
+</table></div>
+</div></div><!-- @@@gamma -->
+<br/>
+<!-- $$$maximumInput -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maximumInput-prop"><td class="tblQmlPropNode"><p><a name="maximumInput-prop"></a><span class="name">maximumInput</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the maximum input level for each color channel. It sets the white-point, all pixels having higher value than this property are rendered as white (per color channel). Decreasing the value lightens the light areas.</p>
+<p>The value ranges from &quot;#ffffffff&quot; to &quot;#00000000&quot;. By default, the property is set to <code>&quot;#ffffffff&quot;</code> (no change).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different maximumInput values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumInput1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumInput2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumInput3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> maximumInput: #FFFFFFFF </b></td><td ><b> maximumInput: #FFFFFF80 </b></td><td ><b> maximumInput: #FFFFFF30 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td></tr>
+</table></div>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Pixel color channel luminance curves of the above images.</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_default_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumInput2_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumInput3_curve.png]</font></p></td></tr>
+<tr valign="top" class="even"><td >X-axis: pixel original luminance</td><td ></td><td ></td></tr>
+<tr valign="top" class="odd"><td >Y-axis: color channel luminance with effect applied</td><td ></td><td ></td></tr>
+</table></div>
+</div></div><!-- @@@maximumInput -->
+<br/>
+<!-- $$$maximumOutput -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maximumOutput-prop"><td class="tblQmlPropNode"><p><a name="maximumOutput-prop"></a><span class="name">maximumOutput</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the maximum output level for each color channel. Decreasing the value darkens the light areas, reducing the contrast.</p>
+<p>The value ranges from &quot;#ffffffff&quot; to &quot;#00000000&quot;. By default, the property is set to <code>&quot;#ffffffff&quot;</code> (no change).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different maximumOutput values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumOutput1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumOutput2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumOutput3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> maximumOutput: #FFFFFFFF </b></td><td ><b> maximumOutput: #FFFFFF80 </b></td><td ><b> maximumOutput: #FFFFFF30 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td></tr>
+</table></div>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Pixel color channel luminance curves of the above images.</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_default_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumOutput2_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_maximumOutput3_curve.png]</font></p></td></tr>
+<tr valign="top" class="even"><td >X-axis: pixel original luminance</td><td ></td><td ></td></tr>
+<tr valign="top" class="odd"><td >Y-axis: color channel luminance with effect applied</td><td ></td><td ></td></tr>
+</table></div>
+</div></div><!-- @@@maximumOutput -->
+<br/>
+<!-- $$$minimumInput -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minimumInput-prop"><td class="tblQmlPropNode"><p><a name="minimumInput-prop"></a><span class="name">minimumInput</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the minimum input level for each color channel. It sets the black-point, all pixels having lower value than this property are rendered as black (per color channel). Increasing the value darkens the dark areas.</p>
+<p>The value ranges from &quot;#00000000&quot; to &quot;#ffffffff&quot;. By default, the property is set to <code>&quot;#00000000&quot;</code> (no change).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different minimumInput values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumInput1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumInput2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumInput3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> minimumInput: #00000000 </b></td><td ><b> minimumInput: #00000040 </b></td><td ><b> minimumInput: #00000070 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumOutput-prop">minimumOutput</a>: #000000</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td></tr>
+</table></div>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Pixel color channel luminance curves of the above images.</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_default_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumInput2_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumInput3_curve.png]</font></p></td></tr>
+<tr valign="top" class="even"><td >X-axis: pixel original luminance</td><td ></td><td ></td></tr>
+<tr valign="top" class="odd"><td >Y-axis: color channel luminance with effect applied</td><td ></td><td ></td></tr>
+</table></div>
+</div></div><!-- @@@minimumInput -->
+<br/>
+<!-- $$$minimumOutput -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minimumOutput-prop"><td class="tblQmlPropNode"><p><a name="minimumOutput-prop"></a><span class="name">minimumOutput</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the minimum output level for each color channel. Increasing the value lightens the dark areas, reducing the contrast.</p>
+<p>The value ranges from &quot;#00000000&quot; to &quot;#ffffffff&quot;. By default, the property is set to <code>&quot;#00000000&quot;</code> (no change).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different minimumOutput values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumOutput1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumOutput2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumOutput3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> minimumOutput: #00000000 </b></td><td ><b> minimumOutput: #00000070 </b></td><td ><b> minimumOutput: #000000A0 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#minimumInput-prop">minimumInput</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumInput-prop">maximumInput</a>: #ffffff</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#maximumOutput-prop">maximumOutput</a>: #ffffff</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td><td ><a href="qml-qtgraphicaleffects-leveladjust.html#gamma-prop">gamma</a>: Qt.vector3d(1.0, 1.0, 1.0)</td></tr>
+</table></div>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Pixel color channel luminance curves of the above images.</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_default_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumOutput2_curve.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image LevelAdjust_minimumOutput3_curve.png]</font></p></td></tr>
+<tr valign="top" class="even"><td >X-axis: pixel original luminance</td><td ></td><td ></td></tr>
+<tr valign="top" class="odd"><td >Y-axis: color channel luminance with effect applied</td><td ></td><td ></td></tr>
+</table></div>
+</div></div><!-- @@@minimumOutput -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="source-prop"><td class="tblQmlPropNode"><p><a name="source-prop"></a><span class="name">source</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the source item that provides the source pixels for the effect.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting source to the effect's parent.</p></div></div><!-- @@@source -->
+<br/>
+</body>
+</html>

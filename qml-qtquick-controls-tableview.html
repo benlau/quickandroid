@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TableView.qml -->
+  <title>TableView QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TableView QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$TableView-brief -->
+<p>Provides a list view with scroll bars, styling and header sections. <a href="#details">More...</a></p>
+<!-- @@@TableView -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qtquick-controls-scrollview.html">ScrollView</a></p>
+</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-tableview-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#alternatingRowColors-prop">alternatingRowColors</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#backgroundVisible-prop">backgroundVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#columnCount-prop">columnCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#contentFooter-prop">contentFooter</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#contentHeader-prop">contentHeader</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#currentRow-prop">currentRow</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#headerDelegate-prop">headerDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#headerVisible-prop">headerVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#itemDelegate-prop">itemDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#model-prop">model</a></b></b> : var</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#rowCount-prop">rowCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#rowDelegate-prop">rowDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#section-prop">section</a></b></b> : alias</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#section.criteria-prop">section.criteria</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#section.delegate-prop">section.delegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#section.labelPositioning-prop">section.labelPositioning</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#section.property-prop">section.property</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#selection-prop">selection</a></b></b> : Selection</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#selectionMode-prop">selectionMode</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#sortIndicatorColumn-prop">sortIndicatorColumn</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#sortIndicatorOrder-prop">sortIndicatorOrder</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#sortIndicatorVisible-prop">sortIndicatorVisible</a></b></b> : bool</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#activated-signal">activated</a></b></b>(int <i>row</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#clicked-signal">clicked</a></b></b>(int <i>row</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#doubleClicked-signal">doubleClicked</a></b></b>(int <i>row</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#pressAndHold-signal">pressAndHold</a></b></b>(int <i>row</i>)</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#addColumn-method">addColumn</a></b></b>(<i>column</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#getColumn-method">getColumn</a></b></b>(<i>index</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#insertColumn-method">insertColumn</a></b></b>(<i>index</i>,  <i>column</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#moveColumn-method">moveColumn</a></b></b>(<i>from</i>,  <i>to</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#positionViewAtRow-method">positionViewAtRow</a></b></b>(<i>row</i>,  <i>mode</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#removeColumn-method">removeColumn</a></b></b>(<i>index</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#resizeColumnsToContents-method">resizeColumnsToContents</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tableview.html#rowAt-method">rowAt</a></b></b>(<i>x</i>,  <i>y</i>)</li>
+</ul>
+<!-- $$$TableView-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image tableview.png]</font></p><p>A <a href="qml-qtquick-controls-tableview.html">TableView</a> is similar to ListView, and adds scroll bars, selection, and resizable header sections. As with ListView, data for each row is provided through a <a href="qml-qtquick-controls-tableview.html#model-prop">model</a>:</p>
+<pre class="cpp">ListModel {
+    id: libraryModel
+    ListElement {
+        title: <span class="string">&quot;A Masterpiece&quot;</span>
+        author: <span class="string">&quot;Gabriel&quot;</span>
+    }
+    ListElement {
+        title: <span class="string">&quot;Brilliance&quot;</span>
+        author: <span class="string">&quot;Jens&quot;</span>
+    }
+    ListElement {
+        title: <span class="string">&quot;Outstanding&quot;</span>
+        author: <span class="string">&quot;Frederik&quot;</span>
+    }
+}</pre>
+<p>You provide title and size of a column header by adding a <a href="qml-qtquick-controls-tableviewcolumn.html">TableViewColumn</a> as demonstrated below.</p>
+<pre class="cpp">TableView {
+    TableViewColumn {
+        role: <span class="string">&quot;title&quot;</span>
+        title: <span class="string">&quot;Title&quot;</span>
+        width: <span class="number">100</span>
+    }
+    TableViewColumn {
+        role: <span class="string">&quot;author&quot;</span>
+        title: <span class="string">&quot;Author&quot;</span>
+        width: <span class="number">200</span>
+    }
+    model: libraryModel
+}</pre>
+<p>The header sections are attached to values in the <a href="qml-qtquick-controls-tableview.html#model-prop">model</a> by defining the model role they attach to. Each property in the model will then be shown in their corresponding column.</p>
+<p>You can customize the look by overriding the <a href="qml-qtquick-controls-tableview.html#itemDelegate-prop">itemDelegate</a>, <a href="qml-qtquick-controls-tableview.html#rowDelegate-prop">rowDelegate</a>, or <a href="qml-qtquick-controls-tableview.html#headerDelegate-prop">headerDelegate</a> properties.</p>
+<p>The view itself does not provide sorting. This has to be done on the model itself. However you can provide sorting on the model, and enable sort indicators on headers.</p>
+<ul>
+<li>int <a href="qml-qtquick-controls-tableview.html#sortIndicatorColumn-prop">sortIndicatorColumn</a> - The index of the current sort column</li>
+<li>bool <a href="qml-qtquick-controls-tableview.html#sortIndicatorVisible-prop">sortIndicatorVisible</a> - Whether the sort indicator should be enabled</li>
+<li>enum <a href="qml-qtquick-controls-tableview.html#sortIndicatorOrder-prop">sortIndicatorOrder</a> - Qt.AscendingOrder or Qt.DescendingOrder depending on state</li>
+</ul>
+<p>You can create a custom appearance for a <a href="qml-qtquick-controls-tableview.html">TableView</a> by assigning a <a href="qml-qtquick-controls-styles-tableviewstyle.html">TableViewStyle</a>.</p>
+<!-- @@@TableView -->
+<h2>Property Documentation</h2>
+<!-- $$$alternatingRowColors -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="alternatingRowColors-prop"><td class="tblQmlPropNode"><p><a name="alternatingRowColors-prop"></a><span class="name">alternatingRowColors</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is set to <code>true</code> if the view alternates the row color. The default value is <code>true</code>.</p>
+</div></div><!-- @@@alternatingRowColors -->
+<br/>
+<!-- $$$backgroundVisible -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="backgroundVisible-prop"><td class="tblQmlPropNode"><p><a name="backgroundVisible-prop"></a><span class="name">backgroundVisible</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines if the background should be filled or not.</p>
+<p>The default value is <code>true</code>.</p>
+<p><b>Note: </b>The <a href="qml-qtquick-controls-tableview.html#rowDelegate-prop">rowDelegate</a> is not affected by this property</p></div></div><!-- @@@backgroundVisible -->
+<br/>
+<!-- $$$columnCount -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="columnCount-prop"><td class="tblQmlPropNode"><p><a name="columnCount-prop"></a><span class="qmlreadonly">read-only</span><span class="name">columnCount</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The current number of columns</p>
+</div></div><!-- @@@columnCount -->
+<br/>
+<!-- $$$contentFooter -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentFooter-prop"><td class="tblQmlPropNode"><p><a name="contentFooter-prop"></a><span class="name">contentFooter</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This is the content footer of the <a href="qml-qtquick-controls-tableview.html">TableView</a></p>
+</div></div><!-- @@@contentFooter -->
+<br/>
+<!-- $$$contentHeader -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentHeader-prop"><td class="tblQmlPropNode"><p><a name="contentHeader-prop"></a><span class="name">contentHeader</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This is the content header of the <a href="qml-qtquick-controls-tableview.html">TableView</a></p>
+</div></div><!-- @@@contentHeader -->
+<br/>
+<!-- $$$currentRow -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="currentRow-prop"><td class="tblQmlPropNode"><p><a name="currentRow-prop"></a><span class="name">currentRow</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The current row index of the view. The default value is <code>-1</code> to indicate that no row is selected.</p>
+</div></div><!-- @@@currentRow -->
+<br/>
+<!-- $$$headerDelegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="headerDelegate-prop"><td class="tblQmlPropNode"><p><a name="headerDelegate-prop"></a><span class="name">headerDelegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines a delegate to draw a header.</p>
+<p>In the header delegate you have access to the following special properties:</p>
+<ul>
+<li>styleData.value - the value or text for this item</li>
+<li>styleData.column - the index of the column</li>
+<li>styleData.pressed - true when the column is being pressed</li>
+<li>styleData.containsMouse - true when the column is under the mouse</li>
+<li>styleData.textAlignment - the horizontal text alignment of the column (since QtQuickControls 1.1)</li>
+</ul>
+</div></div><!-- @@@headerDelegate -->
+<br/>
+<!-- $$$headerVisible -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="headerVisible-prop"><td class="tblQmlPropNode"><p><a name="headerVisible-prop"></a><span class="name">headerVisible</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines if the header is visible. The default value is <code>true</code>.</p>
+</div></div><!-- @@@headerVisible -->
+<br/>
+<!-- $$$itemDelegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="itemDelegate-prop"><td class="tblQmlPropNode"><p><a name="itemDelegate-prop"></a><span class="name">itemDelegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines a delegate to draw a specific cell.</p>
+<p>In the item delegate you have access to the following special properties:</p>
+<ul>
+<li>styleData.selected - if the item is currently selected</li>
+<li>styleData.value - the value or text for this item</li>
+<li>styleData.textColor - the default text color for an item</li>
+<li>styleData.row - the index of the row</li>
+<li>styleData.column - the index of the column</li>
+<li>styleData.elideMode - the elide mode of the column</li>
+<li>styleData.textAlignment - the horizontal text alignment of the column</li>
+<li>styleData.pressed - true when the item is pressed (since QtQuick.Controls 1.3)</li>
+<li>styleData.hasActiveFocus - true when the row has focus (since QtQuick.Controls 1.3)</li>
+</ul>
+<p>Example:</p>
+<pre class="cpp">itemDelegate: Item {
+    Text {
+        anchors<span class="operator">.</span>verticalCenter: parent<span class="operator">.</span>verticalCenter
+        color: styleData<span class="operator">.</span>textColor
+        elide: styleData<span class="operator">.</span>elideMode
+        text: styleData<span class="operator">.</span>value
+    }
+}</pre>
+<p><b>Note: </b>For performance reasons, created delegates can be recycled across multiple table rows. This implies that when you make use of implicit properties such as <code>styleData.row</code> or <code>model</code>, these values can change after the delegate has been constructed. This means that you should not assume that content is fixed when <code>Component.onCompleted</code> is called, but instead rely on bindings to such properties.</p></div></div><!-- @@@itemDelegate -->
+<br/>
+<!-- $$$model -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="model-prop"><td class="tblQmlPropNode"><p><a name="model-prop"></a><span class="name">model</span> : <span class="type">var</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the model providing data for the table view.</p>
+<p>The model provides the set of data that is used to create the items in the view. Models can be created directly in QML using ListModel, XmlListModel or VisualItemModel, or provided by C++ model classes.</p>
+<p>Example model:</p>
+<pre class="cpp">model: ListModel {
+    ListElement{ column1: <span class="string">&quot;value 1&quot;</span> ; column2: <span class="string">&quot;value 2&quot;</span> }
+    ListElement{ column1: <span class="string">&quot;value 3&quot;</span> ; column2: <span class="string">&quot;value 4&quot;</span> }
+}</pre>
+<p><b>See also </b>ListView::model and Data Models.</p>
+</div></div><!-- @@@model -->
+<br/>
+<!-- $$$rowCount -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="rowCount-prop"><td class="tblQmlPropNode"><p><a name="rowCount-prop"></a><span class="qmlreadonly">read-only</span><span class="name">rowCount</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The current number of rows</p>
+</div></div><!-- @@@rowCount -->
+<br/>
+<!-- $$$rowDelegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="rowDelegate-prop"><td class="tblQmlPropNode"><p><a name="rowDelegate-prop"></a><span class="name">rowDelegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines a delegate to draw a row.</p>
+<p>In the row delegate you have access to the following special properties:</p>
+<ul>
+<li>styleData.alternate - true when the row uses the alternate background color</li>
+<li>styleData.selected - true when the row is currently selected</li>
+<li>styleData.row - the index of the row</li>
+<li>styleData.hasActiveFocus - true when the row has focus</li>
+<li>styleData.pressed - true when the row is pressed (since QtQuick.Controls 1.3)</li>
+</ul>
+<p><b>Note: </b>For performance reasons, created delegates can be recycled across multiple table rows. This implies that when you make use of implicit properties such as <code>styleData.row</code> or <code>model</code>, these values can change after the delegate has been constructed. This means that you should not assume that content is fixed when <code>Component.onCompleted</code> is called, but instead rely on bindings to such properties.</p></div></div><!-- @@@rowDelegate -->
+<br/>
+<!-- $$$section -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="section-prop"><td class="tblQmlPropNode"><p><a name="section-prop"></a><span class="name">section</span> : <span class="type">alias</span></p></td></tr></table></div></div><div class="qmldoc"><p>These properties determine the section labels.</p>
+<p><b>See also </b>ListView::section.</p>
+</div></div><!-- @@@section -->
+<br/>
+<!-- $$$section.criteria -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="section.criteria-prop"><td class="tblQmlPropNode"><p><a name="section.criteria-prop"></a><span class="name">section.criteria</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>These properties determine the section labels.</p>
+<p><b>See also </b>ListView::section.</p>
+</div></div><!-- @@@section.criteria -->
+<br/>
+<!-- $$$section.delegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="section.delegate-prop"><td class="tblQmlPropNode"><p><a name="section.delegate-prop"></a><span class="name">section.delegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>These properties determine the section labels.</p>
+<p><b>See also </b>ListView::section.</p>
+</div></div><!-- @@@section.delegate -->
+<br/>
+<!-- $$$section.labelPositioning -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="section.labelPositioning-prop"><td class="tblQmlPropNode"><p><a name="section.labelPositioning-prop"></a><span class="name">section.labelPositioning</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>These properties determine the section labels.</p>
+<p><b>See also </b>ListView::section.</p>
+</div></div><!-- @@@section.labelPositioning -->
+<br/>
+<!-- $$$section.property -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="section.property-prop"><td class="tblQmlPropNode"><p><a name="section.property-prop"></a><span class="name">section.property</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>These properties determine the section labels.</p>
+<p><b>See also </b>ListView::section.</p>
+</div></div><!-- @@@section.property -->
+<br/>
+<!-- $$$selection -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selection-prop"><td class="tblQmlPropNode"><p><a name="selection-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selection</span> : <span class="type">Selection</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property contains the current row-selection of the <a href="qml-qtquick-controls-tableview.html">TableView</a>. The selection allows you to select, deselect or iterate over selected rows.</p>
+<ul>
+<li>function <b>clear()</b> - deselects all rows</li>
+<li>function <b>selectAll()</b> - selects all rows</li>
+<li>function <b>select(from, to)</b> - select a range</li>
+<li>functton <b>deselect(from, to)</b> - de-selects a range</li>
+<li>function <b>forEach(callback)</b> - iterates over all selected rows</li>
+<li>function <b>contains(index)</b> - checks whether the selection includes the given index</li>
+<li>signal <b>selectionChanged()</b> - the current row selection changed</li>
+<li>readonly property int <b>count</b> - the number of selected rows</li>
+</ul>
+<p><b>Example</b>:</p>
+<pre class="cpp">tableview<span class="operator">.</span>selection<span class="operator">.</span>select(<span class="number">0</span>)       <span class="comment">// select row index 0</span>
+
+tableview<span class="operator">.</span>selection<span class="operator">.</span>select(<span class="number">1</span><span class="operator">,</span> <span class="number">3</span>)    <span class="comment">// select row indexes 1, 2 and 3</span>
+
+tableview<span class="operator">.</span>selection<span class="operator">.</span>deselect(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span>)  <span class="comment">// deselects row index 0 and 1</span>
+
+tableview<span class="operator">.</span>selection<span class="operator">.</span>deselect(<span class="number">2</span>)     <span class="comment">// deselects row index 2</span></pre>
+<p><b>Example</b>: To iterate over selected indexes, you can pass a callback function. <i>rowIndex</i> is passed as as an argument to the callback function.</p>
+<pre class="cpp">tableview<span class="operator">.</span>selection<span class="operator">.</span>forEach( function(rowIndex) {console<span class="operator">.</span>log(rowIndex)} )</pre>
+<p>This QML property was introduced in  QtQuick.Controls 1.1.</p>
+</div></div><!-- @@@selection -->
+<br/>
+<!-- $$$selectionMode -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionMode-prop"><td class="tblQmlPropNode"><p><a name="selectionMode-prop"></a><span class="name">selectionMode</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This enum indicates how the view responds to user selections:</p>
+<p>The possible modes are:</p>
+<ul>
+<li>SelectionMode.NoSelection - Items cannot be selected.</li>
+<li>SelectionMode.SingleSelection - When the user selects an item, any already-selected item becomes unselected, and the user cannot unselect the selected item. (Default)</li>
+<li>SelectionMode.MultiSelection - When the user selects an item in the usual way, the selection status of that item is toggled and the other items are left alone.</li>
+<li>SelectionMode.ExtendedSelection - When the user selects an item in the usual way, the selection is cleared and the new item selected. However, if the user presses the Ctrl key when clicking on an item, the clicked item gets toggled and all other items are left untouched. If the user presses the Shift key while clicking on an item, all items between the current item and the clicked item are selected or unselected, depending on the state of the clicked item. Multiple items can be selected by dragging the mouse over them.</li>
+<li>SelectionMode.ContiguousSelection - When the user selects an item in the usual way, the selection is cleared and the new item selected. However, if the user presses the Shift key while clicking on an item, all items between the current item and the clicked item are selected.</li>
+</ul>
+<p>This QML property was introduced in  QtQuick.Controls 1.1.</p>
+</div></div><!-- @@@selectionMode -->
+<br/>
+<!-- $$$sortIndicatorColumn -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="sortIndicatorColumn-prop"><td class="tblQmlPropNode"><p><a name="sortIndicatorColumn-prop"></a><span class="name">sortIndicatorColumn</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>Index of the current sort column. The default value is <code>0</code>.</p>
+</div></div><!-- @@@sortIndicatorColumn -->
+<br/>
+<!-- $$$sortIndicatorOrder -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="sortIndicatorOrder-prop"><td class="tblQmlPropNode"><p><a name="sortIndicatorOrder-prop"></a><span class="name">sortIndicatorOrder</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This sets the sorting order of the sort indicator The allowed values are:</p>
+<ul>
+<li>Qt.AscendingOrder - the default</li>
+<li>Qt.DescendingOrder</li>
+</ul>
+</div></div><!-- @@@sortIndicatorOrder -->
+<br/>
+<!-- $$$sortIndicatorVisible -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="sortIndicatorVisible-prop"><td class="tblQmlPropNode"><p><a name="sortIndicatorVisible-prop"></a><span class="name">sortIndicatorVisible</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property shows or hides the sort indicator The default value is <code>false</code>.</p>
+<p><b>Note: </b>The view itself does not sort the data.</p></div></div><!-- @@@sortIndicatorVisible -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$activated -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="activated-signal"><td class="tblQmlFuncNode"><p><a name="activated-signal"></a><span class="name">activated</span>(<span class="type">int</span><i> row</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Emitted when the user activates an item by mouse or keyboard interaction. Mouse activation is triggered by single- or double-clicking, depending on the platform.</p>
+<p><i>row</i> int provides access to the activated row index.</p>
+<p><b>Note: </b>This signal is only emitted for mouse interaction that is not blocked in the row or item delegate.</p><p>The corresponding handler is <code>onActivated</code>.</p>
+</div></div><!-- @@@activated -->
+<br/>
+<!-- $$$clicked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="clicked-signal"><td class="tblQmlFuncNode"><p><a name="clicked-signal"></a><span class="name">clicked</span>(<span class="type">int</span><i> row</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Emitted when the user clicks a valid row by single clicking</p>
+<p><i>row</i> int provides access to the clicked row index.</p>
+<p><b>Note: </b>This signal is only emitted if the row or item delegate does not accept mouse events.</p><p>The corresponding handler is <code>onClicked</code>.</p>
+</div></div><!-- @@@clicked -->
+<br/>
+<!-- $$$doubleClicked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="doubleClicked-signal"><td class="tblQmlFuncNode"><p><a name="doubleClicked-signal"></a><span class="name">doubleClicked</span>(<span class="type">int</span><i> row</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Emitted when the user double clicks a valid row.</p>
+<p><i>row</i> int provides access to the clicked row index.</p>
+<p><b>Note: </b>This signal is only emitted if the row or item delegate does not accept mouse events.</p><p>The corresponding handler is <code>onDoubleClicked</code>.</p>
+</div></div><!-- @@@doubleClicked -->
+<br/>
+<!-- $$$pressAndHold -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pressAndHold-signal"><td class="tblQmlFuncNode"><p><a name="pressAndHold-signal"></a><span class="name">pressAndHold</span>(<span class="type">int</span><i> row</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Emitted when the user presses and holds a valid row.</p>
+<p><i>row</i> int provides access to the pressed row index.</p>
+<p><b>Note: </b>This signal is only emitted if the row or item delegate does not accept mouse events.</p><p>The corresponding handler is <code>onPressAndHold</code>.</p>
+<p>This QML signal was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@pressAndHold -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$addColumn -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="addColumn-method"><td class="tblQmlFuncNode"><p><a name="addColumn-method"></a><span class="name">addColumn</span>(<i> column</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Adds a <i>column</i> and returns the added column.</p>
+<p>The <i>column</i> argument can be an instance of <a href="qml-qtquick-controls-tableviewcolumn.html">TableViewColumn</a>, or a Component. The component has to contain a <a href="qml-qtquick-controls-tableviewcolumn.html">TableViewColumn</a>. Otherwise <code>null</code> is returned.</p>
+</div></div><!-- @@@addColumn -->
+<br/>
+<!-- $$$getColumn -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="getColumn-method"><td class="tblQmlFuncNode"><p><a name="getColumn-method"></a><span class="name">getColumn</span>(<i> index</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the column at the given <i>index</i> or <code>null</code> if the <i>index</i> is invalid.</p>
+</div></div><!-- @@@getColumn -->
+<br/>
+<!-- $$$insertColumn -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="insertColumn-method"><td class="tblQmlFuncNode"><p><a name="insertColumn-method"></a><span class="name">insertColumn</span>(<i> index</i>, <i> column</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Inserts a <i>column</i> at the given <i>index</i> and returns the inserted column.</p>
+<p>The <i>column</i> argument can be an instance of <a href="qml-qtquick-controls-tableviewcolumn.html">TableViewColumn</a>, or a Component. The component has to contain a <a href="qml-qtquick-controls-tableviewcolumn.html">TableViewColumn</a>. Otherwise <code>null</code> is returned.</p>
+</div></div><!-- @@@insertColumn -->
+<br/>
+<!-- $$$moveColumn -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="moveColumn-method"><td class="tblQmlFuncNode"><p><a name="moveColumn-method"></a><span class="name">moveColumn</span>(<i> from</i>, <i> to</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Moves a column <i>from</i> index <i>to</i> another.</p>
+</div></div><!-- @@@moveColumn -->
+<br/>
+<!-- $$$positionViewAtRow -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="positionViewAtRow-method"><td class="tblQmlFuncNode"><p><a name="positionViewAtRow-method"></a><span class="name">positionViewAtRow</span>(<i> row</i>, <i> mode</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Positions the view such that the specified <i>row</i> is at the position defined by <i>mode</i>:</p>
+<ul>
+<li>ListView.Beginning - position item at the top of the view.</li>
+<li>ListView.Center - position item in the center of the view.</li>
+<li>ListView.End - position item at bottom of the view.</li>
+<li>ListView.Visible - if any part of the item is visible then take no action, otherwise bring the item into view.</li>
+<li>ListView.Contain - ensure the entire item is visible. If the item is larger than the view the item is positioned at the top of the view.</li>
+</ul>
+<p>If positioning the <i>row</i> creates an empty space at the beginning or end of the view, then the view is positioned at the boundary.</p>
+<p>For example, to position the view at the end at startup:</p>
+<pre class="cpp">Component<span class="operator">.</span>onCompleted: table<span class="operator">.</span>positionViewAtRow(rowCount <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> ListView<span class="operator">.</span>Contain)</pre>
+<p>Depending on how the model is populated, the model may not be ready when <a href="qml-qtquick-controls-tableview.html">TableView</a> Component.onCompleted is called. In that case you may need to delay the call to positionViewAtRow by using a Timer.</p>
+<p><b>Note: </b>This method should only be called after the component has completed.</p></div></div><!-- @@@positionViewAtRow -->
+<br/>
+<!-- $$$removeColumn -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="removeColumn-method"><td class="tblQmlFuncNode"><p><a name="removeColumn-method"></a><span class="name">removeColumn</span>(<i> index</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Removes and destroys a column at the given <i>index</i>.</p>
+</div></div><!-- @@@removeColumn -->
+<br/>
+<!-- $$$resizeColumnsToContents -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="resizeColumnsToContents-method"><td class="tblQmlFuncNode"><p><a name="resizeColumnsToContents-method"></a><span class="name">resizeColumnsToContents</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Resizes all columns to ensure that the column contents and the headers will fit.</p>
+<p>This QML method was introduced in  QtQuick.Controls 1.2.</p>
+</div></div><!-- @@@resizeColumnsToContents -->
+<br/>
+<!-- $$$rowAt -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="rowAt-method"><td class="tblQmlFuncNode"><p><a name="rowAt-method"></a><span class="name">rowAt</span>(<i> x</i>, <i> y</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the index of the visible row at the point <i>x</i>, <i>y</i> in content coordinates. If there is no visible row at the point specified, <code>-1</code> is returned.</p>
+<p><b>Note: </b>This method should only be called after the component has completed.</p></div></div><!-- @@@rowAt -->
+<br/>
+</body>
+</html>

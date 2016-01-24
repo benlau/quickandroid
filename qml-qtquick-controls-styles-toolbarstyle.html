@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ToolBarStyle.qml -->
+  <title>ToolBarStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ToolBarStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ToolBarStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-toolbar.html">ToolBar</a> <a href="#details">More...</a></p>
+<!-- @@@ToolBarStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.2</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-toolbarstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-toolbarstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-toolbarstyle.html#menuButton-prop">menuButton</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-toolbarstyle.html#panel-prop">panel</a></b></b> : Component</li>
+</ul>
+<!-- $$$ToolBarStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>The tool bar can be defined by overriding the background component and setting the content padding.</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-toolbar.html">ToolBar</a></span> {
+    <span class="name">style</span>: <span class="name">ToolBarStyle</span> {
+        <span class="type">padding</span> {
+            <span class="name">left</span>: <span class="number">8</span>
+            <span class="name">right</span>: <span class="number">8</span>
+            <span class="name">top</span>: <span class="number">3</span>
+            <span class="name">bottom</span>: <span class="number">3</span>
+        }
+        <span class="name">background</span>: <span class="name">Rectangle</span> {
+            <span class="name">implicitWidth</span>: <span class="number">100</span>
+            <span class="name">implicitHeight</span>: <span class="number">40</span>
+            <span class="name">border</span>.color: <span class="string">&quot;#999&quot;</span>
+            <span class="name">gradient</span>: <span class="name">Gradient</span> {
+                <span class="type">GradientStop</span> { <span class="name">position</span>: <span class="number">0</span> ; <span class="name">color</span>: <span class="string">&quot;#fff&quot;</span> }
+                <span class="type">GradientStop</span> { <span class="name">position</span>: <span class="number">1</span> ; <span class="name">color</span>: <span class="string">&quot;#eee&quot;</span> }
+            }
+        }
+    }
+}</pre>
+<!-- @@@ToolBarStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the background of the tool bar.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$menuButton -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="menuButton-prop"><td class="tblQmlPropNode"><p><a name="menuButton-prop"></a><span class="name">menuButton</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the menu button appearance on platforms that have a unified tool bar and menu bar.</p>
+<p>The following read-only properties are available within the scope of the menu button delegate:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><b>styleData.pressed</b> : bool</td><td >Whether the button is pressed.</td></tr>
+<tr valign="top" class="even"><td ><b>styleData.hovered</b> : bool</td><td >Whether the button is hovered.</td></tr>
+<tr valign="top" class="odd"><td ><b>styleData.activeFocus</b> : bool</td><td >Whether the button has active focus.</td></tr>
+</table></div>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.3.</p>
+</div></div><!-- @@@menuButton -->
+<br/>
+<!-- $$$panel -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="panel-prop"><td class="tblQmlPropNode"><p><a name="panel-prop"></a><span class="name">panel</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the panel of the tool bar.</p>
+</div></div><!-- @@@panel -->
+<br/>
+</body>
+</html>

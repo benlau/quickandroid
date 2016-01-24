@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TextField.qml -->
+  <title>TextField QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TextField QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$TextField-brief -->
+<p>Displays a single line of editable plain text. <a href="#details">More...</a></p>
+<!-- @@@TextField -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-textfield-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#acceptableInput-prop">acceptableInput</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#canPaste-prop">canPaste</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#canRedo-prop">canRedo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#canUndo-prop">canUndo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#cursorPosition-prop">cursorPosition</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#cursorRectangle-prop">cursorRectangle</a></b></b> : rect</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#displayText-prop">displayText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#echoMode-prop">echoMode</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#effectiveHorizontalAlignment-prop">effectiveHorizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#horizontalAlignment-prop">horizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#hovered-prop">hovered</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#inputMask-prop">inputMask</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#inputMethodComposing-prop">inputMethodComposing</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#inputMethodHints-prop">inputMethodHints</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#length-prop">length</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#maximumLength-prop">maximumLength</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#menu-prop">menu</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#placeholderText-prop">placeholderText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#readOnly-prop">readOnly</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#selectByMouse-prop">selectByMouse</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#selectedText-prop">selectedText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#selectionEnd-prop">selectionEnd</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#selectionStart-prop">selectionStart</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#text-prop">text</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#textColor-prop">textColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#validator-prop">validator</a></b></b> : Validator</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#verticalAlignment-prop">verticalAlignment</a></b></b> : enumeration</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#accepted-signal">accepted</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#editingFinished-signal">editingFinished</a></b></b>()</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#copy-method">copy</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#cut-method">cut</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#deselect-method">deselect</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#getText-method">getText</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#insert-method">insert</a></b></b>(<i>position</i>,  <i>text</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#isRightToLeft-method">isRightToLeft</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#paste-method">paste</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#redo-method">redo</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#remove-method">remove</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#select-method">select</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#selectAll-method">selectAll</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#selectWord-method">selectWord</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textfield.html#undo-method">undo</a></b></b>()</li>
+</ul>
+<!-- $$$TextField-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image textfield.png]</font></p><p><a href="qml-qtquick-controls-textfield.html">TextField</a> is used to accept a line of text input. Input constraints can be placed on a <a href="qml-qtquick-controls-textfield.html">TextField</a> item (for example, through a <a href="qml-qtquick-controls-textfield.html#validator-prop">validator</a> or <a href="qml-qtquick-controls-textfield.html#inputMask-prop">inputMask</a>). Setting <a href="qml-qtquick-controls-textfield.html#echoMode-prop">echoMode</a> to an appropriate value enables <a href="qml-qtquick-controls-textfield.html">TextField</a> to be used for a password input field.</p>
+<pre class="qml"><span class="type">TextField</span> {
+    <span class="name">placeholderText</span>: <span class="name">qsTr</span>(<span class="string">&quot;Enter name&quot;</span>)
+}</pre>
+<p>You can create a custom appearance for a <a href="qml-qtquick-controls-textfield.html">TextField</a> by assigning a <a href="qml-qtquick-controls-styles-textfieldstyle.html">TextFieldStyle</a>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textarea.html">TextArea</a> and TextInput.</p>
+<!-- @@@TextField -->
+<h2>Property Documentation</h2>
+<!-- $$$acceptableInput -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="acceptableInput-prop"><td class="tblQmlPropNode"><p><a name="acceptableInput-prop"></a><span class="qmlreadonly">read-only</span><span class="name">acceptableInput</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns <code>true</code> if the text field contains acceptable text.</p>
+<p>If a validator or input mask was set, this property will return <code>true</code> if the current text satisfies the validator or mask as a final string (not as an intermediate string).</p>
+<p>The default value is <code>true</code>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textfield.html#validator-prop">validator</a>, <a href="qml-qtquick-controls-textfield.html#inputMask-prop">inputMask</a>, and <a href="qml-qtquick-controls-textfield.html#accepted-signal">accepted</a>.</p>
+</div></div><!-- @@@acceptableInput -->
+<br/>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="activeFocusOnPress-prop"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is set to <code>true</code> if the <a href="qml-qtquick-controls-textfield.html">TextField</a> should gain active focus on a mouse press.</p>
+<p>The default value is <code>true</code>.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$canPaste -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="canPaste-prop"><td class="tblQmlPropNode"><p><a name="canPaste-prop"></a><span class="qmlreadonly">read-only</span><span class="name">canPaste</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns <code>true</code> if the <a href="qml-qtquick-controls-textfield.html">TextField</a> is writable and the content of the clipboard is suitable for pasting into the <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@canPaste -->
+<br/>
+<!-- $$$canRedo -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="canRedo-prop"><td class="tblQmlPropNode"><p><a name="canRedo-prop"></a><span class="qmlreadonly">read-only</span><span class="name">canRedo</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns <code>true</code> if the <a href="qml-qtquick-controls-textfield.html">TextField</a> is writable and there are <a href="qml-qtquick-controls-textfield.html#undo-method">undone</a> operations that can be redone.</p>
+</div></div><!-- @@@canRedo -->
+<br/>
+<!-- $$$canUndo -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="canUndo-prop"><td class="tblQmlPropNode"><p><a name="canUndo-prop"></a><span class="qmlreadonly">read-only</span><span class="name">canUndo</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns <code>true</code> if the <a href="qml-qtquick-controls-textfield.html">TextField</a> is writable and there are previous operations that can be undone.</p>
+</div></div><!-- @@@canUndo -->
+<br/>
+<!-- $$$cursorPosition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cursorPosition-prop"><td class="tblQmlPropNode"><p><a name="cursorPosition-prop"></a><span class="name">cursorPosition</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the position of the cursor in the <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@cursorPosition -->
+<br/>
+<!-- $$$cursorRectangle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cursorRectangle-prop"><td class="tblQmlPropNode"><p><a name="cursorRectangle-prop"></a><span class="qmlreadonly">read-only</span><span class="name">cursorRectangle</span> : <span class="type">rect</span></p></td></tr></table></div></div><div class="qmldoc"><p>The rectangle where the text cursor is rendered within the text field.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@cursorRectangle -->
+<br/>
+<!-- $$$displayText -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="displayText-prop"><td class="tblQmlPropNode"><p><a name="displayText-prop"></a><span class="qmlreadonly">read-only</span><span class="name">displayText</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the text displayed in the <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+<p>If <a href="qml-qtquick-controls-textfield.html#echoMode-prop">echoMode</a> is set to TextInput::Normal, this holds the same value as the <a href="qml-qtquick-controls-textfield.html#text-prop">TextField::text</a> property. Otherwise, this property holds the text visible to the user, while the <a href="qml-qtquick-controls-textfield.html#text-prop">text</a> property holds the actual entered text.</p>
+</div></div><!-- @@@displayText -->
+<br/>
+<!-- $$$echoMode -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="echoMode-prop"><td class="tblQmlPropNode"><p><a name="echoMode-prop"></a><span class="name">echoMode</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Specifies how the text should be displayed in the <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+<p>The possible modes are:</p>
+<ul>
+<li>TextInput.Normal - Displays the text as it is. (Default)</li>
+<li>TextInput.Password - Displays asterisks instead of characters.</li>
+<li>TextInput.NoEcho - Displays nothing.</li>
+<li>TextInput.PasswordEchoOnEdit - Displays characters as they are entered while editing, otherwise displays asterisks.</li>
+</ul>
+</div></div><!-- @@@echoMode -->
+<br/>
+<!-- $$$effectiveHorizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="effectiveHorizontalAlignment-prop"><td class="tblQmlPropNode"><p><a name="effectiveHorizontalAlignment-prop"></a><span class="qmlreadonly">read-only</span><span class="name">effectiveHorizontalAlignment</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Gets the effective horizontal alignment of the text within the <a href="qml-qtquick-controls-textfield.html">TextField</a> item's width.</p>
+<p><a href="qml-qtquick-controls-textfield.html#horizontalAlignment-prop">horizontalAlignment</a> contains the default horizontal alignment.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textfield.html#horizontalAlignment-prop">horizontalAlignment</a>.</p>
+</div></div><!-- @@@effectiveHorizontalAlignment -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="font-prop"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-qtquick-controls-textfield.html#font-prop">font</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>Sets the font of the <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$horizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="horizontalAlignment-prop"><td class="tblQmlPropNode"><p><a name="horizontalAlignment-prop"></a><span class="name">horizontalAlignment</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Sets the alignment of the text within the <a href="qml-qtquick-controls-textfield.html">TextField</a> item's width.</p>
+<p>By default, the horizontal text alignment follows the natural alignment of the text, for example text that is read from left to right will be aligned to the left.</p>
+<p>The possible alignment values are:</p>
+<ul>
+<li>TextInput.AlignLeft</li>
+<li>TextInput.AlignRight</li>
+<li>TextInput.AlignHCenter</li>
+</ul>
+<p>When using the attached property, LayoutMirroring::enabled, to mirror application layouts, the horizontal alignment of text will also be mirrored. However, the property <code>horizontalAlignment</code> will remain unchanged. To query the effective horizontal alignment of <a href="qml-qtquick-controls-textfield.html">TextField</a>, use the read-only property <code>effectiveHorizontalAlignment</code>.</p>
+</div></div><!-- @@@horizontalAlignment -->
+<br/>
+<!-- $$$hovered -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="hovered-prop"><td class="tblQmlPropNode"><p><a name="hovered-prop"></a><span class="qmlreadonly">read-only</span><span class="name">hovered</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the control is being hovered.</p>
+</div></div><!-- @@@hovered -->
+<br/>
+<!-- $$$inputMask -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="inputMask-prop"><td class="tblQmlPropNode"><p><a name="inputMask-prop"></a><span class="name">inputMask</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>Sets an input mask on the <a href="qml-qtquick-controls-textfield.html">TextField</a>, restricting the allowable text inputs. See QLineEdit::inputMask for further details, as the exact same mask strings are used by <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textfield.html#acceptableInput-prop">acceptableInput</a> and <a href="qml-qtquick-controls-textfield.html#validator-prop">validator</a>.</p>
+</div></div><!-- @@@inputMask -->
+<br/>
+<!-- $$$inputMethodComposing -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="inputMethodComposing-prop"><td class="tblQmlPropNode"><p><a name="inputMethodComposing-prop"></a><span class="qmlreadonly">read-only</span><span class="name">inputMethodComposing</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the <a href="qml-qtquick-controls-textfield.html">TextField</a> has partial text input from an input method.</p>
+<p>While it is composing an input method may rely on mouse or key events from the <a href="qml-qtquick-controls-textfield.html">TextField</a> to edit or commit the partial text. This property can be used to determine when to disable events handlers that may interfere with the correct operation of an input method.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@inputMethodComposing -->
+<br/>
+<!-- $$$inputMethodHints -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="inputMethodHints-prop"><td class="tblQmlPropNode"><p><a name="inputMethodHints-prop"></a><span class="name">inputMethodHints</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Provides hints to the input method about the expected content of the text field and how it should operate.</p>
+<p>The value is a bit-wise combination of flags, or <code>Qt.ImhNone</code> if no hints are set.</p>
+<p>The default value is <code>Qt.ImhNone</code>.</p>
+<p>Flags that alter behavior are:</p>
+<ul>
+<li>Qt.ImhHiddenText - Characters should be hidden, as is typically used when entering passwords. This is automatically set when setting <a href="qml-qtquick-controls-textfield.html#echoMode-prop">echoMode</a> to <code>TextInput.Password</code>.</li>
+<li>Qt.ImhSensitiveData - Typed text should not be stored by the active input method in any persistent storage like predictive user dictionary.</li>
+<li>Qt.ImhNoAutoUppercase - The input method should not try to automatically switch to upper case when a sentence ends.</li>
+<li>Qt.ImhPreferNumbers - Numbers are preferred (but not required).</li>
+<li>Qt.ImhPreferUppercase - Uppercase letters are preferred (but not required).</li>
+<li>Qt.ImhPreferLowercase - Lowercase letters are preferred (but not required).</li>
+<li>Qt.ImhNoPredictiveText - Do not use predictive text (for example, dictionary lookup) while typing.</li>
+<li>Qt.ImhDate - The text editor functions as a date field.</li>
+<li>Qt.ImhTime - The text editor functions as a time field.</li>
+<li>Qt.ImhMultiLine - The text editor doesn't close software input keyboard when Return or Enter key is pressed (since QtQuick.Controls 1.3).</li>
+</ul>
+<p>Flags that restrict input (exclusive flags) are:</p>
+<ul>
+<li>Qt.ImhDigitsOnly - Only digits are allowed.</li>
+<li>Qt.ImhFormattedNumbersOnly - Only number input is allowed. This includes decimal point and minus sign.</li>
+<li>Qt.ImhUppercaseOnly - Only uppercase letter input is allowed.</li>
+<li>Qt.ImhLowercaseOnly - Only lowercase letter input is allowed.</li>
+<li>Qt.ImhDialableCharactersOnly - Only characters suitable for phone dialing are allowed.</li>
+<li>Qt.ImhEmailCharactersOnly - Only characters suitable for email addresses are allowed.</li>
+<li>Qt.ImhUrlCharactersOnly - Only characters suitable for URLs are allowed.</li>
+</ul>
+<p>Masks:</p>
+<ul>
+<li>Qt.ImhExclusiveInputMask - This mask yields nonzero if any of the exclusive flags are used.</li>
+</ul>
+</div></div><!-- @@@inputMethodHints -->
+<br/>
+<!-- $$$length -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="length-prop"><td class="tblQmlPropNode"><p><a name="length-prop"></a><span class="qmlreadonly">read-only</span><span class="name">length</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns the total number of characters in the <a href="qml-qtquick-controls-textfield.html">TextField</a> item.</p>
+<p>If the <a href="qml-qtquick-controls-textfield.html">TextField</a> has an input mask, the length will include mask characters and may differ from the length of the string returned by the <a href="qml-qtquick-controls-textfield.html#text-prop">text</a> property.</p>
+<p>This property can be faster than querying the length of the <a href="qml-qtquick-controls-textfield.html#text-prop">text</a> property as it doesn't require any copying or conversion of the <a href="qml-qtquick-controls-textfield.html">TextField</a>'s internal string data.</p>
+</div></div><!-- @@@length -->
+<br/>
+<!-- $$$maximumLength -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maximumLength-prop"><td class="tblQmlPropNode"><p><a name="maximumLength-prop"></a><span class="name">maximumLength</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the maximum permitted length of the text in the <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+<p>If the text is too long, it is truncated at the limit.</p>
+</div></div><!-- @@@maximumLength -->
+<br/>
+<!-- $$$menu -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="menu-prop"><td class="tblQmlPropNode"><p><a name="menu-prop"></a><span class="name">menu</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property contains the edit <a href="qml-qtquick-controls-menu.html">Menu</a> for working with text selection. Set it to <code>null</code> if no menu is wanted.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@menu -->
+<br/>
+<!-- $$$placeholderText -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="placeholderText-prop"><td class="tblQmlPropNode"><p><a name="placeholderText-prop"></a><span class="name">placeholderText</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property contains the text that is shown in the text field when the text field is empty.</p>
+</div></div><!-- @@@placeholderText -->
+<br/>
+<!-- $$$readOnly -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="readOnly-prop"><td class="tblQmlPropNode"><p><a name="readOnly-prop"></a><span class="name">readOnly</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Sets whether user input can modify the contents of the <a href="qml-qtquick-controls-textfield.html">TextField</a>. Read- only is different from a disabled text field in that the text field will appear to be active and text can still be selected and copied.</p>
+<p>If readOnly is set to <code>true</code>, then user input will not affect the text. Any bindings or attempts to set the text property will still work, however.</p>
+</div></div><!-- @@@readOnly -->
+<br/>
+<!-- $$$selectByMouse -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectByMouse-prop"><td class="tblQmlPropNode"><p><a name="selectByMouse-prop"></a><span class="name">selectByMouse</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines if the user can select the text with the mouse.</p>
+<p>The default value is <code>true</code>.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@selectByMouse -->
+<br/>
+<!-- $$$selectedText -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectedText-prop"><td class="tblQmlPropNode"><p><a name="selectedText-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectedText</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>Provides the text currently selected in the text input.</p>
+<p>It is equivalent to the following snippet, but is faster and easier to use.</p>
+<pre class="cpp">myTextField<span class="operator">.</span>text<span class="operator">.</span>toString()<span class="operator">.</span>substring(myTextField<span class="operator">.</span>selectionStart<span class="operator">,</span> myTextField<span class="operator">.</span>selectionEnd);</pre>
+</div></div><!-- @@@selectedText -->
+<br/>
+<!-- $$$selectionEnd -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionEnd-prop"><td class="tblQmlPropNode"><p><a name="selectionEnd-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectionEnd</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The cursor position after the last character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start,end), <a href="qml-qtquick-controls-textfield.html#selectAll-method">selectAll()</a>, or <a href="qml-qtquick-controls-textfield.html#selectWord-method">selectWord()</a>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textfield.html#selectionStart-prop">selectionStart</a>, <a href="qml-qtquick-controls-textfield.html#cursorPosition-prop">cursorPosition</a>, and <a href="qml-qtquick-controls-textfield.html#selectedText-prop">selectedText</a>.</p>
+</div></div><!-- @@@selectionEnd -->
+<br/>
+<!-- $$$selectionStart -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionStart-prop"><td class="tblQmlPropNode"><p><a name="selectionStart-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectionStart</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The cursor position before the first character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start,end), <a href="qml-qtquick-controls-textfield.html#selectAll-method">selectAll()</a>, or <a href="qml-qtquick-controls-textfield.html#selectWord-method">selectWord()</a>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textfield.html#selectionEnd-prop">selectionEnd</a>, <a href="qml-qtquick-controls-textfield.html#cursorPosition-prop">cursorPosition</a>, and <a href="qml-qtquick-controls-textfield.html#selectedText-prop">selectedText</a>.</p>
+</div></div><!-- @@@selectionStart -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="text-prop"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="name">text</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property contains the text in the <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@text -->
+<br/>
+<!-- $$$textColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textColor-prop"><td class="tblQmlPropNode"><p><a name="textColor-prop"></a><span class="name">textColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the text color.</p>
+</div></div><!-- @@@textColor -->
+<br/>
+<!-- $$$validator -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="validator-prop"><td class="tblQmlPropNode"><p><a name="validator-prop"></a><span class="name">validator</span> : <span class="type">Validator</span></p></td></tr></table></div></div><div class="qmldoc"><p>Allows you to set a validator on the <a href="qml-qtquick-controls-textfield.html">TextField</a>. When a validator is set, the <a href="qml-qtquick-controls-textfield.html">TextField</a> will only accept input which leaves the text property in an intermediate state. The accepted signal will only be sent if the text is in an acceptable state when enter is pressed.</p>
+<p>Currently supported validators are IntValidator, DoubleValidator, and RegExpValidator. An example of using validators is shown below, which allows input of integers between 11 and 31 into the text input:</p>
+<pre class="cpp">import <span class="type">QtQuick</span> <span class="number">2.2</span>
+import <span class="type">QtQuick</span><span class="operator">.</span>Controls <span class="number">1.2</span>
+
+TextField {
+    validator: IntValidator {bottom: <span class="number">11</span>; top: <span class="number">31</span>;}
+    focus: <span class="keyword">true</span>
+}</pre>
+<p><b>See also </b><a href="qml-qtquick-controls-textfield.html#acceptableInput-prop">acceptableInput</a>, <a href="qml-qtquick-controls-textfield.html#inputMask-prop">inputMask</a>, and <a href="qml-qtquick-controls-textfield.html#accepted-signal">accepted</a>.</p>
+</div></div><!-- @@@validator -->
+<br/>
+<!-- $$$verticalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="verticalAlignment-prop"><td class="tblQmlPropNode"><p><a name="verticalAlignment-prop"></a><span class="name">verticalAlignment</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Sets the alignment of the text within the <a href="qml-qtquick-controls-textfield.html">TextField</a> item's height.</p>
+<p>The possible alignment values are:</p>
+<ul>
+<li>TextInput.AlignTop</li>
+<li>TextInput.AlignBottom</li>
+<li>TextInput.AlignVCenter (default).</li>
+</ul>
+</div></div><!-- @@@verticalAlignment -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$accepted -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="accepted-signal"><td class="tblQmlFuncNode"><p><a name="accepted-signal"></a><span class="name">accepted</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>This signal is emitted when the Return or Enter key is pressed. Note that if there is a <a href="qml-qtquick-controls-textfield.html#validator-prop">validator</a> or <a href="qml-qtquick-controls-textfield.html#inputMask-prop">inputMask</a> set on the text field, the signal will only be emitted if the input is in an acceptable state.</p>
+<p>The corresponding handler is <code>onAccepted</code>.</p>
+</div></div><!-- @@@accepted -->
+<br/>
+<!-- $$$editingFinished -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="editingFinished-signal"><td class="tblQmlFuncNode"><p><a name="editingFinished-signal"></a><span class="name">editingFinished</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>This signal is emitted when the Return or Enter key is pressed or the text field loses focus. Note that if there is a validator or <a href="qml-qtquick-controls-textfield.html#inputMask-prop">inputMask</a> set on the text field and enter/return is pressed, this signal will only be emitted if the input follows the <a href="qml-qtquick-controls-textfield.html#inputMask-prop">inputMask</a> and the validator returns an acceptable state.</p>
+<p>The corresponding handler is <code>onEditingFinished</code>.</p>
+<p>This QML signal was introduced in  QtQuick.Controls 1.1.</p>
+</div></div><!-- @@@editingFinished -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$copy -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="copy-method"><td class="tblQmlFuncNode"><p><a name="copy-method"></a><span class="name">copy</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Copies the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@copy -->
+<br/>
+<!-- $$$cut -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cut-method"><td class="tblQmlFuncNode"><p><a name="cut-method"></a><span class="name">cut</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Moves the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@cut -->
+<br/>
+<!-- $$$deselect -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="deselect-method"><td class="tblQmlFuncNode"><p><a name="deselect-method"></a><span class="name">deselect</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Removes active text selection.</p>
+</div></div><!-- @@@deselect -->
+<br/>
+<!-- $$$getText -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="getText-method"><td class="tblQmlFuncNode"><p><a name="getText-method"></a><span class="name">getText</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Removes the section of text that is between the <i>start</i> and <i>end</i> positions from the <a href="qml-qtquick-controls-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@getText -->
+<br/>
+<!-- $$$insert -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="insert-method"><td class="tblQmlFuncNode"><p><a name="insert-method"></a><span class="name">insert</span>(<i> position</i>, <i> text</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Inserts <i>text</i> into the <a href="qml-qtquick-controls-textfield.html">TextField</a> at <i>position</i>.</p>
+</div></div><!-- @@@insert -->
+<br/>
+<!-- $$$isRightToLeft -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="isRightToLeft-method"><td class="tblQmlFuncNode"><p><a name="isRightToLeft-method"></a><span class="name">isRightToLeft</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns <code>true</code> if the natural reading direction of the editor text found between positions <i>start</i> and <i>end</i> is right to left.</p>
+</div></div><!-- @@@isRightToLeft -->
+<br/>
+<!-- $$$paste -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="paste-method"><td class="tblQmlFuncNode"><p><a name="paste-method"></a><span class="name">paste</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Replaces the currently selected text by the contents of the system clipboard.</p>
+</div></div><!-- @@@paste -->
+<br/>
+<!-- $$$redo -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="redo-method"><td class="tblQmlFuncNode"><p><a name="redo-method"></a><span class="name">redo</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Performs the last operation if redo is <a href="qml-qtquick-controls-textfield.html#canRedo-prop">available</a>.</p>
+</div></div><!-- @@@redo -->
+<br/>
+<!-- $$$remove -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="remove-method"><td class="tblQmlFuncNode"><p><a name="remove-method"></a><span class="name">remove</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Removes the section of text that is between the start and end positions.</p>
+<p>This QML method was introduced in  QtQuick.Controls 1.4.</p>
+</div></div><!-- @@@remove -->
+<br/>
+<!-- $$$select -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="select-method"><td class="tblQmlFuncNode"><p><a name="select-method"></a><span class="name">select</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Causes the text from <i>start</i> to <i>end</i> to be selected.</p>
+<p>If either start or end is out of range, the selection is not changed.</p>
+<p>After calling select, <a href="qml-qtquick-controls-textfield.html#selectionStart-prop">selectionStart</a> will become the lesser and <a href="qml-qtquick-controls-textfield.html#selectionEnd-prop">selectionEnd</a> will become the greater (regardless of the order passed to this method).</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textfield.html#selectionStart-prop">selectionStart</a> and <a href="qml-qtquick-controls-textfield.html#selectionEnd-prop">selectionEnd</a>.</p>
+</div></div><!-- @@@select -->
+<br/>
+<!-- $$$selectAll -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectAll-method"><td class="tblQmlFuncNode"><p><a name="selectAll-method"></a><span class="name">selectAll</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Causes all text to be selected.</p>
+</div></div><!-- @@@selectAll -->
+<br/>
+<!-- $$$selectWord -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectWord-method"><td class="tblQmlFuncNode"><p><a name="selectWord-method"></a><span class="name">selectWord</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Causes the word closest to the current cursor position to be selected.</p>
+</div></div><!-- @@@selectWord -->
+<br/>
+<!-- $$$undo -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="undo-method"><td class="tblQmlFuncNode"><p><a name="undo-method"></a><span class="name">undo</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Reverts the last operation if undo is <a href="qml-qtquick-controls-textfield.html#canUndo-prop">available</a>. undo() deselects any current selection and updates the selection start to the current cursor position.</p>
+</div></div><!-- @@@undo -->
+<br/>
+</body>
+</html>

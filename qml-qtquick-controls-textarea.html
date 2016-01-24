@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TextArea.qml -->
+  <title>TextArea QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TextArea QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$TextArea-brief -->
+<p>Displays multiple lines of editable formatted text. <a href="#details">More...</a></p>
+<!-- @@@TextArea -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qtquick-controls-scrollview.html">ScrollView</a></p>
+</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-textarea-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#backgroundVisible-prop">backgroundVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#baseUrl-prop">baseUrl</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#canPaste-prop">canPaste</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#canRedo-prop">canRedo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#canUndo-prop">canUndo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#contentHeight-prop">contentHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#contentWidth-prop">contentWidth</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#cursorPosition-prop">cursorPosition</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#cursorRectangle-prop">cursorRectangle</a></b></b> : rect</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#effectiveHorizontalAlignment-prop">effectiveHorizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#horizontalAlignment-prop">horizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#hoveredLink-prop">hoveredLink</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#inputMethodComposing-prop">inputMethodComposing</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#inputMethodHints-prop">inputMethodHints</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#length-prop">length</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#lineCount-prop">lineCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#menu-prop">menu</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#readOnly-prop">readOnly</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#selectByKeyboard-prop">selectByKeyboard</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#selectByMouse-prop">selectByMouse</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#selectedText-prop">selectedText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#selectionEnd-prop">selectionEnd</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#selectionStart-prop">selectionStart</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#tabChangesFocus-prop">tabChangesFocus</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#text-prop">text</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#textColor-prop">textColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#textDocument-prop">textDocument</a></b></b> : TextDocument</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#textFormat-prop">textFormat</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#textMargin-prop">textMargin</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#verticalAlignment-prop">verticalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#wrapMode-prop">wrapMode</a></b></b> : enumeration</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#linkActivated-signal">linkActivated</a></b></b>(string <i>link</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#linkHovered-signal">linkHovered</a></b></b>(string <i>link</i>)</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#append-method">append</a></b></b>(<i>string</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#copy-method">copy</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#cut-method">cut</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#deselect-method">deselect</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#getFormattedText-method">getFormattedText</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#getText-method">getText</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#insert-method">insert</a></b></b>(<i>position</i>,  <i>text</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#isRightToLeft-method">isRightToLeft</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#moveCursorSelection-method">moveCursorSelection</a></b></b>(<i>position</i>,  <i>mode</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#paste-method">paste</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#positionAt-method">positionAt</a></b></b>(<i>x</i>,  <i>y</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#positionToRectangle-method">positionToRectangle</a></b></b>(<i>position</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#redo-method">redo</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#remove-method">remove</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#select-method">select</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#selectAll-method">selectAll</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#selectWord-method">selectWord</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-textarea.html#undo-method">undo</a></b></b>()</li>
+</ul>
+<!-- $$$TextArea-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image textarea.png]</font></p><p>It can display both plain and rich text. For example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-textarea.html">TextArea</a></span> {
+    <span class="name">width</span>: <span class="number">240</span>
+    <span class="name">text</span>:
+        <span class="string">&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, &quot;</span> <span class="operator">+</span>
+        <span class="string">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna &quot;</span> <span class="operator">+</span>
+        <span class="string">&quot;aliqua. Ut enim ad minim veniam, quis nostrud exercitation &quot;</span> <span class="operator">+</span>
+        <span class="string">&quot;ullamco laboris nisi ut aliquip ex ea commodo cosnsequat. &quot;</span>;
+}</pre>
+<p>Clipboard support is provided by the <a href="qml-qtquick-controls-textarea.html#cut-method">cut()</a>, <a href="qml-qtquick-controls-textarea.html#copy-method">copy()</a>, and <a href="qml-qtquick-controls-textarea.html#paste-method">paste()</a> functions, and the selection can be handled in a traditional &quot;mouse&quot; mechanism by setting <a href="qml-qtquick-controls-textarea.html#selectByMouse-prop">selectByMouse</a>, or handled completely from QML by manipulating <a href="qml-qtquick-controls-textarea.html#selectionStart-prop">selectionStart</a> and <a href="qml-qtquick-controls-textarea.html#selectionEnd-prop">selectionEnd</a>, or using <a href="qml-qtquick-controls-textarea.html#selectAll-method">selectAll()</a> or <a href="qml-qtquick-controls-textarea.html#selectWord-method">selectWord()</a>.</p>
+<p>You can translate between cursor positions (characters from the start of the document) and pixel points using <a href="qml-qtquick-controls-textarea.html#positionAt-method">positionAt()</a> and <a href="qml-qtquick-controls-textarea.html#positionToRectangle-method">positionToRectangle()</a>.</p>
+<p>You can create a custom appearance for a <a href="qml-qtquick-controls-textarea.html">TextArea</a> by assigning a <a href="qml-qtquick-controls-styles-textareastyle.html">TextAreaStyle</a>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textfield.html">TextField</a> and TextEdit.</p>
+<!-- @@@TextArea -->
+<h2>Property Documentation</h2>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="activeFocusOnPress-prop"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Whether the TextEdit should gain active focus on a mouse press. By default this is set to true.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$backgroundVisible -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="backgroundVisible-prop"><td class="tblQmlPropNode"><p><a name="backgroundVisible-prop"></a><span class="name">backgroundVisible</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines if the background should be filled or not.</p>
+<p>The default value is <code>true</code>.</p>
+</div></div><!-- @@@backgroundVisible -->
+<br/>
+<!-- $$$baseUrl -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="baseUrl-prop"><td class="tblQmlPropNode"><p><a name="baseUrl-prop"></a><span class="name">baseUrl</span> : <span class="type">url</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property specifies a base URL which is used to resolve relative URLs within the text.</p>
+<p>The default value is the url of the QML file instantiating the <a href="qml-qtquick-controls-textarea.html">TextArea</a> item.</p>
+</div></div><!-- @@@baseUrl -->
+<br/>
+<!-- $$$canPaste -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="canPaste-prop"><td class="tblQmlPropNode"><p><a name="canPaste-prop"></a><span class="qmlreadonly">read-only</span><span class="name">canPaste</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns true if the <a href="qml-qtquick-controls-textarea.html">TextArea</a> is writable and the content of the clipboard is suitable for pasting into the <a href="qml-qtquick-controls-textarea.html">TextArea</a>.</p>
+</div></div><!-- @@@canPaste -->
+<br/>
+<!-- $$$canRedo -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="canRedo-prop"><td class="tblQmlPropNode"><p><a name="canRedo-prop"></a><span class="qmlreadonly">read-only</span><span class="name">canRedo</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns true if the <a href="qml-qtquick-controls-textarea.html">TextArea</a> is writable and there are <a href="qml-qtquick-controls-textarea.html#undo-method">undone</a> operations that can be redone.</p>
+</div></div><!-- @@@canRedo -->
+<br/>
+<!-- $$$canUndo -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="canUndo-prop"><td class="tblQmlPropNode"><p><a name="canUndo-prop"></a><span class="qmlreadonly">read-only</span><span class="name">canUndo</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns true if the <a href="qml-qtquick-controls-textarea.html">TextArea</a> is writable and there are previous operations that can be undone.</p>
+</div></div><!-- @@@canUndo -->
+<br/>
+<!-- $$$contentHeight -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentHeight-prop"><td class="tblQmlPropNode"><p><a name="contentHeight-prop"></a><span class="qmlreadonly">read-only</span><span class="name">contentHeight</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The height of the text content.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@contentHeight -->
+<br/>
+<!-- $$$contentWidth -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentWidth-prop"><td class="tblQmlPropNode"><p><a name="contentWidth-prop"></a><span class="qmlreadonly">read-only</span><span class="name">contentWidth</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The width of the text content.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@contentWidth -->
+<br/>
+<!-- $$$cursorPosition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cursorPosition-prop"><td class="tblQmlPropNode"><p><a name="cursorPosition-prop"></a><span class="name">cursorPosition</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The position of the cursor in the <a href="qml-qtquick-controls-textarea.html">TextArea</a>.</p>
+</div></div><!-- @@@cursorPosition -->
+<br/>
+<!-- $$$cursorRectangle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cursorRectangle-prop"><td class="tblQmlPropNode"><p><a name="cursorRectangle-prop"></a><span class="qmlreadonly">read-only</span><span class="name">cursorRectangle</span> : <span class="type">rect</span></p></td></tr></table></div></div><div class="qmldoc"><p>The rectangle where the text cursor is rendered within the text area.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@cursorRectangle -->
+<br/>
+<!-- $$$effectiveHorizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="effectiveHorizontalAlignment-prop"><td class="tblQmlPropNode"><p><a name="effectiveHorizontalAlignment-prop"></a><span class="qmlreadonly">read-only</span><span class="name">effectiveHorizontalAlignment</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Gets the effective horizontal alignment of the text within the <a href="qml-qtquick-controls-textarea.html">TextArea</a> item's width.</p>
+<p>To set/get the default horizontal alignment of <a href="qml-qtquick-controls-textarea.html">TextArea</a>, use the property <code>horizontalAlignment</code>.</p>
+</div></div><!-- @@@effectiveHorizontalAlignment -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="font-prop"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-qtquick-controls-textarea.html#font-prop">font</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The font of the <a href="qml-qtquick-controls-textarea.html">TextArea</a>.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$horizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="horizontalAlignment-prop"><td class="tblQmlPropNode"><p><a name="horizontalAlignment-prop"></a><span class="name">horizontalAlignment</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Sets the alignment of the text within the <a href="qml-qtquick-controls-textarea.html">TextArea</a> item's width.</p>
+<p>By default, the horizontal text alignment follows the natural alignment of the text, for example, text that is read from left to right will be aligned to the left.</p>
+<p>The valid values for <code>horizontalAlignment</code> are:</p>
+<ul>
+<li>TextEdit.AlignLeft (Default)</li>
+<li>TextEdit.AlignRight</li>
+<li>TextEdit.AlignHCenter</li>
+</ul>
+<p>When using the attached property LayoutMirroring::enabled to mirror application layouts, the horizontal alignment of text will also be mirrored. However, the property <code>horizontalAlignment</code> will remain unchanged. To query the effective horizontal alignment of <a href="qml-qtquick-controls-textarea.html">TextArea</a>, use the read-only property <code>effectiveHorizontalAlignment</code>.</p>
+</div></div><!-- @@@horizontalAlignment -->
+<br/>
+<!-- $$$hoveredLink -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="hoveredLink-prop"><td class="tblQmlPropNode"><p><a name="hoveredLink-prop"></a><span class="qmlreadonly">read-only</span><span class="name">hoveredLink</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property contains the link string when user hovers a link embedded in the text. The link must be in rich text or HTML format and the link string provides access to the particular link.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.1.</p>
+</div></div><!-- @@@hoveredLink -->
+<br/>
+<!-- $$$inputMethodComposing -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="inputMethodComposing-prop"><td class="tblQmlPropNode"><p><a name="inputMethodComposing-prop"></a><span class="qmlreadonly">read-only</span><span class="name">inputMethodComposing</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the <a href="qml-qtquick-controls-textarea.html">TextArea</a> has partial text input from an input method.</p>
+<p>While it is composing an input method may rely on mouse or key events from the <a href="qml-qtquick-controls-textarea.html">TextArea</a> to edit or commit the partial text. This property can be used to determine when to disable events handlers that may interfere with the correct operation of an input method.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@inputMethodComposing -->
+<br/>
+<!-- $$$inputMethodHints -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="inputMethodHints-prop"><td class="tblQmlPropNode"><p><a name="inputMethodHints-prop"></a><span class="name">inputMethodHints</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Provides hints to the input method about the expected content of the text edit, and how it should operate.</p>
+<p>The value is a bit-wise combination of flags or Qt.ImhNone if no hints are set.</p>
+<p>The default value is <code>Qt.ImhNone</code>.</p>
+<p>Flags that alter behavior are:</p>
+<ul>
+<li>Qt.ImhHiddenText - Characters should be hidden, as is typically used when entering passwords.</li>
+<li>Qt.ImhSensitiveData - Typed text should not be stored by the active input method in any persistent storage like predictive user dictionary.</li>
+<li>Qt.ImhNoAutoUppercase - The input method should not try to automatically switch to upper case when a sentence ends.</li>
+<li>Qt.ImhPreferNumbers - Numbers are preferred (but not required).</li>
+<li>Qt.ImhPreferUppercase - Upper case letters are preferred (but not required).</li>
+<li>Qt.ImhPreferLowercase - Lower case letters are preferred (but not required).</li>
+<li>Qt.ImhNoPredictiveText - Do not use predictive text (i.e&#x2e; dictionary lookup) while typing.</li>
+<li>Qt.ImhDate - The text editor functions as a date field.</li>
+<li>Qt.ImhTime - The text editor functions as a time field.</li>
+</ul>
+<p>Flags that restrict input (exclusive flags) are:</p>
+<ul>
+<li>Qt.ImhDigitsOnly - Only digits are allowed.</li>
+<li>Qt.ImhFormattedNumbersOnly - Only number input is allowed. This includes decimal point and minus sign.</li>
+<li>Qt.ImhUppercaseOnly - Only upper case letter input is allowed.</li>
+<li>Qt.ImhLowercaseOnly - Only lower case letter input is allowed.</li>
+<li>Qt.ImhDialableCharactersOnly - Only characters suitable for phone dialing are allowed.</li>
+<li>Qt.ImhEmailCharactersOnly - Only characters suitable for email addresses are allowed.</li>
+<li>Qt.ImhUrlCharactersOnly - Only characters suitable for URLs are allowed.</li>
+</ul>
+<p>Masks:</p>
+<ul>
+<li>Qt.ImhExclusiveInputMask - This mask yields nonzero if any of the exclusive flags are used.</li>
+</ul>
+</div></div><!-- @@@inputMethodHints -->
+<br/>
+<!-- $$$length -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="length-prop"><td class="tblQmlPropNode"><p><a name="length-prop"></a><span class="qmlreadonly">read-only</span><span class="name">length</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns the total number of plain text characters in the <a href="qml-qtquick-controls-textarea.html">TextArea</a> item.</p>
+<p>As this number doesn't include any formatting markup, it may not be the same as the length of the string returned by the <a href="qml-qtquick-controls-textarea.html#text-prop">text</a> property.</p>
+<p>This property can be faster than querying the length the <a href="qml-qtquick-controls-textarea.html#text-prop">text</a> property as it doesn't require any copying or conversion of the <a href="qml-qtquick-controls-textarea.html">TextArea</a>'s internal string data.</p>
+</div></div><!-- @@@length -->
+<br/>
+<!-- $$$lineCount -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="lineCount-prop"><td class="tblQmlPropNode"><p><a name="lineCount-prop"></a><span class="qmlreadonly">read-only</span><span class="name">lineCount</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>Returns the total number of lines in the <a href="qml-qtquick-controls-textarea.html">TextArea</a> item.</p>
+</div></div><!-- @@@lineCount -->
+<br/>
+<!-- $$$menu -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="menu-prop"><td class="tblQmlPropNode"><p><a name="menu-prop"></a><span class="name">menu</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property contains the edit <a href="qml-qtquick-controls-menu.html">Menu</a> for working with text selection. Set it to <code>null</code> if no menu is wanted.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-menu.html">Menu</a>.</p>
+</div></div><!-- @@@menu -->
+<br/>
+<!-- $$$readOnly -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="readOnly-prop"><td class="tblQmlPropNode"><p><a name="readOnly-prop"></a><span class="name">readOnly</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>Whether the user can interact with the <a href="qml-qtquick-controls-textarea.html">TextArea</a> item.</p>
+<p>The difference from a disabled text field is that it will appear to be active, and text can be selected and copied.</p>
+<p>If this property is set to <code>true</code>, the text cannot be edited by user interaction.</p>
+<p>By default this property is <code>false</code>.</p>
+</div></div><!-- @@@readOnly -->
+<br/>
+<!-- $$$selectByKeyboard -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectByKeyboard-prop"><td class="tblQmlPropNode"><p><a name="selectByKeyboard-prop"></a><span class="name">selectByKeyboard</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines if the user can select the text with the keyboard.</p>
+<p>If set to <code>true</code>, the user can use the keyboard to select the text even if the editor is read-only. If set to <code>false</code>, the user cannot use the keyboard to select the text even if the editor is editable.</p>
+<p>The default value is <code>true</code> when the editor is editable, and <code>false</code> when read-only.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textarea.html#readOnly-prop">readOnly</a>.</p>
+</div></div><!-- @@@selectByKeyboard -->
+<br/>
+<!-- $$$selectByMouse -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectByMouse-prop"><td class="tblQmlPropNode"><p><a name="selectByMouse-prop"></a><span class="name">selectByMouse</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines if the user can select the text with the mouse.</p>
+<p>The default value is <code>true</code>.</p>
+</div></div><!-- @@@selectByMouse -->
+<br/>
+<!-- $$$selectedText -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectedText-prop"><td class="tblQmlPropNode"><p><a name="selectedText-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectedText</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This read-only property provides the text currently selected in the text edit.</p>
+</div></div><!-- @@@selectedText -->
+<br/>
+<!-- $$$selectionEnd -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionEnd-prop"><td class="tblQmlPropNode"><p><a name="selectionEnd-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectionEnd</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The cursor position after the last character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start,end), <a href="qml-qtquick-controls-textarea.html#selectAll-method">selectAll()</a>, or <a href="qml-qtquick-controls-textarea.html#selectWord-method">selectWord()</a>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textarea.html#selectionStart-prop">selectionStart</a>, <a href="qml-qtquick-controls-textarea.html#cursorPosition-prop">cursorPosition</a>, and <a href="qml-qtquick-controls-textarea.html#selectedText-prop">selectedText</a>.</p>
+</div></div><!-- @@@selectionEnd -->
+<br/>
+<!-- $$$selectionStart -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionStart-prop"><td class="tblQmlPropNode"><p><a name="selectionStart-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectionStart</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The cursor position before the first character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start,end), <a href="qml-qtquick-controls-textarea.html#selectAll-method">selectAll()</a>, or <a href="qml-qtquick-controls-textarea.html#selectWord-method">selectWord()</a>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textarea.html#selectionEnd-prop">selectionEnd</a>, <a href="qml-qtquick-controls-textarea.html#cursorPosition-prop">cursorPosition</a>, and <a href="qml-qtquick-controls-textarea.html#selectedText-prop">selectedText</a>.</p>
+</div></div><!-- @@@selectionStart -->
+<br/>
+<!-- $$$tabChangesFocus -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tabChangesFocus-prop"><td class="tblQmlPropNode"><p><a name="tabChangesFocus-prop"></a><span class="name">tabChangesFocus</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether Tab changes focus, or is accepted as input.</p>
+<p>Defaults to <code>false</code>.</p>
+</div></div><!-- @@@tabChangesFocus -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="text-prop"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="name">text</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>The text to display. If the text format is AutoText the text edit will automatically determine whether the text should be treated as rich text. This determination is made using Qt::mightBeRichText().</p>
+</div></div><!-- @@@text -->
+<br/>
+<!-- $$$textColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textColor-prop"><td class="tblQmlPropNode"><p><a name="textColor-prop"></a><span class="name">textColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The text color.</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-textarea.html">TextArea</a></span> { <span class="name">textColor</span>: <span class="string">&quot;orange&quot;</span> }</pre>
+</div></div><!-- @@@textColor -->
+<br/>
+<!-- $$$textDocument -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textDocument-prop"><td class="tblQmlPropNode"><p><a name="textDocument-prop"></a><span class="name">textDocument</span> : <span class="type">TextDocument</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property exposes the QQuickTextDocument of this <a href="qml-qtquick-controls-textarea.html">TextArea</a>.</p>
+<p><b>See also </b>TextEdit::textDocument.</p>
+</div></div><!-- @@@textDocument -->
+<br/>
+<!-- $$$textFormat -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textFormat-prop"><td class="tblQmlPropNode"><p><a name="textFormat-prop"></a><span class="name">textFormat</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>The way the text property should be displayed.</p>
+<ul>
+<li>TextEdit.AutoText</li>
+<li>TextEdit.PlainText</li>
+<li>TextEdit.RichText</li>
+</ul>
+<p>The default is TextEdit.PlainText. If the text format is TextEdit.AutoText the text edit will automatically determine whether the text should be treated as rich text. This determination is made using Qt::mightBeRichText().</p>
+</div></div><!-- @@@textFormat -->
+<br/>
+<!-- $$$textMargin -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textMargin-prop"><td class="tblQmlPropNode"><p><a name="textMargin-prop"></a><span class="name">textMargin</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The margin, in pixels, around the text in the <a href="qml-qtquick-controls-textarea.html">TextArea</a>.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.1.</p>
+</div></div><!-- @@@textMargin -->
+<br/>
+<!-- $$$verticalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="verticalAlignment-prop"><td class="tblQmlPropNode"><p><a name="verticalAlignment-prop"></a><span class="name">verticalAlignment</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Sets the alignment of the text within the <a href="qml-qtquick-controls-textarea.html">TextArea</a> item's height.</p>
+<p>The valid values for <code>verticalAlignment</code> are:</p>
+<ul>
+<li>TextEdit.AlignTop</li>
+<li>TextEdit.AlignBottom</li>
+<li>TextEdit.AlignVCenter (Default)</li>
+</ul>
+</div></div><!-- @@@verticalAlignment -->
+<br/>
+<!-- $$$wrapMode -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="wrapMode-prop"><td class="tblQmlPropNode"><p><a name="wrapMode-prop"></a><span class="name">wrapMode</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>Set this property to wrap the text to the <a href="qml-qtquick-controls-textarea.html">TextArea</a> item's width.</p>
+<ul>
+<li>TextEdit.NoWrap - no wrapping will be performed.</li>
+<li>TextEdit.WordWrap (default) - wrapping is done on word boundaries only.</li>
+<li>TextEdit.WrapAnywhere - wrapping is done at any point on a line, even if it occurs in the middle of a word.</li>
+<li>TextEdit.Wrap - if possible, wrapping occurs at a word boundary; otherwise it will occur at the appropriate point on the line, even in the middle of a word.</li>
+</ul>
+</div></div><!-- @@@wrapMode -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$linkActivated -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="linkActivated-signal"><td class="tblQmlFuncNode"><p><a name="linkActivated-signal"></a><span class="name">linkActivated</span>(<span class="type">string</span><i> link</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>This signal is emitted when the user clicks on a link embedded in the text. The link must be in rich text or HTML format and the <i>link</i> string provides access to the particular link.</p>
+<p>The corresponding handler is <code>onLinkActivated</code>.</p>
+</div></div><!-- @@@linkActivated -->
+<br/>
+<!-- $$$linkHovered -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="linkHovered-signal"><td class="tblQmlFuncNode"><p><a name="linkHovered-signal"></a><span class="name">linkHovered</span>(<span class="type">string</span><i> link</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>This signal is emitted when the user hovers a link embedded in the text. The link must be in rich text or HTML format and the <i>link</i> string provides access to the particular link.</p>
+<p>The corresponding handler is <code>onLinkHovered</code>.</p>
+<p>This QML signal was introduced in  QtQuick.Controls 1.1.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textarea.html#hoveredLink-prop">hoveredLink</a>.</p>
+</div></div><!-- @@@linkHovered -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$append -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="append-method"><td class="tblQmlFuncNode"><p><a name="append-method"></a><span class="name">append</span>(<i> string</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Appends <i>string</i> as a new line to the end of the text area.</p>
+</div></div><!-- @@@append -->
+<br/>
+<!-- $$$copy -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="copy-method"><td class="tblQmlFuncNode"><p><a name="copy-method"></a><span class="name">copy</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Copies the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@copy -->
+<br/>
+<!-- $$$cut -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cut-method"><td class="tblQmlFuncNode"><p><a name="cut-method"></a><span class="name">cut</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Moves the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@cut -->
+<br/>
+<!-- $$$deselect -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="deselect-method"><td class="tblQmlFuncNode"><p><a name="deselect-method"></a><span class="name">deselect</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Removes active text selection.</p>
+</div></div><!-- @@@deselect -->
+<br/>
+<!-- $$$getFormattedText -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="getFormattedText-method"><td class="tblQmlFuncNode"><p><a name="getFormattedText-method"></a><span class="name">getFormattedText</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the section of text that is between the <i>start</i> and <i>end</i> positions.</p>
+<p>The returned text will be formatted according to the <a href="qml-qtquick-controls-textarea.html#textFormat-prop">textFormat</a> property.</p>
+</div></div><!-- @@@getFormattedText -->
+<br/>
+<!-- $$$getText -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="getText-method"><td class="tblQmlFuncNode"><p><a name="getText-method"></a><span class="name">getText</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the section of text that is between the <i>start</i> and <i>end</i> positions.</p>
+<p>The returned text does not include any rich text formatting.</p>
+</div></div><!-- @@@getText -->
+<br/>
+<!-- $$$insert -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="insert-method"><td class="tblQmlFuncNode"><p><a name="insert-method"></a><span class="name">insert</span>(<i> position</i>, <i> text</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Inserts <i>text</i> into the <a href="qml-qtquick-controls-textarea.html">TextArea</a> at position.</p>
+</div></div><!-- @@@insert -->
+<br/>
+<!-- $$$isRightToLeft -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="isRightToLeft-method"><td class="tblQmlFuncNode"><p><a name="isRightToLeft-method"></a><span class="name">isRightToLeft</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns true if the natural reading direction of the editor text found between positions <i>start</i> and <i>end</i> is right to left.</p>
+</div></div><!-- @@@isRightToLeft -->
+<br/>
+<!-- $$$moveCursorSelection -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="moveCursorSelection-method"><td class="tblQmlFuncNode"><p><a name="moveCursorSelection-method"></a><span class="name">moveCursorSelection</span>(<i> position</i>, <i> mode</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Moves the cursor to <i>position</i> and updates the selection according to the optional <i>mode</i> parameter. (To only move the cursor, set the <a href="qml-qtquick-controls-textarea.html#cursorPosition-prop">cursorPosition</a> property.)</p>
+<p>When this method is called it additionally sets either the <a href="qml-qtquick-controls-textarea.html#selectionStart-prop">selectionStart</a> or the <a href="qml-qtquick-controls-textarea.html#selectionEnd-prop">selectionEnd</a> (whichever was at the previous cursor position) to the specified position. This allows you to easily extend and contract the selected text range.</p>
+<p>The selection mode specifies whether the selection is updated on a per character or a per word basis. If not specified the selection mode will default to TextEdit.SelectCharacters.</p>
+<ul>
+<li>TextEdit.SelectCharacters - Sets either the <a href="qml-qtquick-controls-textarea.html#selectionStart-prop">selectionStart</a> or <a href="qml-qtquick-controls-textarea.html#selectionEnd-prop">selectionEnd</a> (whichever was at the previous cursor position) to the specified position.</li>
+<li>TextEdit.SelectWords - Sets the <a href="qml-qtquick-controls-textarea.html#selectionStart-prop">selectionStart</a> and <a href="qml-qtquick-controls-textarea.html#selectionEnd-prop">selectionEnd</a> to include all words between the specified position and the previous cursor position. Words partially in the range are included.</li>
+</ul>
+<p>For example, take this sequence of calls:</p>
+<pre class="cpp">cursorPosition <span class="operator">=</span> <span class="number">5</span>
+moveCursorSelection(<span class="number">9</span><span class="operator">,</span> TextEdit<span class="operator">.</span>SelectCharacters)
+moveCursorSelection(<span class="number">7</span><span class="operator">,</span> TextEdit<span class="operator">.</span>SelectCharacters)</pre>
+<p>This moves the cursor to the 5th position, extends the selection end from 5 to 9, and then retracts the selection end from 9 to 7, leaving the text from the 5th position to the 7th position selected (the 6th and 7th characters).</p>
+<p>The same sequence with TextEdit.SelectWords will extend the selection start to a word boundary before or on the 5th position, and extend the selection end to a word boundary on or past the 9th position.</p>
+</div></div><!-- @@@moveCursorSelection -->
+<br/>
+<!-- $$$paste -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="paste-method"><td class="tblQmlFuncNode"><p><a name="paste-method"></a><span class="name">paste</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Replaces the currently selected text by the contents of the system clipboard.</p>
+</div></div><!-- @@@paste -->
+<br/>
+<!-- $$$positionAt -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="positionAt-method"><td class="tblQmlFuncNode"><p><a name="positionAt-method"></a><span class="name">positionAt</span>(<i> x</i>, <i> y</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the text position closest to pixel position (<i>x</i>, <i>y</i>).</p>
+<p>Position 0 is before the first character, position 1 is after the first character but before the second, and so on until position <a href="qml-qtquick-controls-textarea.html#text-prop">text</a>.length, which is after all characters.</p>
+</div></div><!-- @@@positionAt -->
+<br/>
+<!-- $$$positionToRectangle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="positionToRectangle-method"><td class="tblQmlFuncNode"><p><a name="positionToRectangle-method"></a><span class="name">positionToRectangle</span>(<i> position</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the rectangle at the given <i>position</i> in the text. The x, y, and height properties correspond to the cursor that would describe that position.</p>
+</div></div><!-- @@@positionToRectangle -->
+<br/>
+<!-- $$$redo -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="redo-method"><td class="tblQmlFuncNode"><p><a name="redo-method"></a><span class="name">redo</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Redoes the last operation if redo is <a href="qml-qtquick-controls-textarea.html#canRedo-prop">available</a>.</p>
+</div></div><!-- @@@redo -->
+<br/>
+<!-- $$$remove -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="remove-method"><td class="tblQmlFuncNode"><p><a name="remove-method"></a><span class="name">remove</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Removes the section of text that is between the <i>start</i> and <i>end</i> positions from the <a href="qml-qtquick-controls-textarea.html">TextArea</a>.</p>
+</div></div><!-- @@@remove -->
+<br/>
+<!-- $$$select -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="select-method"><td class="tblQmlFuncNode"><p><a name="select-method"></a><span class="name">select</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Causes the text from <i>start</i> to <i>end</i> to be selected.</p>
+<p>If either start or end is out of range, the selection is not changed.</p>
+<p>After calling this, <a href="qml-qtquick-controls-textarea.html#selectionStart-prop">selectionStart</a> will become the lesser and <a href="qml-qtquick-controls-textarea.html#selectionEnd-prop">selectionEnd</a> will become the greater (regardless of the order passed to this method).</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textarea.html#selectionStart-prop">selectionStart</a> and <a href="qml-qtquick-controls-textarea.html#selectionEnd-prop">selectionEnd</a>.</p>
+</div></div><!-- @@@select -->
+<br/>
+<!-- $$$selectAll -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectAll-method"><td class="tblQmlFuncNode"><p><a name="selectAll-method"></a><span class="name">selectAll</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Causes all text to be selected.</p>
+</div></div><!-- @@@selectAll -->
+<br/>
+<!-- $$$selectWord -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectWord-method"><td class="tblQmlFuncNode"><p><a name="selectWord-method"></a><span class="name">selectWord</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Causes the word closest to the current cursor position to be selected.</p>
+</div></div><!-- @@@selectWord -->
+<br/>
+<!-- $$$undo -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="undo-method"><td class="tblQmlFuncNode"><p><a name="undo-method"></a><span class="name">undo</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Undoes the last operation if undo is <a href="qml-qtquick-controls-textarea.html#canUndo-prop">available</a>. Deselects any current selection, and updates the selection start to the current cursor position.</p>
+</div></div><!-- @@@undo -->
+<br/>
+</body>
+</html>

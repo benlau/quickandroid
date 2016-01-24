@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- CircularGaugeStyle.qml -->
+  <title>CircularGaugeStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#direction">Direction</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">CircularGaugeStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$CircularGaugeStyle-brief -->
+<p>Provides custom styling for CircularGauge. <a href="#details">More...</a></p>
+<!-- @@@CircularGaugeStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.5</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-circulargaugestyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#angleRange-prop">angleRange</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#control-prop">control</a></b></b> : CircularGauge</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#foreground-prop">foreground</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#labelCount-prop">labelCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#labelInset-prop">labelInset</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#labelStepSize-prop">labelStepSize</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#maximumValueAngle-prop">maximumValueAngle</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#minimumValueAngle-prop">minimumValueAngle</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#minorTickmark-prop">minorTickmark</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#minorTickmarkCount-prop">minorTickmarkCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#minorTickmarkInset-prop">minorTickmarkInset</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#needle-prop">needle</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#needleRotation-prop">needleRotation</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#outerRadius-prop">outerRadius</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmark-prop">tickmark</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkCount-prop">tickmarkCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkInset-prop">tickmarkInset</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkLabel-prop">tickmarkLabel</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkStepSize-prop">tickmarkStepSize</a></b></b> : real</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#valueToAngle-method">valueToAngle</a></b></b>(<i>value</i>)</li>
+</ul>
+<!-- $$$CircularGaugeStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>You can create a custom circular gauge by replacing the following delegates:</p>
+<ul>
+<li><a href="qml-qtquick-controls-styles-circulargaugestyle.html#background-prop">background</a></li>
+<li><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmark-prop">tickmark</a></li>
+<li><a href="qml-qtquick-controls-styles-circulargaugestyle.html#minorTickmark-prop">minorTickmark</a></li>
+<li><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkLabel-prop">tickmarkLabel</a></li>
+<li><a href="qml-qtquick-controls-styles-circulargaugestyle.html#needle-prop">needle</a></li>
+<li><a href="qml-qtquick-controls-styles-circulargaugestyle.html#foreground-prop">foreground</a></li>
+</ul>
+<p>Below is an example that changes the needle to a basic orange Rectangle:</p>
+<pre class="cpp">CircularGauge {
+    style: CircularGaugeStyle {
+        needle: Rectangle {
+            y: outerRadius <span class="operator">*</span> <span class="number">0.15</span>
+            implicitWidth: outerRadius <span class="operator">*</span> <span class="number">0.03</span>
+            implicitHeight: outerRadius <span class="operator">*</span> <span class="number">0.9</span>
+            antialiasing: <span class="keyword">true</span>
+            color: <span class="type">Qt</span><span class="operator">.</span>rgba(<span class="number">0.66</span><span class="operator">,</span> <span class="number">0.3</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>)
+        }
+    }
+}</pre>
+<p>The result:</p>
+<p class="centerAlign"><font color="red">[Missing image circulargauge-needle-example-2.png]</font></p><a name="direction"></a>
+<h3 >Direction</h3>
+<p><a href="qml-qtquick-controls-styles-circulargaugestyle.html#minimumValueAngle-prop">minimumValueAngle</a> and <a href="qml-qtquick-controls-styles-circulargaugestyle.html#maximumValueAngle-prop">maximumValueAngle</a> determine not only the position of the tickmarks, labels and needle, but the direction in which they are displayed around the gauge. For example, if <a href="qml-qtquick-controls-styles-circulargaugestyle.html#minimumValueAngle-prop">minimumValueAngle</a> is greater than <a href="qml-qtquick-controls-styles-circulargaugestyle.html#maximumValueAngle-prop">maximumValueAngle</a>, the gauge will be anti-clockwise. Below, there are two gauges: the top gauge has a <a href="qml-qtquick-controls-styles-circulargaugestyle.html#minimumValueAngle-prop">minimumValueAngle</a> of <code>-90</code> degrees and a <a href="qml-qtquick-controls-styles-circulargaugestyle.html#maximumValueAngle-prop">maximumValueAngle</a> of <code>90</code> degrees, and the bottom gauge has the opposite.</p>
+<p class="centerAlign"><font color="red">[Missing image circulargauge-reversed.png]</font></p><p><b>See also </b>Styling CircularGauge.</p>
+<!-- @@@CircularGaugeStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$angleRange -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="angleRange-prop"><td class="tblQmlPropNode"><p><a name="angleRange-prop"></a><span class="qmlreadonly">read-only</span><span class="name">angleRange</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The range between <a href="qml-qtquick-controls-styles-circulargaugestyle.html#minimumValueAngle-prop">minimumValueAngle</a> and <a href="qml-qtquick-controls-styles-circulargaugestyle.html#maximumValueAngle-prop">maximumValueAngle</a>, in degrees. This value will always be positive.</p>
+</div></div><!-- @@@angleRange -->
+<br/>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background of the gauge.</p>
+<p>If set, the background determines the implicit size of the gauge.</p>
+<p>By default, there is no background defined.</p>
+<p><b>See also </b>Styling CircularGauge's background.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type">CircularGauge</span></p></td></tr></table></div></div><div class="qmldoc"><p>The CircularGauge that this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$foreground -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="foreground-prop"><td class="tblQmlPropNode"><p><a name="foreground-prop"></a><span class="name">foreground</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The foreground of the gauge. This component is drawn above all others.</p>
+<p>Like <a href="qml-qtquick-controls-styles-circulargaugestyle.html#background-prop">background</a>, the foreground component fills the entire gauge.</p>
+<p>By default, the knob of the gauge is defined here.</p>
+<p><b>See also </b>Styling CircularGauge's foreground.</p>
+</div></div><!-- @@@foreground -->
+<br/>
+<!-- $$$labelCount -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="labelCount-prop"><td class="tblQmlPropNode"><p><a name="labelCount-prop"></a><span class="qmlreadonly">read-only</span><span class="name">labelCount</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The amount of tickmark labels displayed by the gauge, calculated from <a href="qml-qtquick-controls-styles-circulargaugestyle.html#labelStepSize-prop">labelStepSize</a> and the control's minimumValue and maximumValue.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkCount-prop">tickmarkCount</a> and <a href="qml-qtquick-controls-styles-circulargaugestyle.html#minorTickmarkCount-prop">minorTickmarkCount</a>.</p>
+</div></div><!-- @@@labelCount -->
+<br/>
+<!-- $$$labelInset -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="labelInset-prop"><td class="tblQmlPropNode"><p><a name="labelInset-prop"></a><span class="name">labelInset</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The distance in pixels from the outside of the gauge (<a href="qml-qtquick-controls-styles-circulargaugestyle.html#outerRadius-prop">outerRadius</a>) at which the center of the value marker text is drawn.</p>
+</div></div><!-- @@@labelInset -->
+<br/>
+<!-- $$$labelStepSize -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="labelStepSize-prop"><td class="tblQmlPropNode"><p><a name="labelStepSize-prop"></a><span class="name">labelStepSize</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The interval at which tickmark labels are displayed.</p>
+<p>For example, if this property is set to <code>10</code> (the default), control.minimumValue to <code>0</code>, and control.maximumValue to <code>100</code>, the tickmark labels displayed will be 0, 10, 20, etc., to 100, around the gauge.</p>
+</div></div><!-- @@@labelStepSize -->
+<br/>
+<!-- $$$maximumValueAngle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maximumValueAngle-prop"><td class="tblQmlPropNode"><p><a name="maximumValueAngle-prop"></a><span class="name">maximumValueAngle</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines the angle at which the maximum value is displayed on the gauge.</p>
+<p>The angle set affects the following components of the gauge:</p>
+<ul>
+<li>The angle of the needle</li>
+<li>The position of the tickmarks and labels</li>
+</ul>
+<p>The angle origin points north:</p>
+<p class="centerAlign"><font color="red">[Missing image circulargauge-angles.png]</font></p><p>There is no minimum or maximum angle for this property, but the default style only supports angles whose absolute range is less than or equal to <code>360</code> degrees. This is because ranges higher than <code>360</code> degrees will cause the tickmarks and labels to overlap each other.</p>
+<p>The default value is <code>145</code>.</p>
+</div></div><!-- @@@maximumValueAngle -->
+<br/>
+<!-- $$$minimumValueAngle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minimumValueAngle-prop"><td class="tblQmlPropNode"><p><a name="minimumValueAngle-prop"></a><span class="name">minimumValueAngle</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines the angle at which the minimum value is displayed on the gauge.</p>
+<p>The angle set affects the following components of the gauge:</p>
+<ul>
+<li>The angle of the needle</li>
+<li>The position of the tickmarks and labels</li>
+</ul>
+<p>The angle origin points north:</p>
+<p class="centerAlign"><font color="red">[Missing image circulargauge-angles.png]</font></p><p>There is no minimum or maximum angle for this property, but the default style only supports angles whose absolute range is less than or equal to <code>360</code> degrees. This is because ranges higher than <code>360</code> degrees will cause the tickmarks and labels to overlap each other.</p>
+<p>The default value is <code>-145</code>.</p>
+</div></div><!-- @@@minimumValueAngle -->
+<br/>
+<!-- $$$minorTickmark -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minorTickmark-prop"><td class="tblQmlPropNode"><p><a name="minorTickmark-prop"></a><span class="name">minorTickmark</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This component defines each individual minor tickmark. The position of each minor tickmark is already set; only the implicitWidth and implicitHeight need to be specified.</p>
+<p>Each instance of this component has access to the following properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><code>readonly property int</code> <b>styleData.index</b></td><td >The index of this tickmark.</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property real</code> <b>styleData.value</b></td><td >The value that this tickmark represents.</td></tr>
+</table></div>
+<p><b>See also </b>Styling CircularGauge's minorTickmark.</p>
+</div></div><!-- @@@minorTickmark -->
+<br/>
+<!-- $$$minorTickmarkCount -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minorTickmarkCount-prop"><td class="tblQmlPropNode"><p><a name="minorTickmarkCount-prop"></a><span class="name">minorTickmarkCount</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The amount of minor tickmarks between each tickmark.</p>
+<p>The default value is <code>4</code>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkCount-prop">tickmarkCount</a>.</p>
+</div></div><!-- @@@minorTickmarkCount -->
+<br/>
+<!-- $$$minorTickmarkInset -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minorTickmarkInset-prop"><td class="tblQmlPropNode"><p><a name="minorTickmarkInset-prop"></a><span class="name">minorTickmarkInset</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The distance in pixels from the outside of the gauge (<a href="qml-qtquick-controls-styles-circulargaugestyle.html#outerRadius-prop">outerRadius</a>) at which the outermost point of the minor tickmark line is drawn.</p>
+</div></div><!-- @@@minorTickmarkInset -->
+<br/>
+<!-- $$$needle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="needle-prop"><td class="tblQmlPropNode"><p><a name="needle-prop"></a><span class="name">needle</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The needle that points to the gauge's current value.</p>
+<p>This component is drawn below the <a href="qml-qtquick-controls-styles-circulargaugestyle.html#foreground-prop">foreground</a> component.</p>
+<p>The style expects the needle to be pointing up at a rotation of <code>0</code>, in order for the rotation to be correct. For example:</p>
+<p class="centerAlign"><font color="red">[Missing image circulargauge-needle.png]</font></p><p>When defining your own needle component, the only properties that the style requires you to set are the implicitWidth and implicitHeight.</p>
+<p>Optionally, you can set x and y to change the needle's transform origin. Setting the <code>x</code> position can be useful for needle images where the needle is not centered exactly horizontally. Setting the <code>y</code> position allows you to make the base of the needle hang over the center of the gauge.</p>
+<p><b>See also </b>Styling CircularGauge's needle.</p>
+</div></div><!-- @@@needle -->
+<br/>
+<!-- $$$needleRotation -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="needleRotation-prop"><td class="tblQmlPropNode"><p><a name="needleRotation-prop"></a><span class="name">needleRotation</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the rotation of the needle in degrees.</p>
+</div></div><!-- @@@needleRotation -->
+<br/>
+<!-- $$$outerRadius -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="outerRadius-prop"><td class="tblQmlPropNode"><p><a name="outerRadius-prop"></a><span class="qmlreadonly">read-only</span><span class="name">outerRadius</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The distance from the center of the gauge to the outer edge of the gauge.</p>
+<p>This property is useful for determining the size of the various components of the style, in order to ensure that they are scaled proportionately when the gauge is resized.</p>
+</div></div><!-- @@@outerRadius -->
+<br/>
+<!-- $$$tickmark -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tickmark-prop"><td class="tblQmlPropNode"><p><a name="tickmark-prop"></a><span class="name">tickmark</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This component defines each individual tickmark. The position of each tickmark is already set; only the implicitWidth and implicitHeight need to be specified.</p>
+<p>Each instance of this component has access to the following properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><code>readonly property int</code> <b>styleData.index</b></td><td >The index of this tickmark.</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property real</code> <b>styleData.value</b></td><td >The value that this tickmark represents.</td></tr>
+</table></div>
+<p>To illustrate what these properties refer to, we can use the following example:</p>
+<pre class="qml"></pre>
+<p>We've replaced the conventional <i>line</i> tickmarks with Text items and have hidden the <a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkLabel-prop">tickmarkLabel</a> component in order to make the association clearer:</p>
+<p class="centerAlign"><font color="red">[Missing image circulargauge-tickmark-indices-values.png]</font></p><p>The index property can be useful if you have another model that contains images to display for each index, for example.</p>
+<p>The value property is useful for drawing lower and upper limits around the gauge to indicate the recommended value ranges. For example, speeds above 200 kilometers an hour in a car's speedometer could be indicated as dangerous using this property.</p>
+<p><b>See also </b>Styling CircularGauge's tickmark.</p>
+</div></div><!-- @@@tickmark -->
+<br/>
+<!-- $$$tickmarkCount -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tickmarkCount-prop"><td class="tblQmlPropNode"><p><a name="tickmarkCount-prop"></a><span class="qmlreadonly">read-only</span><span class="name">tickmarkCount</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The amount of tickmarks displayed by the gauge, calculated from <a href="qml-qtquick-controls-styles-circulargaugestyle.html#tickmarkStepSize-prop">tickmarkStepSize</a> and the control's minimumValue and maximumValue.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-circulargaugestyle.html#minorTickmarkCount-prop">minorTickmarkCount</a>.</p>
+</div></div><!-- @@@tickmarkCount -->
+<br/>
+<!-- $$$tickmarkInset -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tickmarkInset-prop"><td class="tblQmlPropNode"><p><a name="tickmarkInset-prop"></a><span class="name">tickmarkInset</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The distance in pixels from the outside of the gauge (<a href="qml-qtquick-controls-styles-circulargaugestyle.html#outerRadius-prop">outerRadius</a>) at which the outermost point of the tickmark line is drawn.</p>
+</div></div><!-- @@@tickmarkInset -->
+<br/>
+<!-- $$$tickmarkLabel -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tickmarkLabel-prop"><td class="tblQmlPropNode"><p><a name="tickmarkLabel-prop"></a><span class="name">tickmarkLabel</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the text of each tickmark label on the gauge.</p>
+<p>Each instance of this component has access to the following properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><code>readonly property int</code> <b>styleData.index</b></td><td >The index of this label.</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property real</code> <b>styleData.value</b></td><td >The value that this label represents.</td></tr>
+</table></div>
+<p><b>See also </b>Styling CircularGauge's tickmarkLabel.</p>
+</div></div><!-- @@@tickmarkLabel -->
+<br/>
+<!-- $$$tickmarkStepSize -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tickmarkStepSize-prop"><td class="tblQmlPropNode"><p><a name="tickmarkStepSize-prop"></a><span class="name">tickmarkStepSize</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The interval at which tickmarks are displayed.</p>
+<p>For example, if this property is set to <code>10</code> (the default), control.minimumValue to <code>0</code>, and control.maximumValue to <code>100</code>, the tickmarks displayed will be 0, 10, 20, etc., to 100, around the gauge.</p>
+</div></div><!-- @@@tickmarkStepSize -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$valueToAngle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="valueToAngle-method"><td class="tblQmlFuncNode"><p><a name="valueToAngle-method"></a><span class="name">valueToAngle</span>(<i> value</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns <i>value</i> as an angle in degrees.</p>
+<p>This function is useful for custom drawing or positioning of items in the style's components. For example, it can be used to calculate the angles at which to draw an arc around the gauge indicating the safe area for the needle to be within.</p>
+<p>For example, if <a href="qml-qtquick-controls-styles-circulargaugestyle.html#minimumValueAngle-prop">minimumValueAngle</a> is set to <code>270</code> and <a href="qml-qtquick-controls-styles-circulargaugestyle.html#maximumValueAngle-prop">maximumValueAngle</a> is set to <code>90</code>, this function will return <code>270</code> when passed minimumValue and <code>90</code> when passed maximumValue.</p>
+<p><b>See also </b>Styling CircularGauge's background.</p>
+</div></div><!-- @@@valueToAngle -->
+<br/>
+</body>
+</html>

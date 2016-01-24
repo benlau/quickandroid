@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- DirectionalBlur.qml -->
+  <title>DirectionalBlur QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">DirectionalBlur QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$DirectionalBlur-brief -->
+<p>Applies blur effect to the specified direction. <a href="#details">More...</a></p>
+<!-- @@@DirectionalBlur -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtGraphicalEffects .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtGraphicalEffects 1.0</td></tr></table></div><ul>
+<li><a href="qml-qtgraphicaleffects-directionalblur-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-directionalblur.html#angle-prop">angle</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-directionalblur.html#cached-prop">cached</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-directionalblur.html#length-prop">length</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-directionalblur.html#samples-prop">samples</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-directionalblur.html#source-prop">source</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-directionalblur.html#transparentBorder-prop">transparentBorder</a></b></b> : bool</li>
+</ul>
+<!-- $$$DirectionalBlur-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>Effect creates perceived impression that the source item appears to be moving in the direction of the blur. Blur is applied to both sides of each pixel, therefore setting the direction to 0 and 180 provides the same result.</p>
+<p>Other available motionblur effects are ZoomBlur and RadialBlur.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Source</th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_bug.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DirectionalBlur_bug.png]</font></p></td></tr>
+</table></div>
+<a name="example"></a>
+<h2 id="example">Example</h2>
+<p>The following example shows how to apply the effect.</p>
+<pre class="qml"></pre>
+<!-- @@@DirectionalBlur -->
+<h2>Property Documentation</h2>
+<!-- $$$angle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="angle-prop"><td class="tblQmlPropNode"><p><a name="angle-prop"></a><span class="name">angle</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the direction for the blur. Blur is applied to both sides of each pixel, therefore setting the direction to 0 and 180 produces the same result.</p>
+<p>The value ranges from -180.0 to 180.0&#x2e; By default the property is set to <code>0.0</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different angle values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image DirectionalBlur_angle1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DirectionalBlur_angle2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DirectionalBlur_angle3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> angle: 0.0 </b></td><td ><b> angle: 45.0 </b></td><td ><b> angle: 90.0 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-directionalblur.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-directionalblur.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-directionalblur.html#samples-prop">samples</a>: 24</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-directionalblur.html#length-prop">length</a>: 32</td><td ><a href="qml-qtgraphicaleffects-directionalblur.html#length-prop">length</a>: 32</td><td ><a href="qml-qtgraphicaleffects-directionalblur.html#length-prop">length</a>: 32</td></tr>
+</table></div>
+</div></div><!-- @@@angle -->
+<br/>
+<!-- $$$cached -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cached-prop"><td class="tblQmlPropNode"><p><a name="cached-prop"></a><span class="name">cached</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property allows the effect output pixels to be cached in order to improve the rendering performance.</p>
+<p>Every time the source or effect properties are changed, the pixels in the cache must be updated. Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.</p>
+<p>It is recommended to disable the cache when the source or the effect properties are animated.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+</div></div><!-- @@@cached -->
+<br/>
+<!-- $$$length -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="length-prop"><td class="tblQmlPropNode"><p><a name="length-prop"></a><span class="name">length</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the percieved amount of movement for each pixel. The movement is divided evenly to both sides of each pixel.</p>
+<p>The quality of the blur depends on <a href="qml-qtgraphicaleffects-directionalblur.html#samples-prop">samples</a> property. If length value is large, more samples are needed to keep the visual quality at high level.</p>
+<p>The value ranges from 0.0 to inf. By default the property is set to <code>0.0</code> (no blur).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different length values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image DirectionalBlur_length1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DirectionalBlur_length2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DirectionalBlur_length3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> length: 0.0 </b></td><td ><b> length: 32.0 </b></td><td ><b> length: 48.0 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-directionalblur.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-directionalblur.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-directionalblur.html#samples-prop">samples</a>: 24</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-directionalblur.html#angle-prop">angle</a>: 0</td><td ><a href="qml-qtgraphicaleffects-directionalblur.html#angle-prop">angle</a>: 0</td><td ><a href="qml-qtgraphicaleffects-directionalblur.html#angle-prop">angle</a>: 0</td></tr>
+</table></div>
+</div></div><!-- @@@length -->
+<br/>
+<!-- $$$samples -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="samples-prop"><td class="tblQmlPropNode"><p><a name="samples-prop"></a><span class="name">samples</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines how many samples are taken per pixel when blur calculation is done. Larger value produces better quality, but is slower to render.</p>
+<p>This property is not intended to be animated. Changing this property may cause the underlying OpenGL shaders to be recompiled.</p>
+<p>Allowed values are between 0 and inf (practical maximum depends on GPU). By default the property is set to <code>0</code> (no samples).</p>
+</div></div><!-- @@@samples -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="source-prop"><td class="tblQmlPropNode"><p><a name="source-prop"></a><span class="name">source</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the source item that is going to be blurred.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting source to the effect's parent.</p></div></div><!-- @@@source -->
+<br/>
+<!-- $$$transparentBorder -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="transparentBorder-prop"><td class="tblQmlPropNode"><p><a name="transparentBorder-prop"></a><span class="name">transparentBorder</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the blur behavior near the edges of the item, where the pixel blurring is affected by the pixels outside the source edges.</p>
+<p>If the property is set to <code>true</code>, the pixels outside the source are interpreted to be transparent, which is similar to OpenGL clamp-to-border extension. The blur is expanded slightly outside the effect item area.</p>
+<p>If the property is set to <code>false</code>, the pixels outside the source are interpreted to contain the same color as the pixels at the edge of the item, which is similar to OpenGL clamp-to-edge behavior. The blur does not expand outside the effect item area.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+</div></div><!-- @@@transparentBorder -->
+<br/>
+</body>
+</html>

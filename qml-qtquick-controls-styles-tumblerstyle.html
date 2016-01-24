@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TumblerStyle.qml -->
+  <title>TumblerStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TumblerStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$TumblerStyle-brief -->
+<p>Provides custom styling for Tumbler. <a href="#details">More...</a></p>
+<!-- @@@TumblerStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.5</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-tumblerstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#columnForeground-prop">columnForeground</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#control-prop">control</a></b></b> : Tumbler</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#delegate-prop">delegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#foreground-prop">foreground</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#frame-prop">frame</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#highlight-prop">highlight</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#separator-prop">separator</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#spacing-prop">spacing</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tumblerstyle.html#visibleItemCount-prop">visibleItemCount</a></b></b> : int</li>
+</ul>
+<!-- $$$TumblerStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p><b>Note: </b><a href="qml-qtquick-controls-styles-tumblerstyle.html">TumblerStyle</a> requires Qt 5.3&#x2e;2 or later.</p><p>You can create a custom tumbler by replacing the following delegates:</p>
+<ul>
+<li><a href="qml-qtquick-controls-styles-tumblerstyle.html#background-prop">background</a></li>
+<li><a href="qml-qtquick-controls-styles-tumblerstyle.html#foreground-prop">foreground</a></li>
+<li><a href="qml-qtquick-controls-styles-tumblerstyle.html#separator-prop">separator</a></li>
+<li><a href="qml-qtquick-controls-styles-tumblerstyle.html#delegate-prop">delegate</a></li>
+<li><a href="qml-qtquick-controls-styles-tumblerstyle.html#highlight-prop">highlight</a></li>
+<li><a href="qml-qtquick-controls-styles-tumblerstyle.html#frame-prop">frame</a></li>
+</ul>
+<!-- @@@TumblerStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background of the tumbler.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$columnForeground -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="columnForeground-prop"><td class="tblQmlPropNode"><p><a name="columnForeground-prop"></a><span class="name">columnForeground</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The foreground of each column.</p>
+<p>In terms of stacking order, this component is displayed above the delegate and highlight components, but below the foreground component.</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><code>readonly property int</code> <b>styleData.column</b></td><td >The index of the column that contains this item.</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property bool</code> <b>styleData.activeFocus</b></td><td ><code>true</code> if the column that contains this item has active focus.</td></tr>
+</table></div>
+<p>Delegates for items in specific columns can be defined using TumblerColumn's columnForeground property, which will be used instead of this component.</p>
+</div></div><!-- @@@columnForeground -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type">Tumbler</span></p></td></tr></table></div></div><div class="qmldoc"><p>The Tumbler that this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$delegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="delegate-prop"><td class="tblQmlPropNode"><p><a name="delegate-prop"></a><span class="name">delegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The delegate provides a template defining each item instantiated in the column. Each instance of this component has access to the following properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><code>readonly property int</code> <b>styleData.index</b></td><td >The index of this delegate in the model.</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property int</code> <b>styleData.column</b></td><td >The index of the column that contains this item.</td></tr>
+<tr valign="top" class="odd"><td ><code>readonly property real</code> <b>styleData.value</b></td><td >The value for this delegate from the model.</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property bool</code> <b>styleData.current</b></td><td ><code>true</code> if this delegate is the current item.</td></tr>
+<tr valign="top" class="odd"><td ><code>readonly property real</code> <b>styleData.displacement</b></td><td ><code>A</code> value from <code>-visibleItemCount / 2</code> to <code>visibleItemCount / 2</code> which represents how far away this item is from being the current item, with <code>0</code> being completely current.<p>For example, the item below will be 40% opaque when it is not the current item, and transition to 100% opacity when it becomes the current item:</p>
+<pre class="cpp">delegate: Text {
+    text: styleData<span class="operator">.</span>value
+    opacity: <span class="number">0.4</span> <span class="operator">+</span> Math<span class="operator">.</span>max(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span> <span class="operator">-</span> Math<span class="operator">.</span>abs(styleData<span class="operator">.</span>displacement)) <span class="operator">*</span> <span class="number">0.6</span>
+}</pre>
+</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property bool</code> <b>styleData.activeFocus</b></td><td ><code>true</code> if the column that contains this item has active focus.</td></tr>
+</table></div>
+<p>Properties of the model are also available depending upon the type of Data Model.</p>
+<p>Delegates for items in specific columns can be defined using TumblerColumn's delegate property, which will be used instead of this delegate.</p>
+<p>The implicitHeight property must be set, and it must be the same for each delegate.</p>
+</div></div><!-- @@@delegate -->
+<br/>
+<!-- $$$foreground -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="foreground-prop"><td class="tblQmlPropNode"><p><a name="foreground-prop"></a><span class="name">foreground</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The foreground of the tumbler.</p>
+</div></div><!-- @@@foreground -->
+<br/>
+<!-- $$$frame -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="frame-prop"><td class="tblQmlPropNode"><p><a name="frame-prop"></a><span class="name">frame</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The frame around the tumbler.</p>
+<p>The implicitWidth property must be set, and should be the same value for each separator.</p>
+</div></div><!-- @@@frame -->
+<br/>
+<!-- $$$highlight -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="highlight-prop"><td class="tblQmlPropNode"><p><a name="highlight-prop"></a><span class="name">highlight</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The delegate for the highlight of each column.</p>
+<p>Delegates for the highlight of specific columns can be defined using TumblerColumn's highlight property, which will be used instead of this delegate.</p>
+<p>Each instance of this component has access to the following properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><code>readonly property int</code> <b>styleData.index</b></td><td >The index of this column in the tumbler.</td></tr>
+<tr valign="top" class="even"><td ><code>readonly property int</code> <b>styleData.columnIndex</b></td><td >The index of the column that contains this highlight.</td></tr>
+<tr valign="top" class="odd"><td ><code>readonly property bool</code> <b>styleData.activeFocus</b></td><td ><code>true</code> if the column that contains this highlight has active focus.</td></tr>
+</table></div>
+</div></div><!-- @@@highlight -->
+<br/>
+<!-- $$$separator -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="separator-prop"><td class="tblQmlPropNode"><p><a name="separator-prop"></a><span class="name">separator</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The separator between each column.</p>
+<p>The implicitWidth property must be set, and should be the same value for each separator.</p>
+</div></div><!-- @@@separator -->
+<br/>
+<!-- $$$spacing -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="spacing-prop"><td class="tblQmlPropNode"><p><a name="spacing-prop"></a><span class="name">spacing</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the spacing between each delegate.</p>
+</div></div><!-- @@@spacing -->
+<br/>
+<!-- $$$visibleItemCount -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="visibleItemCount-prop"><td class="tblQmlPropNode"><p><a name="visibleItemCount-prop"></a><span class="name">visibleItemCount</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the amount of items visible in each column.</p>
+<p>This value should be an odd number.</p>
+</div></div><!-- @@@visibleItemCount -->
+<br/>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- StackViewDelegate.qml -->
+  <title>StackViewDelegate QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">StackViewDelegate QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$StackViewDelegate-brief -->
+<p>A delegate used by <a href="qml-qtquick-controls-stackview.html">StackView</a> for loading transitions. <a href="#details">More...</a></p>
+<!-- @@@StackViewDelegate -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qtquick-controls-private-stackviewslidedelegate.html">StackViewSlideDelegate</a>.</p>
+</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-stackviewdelegate-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackviewdelegate.html#popTransition-prop">popTransition</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackviewdelegate.html#pushTransition-prop">pushTransition</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackviewdelegate.html#replaceTransition-prop">replaceTransition</a></b></b> : Component</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackviewdelegate.html#getTransition-method">getTransition</a></b></b>(<i>properties</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackviewdelegate.html#transitionFinished-method">transitionFinished</a></b></b>(<i>properties</i>)</li>
+</ul>
+<!-- $$$StackViewDelegate-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>See the documentation for the <a href="qml-qtquick-controls-stackview.html">StackView</a> component.</p>
+<!-- @@@StackViewDelegate -->
+<h2>Property Documentation</h2>
+<!-- $$$popTransition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="popTransition-prop"><td class="tblQmlPropNode"><p><a name="popTransition-prop"></a><span class="name">popTransition</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The transition used on pop operation. Unless set, the popTransition is the same as <a href="qml-qtquick-controls-stackviewdelegate.html#pushTransition-prop">pushTransition</a></p>
+</div></div><!-- @@@popTransition -->
+<br/>
+<!-- $$$pushTransition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pushTransition-prop"><td class="tblQmlPropNode"><p><a name="pushTransition-prop"></a><span class="name">pushTransition</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The transition used on push operation.</p>
+</div></div><!-- @@@pushTransition -->
+<br/>
+<!-- $$$replaceTransition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="replaceTransition-prop"><td class="tblQmlPropNode"><p><a name="replaceTransition-prop"></a><span class="name">replaceTransition</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The transition used on replace operation. Unless set, the replaceTransition is the same as <a href="qml-qtquick-controls-stackviewdelegate.html#pushTransition-prop">pushTransition</a></p>
+</div></div><!-- @@@replaceTransition -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$getTransition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="getTransition-method"><td class="tblQmlFuncNode"><p><a name="getTransition-method"></a><span class="name">getTransition</span>(<i> properties</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>The base implementation of this function just looks for a property named properties.name inside itself.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-stackview.html#transitions">Transitions</a>.</p>
+</div></div><!-- @@@getTransition -->
+<br/>
+<!-- $$$transitionFinished -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="transitionFinished-method"><td class="tblQmlFuncNode"><p><a name="transitionFinished-method"></a><span class="name">transitionFinished</span>(<i> properties</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>The base implementation of this function is empty.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-stackview.html#transitions">Transitions</a>.</p>
+</div></div><!-- @@@transitionFinished -->
+<br/>
+</body>
+</html>

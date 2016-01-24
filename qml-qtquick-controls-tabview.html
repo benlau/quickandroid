@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TabView.qml -->
+  <title>TabView QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TabView QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$TabView-brief -->
+<p>A control that allows the user to select one of multiple stacked items. <a href="#details">More...</a></p>
+<!-- @@@TabView -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-tabview-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#contentItem-prop">contentItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#count-prop">count</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#currentIndex-prop">currentIndex</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#frameVisible-prop">frameVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#tabPosition-prop">tabPosition</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#tabsVisible-prop">tabsVisible</a></b></b> : bool</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#addTab-method">addTab</a></b></b>(<i>title</i>,  <i>component</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#getTab-method">getTab</a></b></b>(<i>index</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#insertTab-method">insertTab</a></b></b>(<i>index</i>,  <i>title</i>,  <i>component</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#moveTab-method">moveTab</a></b></b>(<i>from</i>,  <i>to</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-tabview.html#removeTab-method">removeTab</a></b></b>(<i>index</i>)</li>
+</ul>
+<!-- $$$TabView-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image tabview.png]</font></p><p><a href="qml-qtquick-controls-tabview.html">TabView</a> provides tab-based navigation model for your application. For example, the following snippet uses tabs to present rectangles of different color on each tab page:</p>
+<pre class="qml"><span class="type">TabView</span> {
+    <span class="type">Tab</span> {
+        <span class="name">title</span>: <span class="string">&quot;Red&quot;</span>
+        <span class="type">Rectangle</span> { <span class="name">color</span>: <span class="string">&quot;red&quot;</span> }
+    }
+    <span class="type">Tab</span> {
+        <span class="name">title</span>: <span class="string">&quot;Blue&quot;</span>
+        <span class="type">Rectangle</span> { <span class="name">color</span>: <span class="string">&quot;blue&quot;</span> }
+    }
+    <span class="type">Tab</span> {
+        <span class="name">title</span>: <span class="string">&quot;Green&quot;</span>
+        <span class="type">Rectangle</span> { <span class="name">color</span>: <span class="string">&quot;green&quot;</span> }
+    }
+}</pre>
+<p><b>Note: </b>You can create a custom appearance for a <a href="qml-qtquick-controls-tabview.html">TabView</a> by assigning a <a href="qml-qtquick-controls-styles-tabviewstyle.html">TabViewStyle</a>.</p><p><a href="qml-qtquick-controls-tab.html">Tab</a> represents the content of a tab in a <a href="qml-qtquick-controls-tabview.html">TabView</a>.</p>
+<!-- @@@TabView -->
+<h2>Property Documentation</h2>
+<!-- $$$contentItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentItem-prop"><td class="tblQmlPropNode"><p><a name="contentItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">contentItem</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the content item of the tab view.</p>
+<p>Tabs declared as children of a <a href="qml-qtquick-controls-tabview.html">TabView</a> are automatically parented to the <a href="qml-qtquick-controls-tabview.html">TabView</a>'s contentItem.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@contentItem -->
+<br/>
+<!-- $$$count -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="count-prop"><td class="tblQmlPropNode"><p><a name="count-prop"></a><span class="qmlreadonly">read-only</span><span class="name">count</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The current tab count</p>
+</div></div><!-- @@@count -->
+<br/>
+<!-- $$$currentIndex -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="currentIndex-prop"><td class="tblQmlPropNode"><p><a name="currentIndex-prop"></a><span class="name">currentIndex</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The current tab index</p>
+</div></div><!-- @@@currentIndex -->
+<br/>
+<!-- $$$frameVisible -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="frameVisible-prop"><td class="tblQmlPropNode"><p><a name="frameVisible-prop"></a><span class="name">frameVisible</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>The visibility of the tab frame around contents</p>
+</div></div><!-- @@@frameVisible -->
+<br/>
+<!-- $$$tabPosition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tabPosition-prop"><td class="tblQmlPropNode"><p><a name="tabPosition-prop"></a><span class="name">tabPosition</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><ul>
+<li>Qt.TopEdge (default)</li>
+<li>Qt.BottomEdge</li>
+</ul>
+</div></div><!-- @@@tabPosition -->
+<br/>
+<!-- $$$tabsVisible -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tabsVisible-prop"><td class="tblQmlPropNode"><p><a name="tabsVisible-prop"></a><span class="name">tabsVisible</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>The visibility of the tab bar</p>
+</div></div><!-- @@@tabsVisible -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$addTab -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="addTab-method"><td class="tblQmlFuncNode"><p><a name="addTab-method"></a><span class="name">addTab</span>(<i> title</i>, <i> component</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Adds a new tab page with title with and optional Component. Returns the newly added tab.</p>
+</div></div><!-- @@@addTab -->
+<br/>
+<!-- $$$getTab -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="getTab-method"><td class="tblQmlFuncNode"><p><a name="getTab-method"></a><span class="name">getTab</span>(<i> index</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the <a href="qml-qtquick-controls-tab.html">Tab</a> item at <i>index</i>.</p>
+</div></div><!-- @@@getTab -->
+<br/>
+<!-- $$$insertTab -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="insertTab-method"><td class="tblQmlFuncNode"><p><a name="insertTab-method"></a><span class="name">insertTab</span>(<i> index</i>, <i> title</i>, <i> component</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Inserts a new tab with title at index, with an optional Component. Returns the newly added tab.</p>
+</div></div><!-- @@@insertTab -->
+<br/>
+<!-- $$$moveTab -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="moveTab-method"><td class="tblQmlFuncNode"><p><a name="moveTab-method"></a><span class="name">moveTab</span>(<i> from</i>, <i> to</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Moves a tab <i>from</i> index <i>to</i> another.</p>
+</div></div><!-- @@@moveTab -->
+<br/>
+<!-- $$$removeTab -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="removeTab-method"><td class="tblQmlFuncNode"><p><a name="removeTab-method"></a><span class="name">removeTab</span>(<i> index</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Removes and destroys a tab at the given <i>index</i>.</p>
+</div></div><!-- @@@removeTab -->
+<br/>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- DropShadow.qml -->
+  <title>DropShadow QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">DropShadow QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$DropShadow-brief -->
+<p>Generates a colorized and blurred shadow image of the source and places it behind the original, giving the impression that source item is raised from the background. <a href="#details">More...</a></p>
+<!-- @@@DropShadow -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtGraphicalEffects .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtGraphicalEffects 1.0</td></tr></table></div><ul>
+<li><a href="qml-qtgraphicaleffects-dropshadow-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#cached-prop">cached</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#fast-prop">fast</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#source-prop">source</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#transparentBorder-prop">transparentBorder</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a></b></b> : real</li>
+</ul>
+<!-- $$$DropShadow-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>By default the effect produces a high quality shadow image, thus the rendering speed of the shadow might not be the highest possible. The rendering speed is reduced especially if the shadow edges are heavily softened.</p>
+<p>For use cases that require faster rendering speed and for which the highest possible visual quality is not necessary, the <a href="qml-qtgraphicaleffects-dropshadow.html#fast-prop">fast</a> property can be set to <code>true</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Source</th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_butterfly.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_butterfly.png]</font></p></td></tr>
+</table></div>
+<a name="example"></a>
+<h2 id="example">Example</h2>
+<p>The following example shows how to apply the effect.</p>
+<pre class="qml"></pre>
+<!-- @@@DropShadow -->
+<h2>Property Documentation</h2>
+<!-- $$$cached -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cached-prop"><td class="tblQmlPropNode"><p><a name="cached-prop"></a><span class="name">cached</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property allows the effect output pixels to be cached in order to improve the rendering performance. Every time the source or effect properties are changed, the pixels in the cache must be updated. Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.</p>
+<p>It is recommended to disable the cache when the source or the effect properties are animated.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+</div></div><!-- @@@cached -->
+<br/>
+<!-- $$$color -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="color-prop"><td class="tblQmlPropNode"><p><a name="color-prop"></a><span class="name">color</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the RGBA color value which is used for the shadow.</p>
+<p>By default, the property is set to <code>&quot;black&quot;</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different color values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_color1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_color2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_color3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> color: #000000 </b></td><td ><b> color: #0000ff </b></td><td ><b> color: #aa000000 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 8</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 8</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 8</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 16</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td></tr>
+</table></div>
+</div></div><!-- @@@color -->
+<br/>
+<!-- $$$fast -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="fast-prop"><td class="tblQmlPropNode"><p><a name="fast-prop"></a><span class="name">fast</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property selects the blurring algorithm that is used to produce the softness for the effect. Setting this to true enables fast algorithm, setting value to false produces higher quality result.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different fast values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_fast1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_fast2.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> fast: false </b></td><td ><b> fast: true </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 16</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 16</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 24</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td></tr>
+</table></div>
+</div></div><!-- @@@fast -->
+<br/>
+<!-- $$$horizontalOffset -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="horizontalOffset-prop"><td class="tblQmlPropNode"><p><a name="horizontalOffset-prop"></a><span class="name">horizontalOffset</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>HorizontalOffset and <a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a> properties define the offset for the rendered shadow compared to the <a href="qml-qtgraphicaleffects-dropshadow.html">DropShadow</a> item position. Often, the <a href="qml-qtgraphicaleffects-dropshadow.html">DropShadow</a> item is anchored so that it fills the source element. In this case, if the HorizontalOffset and <a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a> properties are set to 0, the shadow is rendered exactly under the source item. By changing the offset properties, the shadow can be positioned relatively to the source item.</p>
+<p>The values range from -inf to inf. By default, the properties are set to <code>0</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different horizontalOffset values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_horizontalOffset1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_horizontalOffset2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_horizontalOffset3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> horizontalOffset: -20 </b></td><td ><b> horizontalOffset: 0 </b></td><td ><b> horizontalOffset: 20 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 4</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 4</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 4</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 8</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 8</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 8</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 0</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td></tr>
+</table></div>
+</div></div><!-- @@@horizontalOffset -->
+<br/>
+<!-- $$$radius -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="radius-prop"><td class="tblQmlPropNode"><p><a name="radius-prop"></a><span class="name">radius</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>Radius defines the softness of the shadow. A larger radius causes the edges of the shadow to appear more blurry.</p>
+<p>Depending on the radius value, value of the <a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a> should be set to sufficiently large to ensure the visual quality.</p>
+<p>The value ranges from 0.0 (no blur) to inf. By default, the property is set to <code>0.0</code> (no blur).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different radius values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_radius1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_radius2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_radius3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> radius: 0 </b></td><td ><b> radius: 6 </b></td><td ><b> radius: 12 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 24</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 24</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td></tr>
+</table></div>
+</div></div><!-- @@@radius -->
+<br/>
+<!-- $$$samples -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="samples-prop"><td class="tblQmlPropNode"><p><a name="samples-prop"></a><span class="name">samples</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines how many samples are taken per pixel when edge softening blur calculation is done. Larger value produces better quality, but is slower to render.</p>
+<p>Ideally, this value should be twice as large as the highest required radius value, for example, if the radius is animated between 0.0 and 4.0, samples should be set to 8.</p>
+<p>The value ranges from 0 to 32. By default, the property is set to <code>0</code>.</p>
+<p>This property is not intended to be animated. Changing this property may cause the underlying OpenGL shaders to be recompiled.</p>
+<p>When <a href="qml-qtgraphicaleffects-dropshadow.html#fast-prop">fast</a> property is set to true, this property has no effect.</p>
+</div></div><!-- @@@samples -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="source-prop"><td class="tblQmlPropNode"><p><a name="source-prop"></a><span class="name">source</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the source item that is going to be used as the source for the generated shadow.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting source to the effect's parent.</p></div></div><!-- @@@source -->
+<br/>
+<!-- $$$spread -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="spread-prop"><td class="tblQmlPropNode"><p><a name="spread-prop"></a><span class="name">spread</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines how large part of the shadow color is strenghtened near the source edges.</p>
+<p>The value ranges from 0.0 to 1.0&#x2e; By default, the property is set to <code>0.5</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different spread values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_spread1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_spread2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_spread3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> spread: 0.0 </b></td><td ><b> spread: 0.5 </b></td><td ><b> spread: 1.0 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 8</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 8</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 8</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 16</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#verticalOffset-prop">verticalOffset</a>: 20</td></tr>
+</table></div>
+</div></div><!-- @@@spread -->
+<br/>
+<!-- $$$transparentBorder -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="transparentBorder-prop"><td class="tblQmlPropNode"><p><a name="transparentBorder-prop"></a><span class="name">transparentBorder</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines whether or not the effect has a transparent border.</p>
+<p>When set to <code>true</code>, the exterior of the item is padded with a 1 pixel wide transparent edge, making sampling outside the source texture use transparency instead of the edge pixels. Without this property, an image which has opaque edges will not get a blurred edge.</p>
+<p>In the image below, the Rectangle on the left has transparent borders and has blurred edges, whereas the Rectangle on the right does not:</p>
+<pre class="qml"></pre>
+<p class="centerAlign"><font color="red">[Missing image transparentBorder.png]</font></p></div></div><!-- @@@transparentBorder -->
+<br/>
+<!-- $$$verticalOffset -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="verticalOffset-prop"><td class="tblQmlPropNode"><p><a name="verticalOffset-prop"></a><span class="name">verticalOffset</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>HorizontalOffset and verticalOffset properties define the offset for the rendered shadow compared to the <a href="qml-qtgraphicaleffects-dropshadow.html">DropShadow</a> item position. Often, the <a href="qml-qtgraphicaleffects-dropshadow.html">DropShadow</a> item is anchored so that it fills the source element. In this case, if the HorizontalOffset and verticalOffset properties are set to 0, the shadow is rendered exactly under the source item. By changing the offset properties, the shadow can be positioned relatively to the source item.</p>
+<p>The values range from -inf to inf. By default, the properties are set to <code>0</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different <a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a> values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_horizontalOffset1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_horizontalOffset2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image DropShadow_horizontalOffset3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> <a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: -20 </b></td><td ><b> <a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 0 </b></td><td ><b> <a href="qml-qtgraphicaleffects-dropshadow.html#horizontalOffset-prop">horizontalOffset</a>: 20 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 4</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 4</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#radius-prop">radius</a>: 4</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 8</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 8</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#samples-prop">samples</a>: 8</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#color-prop">color</a>: #000000</td></tr>
+<tr valign="top" class="even"><td >verticalOffset: 0</td><td >verticalOffset: 0</td><td >verticalOffset: 0</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td><td ><a href="qml-qtgraphicaleffects-dropshadow.html#spread-prop">spread</a>: 0</td></tr>
+</table></div>
+</div></div><!-- @@@verticalOffset -->
+<br/>
+</body>
+</html>

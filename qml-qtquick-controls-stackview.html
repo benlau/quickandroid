@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- StackView.qml -->
+  <title>StackView QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#using-stackview-in-an-application">Using StackView in an Application</a></li>
+<li class="level2"><a href="#basic-navigation">Basic Navigation</a></li>
+<li class="level2"><a href="#deep-linking">Deep Linking</a></li>
+<li class="level2"><a href="#pushing-items">Pushing items</a></li>
+<li class="level2"><a href="#lifecycle">Lifecycle</a></li>
+<li class="level2"><a href="#finding-items">Finding items</a></li>
+<li class="level2"><a href="#transitions">Transitions</a></li>
+<li class="level3"><a href="#advanced-usage">Advanced usage</a></li>
+<li class="level2"><a href="#supported-attached-properties">Supported Attached Properties</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">StackView QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$StackView-brief -->
+<p>Provides a stack-based navigation model. <a href="#details">More...</a></p>
+<!-- @@@StackView -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-stackview-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#busy-prop">busy</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#currentItem-prop">currentItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#delegate-prop">delegate</a></b></b> : StackViewDelegate</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#depth-prop">depth</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#initialItem-prop">initialItem</a></b></b> : var</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#clear-method">clear</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#completeTransition-method">completeTransition</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#find-method">find</a></b></b>(<i>func</i>,  <i>onlySearchLoadedItems</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#get-method">get</a></b></b>(<i>index</i>,  <i>dontLoad</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#pop-method">pop</a></b></b>(<i>item</i>)</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-stackview.html#push-method">push</a></b></b>(<i>item</i>)</li>
+</ul>
+<!-- $$$StackView-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image stackview.png]</font></p><p><a href="qml-qtquick-controls-stackview.html">StackView</a> implements a stack-based navigation model, which can be used with a set of interlinked information pages. Items are pushed onto the stack as the user navigates deeper into the material, and popped off again when he chooses to go back.</p>
+<p>The touch gallery example is a good starting point to understand how <a href="qml-qtquick-controls-stackview.html">StackView</a> works. The following snippet from the example shows how it can be used:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-stackview.html">StackView</a></span> {
+    <span class="name">id</span>: <span class="name">stack</span>
+    <span class="name">initialItem</span>: <span class="name">view</span>
+
+    <span class="type">Component</span> {
+        <span class="name">id</span>: <span class="name">view</span>
+
+        <span class="type">MouseArea</span> {
+            <span class="type">Text</span> {
+                <span class="name">text</span>: <span class="name">stack</span>.<span class="name">depth</span>
+                <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+            }
+            <span class="name">onClicked</span>: <span class="name">stack</span>.<span class="name">push</span>(<span class="name">view</span>)
+        }
+    }
+}</pre>
+<a name="using-stackview-in-an-application"></a>
+<h2 id="using-stackview-in-an-application">Using StackView in an Application</h2>
+<p>Using the <a href="qml-qtquick-controls-stackview.html">StackView</a> in the application is typically a simple matter of adding the <a href="qml-qtquick-controls-stackview.html">StackView</a> as a child of a Window. The stack is usually anchored to the edges of the window, except at the top or bottom where it might be anchored to a status bar, or some other similar UI component. The stack can then be used by invoking its navigation methods. The first item to show in the <a href="qml-qtquick-controls-stackview.html">StackView</a> is commonly loaded assigning it to <a href="qml-qtquick-controls-stackview.html#initialItem-prop">initialItem</a>.</p>
+<p><b>Note: </b>Items pushed onto the stack view have <a href="qml-qtquick-controls-stackview.html#supported-attached-properties">Stack attached properties</a>.</p><a name="basic-navigation"></a>
+<h2 id="basic-navigation">Basic Navigation</h2>
+<p>There are three primary navigation operations in <a href="qml-qtquick-controls-stackview.html">StackView</a>: <a href="qml-qtquick-controls-stackview.html#push-method">push()</a>, <a href="qml-qtquick-controls-stackview.html#pop-method">pop()</a>, and replace (replace by specifying argument <code>replace</code> to <a href="qml-qtquick-controls-stackview.html#push-method">push()</a>). These correspond to classic stack operations where &quot;push&quot; adds an item to the top of a stack, &quot;pop&quot; removes the top item from the stack, and &quot;replace&quot; is like a pop followed by a push in that it replaces the topmost item on the stack with a new item (but the applied transtition might be different). The topmost item in the stack corresponds to the one that is <a href="qml-qtquick-controls-stackview.html#currentItem-prop">currently</a> visible on the screen. That means that &quot;push&quot; is the logical equivalent of navigating forward or deeper into the application, &quot;pop&quot; is the equivalent of navigating back, and &quot;replace&quot; is the equivalent of replacing the current item.</p>
+<p>Sometimes it is necessary to go back more than a single step in the stack, for example, to return to a &quot;main&quot; item or some kind of section item in the application. For this use case, it is possible to specify an item as a parameter for <a href="qml-qtquick-controls-stackview.html#pop-method">pop()</a>. This is called an &quot;unwind&quot; operation as the stack gets unwound to the specified item. If the item is not found then the stack unwinds until there is only a single item in the stack, which becomes the current item. To explicitly unwind to the bottom of the stack it is recommended to use <a href="qml-qtquick-controls-stackview.html#pop-method">pop(null)</a>, though technically any non-existent item will do.</p>
+<p>Given the stack [A, B, C]:</p>
+<ul>
+<li><a href="qml-qtquick-controls-stackview.html#push-method">push(D)</a> =&gt; [A, B, C, D] - &quot;push&quot; transition animation between C and D</li>
+<li><a href="qml-qtquick-controls-stackview.html#pop-method">pop()</a> =&gt; [A, B] - &quot;pop&quot; transition animation between C and B</li>
+<li><a href="qml-qtquick-controls-stackview.html#push-method">push(D, replace)</a> =&gt; [A, B, D] - &quot;replace&quot; transition between C and D</li>
+<li><a href="qml-qtquick-controls-stackview.html#pop-method">pop(A)</a> =&gt; [A] - &quot;pop&quot; transition between C and A</li>
+</ul>
+<p><b>Note: </b>When the stack is empty, a <a href="qml-qtquick-controls-stackview.html#push-method">push()</a> will not perform a transition animation because there is nothing to transition from (typically during application start-up). A <a href="qml-qtquick-controls-stackview.html#pop-method">pop()</a> on a stack with depth 1 or 0 is a no-operation. If removing all items from the stack is needed, a separate function <a href="qml-qtquick-controls-stackview.html#clear-method">clear()</a> is available.</p><p>Calling <a href="qml-qtquick-controls-stackview.html#push-method">push()</a> returns the item that was pushed onto the stack. Calling <a href="qml-qtquick-controls-stackview.html#pop-method">pop()</a> returns the item that was popped off the stack. When <a href="qml-qtquick-controls-stackview.html#pop-method">pop()</a> is called in an unwind operation the top-most item (the first item that was popped, which will also be the one transitioning out) is returned.</p>
+<a name="deep-linking"></a>
+<h2 id="deep-linking">Deep Linking</h2>
+<p><i>Deep linking</i> means launching an application into a particular state. For example, a newspaper application could be launched into showing a particular article, bypassing the front item (and possibly a section item) that would normally have to be navigated through to get to the article concerned. In terms of <a href="qml-qtquick-controls-stackview.html">StackView</a>, deep linking means the ability to modify the state of the stack, so much so that it is possible to push a set of items to the top of the stack, or to completely reset the stack to a given state.</p>
+<p>The API for deep linking in <a href="qml-qtquick-controls-stackview.html">StackView</a> is the same as for basic navigation. Pushing an array instead of a single item, will involve that all the items in that array will be pushed onto the stack. The transition animation, however, will be conducted as if only the last item in the array was pushed onto the stack. The normal semantics of <a href="qml-qtquick-controls-stackview.html#push-method">push()</a> apply for deep linking, meaning that <a href="qml-qtquick-controls-stackview.html#push-method">push()</a> adds whatever is pushed onto the stack. Note also that only the last item of the array will be loaded. The rest will be lazy-loaded as needed when entering the screen upon subsequent calls to pop (or when requesting the item by using <i>get</i>).</p>
+<p>This gives us the following result, given the stack [A, B, C]:</p>
+<ul>
+<li><a href="qml-qtquick-controls-stackview.html#push-method">push([D, E, F])</a> =&gt; [A, B, C, D, E, F] - &quot;push&quot; transition animation between C and F</li>
+<li><a href="qml-qtquick-controls-stackview.html#push-method">push([D, E, F], replace)</a> =&gt; [A, B, D, E, F] - &quot;replace&quot; transition animation between C and F</li>
+<li><a href="qml-qtquick-controls-stackview.html#clear-method">clear()</a>; <a href="qml-qtquick-controls-stackview.html#push-method">push([D, E, F])</a> =&gt; [D, E, F] - no transition animation (since the stack was empty)</li>
+</ul>
+<a name="pushing-items"></a>
+<h2 id="pushing-items">Pushing items</h2>
+<p>An item pushed onto the <a href="qml-qtquick-controls-stackview.html">StackView</a> can be either an Item, a URL, a string with a URL, or a Component. To push it, assign it to a property &quot;item&quot; inside a property list, and send it as an argument to <a href="qml-qtquick-controls-stackview.html#push-method">push</a>:</p>
+<pre class="cpp">stackView<span class="operator">.</span><a href="qml-qtquick-controls-stackview.html#push-method">push</a>({item: yourItem})</pre>
+<p>The list can contain several properties that control how the item should be pushed:</p>
+<ul>
+<li><code>item</code>: this property is required, and holds the item to be pushed.</li>
+<li><code>properties</code>: a list of QML properties to be assigned to the item upon push. These properties will be copied into the item at load time, or when the item will become the current item (normally upon push).</li>
+<li><code>immediate</code>: set this property to <code>true</code> to skip transition effects. When pushing an array, this property only needs to be set on the first element to make the whole operation immediate.</li>
+<li><code>replace</code>: set this property to replace the current item on the stack. When pushing an array, you only need to set this property on the first element to replace as many elements on the stack as inside the array.</li>
+<li><code>destroyOnPop</code>: set this boolean to true if <a href="qml-qtquick-controls-stackview.html">StackView</a> needs to destroy the item when it is popped off the stack. By default (if <i>destroyOnPop</i> is not specified), <a href="qml-qtquick-controls-stackview.html">StackView</a> will destroy items pushed as components or URLs. Items not destroyed will be re-parented back to the original parents they had before being pushed onto the stack and hidden. If you need to set this property, do it with care, so that items are not leaked.</li>
+</ul>
+<p>If the only argument needed is &quot;item&quot;, the following short-hand notation can be applied:</p>
+<pre class="cpp">stackView<span class="operator">.</span><a href="qml-qtquick-controls-stackview.html#push-method">push</a>(yourItem)</pre>
+<p>You can push several items in one go by using an array of property lists. This is optimizing compared to pushing items one by one, since <a href="qml-qtquick-controls-stackview.html">StackView</a> then can load only the last item in the list. The rest will be loaded as they are about to become the current item (which happens when the stack is popped). The following example shows how to push an array of items:</p>
+<pre class="cpp">stackView<span class="operator">.</span><a href="qml-qtquick-controls-stackview.html#push-method">push</a>(<span class="operator">[</span>{item: yourItem1}<span class="operator">,</span> {item: yourItem2}<span class="operator">]</span>)</pre>
+<p>If an inline item is pushed, the item is temporarily re-parented into the <a href="qml-qtquick-controls-stackview.html">StackView</a>. When the item is later popped off, it gets re-parented back to its original owner again. If, however, an item is pushed as a component or a URL, the actual item will be created as an item from that component. This happens automatically when the item is about to become the current item in the stack. Ownership of the item will then normally be taken by the <a href="qml-qtquick-controls-stackview.html">StackView</a>. It will as such automatically destroy the item when it is later popped off. The component that declared the item, by contrast, remains in the ownership of the application and is not destroyed by the stack. This can be overridden by explicitly setting <code>destroyOnPop</code> in the list of arguments given to push.</p>
+<p>If the <code>properties</code> to be pushed are specified, they will be copied into the item at loading time (in case of a component or URL), or when the item will become the current item (in case of an inline item). The following example shows how this can be done:</p>
+<pre class="cpp">stackView<span class="operator">.</span><a href="qml-qtquick-controls-stackview.html#push-method">push</a>({item: someItem<span class="operator">,</span> properties: {fgcolor: <span class="string">&quot;red&quot;</span><span class="operator">,</span> bgcolor: <span class="string">&quot;blue&quot;</span>}})</pre>
+<p><b>Note: </b>If an item is declared inside another item, and if that parent gets destroyed, (even if a component was used), that child item will also be destroyed. This follows normal Qt parent-child destruction rules, but sometimes comes as a surprise for developers.</p><a name="lifecycle"></a>
+<h2 id="lifecycle">Lifecycle</h2>
+<p>An item's lifecycle in the <a href="qml-qtquick-controls-stackview.html">StackView</a> can have the following transitions:</p>
+<ol class="1">
+<li>instantiation</li>
+<li>inactive</li>
+<li>activating</li>
+<li>active</li>
+<li>deactivating</li>
+<li>inactive</li>
+<li>destruction</li>
+</ol>
+<p>It can move any number of times between inactive and active. When an item is activated, it's visible on the screen and is considered to be the current item. An item in a <a href="qml-qtquick-controls-stackview.html">StackView</a> that is not visible is not activated, even if the item is currently the top-most item in the stack. When the stack becomes visible, the item that is top-most gets activated. Likewise if the stack is then hidden, the topmost item would be deactivated. Popping the item off the top of the stack at this point would not result in further deactivation since the item is not active.</p>
+<p>There is an attached Stack.status property that tracks the lifecycle. The status values list is an enumeration with values <code>Stack.Inactive</code>, <code>Stack.Activating</code>, <code>Stack.Active</code> and <code>Stack.Deactivating</code>. Combined with the normal <code>Component.onComplete</code> and <code>Component.onDestruction</code> signals the entire lifecycle is thus:</p>
+<ul>
+<li>Created: Component.onCompleted()</li>
+<li>Activating: Stack.onStatusChanged (Stack.status is Stack.Activating)</li>
+<li>Acivated: Stack.onStatusChanged (Stack.status is Stack.Active)</li>
+<li>Deactivating: Stack.onStatusChanged (Stack.status is Stack.Deactivating)</li>
+<li>Deactivated: Stack.onStatusChanged (Stack.status is Stack.Inactive)</li>
+<li>Destruction: Component.onDestruction()</li>
+</ul>
+<a name="finding-items"></a>
+<h2 id="finding-items">Finding items</h2>
+<p>Sometimes it is necessary to search for an item, for example, in order to unwind the stack to an item to which the application does not have a reference. This is facilitated using a function <a href="qml-qtquick-controls-stackview.html#find-method">find()</a> in <a href="qml-qtquick-controls-stackview.html">StackView</a>. The <a href="qml-qtquick-controls-stackview.html#find-method">find()</a> function takes a callback function as its only argument. The callback gets invoked for each item in the stack (starting at the top). If the callback returns true, then it signals that a match has been found and the <a href="qml-qtquick-controls-stackview.html#find-method">find()</a> function returns that item. If the callback fails to return true (no match is found), then <a href="qml-qtquick-controls-stackview.html#find-method">find()</a> returns <code>null</code>.</p>
+<p>The code below searches for an item in the stack that has a name &quot;order_id&quot; and then unwinds to that item. Note that since <a href="qml-qtquick-controls-stackview.html#find-method">find()</a> returns <code>null</code> if no item is found, and since pop unwinds to the bottom of the stack if null is given as the target item, the code works well even in case no matching item is found.</p>
+<pre class="cpp">stackView<span class="operator">.</span><a href="qml-qtquick-controls-stackview.html#pop-method">pop</a>(stackView<span class="operator">.</span>find(function(item) {
+    <span class="keyword">return</span> item<span class="operator">.</span>name <span class="operator">=</span><span class="operator">=</span> <span class="string">&quot;order_id&quot;</span>;
+}));</pre>
+<p>You can also get to an item in the stack using <a href="qml-qtquick-controls-stackview.html#get-method">get(index)</a>. You should use this function if your item depends on another item in the stack, as the function will ensure that the item at the given index gets loaded before it is returned.</p>
+<pre class="cpp">previousItem <span class="operator">=</span> stackView<span class="operator">.</span><a href="qml-qtquick-controls-stackview.html#get-method">get</a>(myItem<span class="operator">.</span>Stack<span class="operator">.</span>index <span class="operator">-</span> <span class="number">1</span>));</pre>
+<a name="transitions"></a>
+<h2 id="transitions">Transitions</h2>
+<p>A transition is performed whenever a item is pushed or popped, and consists of two items: enterItem and exitItem. The <a href="qml-qtquick-controls-stackview.html">StackView</a> itself will never move items around, but instead delegate the job to an external animation set provided by the style or the application developer. How items should visually enter and leave the stack (and the geometry they should end up with) is therefore completely controlled from the outside.</p>
+<p>When the transition starts, the <a href="qml-qtquick-controls-stackview.html">StackView</a> will search for a transition that matches the operation executed. There are three transitions to choose from: <a href="qml-qtquick-controls-stackviewdelegate.html#pushTransition-prop">pushTransition</a>, <a href="qml-qtquick-controls-stackviewdelegate.html#popTransition-prop">popTransition</a>, and <a href="qml-qtquick-controls-stackviewdelegate.html#replaceTransition-prop">replaceTransition</a>. Each implements how enterItem should animate in, and exitItem out. The transitions are collected inside a <a href="qml-qtquick-controls-stackviewdelegate.html">StackViewDelegate</a> object assigned to <a href="qml-qtquick-controls-stackview.html#delegate-prop">delegate</a>. By default, popTransition and replaceTransition will be the same as pushTransition, unless you set them to something else.</p>
+<p>A simple fade transition could be implemented as:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-stackview.html">StackView</a></span> {
+    <span class="name">delegate</span>: <span class="name">StackViewDelegate</span> {
+        <span class="keyword">function</span> <span class="name">transitionFinished</span>(<span class="name">properties</span>)
+        {
+            <span class="name">properties</span>.<span class="name">exitItem</span>.<span class="name">opacity</span> <span class="operator">=</span> <span class="number">1</span>
+        }
+
+        <span class="name">pushTransition</span>: <span class="name">StackViewTransition</span> {
+            <span class="type">PropertyAnimation</span> {
+                <span class="name">target</span>: <span class="name">enterItem</span>
+                <span class="name">property</span>: <span class="string">&quot;opacity&quot;</span>
+                <span class="name">from</span>: <span class="number">0</span>
+                <span class="name">to</span>: <span class="number">1</span>
+            }
+            <span class="type">PropertyAnimation</span> {
+                <span class="name">target</span>: <span class="name">exitItem</span>
+                <span class="name">property</span>: <span class="string">&quot;opacity&quot;</span>
+                <span class="name">from</span>: <span class="number">1</span>
+                <span class="name">to</span>: <span class="number">0</span>
+            }
+        }
+    }
+}</pre>
+<p>PushTransition needs to inherit from StackViewTransition, which is a ParallelAnimation that contains the properties <code>enterItem</code> and <code>exitItem</code>. You set the target of your inner animations to those items. Since the same items instance can be pushed several times to a <a href="qml-qtquick-controls-stackview.html">StackView</a>, you should always override <a href="qml-qtquick-controls-stackviewdelegate.html#transitionFinished-method">StackViewDelegate.transitionFinished()</a>. Implement this function to reset any properties animated on the exitItem so that later transitions can expect the items to be in a default state.</p>
+<p>A more complex example could look like the following. Here, the items are lying on the side before being rotated to an upright position:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-stackview.html">StackView</a></span> {
+    <span class="name">delegate</span>: <span class="name">StackViewDelegate</span> {
+        <span class="keyword">function</span> <span class="name">transitionFinished</span>(<span class="name">properties</span>)
+        {
+            <span class="name">properties</span>.<span class="name">exitItem</span>.<span class="name">x</span> <span class="operator">=</span> <span class="number">0</span>
+            <span class="name">properties</span>.<span class="name">exitItem</span>.<span class="name">rotation</span> <span class="operator">=</span> <span class="number">0</span>
+        }
+
+        <span class="name">pushTransition</span>: <span class="name">StackViewTransition</span> {
+            <span class="type">SequentialAnimation</span> {
+                <span class="type">ScriptAction</span> {
+                    <span class="name">script</span>: <span class="name">enterItem</span>.<span class="name">rotation</span> <span class="operator">=</span> <span class="number">90</span>
+                }
+                <span class="type">PropertyAnimation</span> {
+                    <span class="name">target</span>: <span class="name">enterItem</span>
+                    <span class="name">property</span>: <span class="string">&quot;x&quot;</span>
+                    <span class="name">from</span>: <span class="name">enterItem</span>.<span class="name">width</span>
+                    <span class="name">to</span>: <span class="number">0</span>
+                }
+                <span class="type">PropertyAnimation</span> {
+                    <span class="name">target</span>: <span class="name">enterItem</span>
+                    <span class="name">property</span>: <span class="string">&quot;rotation&quot;</span>
+                    <span class="name">from</span>: <span class="number">90</span>
+                    <span class="name">to</span>: <span class="number">0</span>
+                }
+            }
+            <span class="type">PropertyAnimation</span> {
+                <span class="name">target</span>: <span class="name">exitItem</span>
+                <span class="name">property</span>: <span class="string">&quot;x&quot;</span>
+                <span class="name">from</span>: <span class="number">0</span>
+                <span class="name">to</span>: -<span class="name">exitItem</span>.<span class="name">width</span>
+            }
+        }
+    }
+}</pre>
+<a name="advanced-usage"></a>
+<h3 >Advanced usage</h3>
+<p>When the <a href="qml-qtquick-controls-stackview.html">StackView</a> needs a new transition, it first calls <a href="qml-qtquick-controls-stackviewdelegate.html#getTransition-method">StackViewDelegate.getTransition()</a>. The base implementation of this function just looks for a property named <code>properties.name</code> inside itself (root), which is how it finds <code>property Component pushTransition</code> in the examples above.</p>
+<pre class="cpp">function getTransition(properties)
+{
+    <span class="keyword">return</span> root<span class="operator">[</span>properties<span class="operator">.</span>name<span class="operator">]</span>
+}</pre>
+<p>You can override this function for your delegate if you need extra logic to decide which transition to return. You could for example introspect the items, and return different animations depending on the their internal state. <a href="qml-qtquick-controls-stackview.html">StackView</a> will expect you to return a Component that contains a StackViewTransition, or a StackViewTransition directly. The former is easier, as <a href="qml-qtquick-controls-stackview.html">StackView</a> will then create the transition and later destroy it when it's done, while avoiding any sideeffects caused by the transition being alive long after it has run. Returning a StackViewTransition directly can be useful if you need to write some sort of transition caching for performance reasons. As an optimization, you can also return <code>null</code> to signal that you just want to show/hide the items immediately without creating or running any transitions. You can also override this function if you need to alter the items in any way before the transition starts.</p>
+<p><code>properties</code> contains the properties that will be assigned to the StackViewTransition before it runs. In fact, you can add more properties to this object during the call if you need to initialize additional properties of your custom StackViewTransition when the returned component is instantiated.</p>
+<p>The following example shows how you can decide which animation to use during runtime :</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-stackviewdelegate.html">StackViewDelegate</a></span> {
+    <span class="keyword">function</span> <span class="name">getTransition</span>(<span class="name">properties</span>)
+    {
+        <span class="keyword">return</span> (<span class="name">properties</span>.<span class="name">enterItem</span>.<span class="name">Stack</span>.<span class="name">index</span> <span class="operator">%</span> <span class="number">2</span>) ? <span class="name">horizontalTransition</span> : <span class="name">verticalTransition</span>
+    }
+
+    <span class="keyword">function</span> <span class="name">transitionFinished</span>(<span class="name">properties</span>)
+    {
+        <span class="name">properties</span>.<span class="name">exitItem</span>.<span class="name">x</span> <span class="operator">=</span> <span class="number">0</span>
+        <span class="name">properties</span>.<span class="name">exitItem</span>.<span class="name">y</span> <span class="operator">=</span> <span class="number">0</span>
+    }
+
+    property <span class="type">Component</span> <span class="name">horizontalTransition</span>: <span class="name">StackViewTransition</span> {
+        <span class="type">PropertyAnimation</span> {
+            <span class="name">target</span>: <span class="name">enterItem</span>
+            <span class="name">property</span>: <span class="string">&quot;x&quot;</span>
+            <span class="name">from</span>: <span class="name">target</span>.<span class="name">width</span>
+            <span class="name">to</span>: <span class="number">0</span>
+            <span class="name">duration</span>: <span class="number">300</span>
+        }
+        <span class="type">PropertyAnimation</span> {
+            <span class="name">target</span>: <span class="name">exitItem</span>
+            <span class="name">property</span>: <span class="string">&quot;x&quot;</span>
+            <span class="name">from</span>: <span class="number">0</span>
+            <span class="name">to</span>: <span class="name">target</span>.<span class="name">width</span>
+            <span class="name">duration</span>: <span class="number">300</span>
+        }
+    }
+
+    property <span class="type">Component</span> <span class="name">verticalTransition</span>: <span class="name">StackViewTransition</span> {
+        <span class="type">PropertyAnimation</span> {
+            <span class="name">target</span>: <span class="name">enterItem</span>
+            <span class="name">property</span>: <span class="string">&quot;y&quot;</span>
+            <span class="name">from</span>: <span class="name">target</span>.<span class="name">height</span>
+            <span class="name">to</span>: <span class="number">0</span>
+            <span class="name">duration</span>: <span class="number">300</span>
+        }
+        <span class="type">PropertyAnimation</span> {
+            <span class="name">target</span>: <span class="name">exitItem</span>
+            <span class="name">property</span>: <span class="string">&quot;y&quot;</span>
+            <span class="name">from</span>: <span class="number">0</span>
+            <span class="name">to</span>: <span class="name">target</span>.<span class="name">height</span>
+            <span class="name">duration</span>: <span class="number">300</span>
+        }
+    }
+}</pre>
+<a name="supported-attached-properties"></a>
+<h2 id="supported-attached-properties">Supported Attached Properties</h2>
+<p>Items in a <a href="qml-qtquick-controls-stackview.html">StackView</a> support these attached properties:</p>
+<ul>
+<li>Stack.index - Contains the index of the item inside the <a href="qml-qtquick-controls-stackview.html">StackView</a></li>
+<li>Stack.view - Contains the <a href="qml-qtquick-controls-stackview.html">StackView</a> the item is in</li>
+<li>Stack.status - Contains the status of the item</li>
+</ul>
+<!-- @@@StackView -->
+<h2>Property Documentation</h2>
+<!-- $$$busy -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="busy-prop"><td class="tblQmlPropNode"><p><a name="busy-prop"></a><span class="qmlreadonly">read-only</span><span class="name">busy</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p><i>busy</i> is <code>true</code> if a transition is running, and <code>false</code> otherwise.</p>
+</div></div><!-- @@@busy -->
+<br/>
+<!-- $$$currentItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="currentItem-prop"><td class="tblQmlPropNode"><p><a name="currentItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">currentItem</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>The currently top-most item in the stack.</p>
+</div></div><!-- @@@currentItem -->
+<br/>
+<!-- $$$delegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="delegate-prop"><td class="tblQmlPropNode"><p><a name="delegate-prop"></a><span class="name">delegate</span> : <span class="type"><a href="qml-qtquick-controls-stackviewdelegate.html">StackViewDelegate</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The transitions to use when pushing or popping items. For better understanding on how to apply custom transitions, read <a href="qml-qtquick-controls-stackview.html#transitions">Transitions</a>.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-stackview.html#transitions">Transitions</a>.</p>
+</div></div><!-- @@@delegate -->
+<br/>
+<!-- $$$depth -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="depth-prop"><td class="tblQmlPropNode"><p><a name="depth-prop"></a><span class="qmlreadonly">read-only</span><span class="name">depth</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The number of items currently pushed onto the stack.</p>
+</div></div><!-- @@@depth -->
+<br/>
+<!-- $$$initialItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="initialItem-prop"><td class="tblQmlPropNode"><p><a name="initialItem-prop"></a><span class="name">initialItem</span> : <span class="type">var</span></p></td></tr></table></div></div><div class="qmldoc"><p>The first item that should be shown when the <a href="qml-qtquick-controls-stackview.html">StackView</a> is created. <i>initialItem</i> can take same value as the first argument to <a href="qml-qtquick-controls-stackview.html#push-method">StackView.push()</a>. Note that this is just a convenience for writing <code>Component.onCompleted: stackView.push(myInitialItem)</code></p>
+<p>Examples:</p>
+<ul>
+<li>initialItem: Qt.resolvedUrl(&quot;MyItem.qml&quot;)</li>
+<li>initialItem: myItem</li>
+<li>initialItem: {&quot;item&quot; : Qt.resolvedUrl(&quot;MyRectangle.qml&quot;), &quot;properties&quot; : {&quot;color&quot; : &quot;red&quot;}}</li>
+</ul>
+<p><b>See also </b><a href="qml-qtquick-controls-stackview.html#push-method">push</a>.</p>
+</div></div><!-- @@@initialItem -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$clear -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="clear-method"><td class="tblQmlFuncNode"><p><a name="clear-method"></a><span class="name">clear</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Remove all items from the stack. No animations will be applied.</p>
+</div></div><!-- @@@clear -->
+<br/>
+<!-- $$$completeTransition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="completeTransition-method"><td class="tblQmlFuncNode"><p><a name="completeTransition-method"></a><span class="name">completeTransition</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>Immediately completes any ongoing transition. /sa Animation.complete</p>
+</div></div><!-- @@@completeTransition -->
+<br/>
+<!-- $$$find -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="find-method"><td class="tblQmlFuncNode"><p><a name="find-method"></a><span class="name">find</span>(<i> func</i>, <i> onlySearchLoadedItems</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Search for a specific item inside the stack. <i>func</i> will be called for each item in the stack (with the item as argument) until the function returns true. Return value will be the item found. For example: find(function(item, index) { return item.isTheOne }) Set <i>onlySearchLoadedItems</i> to <code>true</code> to not load items that are not loaded into memory</p>
+</div></div><!-- @@@find -->
+<br/>
+<!-- $$$get -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="get-method"><td class="tblQmlFuncNode"><p><a name="get-method"></a><span class="name">get</span>(<i> index</i>, <i> dontLoad</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Returns the item at position <i>index</i> in the stack. If <i>dontLoad</i> is true, the item will not be forced to load (and <code>null</code> will be returned if not yet loaded)</p>
+</div></div><!-- @@@get -->
+<br/>
+<!-- $$$pop -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pop-method"><td class="tblQmlFuncNode"><p><a name="pop-method"></a><span class="name">pop</span>(<i> item</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Pops one or more items off the stack.</p>
+<p>The function can also take a property list as argument - <code>Item StackView::pop(jsobject dict)</code>, which can contain one or more of the following properties:</p>
+<ul>
+<li><code>item</code>: if specified, all items down to (but not including) <i>item</i> will be popped off. If <i>item</i> is <code>null</code>, all items down to (but not including) the first item will be popped. If not specified, only the current item will be popped.</li>
+<li><code>immediate</code>: set this property to <code>true</code> to skip transition effects.</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>stackView.pop()</li>
+<li>stackView.pop({item:someItem, immediate: true})</li>
+<li>stackView.pop({immediate: true})</li>
+<li>stackView.pop(null)</li>
+</ul>
+<p><b>Note: </b>If the only argument needed is &quot;item&quot;, you can apply the following short- hand notation: <code>stackView.pop(anItem)</code>.</p><p>Returns the item that was popped off</p>
+<p><b>See also </b><a href="qml-qtquick-controls-stackview.html#clear-method">clear()</a>.</p>
+</div></div><!-- @@@pop -->
+<br/>
+<!-- $$$push -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="push-method"><td class="tblQmlFuncNode"><p><a name="push-method"></a><span class="name">push</span>(<i> item</i>)</p></td></tr></table></div></div><div class="qmldoc"><p>Pushes an item onto the stack.</p>
+<p>The function can also take a property list as argument - <code>Item StackView::push(jsobject dict)</code>, which should contain one or more of the following properties:</p>
+<ul>
+<li><code>item</code>: this property is required, and holds the item you want to push.</li>
+<li><code>properties</code>: a list of QML properties that should be assigned to the item upon push. These properties will be copied into the item when it is loaded (in case of a component or URL), or when it becomes the current item for the first time (normally upon push).</li>
+<li><code>immediate</code>: set this property to <code>true</code> to skip transition effects. When pushing an array, you only need to set this property on the first element to make the whole operation immediate.</li>
+<li><code>replace</code>: set this property to replace the current item on the stack. When pushing an array, you only need to set this property on the first element to replace as many elements on the stack as inside the array.</li>
+<li><code>destroyOnPop</code>: set this property to specify if the item needs to be destroyed when its popped off the stack. By default (if <i>destroyOnPop</i> is not specified), <a href="qml-qtquick-controls-stackview.html">StackView</a> will destroy items pushed as components or URLs. Items not destroyed will be re-parented to the original parents they had before being pushed onto the stack, and hidden. If you need to set this property, do it with care, so that items are not leaked.</li>
+</ul>
+<p>You can also push an array of items (property lists) if you need to push several items in one go. A transition will then only occur between the current item and the last item in the list. Loading the other items will be deferred until needed.</p>
+<p>Examples:</p>
+<ul>
+<li>stackView.push({item:anItem})</li>
+<li>stackView.push({item:aURL, immediate: true, replace: true})</li>
+<li>stackView.push({item:aRectangle, properties:{color:&quot;red&quot;}})</li>
+<li>stackView.push({item:aComponent, properties:{color:&quot;red&quot;}})</li>
+<li>stackView.push({item:aComponent.createObject(), destroyOnPop:true})</li>
+<li>stackView.push([{item:anitem, immediate:true}, {item:aURL}])</li>
+</ul>
+<p><b>Note: </b>If the only argument needed is &quot;item&quot;, you can apply the following short- hand notation: <code>stackView.push(anItem)</code>.</p><p>Returns the item that became current.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-stackview.html#initialItem-prop">initialItem</a> and <a href="qml-qtquick-controls-stackview.html#pushing-items">Pushing items</a>.</p>
+</div></div><!-- @@@push -->
+<br/>
+</body>
+</html>

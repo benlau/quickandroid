@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ProgressBarStyle.qml -->
+  <title>ProgressBarStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ProgressBarStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ProgressBarStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-progressbar.html">ProgressBar</a> <a href="#details">More...</a></p>
+<!-- @@@ProgressBarStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-progressbarstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-progressbarstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-progressbarstyle.html#control-prop">control</a></b></b> : ProgressBar</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-progressbarstyle.html#currentProgress-prop">currentProgress</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-progressbarstyle.html#panel-prop">panel</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-progressbarstyle.html#progress-prop">progress</a></b></b> : Component</li>
+</ul>
+<!-- $$$ProgressBarStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-progressbar.html">ProgressBar</a></span> {
+    <span class="name">value</span>: <span class="name">slider</span>.<span class="name">value</span>
+    <span class="name">style</span>: <span class="name">ProgressBarStyle</span> {
+        <span class="name">background</span>: <span class="name">Rectangle</span> {
+            <span class="name">radius</span>: <span class="number">2</span>
+            <span class="name">color</span>: <span class="string">&quot;lightgray&quot;</span>
+            <span class="name">border</span>.color: <span class="string">&quot;gray&quot;</span>
+            <span class="name">border</span>.width: <span class="number">1</span>
+            <span class="name">implicitWidth</span>: <span class="number">200</span>
+            <span class="name">implicitHeight</span>: <span class="number">24</span>
+        }
+        <span class="name">progress</span>: <span class="name">Rectangle</span> {
+            <span class="name">color</span>: <span class="string">&quot;lightsteelblue&quot;</span>
+            <span class="name">border</span>.color: <span class="string">&quot;steelblue&quot;</span>
+        }
+    }
+}</pre>
+<p>Note that the example above is somewhat simplified and will not animate an indeterminate progress bar. The following snippet demonstrates how you can incorporate a custom animation for the indeterminate state as well.</p>
+<pre class="cpp">progress: Rectangle {
+    border<span class="operator">.</span>color: <span class="string">&quot;steelblue&quot;</span>
+    color: <span class="string">&quot;lightsteelblue&quot;</span>
+
+    <span class="comment">// Indeterminate animation by animating alternating stripes:</span>
+    Item {
+        anchors<span class="operator">.</span>fill: parent
+        anchors<span class="operator">.</span>margins: <span class="number">1</span>
+        visible: control<span class="operator">.</span>indeterminate
+        clip: <span class="keyword">true</span>
+        Row {
+            Repeater {
+                Rectangle {
+                    color: index <span class="operator">%</span> <span class="number">2</span> <span class="operator">?</span> <span class="string">&quot;steelblue&quot;</span> : <span class="string">&quot;lightsteelblue&quot;</span>
+                    width: <span class="number">20</span> ; height: control<span class="operator">.</span>height
+                }
+                model: control<span class="operator">.</span>width <span class="operator">/</span> <span class="number">20</span> <span class="operator">+</span> <span class="number">2</span>
+            }
+            XAnimator on x {
+                from: <span class="number">0</span> ; to: <span class="operator">-</span><span class="number">40</span>
+                loops: Animation<span class="operator">.</span>Infinite
+                running: control<span class="operator">.</span>indeterminate
+            }
+        }
+    }
+}</pre>
+<!-- @@@ProgressBarStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background component for this style.</p>
+<p><b>Note: </b>The implicitWidth and implicitHeight of the background component must be set.</p></div></div><!-- @@@background -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-progressbar.html">ProgressBar</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-progressbar.html">ProgressBar</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$currentProgress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="currentProgress-prop"><td class="tblQmlPropNode"><p><a name="currentProgress-prop"></a><span class="qmlreadonly">read-only</span><span class="name">currentProgress</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>A value in the range [0-1] indicating the current progress.</p>
+</div></div><!-- @@@currentProgress -->
+<br/>
+<!-- $$$panel -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="panel-prop"><td class="tblQmlPropNode"><p><a name="panel-prop"></a><span class="name">panel</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The panel component for this style.</p>
+</div></div><!-- @@@panel -->
+<br/>
+<!-- $$$progress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="progress-prop"><td class="tblQmlPropNode"><p><a name="progress-prop"></a><span class="name">progress</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The progress component for this style.</p>
+</div></div><!-- @@@progress -->
+<br/>
+</body>
+</html>

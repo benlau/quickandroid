@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ToolButton.qml -->
+  <title>ToolButton QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ToolButton QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ToolButton-brief -->
+<p>Provides a button type that is typically used within a <a href="qml-qtquick-controls-toolbar.html">ToolBar</a>. <a href="#details">More...</a></p>
+<!-- @@@ToolButton -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qtquick-controls-button.html">Button</a></p>
+</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-toolbutton-members.html">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$ToolButton-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image toolbar.png]</font></p><p><a href="qml-qtquick-controls-toolbutton.html">ToolButton</a> is functionally similar to <a href="qml-qtquick-controls-button.html">Button</a>, but can provide a look that is more suitable within a <a href="qml-qtquick-controls-toolbar.html">ToolBar</a>.</p>
+<pre class="cpp">ApplicationWindow {
+    <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    toolBar: ToolBar {
+        RowLayout {
+            ToolButton {
+                iconSource: <span class="string">&quot;new.png&quot;</span>
+            }
+            ToolButton {
+                iconSource: <span class="string">&quot;open.png&quot;</span>
+            }
+            ToolButton {
+                iconSource: <span class="string">&quot;save-as.png&quot;</span>
+            }
+            Item { Layout<span class="operator">.</span>fillWidth: <span class="keyword">true</span> }
+            CheckBox {
+                text: <span class="string">&quot;Enabled&quot;</span>
+                checked: <span class="keyword">true</span>
+            }
+        }
+    }
+}</pre>
+<p>You can create a custom appearance for a <a href="qml-qtquick-controls-toolbutton.html">ToolButton</a> by assigning a <a href="qml-qtquick-controls-styles-buttonstyle.html">ButtonStyle</a>.</p>
+<!-- @@@ToolButton -->
+</body>
+</html>

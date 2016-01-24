@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- SliderStyle.qml -->
+  <title>SliderStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">SliderStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$SliderStyle-brief -->
+<p>Provides custom styling for Slider <a href="#details">More...</a></p>
+<!-- @@@SliderStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-sliderstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-sliderstyle.html#control-prop">control</a></b></b> : Slider</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-sliderstyle.html#groove-prop">groove</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-sliderstyle.html#handle-prop">handle</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-sliderstyle.html#panel-prop">panel</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-sliderstyle.html#tickmarks-prop">tickmarks</a></b></b> : Component</li>
+</ul>
+<!-- $$$SliderStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>The slider style allows you to create a custom appearance for a <a href="qml-qtquick-controls-slider.html">Slider</a> control.</p>
+<p>The implicit size of the slider is calculated based on the maximum implicit size of the <code>background</code> and <code>handle</code> delegates combined.</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-slider.html">Slider</a></span> {
+    <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+    <span class="name">style</span>: <span class="name">SliderStyle</span> {
+        <span class="name">groove</span>: <span class="name">Rectangle</span> {
+            <span class="name">implicitWidth</span>: <span class="number">200</span>
+            <span class="name">implicitHeight</span>: <span class="number">8</span>
+            <span class="name">color</span>: <span class="string">&quot;gray&quot;</span>
+            <span class="name">radius</span>: <span class="number">8</span>
+        }
+        <span class="name">handle</span>: <span class="name">Rectangle</span> {
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+            <span class="name">color</span>: <span class="name">control</span>.<span class="name">pressed</span> ? <span class="string">&quot;white&quot;</span> : <span class="string">&quot;lightgray&quot;</span>
+            <span class="name">border</span>.color: <span class="string">&quot;gray&quot;</span>
+            <span class="name">border</span>.width: <span class="number">2</span>
+            <span class="name">implicitWidth</span>: <span class="number">34</span>
+            <span class="name">implicitHeight</span>: <span class="number">34</span>
+            <span class="name">radius</span>: <span class="number">12</span>
+        }
+    }
+}</pre>
+<!-- @@@SliderStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-slider.html">Slider</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-slider.html">Slider</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$groove -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="groove-prop"><td class="tblQmlPropNode"><p><a name="groove-prop"></a><span class="name">groove</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the background groove of the slider.</p>
+<p>You can access the handle position through the <code>styleData.handlePosition</code> property.</p>
+</div></div><!-- @@@groove -->
+<br/>
+<!-- $$$handle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="handle-prop"><td class="tblQmlPropNode"><p><a name="handle-prop"></a><span class="name">handle</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the item for the slider handle. You can access the slider through the <code>control</code> property</p>
+</div></div><!-- @@@handle -->
+<br/>
+<!-- $$$panel -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="panel-prop"><td class="tblQmlPropNode"><p><a name="panel-prop"></a><span class="name">panel</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the slider style panel.</p>
+<p>Note that it is generally not recommended to override this.</p>
+</div></div><!-- @@@panel -->
+<br/>
+<!-- $$$tickmarks -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tickmarks-prop"><td class="tblQmlPropNode"><p><a name="tickmarks-prop"></a><span class="name">tickmarks</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the tick mark labels</p>
+<p>You can access the handle width through the <code>styleData.handleWidth</code> property.</p>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.1.</p>
+</div></div><!-- @@@tickmarks -->
+<br/>
+</body>
+</html>

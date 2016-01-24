@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ButtonStyle.qml -->
+  <title>ButtonStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ButtonStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ButtonStyle-brief -->
+<p>Provides custom styling for Button <a href="#details">More...</a></p>
+<!-- @@@ButtonStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-buttonstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-buttonstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-buttonstyle.html#control-prop">control</a></b></b> : Button</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-buttonstyle.html#label-prop">label</a></b></b> : Component</li>
+</ul>
+<!-- $$$ButtonStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>You can create a custom button by replacing the &quot;background&quot; delegate of the <a href="qml-qtquick-controls-styles-buttonstyle.html">ButtonStyle</a> with a custom design.</p>
+<p>Example:</p>
+<pre class="qml"><span class="type">Button</span> {
+    <span class="name">text</span>: <span class="string">&quot;A button&quot;</span>
+    <span class="name">style</span>: <span class="name">ButtonStyle</span> {
+        <span class="name">background</span>: <span class="name">Rectangle</span> {
+            <span class="name">implicitWidth</span>: <span class="number">100</span>
+            <span class="name">implicitHeight</span>: <span class="number">25</span>
+            <span class="name">border</span>.width: <span class="name">control</span>.<span class="name">activeFocus</span> ? <span class="number">2</span> : <span class="number">1</span>
+            <span class="name">border</span>.color: <span class="string">&quot;#888&quot;</span>
+            <span class="name">radius</span>: <span class="number">4</span>
+            <span class="name">gradient</span>: <span class="name">Gradient</span> {
+                <span class="type">GradientStop</span> { <span class="name">position</span>: <span class="number">0</span> ; <span class="name">color</span>: <span class="name">control</span>.<span class="name">pressed</span> ? <span class="string">&quot;#ccc&quot;</span> : <span class="string">&quot;#eee&quot;</span> }
+                <span class="type">GradientStop</span> { <span class="name">position</span>: <span class="number">1</span> ; <span class="name">color</span>: <span class="name">control</span>.<span class="name">pressed</span> ? <span class="string">&quot;#aaa&quot;</span> : <span class="string">&quot;#ccc&quot;</span> }
+            }
+        }
+    }
+}</pre>
+<p>If you need a custom label, you can replace the label item.</p>
+<!-- @@@ButtonStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the background of the button.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type">Button</span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-button.html">Button</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$label -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="label-prop"><td class="tblQmlPropNode"><p><a name="label-prop"></a><span class="name">label</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the label of the button.</p>
+</div></div><!-- @@@label -->
+<br/>
+</body>
+</html>

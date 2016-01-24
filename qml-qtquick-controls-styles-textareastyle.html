@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TextAreaStyle.qml -->
+  <title>TextAreaStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TextAreaStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$TextAreaStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-textarea.html">TextArea</a>. <a href="#details">More...</a></p>
+<!-- @@@TextAreaStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.2</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-textareastyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textareastyle.html#backgroundColor-prop">backgroundColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textareastyle.html#control-prop">control</a></b></b> : TextArea</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textareastyle.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textareastyle.html#renderType-prop">renderType</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textareastyle.html#selectedTextColor-prop">selectedTextColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textareastyle.html#selectionColor-prop">selectionColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textareastyle.html#textColor-prop">textColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-textareastyle.html#textMargin-prop">textMargin</a></b></b> : real</li>
+</ul>
+<!-- $$$TextAreaStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-textarea.html">TextArea</a></span> {
+    <span class="name">style</span>: <span class="name">TextAreaStyle</span> {
+        <span class="name">textColor</span>: <span class="string">&quot;#333&quot;</span>
+        <span class="name">selectionColor</span>: <span class="string">&quot;steelblue&quot;</span>
+        <span class="name">selectedTextColor</span>: <span class="string">&quot;#eee&quot;</span>
+        <span class="name">backgroundColor</span>: <span class="string">&quot;#eee&quot;</span>
+    }
+}</pre>
+<!-- @@@TextAreaStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$backgroundColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="backgroundColor-prop"><td class="tblQmlPropNode"><p><a name="backgroundColor-prop"></a><span class="name">backgroundColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background color.</p>
+</div></div><!-- @@@backgroundColor -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-textarea.html">TextArea</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-textarea.html">TextArea</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="font-prop"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-qtquick-controls-styles-textareastyle.html#font-prop">font</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The current font.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$renderType -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="renderType-prop"><td class="tblQmlPropNode"><p><a name="renderType-prop"></a><span class="name">renderType</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>Override the default rendering type for the control.</p>
+<p>Supported render types are:</p>
+<ul>
+<li>Text.QtRendering</li>
+<li>Text.NativeRendering</li>
+</ul>
+<p>The default value is platform dependent.</p>
+<p><b>See also </b>Text::renderType.</p>
+</div></div><!-- @@@renderType -->
+<br/>
+<!-- $$$selectedTextColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectedTextColor-prop"><td class="tblQmlPropNode"><p><a name="selectedTextColor-prop"></a><span class="name">selectedTextColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The highlighted text color, used in selections.</p>
+</div></div><!-- @@@selectedTextColor -->
+<br/>
+<!-- $$$selectionColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectionColor-prop"><td class="tblQmlPropNode"><p><a name="selectionColor-prop"></a><span class="name">selectionColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The text highlight color, used behind selections.</p>
+</div></div><!-- @@@selectionColor -->
+<br/>
+<!-- $$$textColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textColor-prop"><td class="tblQmlPropNode"><p><a name="textColor-prop"></a><span class="name">textColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The text color.</p>
+</div></div><!-- @@@textColor -->
+<br/>
+<!-- $$$textMargin -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="textMargin-prop"><td class="tblQmlPropNode"><p><a name="textMargin-prop"></a><span class="name">textMargin</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The default margin, in pixels, around the text in the <a href="qml-qtquick-controls-textarea.html">TextArea</a>.</p>
+<p>This QML property was introduced in  QtQuick.Controls.Styles 1.3.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-textarea.html#textMargin-prop">TextArea::textMargin</a>.</p>
+</div></div><!-- @@@textMargin -->
+<br/>
+</body>
+</html>

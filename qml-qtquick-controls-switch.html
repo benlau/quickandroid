@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Switch.qml -->
+  <title>Switch QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Switch QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Switch-brief -->
+<p>A switch. <a href="#details">More...</a></p>
+<!-- @@@Switch -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.2</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-switch-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-switch.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-switch.html#checked-prop">checked</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-switch.html#exclusiveGroup-prop">exclusiveGroup</a></b></b> : ExclusiveGroup</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-switch.html#pressed-prop">pressed</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-switch.html#style-prop">style</a></b></b> : Component</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-switch.html#clicked-signal">clicked</a></b></b>()</li>
+</ul>
+<!-- $$$Switch-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image switch.png]</font></p><p class="figCaption">On and Off states of a Switch.</p>
+<p>A Switch is a toggle button that can be switched on (checked) or off (unchecked). Switches are typically used to represent features in an application that can be enabled or disabled without affecting others.</p>
+<p>On mobile platforms, switches are commonly used to enable or disable features.</p>
+<pre class="qml"><span class="type">Column</span> {
+    <span class="type">Switch</span> { <span class="name">checked</span>: <span class="number">true</span> }
+    <span class="type">Switch</span> { <span class="name">checked</span>: <span class="number">false</span> }
+}</pre>
+<p>You can create a custom appearance for a Switch by assigning a <a href="qml-qtquick-controls-styles-switchstyle.html">SwitchStyle</a>.</p>
+<!-- @@@Switch -->
+<h2>Property Documentation</h2>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="activeFocusOnPress-prop"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is <code>true</code> if the control takes the focus when it is pressed; forceActiveFocus() will be called on the control.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$checked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="checked-prop"><td class="tblQmlPropNode"><p><a name="checked-prop"></a><span class="name">checked</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is <code>true</code> if the control is checked. The default value is <code>false</code>.</p>
+</div></div><!-- @@@checked -->
+<br/>
+<!-- $$$exclusiveGroup -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="exclusiveGroup-prop"><td class="tblQmlPropNode"><p><a name="exclusiveGroup-prop"></a><span class="name">exclusiveGroup</span> : <span class="type">ExclusiveGroup</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property stores the ExclusiveGroup that the control belongs to.</p>
+</div></div><!-- @@@exclusiveGroup -->
+<br/>
+<!-- $$$pressed -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="pressed-prop"><td class="tblQmlPropNode"><p><a name="pressed-prop"></a><span class="qmlreadonly">read-only</span><span class="name">pressed</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is <code>true</code> when the control is pressed.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@pressed -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$clicked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="clicked-signal"><td class="tblQmlFuncNode"><p><a name="clicked-signal"></a><span class="name">clicked</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>This signal is emitted when the control is clicked.</p>
+<p>This QML signal was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@clicked -->
+<br/>
+</body>
+</html>

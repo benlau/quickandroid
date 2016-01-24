@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ApplicationWindow.qml -->
+  <title>ApplicationWindow QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ApplicationWindow QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ApplicationWindow-brief -->
+<p>Provides a top-level application window. <a href="#details">More...</a></p>
+<!-- @@@ApplicationWindow -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-applicationwindow-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-applicationwindow.html#contentItem-prop">contentItem</a></b></b> : ContentItem</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-applicationwindow.html#menuBar-prop">menuBar</a></b></b> : MenuBar</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-applicationwindow.html#statusBar-prop">statusBar</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-applicationwindow.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-applicationwindow.html#toolBar-prop">toolBar</a></b></b> : Item</li>
+</ul>
+<!-- $$$ApplicationWindow-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image applicationwindow.png]</font></p><p><a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a> is a Window that adds convenience for positioning items, such as <a href="qml-qtquick-controls-menubar.html">MenuBar</a>, <a href="qml-qtquick-controls-toolbar.html">ToolBar</a>, and <a href="qml-qtquick-controls-statusbar.html">StatusBar</a> in a platform independent manner.</p>
+<pre class="cpp">ApplicationWindow {
+    id: window
+    visible: <span class="keyword">true</span>
+
+    menuBar: MenuBar {
+        Menu { MenuItem {<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>} }
+        Menu { MenuItem {<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>} }
+    }
+
+    toolBar: ToolBar {
+        RowLayout {
+            anchors<span class="operator">.</span>fill: parent
+            ToolButton {<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>}
+        }
+    }
+
+    TabView {
+        id: myContent
+        anchors<span class="operator">.</span>fill: parent
+        <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    }
+}</pre>
+<p><b>Note: </b>By default, an <a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a> is not visible.</p><p>The Qt Quick Controls - Gallery example is a good starting point to explore this type.</p>
+<!-- @@@ApplicationWindow -->
+<h2>Property Documentation</h2>
+<!-- $$$contentItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentItem-prop"><td class="tblQmlPropNode"><p><a name="contentItem-prop"></a><span class="name">contentItem</span> : <span class="type">ContentItem</span></p></td></tr></table></div></div><div class="qmldoc"><p>This group holds the size constraints of the content item. This is the area between the <a href="qml-qtquick-controls-toolbar.html">ToolBar</a> and the <a href="qml-qtquick-controls-statusbar.html">StatusBar</a>. The <a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a> will use this as input when calculating the effective size constraints of the actual window. It holds these 6 properties for describing the minimum, implicit and maximum sizes:</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Grouped property</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td >contentItem.minimumWidth</td><td >The minimum width of the content item.</td></tr>
+<tr valign="top" class="even"><td >contentItem.minimumHeight</td><td >The minimum height of the content item.</td></tr>
+<tr valign="top" class="odd"><td >contentItem.implicitWidth</td><td >The implicit width of the content item.</td></tr>
+<tr valign="top" class="even"><td >contentItem.implicitHeight</td><td >The implicit height of the content item.</td></tr>
+<tr valign="top" class="odd"><td >contentItem.maximumWidth</td><td >The maximum width of the content item.</td></tr>
+<tr valign="top" class="even"><td >contentItem.maximumHeight</td><td >The maximum height of the content item.</td></tr>
+</table></div>
+</div></div><!-- @@@contentItem -->
+<br/>
+<!-- $$$menuBar -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="menuBar-prop"><td class="tblQmlPropNode"><p><a name="menuBar-prop"></a><span class="name">menuBar</span> : <span class="type"><a href="qml-qtquick-controls-menubar.html">MenuBar</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the <a href="qml-qtquick-controls-menubar.html">MenuBar</a>.</p>
+<p>By default, this value is not set.</p>
+</div></div><!-- @@@menuBar -->
+<br/>
+<!-- $$$statusBar -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="statusBar-prop"><td class="tblQmlPropNode"><p><a name="statusBar-prop"></a><span class="name">statusBar</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the status bar Item.</p>
+<p>It can be set to any Item type, but is generally used with <a href="qml-qtquick-controls-statusbar.html">StatusBar</a>.</p>
+<p>By default, this value is not set. When you set the status bar item, it will be anchored automatically into the application window.</p>
+</div></div><!-- @@@statusBar -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for the window.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$toolBar -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="toolBar-prop"><td class="tblQmlPropNode"><p><a name="toolBar-prop"></a><span class="name">toolBar</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the toolbar Item.</p>
+<p>It can be set to any Item type, but is generally used with <a href="qml-qtquick-controls-toolbar.html">ToolBar</a>.</p>
+<p>By default, this value is not set. When you set the toolbar item, it will be anchored automatically into the application window.</p>
+</div></div><!-- @@@toolBar -->
+<br/>
+</body>
+</html>

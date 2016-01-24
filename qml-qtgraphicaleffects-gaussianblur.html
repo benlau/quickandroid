@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- GaussianBlur.qml -->
+  <title>GaussianBlur QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">GaussianBlur QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$GaussianBlur-brief -->
+<p>Applies a higher quality blur effect. <a href="#details">More...</a></p>
+<!-- @@@GaussianBlur -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtGraphicalEffects .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtGraphicalEffects 1.0</td></tr></table></div><ul>
+<li><a href="qml-qtgraphicaleffects-gaussianblur-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-gaussianblur.html#cached-prop">cached</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-gaussianblur.html#deviation-prop">deviation</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-gaussianblur.html#radius-prop">radius</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-gaussianblur.html#source-prop">source</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-gaussianblur.html#transparentBorder-prop">transparentBorder</a></b></b> : bool</li>
+</ul>
+<!-- $$$GaussianBlur-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p><a href="qml-qtgraphicaleffects-gaussianblur.html">GaussianBlur</a> effect softens the image by blurring it with an algorithm that uses the Gaussian function to calculate the effect. The effect produces higher quality than FastBlur, but is slower to render.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Source</th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_bug.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_bug.png]</font></p></td></tr>
+</table></div>
+<a name="example"></a>
+<h2 id="example">Example</h2>
+<p>The following example shows how to apply the effect.</p>
+<pre class="qml"></pre>
+<!-- @@@GaussianBlur -->
+<h2>Property Documentation</h2>
+<!-- $$$cached -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cached-prop"><td class="tblQmlPropNode"><p><a name="cached-prop"></a><span class="name">cached</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property allows the effect output pixels to be cached in order to improve the rendering performance. Every time the source or effect properties are changed, the pixels in the cache must be updated. Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.</p>
+<p>It is recommended to disable the cache when the source or the effect properties are animated.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+</div></div><!-- @@@cached -->
+<br/>
+<!-- $$$deviation -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="deviation-prop"><td class="tblQmlPropNode"><p><a name="deviation-prop"></a><span class="name">deviation</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property is a parameter to the gaussian function that is used when calculating neighboring pixel weights for the blurring. A larger deviation causes image to appear more blurry, but it also reduces the quality of the blur. A very large deviation value causes the effect to look a bit similar to what, for exmple, a box blur algorithm produces. A too small deviation values makes the effect insignificant for the pixels near the radius.</p>
+<p><font color="red">[Missing image GaussianBlur_deviation_graph.png]</font></p>
+<p class="figCaption">The image above shows the Gaussian function with two different deviation values, yellow (1) and cyan (2.7). The y-axis shows the weights, the x-axis shows the pixel distance.</p>
+<p>The value ranges from 0.0 (no deviation) to inf (maximum deviation). By default, devaition is binded to radius. When radius increases, deviation is automatically increased linearly. With the radius value of 8, the deviation default value becomes approximately 2.7034. This value produces a compromise between the blur quality and overall blurriness.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different deviation values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_deviation1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_deviation2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_deviation3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> deviation: 1 </b></td><td ><b> deviation: 2 </b></td><td ><b> deviation: 4 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#radius-prop">radius</a>: 8</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#radius-prop">radius</a>: 8</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#radius-prop">radius</a>: 8</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a>: 16</td></tr>
+</table></div>
+</div></div><!-- @@@deviation -->
+<br/>
+<!-- $$$radius -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="radius-prop"><td class="tblQmlPropNode"><p><a name="radius-prop"></a><span class="name">radius</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the distance of the neighboring pixels which affect the blurring of an individual pixel. A larger radius increases the blur effect.</p>
+<p>Depending on the radius value, value of the <a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a> should be set to sufficiently large to ensure the visual quality.</p>
+<p>The value ranges from 0.0 (no blur) to inf. By default, the property is set to <code>0.0</code> (no blur).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different radius values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_radius1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_radius2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_radius3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> radius: 0 </b></td><td ><b> radius: 4 </b></td><td ><b> radius: 8 </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a>: 16</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#deviation-prop">deviation</a>: 3</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#deviation-prop">deviation</a>: 3</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#deviation-prop">deviation</a>: 3</td></tr>
+</table></div>
+</div></div><!-- @@@radius -->
+<br/>
+<!-- $$$samples -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="samples-prop"><td class="tblQmlPropNode"><p><a name="samples-prop"></a><span class="name">samples</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines how many samples are taken per pixel when blur calculation is done. Larger value produces better quality, but is slower to render.</p>
+<p>Ideally, this value should be twice as large as the highest required radius value, for example, if the radius is animated between 0.0 and 4.0, samples should be set to 8.</p>
+<p>The value ranges from 0 to 32. By default, the property is set to <code>0</code>.</p>
+<p>This property is not intended to be animated. Changing this property may cause the underlying OpenGL shaders to be recompiled.</p>
+</div></div><!-- @@@samples -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="source-prop"><td class="tblQmlPropNode"><p><a name="source-prop"></a><span class="name">source</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the source item that is going to be blurred.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting source to the effect's parent.</p></div></div><!-- @@@source -->
+<br/>
+<!-- $$$transparentBorder -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="transparentBorder-prop"><td class="tblQmlPropNode"><p><a name="transparentBorder-prop"></a><span class="name">transparentBorder</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the blur behavior near the edges of the item, where the pixel blurring is affected by the pixels outside the source edges.</p>
+<p>If the property is set to <code>true</code>, the pixels outside the source are interpreted to be transparent, which is similar to OpenGL clamp-to-border extension. The blur is expanded slightly outside the effect item area.</p>
+<p>If the property is set to <code>false</code>, the pixels outside the source are interpreted to contain the same color as the pixels at the edge of the item, which is similar to OpenGL clamp-to-edge behavior. The blur does not expand outside the effect item area.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different transparentBorder values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_transparentBorder1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image GaussianBlur_transparentBorder2.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> transparentBorder: false </b></td><td ><b> transparentBorder: true </b></td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#radius-prop">radius</a>: 8</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#radius-prop">radius</a>: 8</td></tr>
+<tr valign="top" class="even"><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a>: 16</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#samples-prop">samples</a>: 16</td></tr>
+<tr valign="top" class="odd"><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#deviation-prop">deviation</a>: 2.7</td><td ><a href="qml-qtgraphicaleffects-gaussianblur.html#deviation-prop">deviation</a>: 2.7</td></tr>
+</table></div>
+</div></div><!-- @@@transparentBorder -->
+<br/>
+</body>
+</html>

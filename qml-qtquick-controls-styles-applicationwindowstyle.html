@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ApplicationWindowStyle.qml -->
+  <title>ApplicationWindowStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ApplicationWindowStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ApplicationWindowStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a> <a href="#details">More...</a></p>
+<!-- @@@ApplicationWindowStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.4</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-applicationwindowstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-applicationwindowstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-applicationwindowstyle.html#control-prop">control</a></b></b> : ApplicationWindow</li>
+</ul>
+<!-- $$$ApplicationWindowStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>You can create a custom window background by replacing the &quot;background&quot; delegate of <a href="qml-qtquick-controls-styles-applicationwindowstyle.html">ApplicationWindowStyle</a> with a custom design.</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a></span> {
+    <span class="name">style</span>: <span class="name">ApplicationWindowStyle</span> {
+        <span class="name">background</span>: <span class="name">BorderImage</span> {
+            <span class="name">source</span>: <span class="string">&quot;background.png&quot;</span>
+            <span class="type">border</span> { <span class="name">left</span>: <span class="number">20</span>; <span class="name">top</span>: <span class="number">20</span>; <span class="name">right</span>: <span class="number">20</span>; <span class="name">bottom</span>: <span class="number">20</span> }
+        }
+    }
+}</pre>
+<!-- @@@ApplicationWindowStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>A custom background for the window.</p>
+<p><b>Note: </b>The window might have a custom background color set. The custom background color is automatically filled by the window. The background delegate should respect the custom background color by either hiding itself altogether when a custom background color is set, or by letting the custom background color shine through.</p><p>The following read-only property is available within the scope of the background delegate:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><b>styleData.hasColor</b> : bool</td><td >Whether the window has a custom background color set.</td></tr>
+</table></div>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The window attached to this style.</p>
+</div></div><!-- @@@control -->
+<br/>
+</body>
+</html>

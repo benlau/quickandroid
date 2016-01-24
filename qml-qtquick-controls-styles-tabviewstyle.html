@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TabViewStyle.qml -->
+  <title>TabViewStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TabViewStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$TabViewStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-tabview.html">TabView</a> <a href="#details">More...</a></p>
+<!-- @@@TabViewStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-tabviewstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#control-prop">control</a></b></b> : TabView</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#frame-prop">frame</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#frameOverlap-prop">frameOverlap</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#leftCorner-prop">leftCorner</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#rightCorner-prop">rightCorner</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#tab-prop">tab</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#tabBar-prop">tabBar</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#tabOverlap-prop">tabOverlap</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#tabsAlignment-prop">tabsAlignment</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-tabviewstyle.html#tabsMovable-prop">tabsMovable</a></b></b> : bool</li>
+</ul>
+<!-- $$$TabViewStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<pre class="qml"><span class="type">TabView</span> {
+    <span class="name">id</span>: <span class="name">frame</span>
+    <span class="name">anchors</span>.fill: <span class="name">parent</span>
+    <span class="name">anchors</span>.margins: <span class="number">4</span>
+    <span class="type">Tab</span> { <span class="name">title</span>: <span class="string">&quot;Tab 1&quot;</span> }
+    <span class="type">Tab</span> { <span class="name">title</span>: <span class="string">&quot;Tab 2&quot;</span> }
+    <span class="type">Tab</span> { <span class="name">title</span>: <span class="string">&quot;Tab 3&quot;</span> }
+
+    <span class="name">style</span>: <span class="name">TabViewStyle</span> {
+        <span class="name">frameOverlap</span>: <span class="number">1</span>
+        <span class="name">tab</span>: <span class="name">Rectangle</span> {
+            <span class="name">color</span>: <span class="name">styleData</span>.<span class="name">selected</span> ? <span class="string">&quot;steelblue&quot;</span> :<span class="string">&quot;lightsteelblue&quot;</span>
+            <span class="name">border</span>.color:  <span class="string">&quot;steelblue&quot;</span>
+            <span class="name">implicitWidth</span>: <span class="name">Math</span>.<span class="name">max</span>(<span class="name">text</span>.<span class="name">width</span> <span class="operator">+</span> <span class="number">4</span>, <span class="number">80</span>)
+            <span class="name">implicitHeight</span>: <span class="number">20</span>
+            <span class="name">radius</span>: <span class="number">2</span>
+            <span class="type">Text</span> {
+                <span class="name">id</span>: <span class="name">text</span>
+                <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                <span class="name">text</span>: <span class="name">styleData</span>.<span class="name">title</span>
+                <span class="name">color</span>: <span class="name">styleData</span>.<span class="name">selected</span> ? <span class="string">&quot;white&quot;</span> : <span class="string">&quot;black&quot;</span>
+            }
+        }
+        <span class="name">frame</span>: <span class="name">Rectangle</span> { <span class="name">color</span>: <span class="string">&quot;steelblue&quot;</span> }
+    }
+}</pre>
+<!-- @@@TabViewStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type">TabView</span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$frame -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="frame-prop"><td class="tblQmlPropNode"><p><a name="frame-prop"></a><span class="name">frame</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the tab frame.</p>
+</div></div><!-- @@@frame -->
+<br/>
+<!-- $$$frameOverlap -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="frameOverlap-prop"><td class="tblQmlPropNode"><p><a name="frameOverlap-prop"></a><span class="name">frameOverlap</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the amount of overlap there are between individual tab buttons and the frame.</p>
+</div></div><!-- @@@frameOverlap -->
+<br/>
+<!-- $$$leftCorner -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="leftCorner-prop"><td class="tblQmlPropNode"><p><a name="leftCorner-prop"></a><span class="name">leftCorner</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the left corner.</p>
+</div></div><!-- @@@leftCorner -->
+<br/>
+<!-- $$$rightCorner -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="rightCorner-prop"><td class="tblQmlPropNode"><p><a name="rightCorner-prop"></a><span class="name">rightCorner</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the right corner.</p>
+</div></div><!-- @@@rightCorner -->
+<br/>
+<!-- $$$tab -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tab-prop"><td class="tblQmlPropNode"><p><a name="tab-prop"></a><span class="name">tab</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the tab. You can access the tab state through the <code>styleData</code> property, with the following properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >readonly property int <b>styleData.index</b></td><td >This is the current tab index.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.selected</b></td><td >This is the active tab.</td></tr>
+<tr valign="top" class="odd"><td >readonly property string <b>styleData.title</b></td><td >Tab title text.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.nextSelected</b></td><td >The next tab is selected.</td></tr>
+<tr valign="top" class="odd"><td >readonly property bool <b>styleData.previousSelected</b></td><td >The previous tab is selected.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.pressed</b></td><td >The tab is being pressed. (since QtQuick.Controls.Styles 1.3)</td></tr>
+<tr valign="top" class="odd"><td >readonly property bool <b>styleData.hovered</b></td><td >The tab is being hovered.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.enabled</b></td><td >The tab is enabled. (since QtQuick.Controls.Styles 1.2)</td></tr>
+<tr valign="top" class="odd"><td >readonly property bool <b>styleData.activeFocus</b></td><td >The tab button has keyboard focus.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.availableWidth</b></td><td >The available width for the tabs.</td></tr>
+<tr valign="top" class="odd"><td >readonly property bool <b>styleData.totalWidth</b></td><td >The total width of the tabs. (since QtQuick.Controls.Styles 1.2)</td></tr>
+</table></div>
+</div></div><!-- @@@tab -->
+<br/>
+<!-- $$$tabBar -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tabBar-prop"><td class="tblQmlPropNode"><p><a name="tabBar-prop"></a><span class="name">tabBar</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the tab bar background.</p>
+</div></div><!-- @@@tabBar -->
+<br/>
+<!-- $$$tabOverlap -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tabOverlap-prop"><td class="tblQmlPropNode"><p><a name="tabOverlap-prop"></a><span class="name">tabOverlap</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the amount of overlap there are between individual tab buttons.</p>
+</div></div><!-- @@@tabOverlap -->
+<br/>
+<!-- $$$tabsAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tabsAlignment-prop"><td class="tblQmlPropNode"><p><a name="tabsAlignment-prop"></a><span class="name">tabsAlignment</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the horizontal alignment of the tab buttons. Supported values are:</p>
+<ul>
+<li>Qt.AlignLeft (default)</li>
+<li>Qt.AlignHCenter</li>
+<li>Qt.AlignRight</li>
+</ul>
+</div></div><!-- @@@tabsAlignment -->
+<br/>
+<!-- $$$tabsMovable -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="tabsMovable-prop"><td class="tblQmlPropNode"><p><a name="tabsMovable-prop"></a><span class="name">tabsMovable</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the user can move the tabs. Tabs are not movable by default.</p>
+</div></div><!-- @@@tabsMovable -->
+<br/>
+</body>
+</html>

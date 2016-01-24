@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- BusyIndicatorStyle.qml -->
+  <title>BusyIndicatorStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">BusyIndicatorStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$BusyIndicatorStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-styles-busyindicatorstyle.html">BusyIndicatorStyle</a> <a href="#details">More...</a></p>
+<!-- @@@BusyIndicatorStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.2</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-busyindicatorstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-busyindicatorstyle.html#control-prop">control</a></b></b> : BusyIndicator</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-busyindicatorstyle.html#indicator-prop">indicator</a></b></b> : Component</li>
+</ul>
+<!-- $$$BusyIndicatorStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>You can create a busy indicator by replacing the &quot;indicator&quot; delegate of the <a href="qml-qtquick-controls-styles-busyindicatorstyle.html">BusyIndicatorStyle</a> with a custom design.</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-busyindicator.html">BusyIndicator</a></span> {
+    <span class="name">style</span>: <span class="name">BusyIndicatorStyle</span> {
+        <span class="name">indicator</span>: <span class="name">Image</span> {
+            <span class="name">visible</span>: <span class="name">control</span>.<span class="name">running</span>
+            <span class="name">source</span>: <span class="string">&quot;spinner.png&quot;</span>
+            RotationAnimator on <span class="name">rotation</span> {
+                <span class="name">running</span>: <span class="name">control</span>.<span class="name">running</span>
+                <span class="name">loops</span>: <span class="name">Animation</span>.<span class="name">Infinite</span>
+                <span class="name">duration</span>: <span class="number">2000</span>
+                <span class="name">from</span>: <span class="number">0</span> ; <span class="name">to</span>: <span class="number">360</span>
+            }
+        }
+    }
+}</pre>
+<!-- @@@BusyIndicatorStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-busyindicator.html">BusyIndicator</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-busyindicator.html">BusyIndicator</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$indicator -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="indicator-prop"><td class="tblQmlPropNode"><p><a name="indicator-prop"></a><span class="name">indicator</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the appearance of the busy indicator.</p>
+</div></div><!-- @@@indicator -->
+<br/>
+</body>
+</html>

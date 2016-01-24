@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- CheckBoxStyle.qml -->
+  <title>CheckBoxStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">CheckBoxStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$CheckBoxStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-checkbox.html">CheckBox</a> <a href="#details">More...</a></p>
+<!-- @@@CheckBoxStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-checkboxstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-checkboxstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-checkboxstyle.html#control-prop">control</a></b></b> : CheckBox</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-checkboxstyle.html#indicator-prop">indicator</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-checkboxstyle.html#label-prop">label</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-checkboxstyle.html#spacing-prop">spacing</a></b></b> : int</li>
+</ul>
+<!-- $$$CheckBoxStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-checkbox.html">CheckBox</a></span> {
+    <span class="name">text</span>: <span class="string">&quot;Check Box&quot;</span>
+    <span class="name">style</span>: <span class="name">CheckBoxStyle</span> {
+        <span class="name">indicator</span>: <span class="name">Rectangle</span> {
+                <span class="name">implicitWidth</span>: <span class="number">16</span>
+                <span class="name">implicitHeight</span>: <span class="number">16</span>
+                <span class="name">radius</span>: <span class="number">3</span>
+                <span class="name">border</span>.color: <span class="name">control</span>.<span class="name">activeFocus</span> ? <span class="string">&quot;darkblue&quot;</span> : <span class="string">&quot;gray&quot;</span>
+                <span class="name">border</span>.width: <span class="number">1</span>
+                <span class="type">Rectangle</span> {
+                    <span class="name">visible</span>: <span class="name">control</span>.<span class="name">checked</span>
+                    <span class="name">color</span>: <span class="string">&quot;#555&quot;</span>
+                    <span class="name">border</span>.color: <span class="string">&quot;#333&quot;</span>
+                    <span class="name">radius</span>: <span class="number">1</span>
+                    <span class="name">anchors</span>.margins: <span class="number">4</span>
+                    <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                }
+        }
+    }
+}</pre>
+<!-- @@@CheckBoxStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background under indicator and label.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-checkbox.html">CheckBox</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-checkbox.html">CheckBox</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$indicator -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="indicator-prop"><td class="tblQmlPropNode"><p><a name="indicator-prop"></a><span class="name">indicator</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the indicator button.</p>
+</div></div><!-- @@@indicator -->
+<br/>
+<!-- $$$label -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="label-prop"><td class="tblQmlPropNode"><p><a name="label-prop"></a><span class="name">label</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This defines the text label.</p>
+</div></div><!-- @@@label -->
+<br/>
+<!-- $$$spacing -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="spacing-prop"><td class="tblQmlPropNode"><p><a name="spacing-prop"></a><span class="name">spacing</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>The spacing between indicator and label.</p>
+</div></div><!-- @@@spacing -->
+<br/>
+</body>
+</html>

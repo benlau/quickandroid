@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ScrollView.qml -->
+  <title>ScrollView QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ScrollView QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ScrollView-brief -->
+<p>Provides a scrolling view within another Item. <a href="#details">More...</a></p>
+<!-- @@@ScrollView -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qtquick-controls-private-basictableview.html">BasicTableView</a>, <a href="qml-qtquick-controls-tableview.html">TableView</a>, and <a href="qml-qtquick-controls-textarea.html">TextArea</a>.</p>
+</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-scrollview-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-scrollview.html#contentItem-prop">contentItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-scrollview.html#flickableItem-prop">flickableItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-scrollview.html#frameVisible-prop">frameVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-scrollview.html#highlightOnFocus-prop">highlightOnFocus</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-scrollview.html#horizontalScrollBarPolicy-prop">horizontalScrollBarPolicy</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-scrollview.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-scrollview.html#verticalScrollBarPolicy-prop">verticalScrollBarPolicy</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-scrollview.html#viewport-prop">viewport</a></b></b> : Item</li>
+</ul>
+<!-- $$$ScrollView-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image scrollview.png]</font></p><p>A <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> can be used either to replace a Flickable or decorate an existing Flickable. Depending on the platform, it will add scroll bars and a content frame.</p>
+<p>Only one Item can be a direct child of the <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> and the child is implicitly anchored to fill the scroll view.</p>
+<p>Example:</p>
+<pre class="cpp">ScrollView {
+    Image { source: <span class="string">&quot;largeImage.png&quot;</span> }
+}</pre>
+<p>In the previous example the Image item will implicitly get scroll behavior as if it was used within a Flickable. The width and height of the child item will be used to define the size of the content area.</p>
+<p>Example:</p>
+<pre class="cpp">ScrollView {
+    ListView {
+        <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    }
+}</pre>
+<p>In this case the content size of the <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> will simply mirror that of its contained <a href="qml-qtquick-controls-scrollview.html#flickableItem-prop">flickableItem</a>.</p>
+<p>You can create a custom appearance for a <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> by assigning a <a href="qml-qtquick-controls-styles-scrollviewstyle.html">ScrollViewStyle</a>.</p>
+<!-- @@@ScrollView -->
+<h2>Property Documentation</h2>
+<!-- $$$contentItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentItem-prop"><td class="tblQmlPropNode"><p><a name="contentItem-prop"></a><span class="qmldefault">default</span><span class="name">contentItem</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>The contentItem of the <a href="qml-qtquick-controls-scrollview.html">ScrollView</a>. This is set by the user.</p>
+<p>Note that the definition of contentItem is somewhat different to that of a Flickable, where the contentItem is implicitly created.</p>
+</div></div><!-- @@@contentItem -->
+<br/>
+<!-- $$$flickableItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="flickableItem-prop"><td class="tblQmlPropNode"><p><a name="flickableItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">flickableItem</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>The flickableItem of the <a href="qml-qtquick-controls-scrollview.html">ScrollView</a>. If the <a href="qml-qtquick-controls-scrollview.html#contentItem-prop">contentItem</a> provided to the <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> is a Flickable, it will be the <a href="qml-qtquick-controls-scrollview.html#contentItem-prop">contentItem</a>.</p>
+</div></div><!-- @@@flickableItem -->
+<br/>
+<!-- $$$frameVisible -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="frameVisible-prop"><td class="tblQmlPropNode"><p><a name="frameVisible-prop"></a><span class="name">frameVisible</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property tells the <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> if it should render a frame around its content.</p>
+<p>The default value is <code>false</code>.</p>
+</div></div><!-- @@@frameVisible -->
+<br/>
+<!-- $$$highlightOnFocus -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="highlightOnFocus-prop"><td class="tblQmlPropNode"><p><a name="highlightOnFocus-prop"></a><span class="name">highlightOnFocus</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property controls if there should be a highlight around the frame when the <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> has input focus.</p>
+<p>The default value is <code>false</code>.</p>
+<p><b>Note: </b>This property is only applicable on some platforms, such as Mac OS.</p></div></div><!-- @@@highlightOnFocus -->
+<br/>
+<!-- $$$horizontalScrollBarPolicy -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="horizontalScrollBarPolicy-prop"><td class="tblQmlPropNode"><p><a name="horizontalScrollBarPolicy-prop"></a><span class="name">horizontalScrollBarPolicy</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the policy for showing the horizontal scrollbar. It can be any of the following values:</p>
+<ul>
+<li>Qt.ScrollBarAsNeeded</li>
+<li>Qt.ScrollBarAlwaysOff</li>
+<li>Qt.ScrollBarAlwaysOn</li>
+</ul>
+<p>The default policy is <code>Qt.ScrollBarAsNeeded</code>.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@horizontalScrollBarPolicy -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$verticalScrollBarPolicy -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="verticalScrollBarPolicy-prop"><td class="tblQmlPropNode"><p><a name="verticalScrollBarPolicy-prop"></a><span class="name">verticalScrollBarPolicy</span> : <span class="type">enumeration</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the policy for showing the vertical scrollbar. It can be any of the following values:</p>
+<ul>
+<li>Qt.ScrollBarAsNeeded</li>
+<li>Qt.ScrollBarAlwaysOff</li>
+<li>Qt.ScrollBarAlwaysOn</li>
+</ul>
+<p>The default policy is <code>Qt.ScrollBarAsNeeded</code>.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@verticalScrollBarPolicy -->
+<br/>
+<!-- $$$viewport -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="viewport-prop"><td class="tblQmlPropNode"><p><a name="viewport-prop"></a><span class="name">viewport</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>The viewport determines the current &quot;window&quot; on the <a href="qml-qtquick-controls-scrollview.html#contentItem-prop">contentItem</a>. In other words, it clips it and the size of the viewport tells you how much of the content area is visible.</p>
+</div></div><!-- @@@viewport -->
+<br/>
+</body>
+</html>

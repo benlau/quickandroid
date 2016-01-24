@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Displace.qml -->
+  <title>Displace QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Displace QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Displace-brief -->
+<p>Moves the pixels of the source item according to the given displacement map. <a href="#details">More...</a></p>
+<!-- @@@Displace -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtGraphicalEffects .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtGraphicalEffects 1.0</td></tr></table></div><ul>
+<li><a href="qml-qtgraphicaleffects-displace-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-displace.html#cached-prop">cached</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-displace.html#displacement-prop">displacement</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-displace.html#displacementSource-prop">displacementSource</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-qtgraphicaleffects-displace.html#source-prop">source</a></b></b> : variant</li>
+</ul>
+<!-- $$$Displace-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Source</th><th >DisplacementSource</th><th >Effect applied</th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Original_bug.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Displace_map.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Displace_bug.png]</font></p></td></tr>
+</table></div>
+<a name="example"></a>
+<h2 id="example">Example</h2>
+<p>The following example shows how to apply the effect.</p>
+<pre class="qml"></pre>
+<!-- @@@Displace -->
+<h2>Property Documentation</h2>
+<!-- $$$cached -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="cached-prop"><td class="tblQmlPropNode"><p><a name="cached-prop"></a><span class="name">cached</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property allows the effect output pixels to be cached in order to improve the rendering performance.</p>
+<p>Every time the source or effect properties are changed, the pixels in the cache must be updated. Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.</p>
+<p>It is recommended to disable the cache when the source or the effect properties are animated.</p>
+<p>By default, the property is set to <code>false</code>.</p>
+</div></div><!-- @@@cached -->
+<br/>
+<!-- $$$displacement -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="displacement-prop"><td class="tblQmlPropNode"><p><a name="displacement-prop"></a><span class="name">displacement</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the scale for the displacement. The bigger scale, the bigger the displacement of the pixels. The value set to 0.0 causes no displacement.</p>
+<p>The value ranges from -1.0 (inverted maximum shift, according to <a href="qml-qtgraphicaleffects-displace.html#displacementSource-prop">displacementSource</a>) to 1.0 (maximum shift, according to <a href="qml-qtgraphicaleffects-displace.html#displacementSource-prop">displacementSource</a>). By default, the property is set to <code>0.0</code> (no displacement).</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Output examples with different displacement values</th><th ></th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image Displace_displacement1.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Displace_displacement2.png]</font></p></td><td ><p class="centerAlign"><font color="red">[Missing image Displace_displacement3.png]</font></p></td></tr>
+<tr valign="top" class="even"><td ><b> displacement: -0.2 </b></td><td ><b> displacement: 0.0 </b></td><td ><b> displacement: 0.2 </b></td></tr>
+</table></div>
+</div></div><!-- @@@displacement -->
+<br/>
+<!-- $$$displacementSource -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="displacementSource-prop"><td class="tblQmlPropNode"><p><a name="displacementSource-prop"></a><span class="name">displacementSource</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the item that is going to be used as the displacement map. The displacementSource item gets rendered into the intermediate pixel buffer. The red and green component values from the result determine the displacement of the pixels from the source item.</p>
+<p>The format for the displacement map is similar to the tangent space normal maps, which can be created with most 3D-modeling tools. Many image processing tools include the support for generating normal maps. Alternatively, the displacement map for this effect can also be a QML element which is colored appropriately. Like any QML element, it can be animated. It is recommended that the size of the diplacement map matches the size of the <a href="qml-qtgraphicaleffects-displace.html#source-prop">source</a>.</p>
+<p>The displace data is interpreted in the RGBA format. For every pixel: the red channel stores the x-axis displacement, and the green channel stores the y-axis displacement. Blue and alpha channels are ignored for this effect.</p>
+<p>Assuming that red channel value 1.0 is fully red (0.0 having no red at all), this effect considers pixel component value 0.5 to cause no displacement at all. Values above 0.5 shift pixels to the left, values below 0.5 do the shift to the right. In a similar way, green channel values above 0.5 displace the pixels upwards, and values below 0.5 shift the pixels downwards. The actual amount of displacement in pixels depends on the <a href="qml-qtgraphicaleffects-displace.html#displacement-prop">displacement</a> property.</p>
+</div></div><!-- @@@displacementSource -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="source-prop"><td class="tblQmlPropNode"><p><a name="source-prop"></a><span class="name">source</span> : <span class="type">variant</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property defines the source item for the pixels that are going to be displaced according to the data from <a href="qml-qtgraphicaleffects-displace.html#displacementSource-prop">displacementSource</a>.</p>
+<p><b>Note: </b>It is not supported to let the effect include itself, for instance by setting source to the effect's parent.</p></div></div><!-- @@@source -->
+<br/>
+</body>
+</html>

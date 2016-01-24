@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- StatusBar.qml -->
+  <title>StatusBar QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">StatusBar QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$StatusBar-brief -->
+<p>Contains status information in your app. <a href="#details">More...</a></p>
+<!-- @@@StatusBar -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-statusbar-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-statusbar.html#contentItem-prop">contentItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-statusbar.html#style-prop">style</a></b></b> : Component</li>
+</ul>
+<!-- $$$StatusBar-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p>The common way of using <a href="qml-qtquick-controls-statusbar.html">StatusBar</a> is in relation to <a href="qml-qtquick-controls-applicationwindow.html">ApplicationWindow</a>.</p>
+<p>Note that the <a href="qml-qtquick-controls-statusbar.html">StatusBar</a> does not provide a layout of its own, but requires you to position its contents, for instance by creating a RowLayout.</p>
+<p>If only a single item is used within the <a href="qml-qtquick-controls-statusbar.html">StatusBar</a>, it will resize to fit the implicitHeight of its contained item. This makes it particularly suitable for use together with layouts. Otherwise the height is platform dependent.</p>
+<pre class="cpp">import <span class="type">QtQuick</span><span class="operator">.</span>Controls <span class="number">1.2</span>
+import <span class="type">QtQuick</span><span class="operator">.</span>Layouts <span class="number">1.0</span>
+
+ApplicationWindow {
+    statusBar: StatusBar {
+        RowLayout {
+            anchors<span class="operator">.</span>fill: parent
+            Label { text: <span class="string">&quot;Read Only&quot;</span> }
+        }
+    }
+}</pre>
+<!-- @@@StatusBar -->
+<h2>Property Documentation</h2>
+<!-- $$$contentItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentItem-prop"><td class="tblQmlPropNode"><p><a name="contentItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">contentItem</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the content Item of the status bar.</p>
+<p>Items declared as children of a <a href="qml-qtquick-controls-statusbar.html">StatusBar</a> are automatically parented to the <a href="qml-qtquick-controls-statusbar.html">StatusBar</a>'s contentItem. Items created dynamically need to be explicitly parented to the contentItem:</p>
+<p><b>Note: </b>The implicit size of the <a href="qml-qtquick-controls-statusbar.html">StatusBar</a> is calculated based on the size of its content. If you want to anchor items inside the status bar, you must specify an explicit width and height on the <a href="qml-qtquick-controls-statusbar.html">StatusBar</a> itself.</p></div></div><!-- @@@contentItem -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b><a href="qml-qtquick-controls-styles-statusbarstyle.html">StatusBarStyle</a>.</p>
+</div></div><!-- @@@style -->
+<br/>
+</body>
+</html>

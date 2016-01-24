@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ScrollViewStyle.qml -->
+  <title>ScrollViewStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ScrollViewStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ScrollViewStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> <a href="#details">More...</a></p>
+<!-- @@@ScrollViewStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qml-basictableviewstyle.html">BasicTableViewStyle</a>, <a href="qml-qtquick-controls-styles-tableviewstyle.html">TableViewStyle</a>, and <a href="qml-qtquick-controls-styles-textareastyle.html">TextAreaStyle</a>.</p>
+</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-scrollviewstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#control-prop">control</a></b></b> : ScrollView</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#corner-prop">corner</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#decrementControl-prop">decrementControl</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#frame-prop">frame</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#handle-prop">handle</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#handleOverlap-prop">handleOverlap</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#incrementControl-prop">incrementControl</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#minimumHandleLength-prop">minimumHandleLength</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#scrollBarBackground-prop">scrollBarBackground</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#scrollToClickedPosition-prop">scrollToClickedPosition</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-scrollviewstyle.html#transientScrollBars-prop">transientScrollBars</a></b></b> : bool</li>
+</ul>
+<!-- $$$ScrollViewStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<!-- @@@ScrollViewStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-scrollview.html">ScrollView</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The <a href="qml-qtquick-controls-scrollview.html">ScrollView</a> this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$corner -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="corner-prop"><td class="tblQmlPropNode"><p><a name="corner-prop"></a><span class="name">corner</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This Component paints the corner area between scroll bars</p>
+</div></div><!-- @@@corner -->
+<br/>
+<!-- $$$decrementControl -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="decrementControl-prop"><td class="tblQmlPropNode"><p><a name="decrementControl-prop"></a><span class="name">decrementControl</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This component controls the appearance of the scroll bar decrement button.</p>
+<p>You can access the following state properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >property bool <b>styleData.hovered</b></td></tr>
+<tr valign="top" class="even"><td >property bool <b>styleData.pressed</b></td></tr>
+<tr valign="top" class="odd"><td >property bool <b>styleData.horizontal</b></td></tr>
+</table></div>
+</div></div><!-- @@@decrementControl -->
+<br/>
+<!-- $$$frame -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="frame-prop"><td class="tblQmlPropNode"><p><a name="frame-prop"></a><span class="name">frame</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This Component paints the frame around scroll bars.</p>
+</div></div><!-- @@@frame -->
+<br/>
+<!-- $$$handle -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="handle-prop"><td class="tblQmlPropNode"><p><a name="handle-prop"></a><span class="name">handle</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This component controls the appearance of the scroll bar handle.</p>
+<p>You can access the following state properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >property bool <b>styleData.hovered</b></td></tr>
+<tr valign="top" class="even"><td >property bool <b>styleData.pressed</b></td></tr>
+<tr valign="top" class="odd"><td >property bool <b>styleData.horizontal</b></td></tr>
+</table></div>
+</div></div><!-- @@@handle -->
+<br/>
+<!-- $$$handleOverlap -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="handleOverlap-prop"><td class="tblQmlPropNode"><p><a name="handleOverlap-prop"></a><span class="name">handleOverlap</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property controls the edge overlap between the handle and the increment/decrement buttons.</p>
+<p>The default value is <code>30</code>.</p>
+</div></div><!-- @@@handleOverlap -->
+<br/>
+<!-- $$$incrementControl -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="incrementControl-prop"><td class="tblQmlPropNode"><p><a name="incrementControl-prop"></a><span class="name">incrementControl</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This component controls the appearance of the scroll bar increment button.</p>
+<p>You can access the following state properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >property bool <b>styleData.hovered</b></td></tr>
+<tr valign="top" class="even"><td >property bool <b>styleData.pressed</b></td></tr>
+<tr valign="top" class="odd"><td >property bool <b>styleData.horizontal</b></td></tr>
+</table></div>
+</div></div><!-- @@@incrementControl -->
+<br/>
+<!-- $$$minimumHandleLength -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minimumHandleLength-prop"><td class="tblQmlPropNode"><p><a name="minimumHandleLength-prop"></a><span class="name">minimumHandleLength</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This is the minimum extent of the scroll bar handle.</p>
+<p>The default value is <code>30</code>.</p>
+</div></div><!-- @@@minimumHandleLength -->
+<br/>
+<!-- $$$scrollBarBackground -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="scrollBarBackground-prop"><td class="tblQmlPropNode"><p><a name="scrollBarBackground-prop"></a><span class="name">scrollBarBackground</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This component controls the appearance of the scroll bar background.</p>
+<p>You can access the following state properties:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >property bool <b>styleData.hovered</b></td></tr>
+<tr valign="top" class="even"><td >property bool <b>styleData.horizontal</b></td></tr>
+</table></div>
+</div></div><!-- @@@scrollBarBackground -->
+<br/>
+<!-- $$$scrollToClickedPosition -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="scrollToClickedPosition-prop"><td class="tblQmlPropNode"><p><a name="scrollToClickedPosition-prop"></a><span class="name">scrollToClickedPosition</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This component determines if the flickable should reposition itself at the mouse location when clicked.</p>
+</div></div><!-- @@@scrollToClickedPosition -->
+<br/>
+<!-- $$$transientScrollBars -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="transientScrollBars-prop"><td class="tblQmlPropNode"><p><a name="transientScrollBars-prop"></a><span class="name">transientScrollBars</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the scroll bars are transient. Transient scroll bars appear when the content is scrolled and disappear when they are no longer needed.</p>
+<p>The default value is platform dependent.</p>
+</div></div><!-- @@@transientScrollBars -->
+<br/>
+</body>
+</html>

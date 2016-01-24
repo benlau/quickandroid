@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- SpinBox.qml -->
+  <title>SpinBox QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">SpinBox QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$SpinBox-brief -->
+<p>Provides a spin box control. <a href="#details">More...</a></p>
+<!-- @@@SpinBox -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-spinbox-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#decimals-prop">decimals</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#horizontalAlignment-prop">horizontalAlignment</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#hovered-prop">hovered</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#inputMethodComposing-prop">inputMethodComposing</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#maximumValue-prop">maximumValue</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#menu-prop">menu</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#minimumValue-prop">minimumValue</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#prefix-prop">prefix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#selectByMouse-prop">selectByMouse</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#stepSize-prop">stepSize</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#suffix-prop">suffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#value-prop">value</a></b></b> : real</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-spinbox.html#editingFinished-signal">editingFinished</a></b></b>()</li>
+</ul>
+<!-- $$$SpinBox-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image spinbox.png]</font></p><p><a href="qml-qtquick-controls-spinbox.html">SpinBox</a> allows the user to choose a value by clicking the up or down buttons, or by pressing up or down on the keyboard. The user can also type the value in manually.</p>
+<p>By default the <a href="qml-qtquick-controls-spinbox.html">SpinBox</a> provides discrete values in the range [0-99] with a <a href="qml-qtquick-controls-spinbox.html#stepSize-prop">stepSize</a> of 1 and 0 <a href="qml-qtquick-controls-spinbox.html#decimals-prop">decimals</a>.</p>
+<pre class="cpp">SpinBox {
+    id: spinbox
+}</pre>
+<p>Note that if you require decimal values you will need to set the <a href="qml-qtquick-controls-spinbox.html#decimals-prop">decimals</a> to a non 0 value.</p>
+<pre class="cpp">SpinBox {
+    id: spinbox
+    decimals: <span class="number">2</span>
+}</pre>
+<!-- @@@SpinBox -->
+<h2>Property Documentation</h2>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="activeFocusOnPress-prop"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the Spinbox should get active focus when pressed. The default value is <code>true</code>.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$decimals -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="decimals-prop"><td class="tblQmlPropNode"><p><a name="decimals-prop"></a><span class="name">decimals</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates the amount of decimals. Note that if you enter more decimals than specified, they will be truncated to the specified amount of decimal places. The default value is <code>0</code>.</p>
+</div></div><!-- @@@decimals -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="font-prop"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-qtquick-controls-spinbox.html#font-prop">font</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates the current font used by the <a href="qml-qtquick-controls-spinbox.html">SpinBox</a>.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$horizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="horizontalAlignment-prop"><td class="tblQmlPropNode"><p><a name="horizontalAlignment-prop"></a><span class="name">horizontalAlignment</span> : <span class="type">int</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates how the content is horizontally aligned within the text field.</p>
+<p>The supported values are:</p>
+<ul>
+<li>Qt.AlignLeft</li>
+<li>Qt.AlignHCenter</li>
+<li>Qt.AlignRight</li>
+</ul>
+<p>The default value is style dependent.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.1.</p>
+</div></div><!-- @@@horizontalAlignment -->
+<br/>
+<!-- $$$hovered -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="hovered-prop"><td class="tblQmlPropNode"><p><a name="hovered-prop"></a><span class="qmlreadonly">read-only</span><span class="name">hovered</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property indicates whether the control is being hovered.</p>
+</div></div><!-- @@@hovered -->
+<br/>
+<!-- $$$inputMethodComposing -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="inputMethodComposing-prop"><td class="tblQmlPropNode"><p><a name="inputMethodComposing-prop"></a><span class="qmlreadonly">read-only</span><span class="name">inputMethodComposing</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the <a href="qml-qtquick-controls-spinbox.html">SpinBox</a> has partial text input from an input method.</p>
+<p>While it is composing an input method may rely on mouse or key events from the <a href="qml-qtquick-controls-spinbox.html">SpinBox</a> to edit or commit the partial text. This property can be used to determine when to disable events handlers that may interfere with the correct operation of an input method.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@inputMethodComposing -->
+<br/>
+<!-- $$$maximumValue -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="maximumValue-prop"><td class="tblQmlPropNode"><p><a name="maximumValue-prop"></a><span class="name">maximumValue</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The maximum value of the <a href="qml-qtquick-controls-spinbox.html">SpinBox</a> range. The <a href="qml-qtquick-controls-spinbox.html#value-prop">value</a> is clamped to this value. If maximumValue is smaller than <a href="qml-qtquick-controls-spinbox.html#minimumValue-prop">minimumValue</a>, <a href="qml-qtquick-controls-spinbox.html#minimumValue-prop">minimumValue</a> will be enforced.</p>
+<p>The default value is <code>99</code>.</p>
+</div></div><!-- @@@maximumValue -->
+<br/>
+<!-- $$$menu -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="menu-prop"><td class="tblQmlPropNode"><p><a name="menu-prop"></a><span class="name">menu</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property contains the edit <a href="qml-qtquick-controls-menu.html">Menu</a> for working with text selection. Set it to <code>null</code> if no menu is wanted.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@menu -->
+<br/>
+<!-- $$$minimumValue -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="minimumValue-prop"><td class="tblQmlPropNode"><p><a name="minimumValue-prop"></a><span class="name">minimumValue</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The minimum value of the <a href="qml-qtquick-controls-spinbox.html">SpinBox</a> range. The <a href="qml-qtquick-controls-spinbox.html#value-prop">value</a> is clamped to this value.</p>
+<p>The default value is <code>0.0</code>.</p>
+</div></div><!-- @@@minimumValue -->
+<br/>
+<!-- $$$prefix -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="prefix-prop"><td class="tblQmlPropNode"><p><a name="prefix-prop"></a><span class="name">prefix</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>The prefix for the value. I.e &quot;$&quot;</p>
+</div></div><!-- @@@prefix -->
+<br/>
+<!-- $$$selectByMouse -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="selectByMouse-prop"><td class="tblQmlPropNode"><p><a name="selectByMouse-prop"></a><span class="name">selectByMouse</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines if the user can select the text with the mouse.</p>
+<p>The default value is <code>true</code>.</p>
+<p>This QML property was introduced in  QtQuick.Controls 1.3.</p>
+</div></div><!-- @@@selectByMouse -->
+<br/>
+<!-- $$$stepSize -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="stepSize-prop"><td class="tblQmlPropNode"><p><a name="stepSize-prop"></a><span class="name">stepSize</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The amount by which the <a href="qml-qtquick-controls-spinbox.html#value-prop">value</a> is incremented/decremented when a spin button is pressed.</p>
+<p>The default value is <code>1.0</code>.</p>
+</div></div><!-- @@@stepSize -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="style-prop"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The style Component for this control.</p>
+<p><b>See also </b>Qt Quick Controls Styles QML Types.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$suffix -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="suffix-prop"><td class="tblQmlPropNode"><p><a name="suffix-prop"></a><span class="name">suffix</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>The suffix for the value. I.e &quot;cm&quot;</p>
+</div></div><!-- @@@suffix -->
+<br/>
+<!-- $$$value -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="value-prop"><td class="tblQmlPropNode"><p><a name="value-prop"></a><span class="name">value</span> : <span class="type">real</span></p></td></tr></table></div></div><div class="qmldoc"><p>The value of this <a href="qml-qtquick-controls-spinbox.html">SpinBox</a>, clamped to <a href="qml-qtquick-controls-spinbox.html#minimumValue-prop">minimumValue</a> and <a href="qml-qtquick-controls-spinbox.html#maximumValue-prop">maximumValue</a>.</p>
+<p>The default value is <code>0.0</code>.</p>
+</div></div><!-- @@@value -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$editingFinished -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="editingFinished-signal"><td class="tblQmlFuncNode"><p><a name="editingFinished-signal"></a><span class="name">editingFinished</span>()</p></td></tr></table></div></div><div class="qmldoc"><p>This signal is emitted when the Return or Enter key is pressed or the control loses focus. Note that if there is a validator set on the control and enter/return is pressed, this signal will only be emitted if the validator returns an acceptable state.</p>
+<p>The corresponding handler is <code>onEditingFinished</code>.</p>
+<p>This QML signal was introduced in  QtQuick.Controls 1.1.</p>
+</div></div><!-- @@@editingFinished -->
+<br/>
+</body>
+</html>

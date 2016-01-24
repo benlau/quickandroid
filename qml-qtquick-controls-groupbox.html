@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- GroupBox.qml -->
+  <title>GroupBox QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">GroupBox QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$GroupBox-brief -->
+<p><a href="qml-qtquick-controls-groupbox.html">GroupBox</a> provides a group box frame with a title. <a href="#details">More...</a></p>
+<!-- @@@GroupBox -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.1</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-groupbox-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-groupbox.html#checkable-prop">checkable</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-groupbox.html#checked-prop">checked</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-groupbox.html#contentItem-prop">contentItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-groupbox.html#flat-prop">flat</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-groupbox.html#title-prop">title</a></b></b> : string</li>
+</ul>
+<!-- $$$GroupBox-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<p class="centerAlign"><font color="red">[Missing image groupbox.png]</font></p><p>A group box provides a frame, a title on top and displays various other controls inside itself. Group boxes can also be checkable.</p>
+<p>Child controls in checkable group boxes are enabled or disabled depending on whether or not the group box is checked.</p>
+<p>You can minimize the space consumption of a group box by enabling the flat property. In most styles, enabling this property results in the removal of the left, right and bottom edges of the frame.</p>
+<p>To add content to a group box, you can reparent it to its <a href="qml-qtquick-controls-groupbox.html#contentItem-prop">contentItem</a> property.</p>
+<p>The implicit size of the <a href="qml-qtquick-controls-groupbox.html">GroupBox</a> is calculated based on the size of its content. If you want to anchor items inside the group box, you must specify an explicit width and height on the <a href="qml-qtquick-controls-groupbox.html">GroupBox</a> itself.</p>
+<p>The following example shows how we use a <a href="qml-qtquick-controls-groupbox.html">GroupBox</a>:</p>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-groupbox.html">GroupBox</a></span> {
+    <span class="name">title</span>: <span class="string">&quot;Joining for?&quot;</span>
+
+    <span class="type">Column</span> {
+        <span class="name">spacing</span>: <span class="number">10</span>
+
+        <span class="type"><a href="qml-qtquick-controls-checkbox.html">CheckBox</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Breakfast&quot;</span>
+            <span class="name">checked</span>: <span class="number">true</span>
+        }
+        <span class="type"><a href="qml-qtquick-controls-checkbox.html">CheckBox</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Lunch&quot;</span>
+            <span class="name">checked</span>: <span class="number">false</span>
+        }
+        <span class="type"><a href="qml-qtquick-controls-checkbox.html">CheckBox</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Dinner&quot;</span>
+            <span class="name">checked</span>: <span class="number">true</span>
+        }
+    }
+}</pre>
+<p><b>See also </b><a href="qml-qtquick-controls-checkbox.html">CheckBox</a>, <a href="qml-qtquick-controls-radiobutton.html">RadioButton</a>, and Layout.</p>
+<!-- @@@GroupBox -->
+<h2>Property Documentation</h2>
+<!-- $$$checkable -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="checkable-prop"><td class="tblQmlPropNode"><p><a name="checkable-prop"></a><span class="name">checkable</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the group box has a checkbox in its title.</p>
+<p>If this property is true, the group box displays its title using a checkbox in place of an ordinary label. If the checkbox is checked, the group box's children are enabled; otherwise, they are disabled and inaccessible.</p>
+<p>By default, group boxes are not checkable.</p>
+</div></div><!-- @@@checkable -->
+<br/>
+<!-- $$$checked -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="checked-prop"><td class="tblQmlPropNode"><p><a name="checked-prop"></a><span class="name">checked</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the group box is checked.</p>
+<p>If the group box is checkable, it is displayed with a check box. If the check box is checked, the group box's children are enabled; otherwise, the children are disabled and are inaccessible to the user.</p>
+<p>By default, checkable group boxes are also checked.</p>
+</div></div><!-- @@@checked -->
+<br/>
+<!-- $$$contentItem -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="contentItem-prop"><td class="tblQmlPropNode"><p><a name="contentItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">contentItem</span> : <span class="type">Item</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the content Item of the group box.</p>
+<p>Items declared as children of a <a href="qml-qtquick-controls-groupbox.html">GroupBox</a> are automatically parented to the <a href="qml-qtquick-controls-groupbox.html">GroupBox</a>'s contentItem. Items created dynamically need to be explicitly parented to the contentItem:</p>
+<p><b>Note: </b>The implicit size of the <a href="qml-qtquick-controls-groupbox.html">GroupBox</a> is calculated based on the size of its content. If you want to anchor items inside the group box, you must specify an explicit width and height on the <a href="qml-qtquick-controls-groupbox.html">GroupBox</a> itself.</p></div></div><!-- @@@contentItem -->
+<br/>
+<!-- $$$flat -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="flat-prop"><td class="tblQmlPropNode"><p><a name="flat-prop"></a><span class="name">flat</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds whether the group box is painted flat or has a frame.</p>
+<p>A group box usually consists of a surrounding frame with a title at the top. If this property is enabled, only the top part of the frame is drawn in most styles; otherwise, the whole frame is drawn.</p>
+<p>By default, this property is disabled, so group boxes are not flat unless explicitly specified.</p>
+<p><b>Note: </b>In some styles, flat and non-flat group boxes have similar representations and may not be as distinguishable as they are in other styles.</p></div></div><!-- @@@flat -->
+<br/>
+<!-- $$$title -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="title-prop"><td class="tblQmlPropNode"><p><a name="title-prop"></a><span class="name">title</span> : <span class="type">string</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property holds the group box title text.</p>
+<p>There is no default title text.</p>
+</div></div><!-- @@@title -->
+<br/>
+</body>
+</html>

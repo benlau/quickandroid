@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- CalendarStyle.qml -->
+  <title>CalendarStyle QML Type | QuickAndroid 0.1</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#component-map">Component Map</a></li>
+<li class="level2"><a href="#custom-style-example">Custom Style Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">CalendarStyle QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$CalendarStyle-brief -->
+<p>Provides custom styling for <a href="qml-qtquick-controls-calendar.html">Calendar</a> <a href="#details">More...</a></p>
+<!-- @@@CalendarStyle -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Controls.Styles .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.3</td></tr></table></div><ul>
+<li><a href="qml-qtquick-controls-styles-calendarstyle-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-calendarstyle.html#background-prop">background</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-calendarstyle.html#control-prop">control</a></b></b> : Calendar</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-calendarstyle.html#dayDelegate-prop">dayDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-calendarstyle.html#dayOfWeekDelegate-prop">dayOfWeekDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-calendarstyle.html#gridColor-prop">gridColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-calendarstyle.html#gridVisible-prop">gridVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-calendarstyle.html#navigationBar-prop">navigationBar</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-qtquick-controls-styles-calendarstyle.html#weekNumberDelegate-prop">weekNumberDelegate</a></b></b> : Component</li>
+</ul>
+<!-- $$$CalendarStyle-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+</p>
+<a name="component-map"></a>
+<h3 >Component Map</h3>
+<p class="centerAlign"><font color="red">[Missing image calendarstyle-components-week-numbers.png]</font></p><p>The calendar has the following styleable components:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image square-white.png]</font></p></td><td ><a href="qml-qtquick-controls-styles-calendarstyle.html#background-prop">background</a></td><td >Fills the entire control.</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><font color="red">[Missing image square-yellow.png]</font></p></td><td ><a href="qml-qtquick-controls-styles-calendarstyle.html#navigationBar-prop">navigationBar</a></td><td ></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image square-green.png]</font></p></td><td ><a href="qml-qtquick-controls-styles-calendarstyle.html#dayOfWeekDelegate-prop">dayOfWeekDelegate</a></td><td >One instance per day of week.</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><font color="red">[Missing image square-red.png]</font></p></td><td ><a href="qml-qtquick-controls-styles-calendarstyle.html#weekNumberDelegate-prop">weekNumberDelegate</a></td><td >One instance per week.</td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><font color="red">[Missing image square-blue.png]</font></p></td><td ><a href="qml-qtquick-controls-styles-calendarstyle.html#dayDelegate-prop">dayDelegate</a></td><td >One instance per day of month.</td></tr>
+</table></div>
+<a name="custom-style-example"></a>
+<h3 >Custom Style Example</h3>
+<pre class="qml"><span class="type"><a href="qml-qtquick-controls-calendar.html">Calendar</a></span> {
+    <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+
+    <span class="name">style</span>: <span class="name">CalendarStyle</span> {
+        <span class="name">gridVisible</span>: <span class="number">false</span>
+        <span class="name">dayDelegate</span>: <span class="name">Rectangle</span> {
+            <span class="name">gradient</span>: <span class="name">Gradient</span> {
+                <span class="type">GradientStop</span> {
+                    <span class="name">position</span>: <span class="number">0.00</span>
+                    <span class="name">color</span>: <span class="name">styleData</span>.<span class="name">selected</span> ? <span class="string">&quot;#111&quot;</span> : (<span class="name">styleData</span>.<span class="name">visibleMonth</span> <span class="operator">&amp;&amp;</span> <span class="name">styleData</span>.<span class="name">valid</span> ? <span class="string">&quot;#444&quot;</span> : <span class="string">&quot;#666&quot;</span>);
+                }
+                <span class="type">GradientStop</span> {
+                    <span class="name">position</span>: <span class="number">1.00</span>
+                    <span class="name">color</span>: <span class="name">styleData</span>.<span class="name">selected</span> ? <span class="string">&quot;#444&quot;</span> : (<span class="name">styleData</span>.<span class="name">visibleMonth</span> <span class="operator">&amp;&amp;</span> <span class="name">styleData</span>.<span class="name">valid</span> ? <span class="string">&quot;#111&quot;</span> : <span class="string">&quot;#666&quot;</span>);
+                }
+                <span class="type">GradientStop</span> {
+                    <span class="name">position</span>: <span class="number">1.00</span>
+                    <span class="name">color</span>: <span class="name">styleData</span>.<span class="name">selected</span> ? <span class="string">&quot;#777&quot;</span> : (<span class="name">styleData</span>.<span class="name">visibleMonth</span> <span class="operator">&amp;&amp;</span> <span class="name">styleData</span>.<span class="name">valid</span> ? <span class="string">&quot;#111&quot;</span> : <span class="string">&quot;#666&quot;</span>);
+                }
+            }
+
+            <span class="type"><a href="qml-qtquick-controls-label.html">Label</a></span> {
+                <span class="name">text</span>: <span class="name">styleData</span>.<span class="name">date</span>.<span class="name">getDate</span>()
+                <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                <span class="name">color</span>: <span class="name">styleData</span>.<span class="name">valid</span> ? <span class="string">&quot;white&quot;</span> : <span class="string">&quot;grey&quot;</span>
+            }
+
+            <span class="type">Rectangle</span> {
+                <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>
+                <span class="name">height</span>: <span class="number">1</span>
+                <span class="name">color</span>: <span class="string">&quot;#555&quot;</span>
+                <span class="name">anchors</span>.bottom: <span class="name">parent</span>.<span class="name">bottom</span>
+            }
+
+            <span class="type">Rectangle</span> {
+                <span class="name">width</span>: <span class="number">1</span>
+                <span class="name">height</span>: <span class="name">parent</span>.<span class="name">height</span>
+                <span class="name">color</span>: <span class="string">&quot;#555&quot;</span>
+                <span class="name">anchors</span>.right: <span class="name">parent</span>.<span class="name">right</span>
+            }
+        }
+    }
+}</pre>
+<!-- @@@CalendarStyle -->
+<h2>Property Documentation</h2>
+<!-- $$$background -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="background-prop"><td class="tblQmlPropNode"><p><a name="background-prop"></a><span class="name">background</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The background of the calendar.</p>
+<p>The implicit size of the calendar is calculated based on the implicit size of the background delegate.</p>
+</div></div><!-- @@@background -->
+<br/>
+<!-- $$$control -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="control-prop"><td class="tblQmlPropNode"><p><a name="control-prop"></a><span class="qmlreadonly">read-only</span><span class="name">control</span> : <span class="type"><a href="qml-qtquick-controls-calendar.html">Calendar</a></span></p></td></tr></table></div></div><div class="qmldoc"><p>The Calendar this style is attached to.</p>
+</div></div><!-- @@@control -->
+<br/>
+<!-- $$$dayDelegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="dayDelegate-prop"><td class="tblQmlPropNode"><p><a name="dayDelegate-prop"></a><span class="name">dayDelegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The delegate that styles each date in the calendar.</p>
+<p>The properties provided to each delegate are:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >readonly property date <b>styleData.date</b></td><td >The date this delegate represents.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.selected</b></td><td ><code>true</code> if this is the selected date.</td></tr>
+<tr valign="top" class="odd"><td >readonly property int <b>styleData.index</b></td><td >The index of this delegate.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.valid</b></td><td ><code>true</code> if this date is greater than or equal to than <a href="qml-qtquick-controls-calendar.html#minimumDate-prop">minimumDate</a> and less than or equal to <a href="qml-qtquick-controls-calendar.html#maximumDate-prop">maximumDate</a>.</td></tr>
+<tr valign="top" class="odd"><td >readonly property bool <b>styleData.today</b></td><td ><code>true</code> if this date is equal to today's date.</td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.visibleMonth</b></td><td ><code>true</code> if the month in this date is the visible month.</td></tr>
+<tr valign="top" class="odd"><td >readonly property bool <b>styleData.hovered</b></td><td ><code>true</code> if the mouse is over this cell.<p><b>Note: </b>This property is <code>true</code> even when the mouse is hovered over an invalid date.</p></td></tr>
+<tr valign="top" class="even"><td >readonly property bool <b>styleData.pressed</b></td><td ><code>true</code> if the mouse is pressed on this cell.<p><b>Note: </b>This property is <code>true</code> even when the mouse is pressed on an invalid date.</p></td></tr>
+</table></div>
+</div></div><!-- @@@dayDelegate -->
+<br/>
+<!-- $$$dayOfWeekDelegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="dayOfWeekDelegate-prop"><td class="tblQmlPropNode"><p><a name="dayOfWeekDelegate-prop"></a><span class="name">dayOfWeekDelegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The delegate that styles each weekday.</p>
+<p>The height of the weekday row is calculated based on the maximum implicit height of the delegates.</p>
+<p>The properties provided to each delegate are:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >readonly property int <b>styleData.index</b></td><td >The index (0-6) of the delegate.</td></tr>
+<tr valign="top" class="even"><td >readonly property int <b>styleData.dayOfWeek</b></td><td >The day of the week this delegate represents. Possible values:<ul>
+<li><code>Locale.Sunday</code></li>
+<li><code>Locale.Monday</code></li>
+<li><code>Locale.Tuesday</code></li>
+<li><code>Locale.Wednesday</code></li>
+<li><code>Locale.Thursday</code></li>
+<li><code>Locale.Friday</code></li>
+<li><code>Locale.Saturday</code></li>
+</ul>
+</td></tr>
+</table></div>
+</div></div><!-- @@@dayOfWeekDelegate -->
+<br/>
+<!-- $$$gridColor -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="gridColor-prop"><td class="tblQmlPropNode"><p><a name="gridColor-prop"></a><span class="name">gridColor</span> : <span class="type">color</span></p></td></tr></table></div></div><div class="qmldoc"><p>The color of the grid lines.</p>
+</div></div><!-- @@@gridColor -->
+<br/>
+<!-- $$$gridVisible -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="gridVisible-prop"><td class="tblQmlPropNode"><p><a name="gridVisible-prop"></a><span class="name">gridVisible</span> : <span class="type">bool</span></p></td></tr></table></div></div><div class="qmldoc"><p>This property determines the visibility of the grid.</p>
+<p>The default value is <code>true</code>.</p>
+</div></div><!-- @@@gridVisible -->
+<br/>
+<!-- $$$navigationBar -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="navigationBar-prop"><td class="tblQmlPropNode"><p><a name="navigationBar-prop"></a><span class="name">navigationBar</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The navigation bar of the calendar.</p>
+<p>Styles the bar at the top of the calendar that contains the next month/previous month buttons and the selected date label.</p>
+<p>The properties provided to the delegate are:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >readonly property string <b>styleData.title</b></td><td >The title of the calendar.</td></tr>
+</table></div>
+</div></div><!-- @@@navigationBar -->
+<br/>
+<!-- $$$weekNumberDelegate -->
+<div class="qmlitem"><div class="qmlproto"><div class="table"><table class="qmlname"><tr valign="top" class="odd" id="weekNumberDelegate-prop"><td class="tblQmlPropNode"><p><a name="weekNumberDelegate-prop"></a><span class="name">weekNumberDelegate</span> : <span class="type">Component</span></p></td></tr></table></div></div><div class="qmldoc"><p>The delegate that styles each week number.</p>
+<p>The width of the week number column is calculated based on the maximum implicit width of the delegates.</p>
+<p>The properties provided to each delegate are:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td >readonly property int <b>styleData.index</b></td><td >The index (0-5) of the delegate.</td></tr>
+<tr valign="top" class="even"><td >readonly property int <b>styleData.weekNumber</b></td><td >The number of the week this delegate represents.</td></tr>
+</table></div>
+</div></div><!-- @@@weekNumberDelegate -->
+<br/>
+</body>
+</html>
