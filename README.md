@@ -169,4 +169,5 @@ See [Complete Guide to Making a Splash Screen for your QML Android Application â
 Related Projects
  1. [benlau/quickpromise](https://github.com/benlau/quickpromise) - Promise library for QML
  2. [benlau/quickflux](https://github.com/benlau/quickflux) - Message Dispatcher / Queue solution for QML
+ 3. [benlau/quickcross](https://github.com/benlau/quickcross) - QML Cross Platform Utility Library
 
