@@ -65,46 +65,6 @@ Installation Instruction
 
     include(quickandroid/quickandroid.pri) # You should modify the path by yourself
 
-Initalization
--------------
-
-```
-
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQuickView>
-#include "quickandroid.h"
-
-int main(int argc, char *argv[])
-{
-    QGuiApplication app(argc, argv);
-
-    QQuickView view;
-
-    /* QuickAndroid Initialization */
-    view.engine()->addImportPath("qrc:///"); // Add QuickAndroid into the import path
-    
-    // Setup "drawable" image provider
-    QADrawableProvider* provider = new QADrawableProvider();
-    provider->setBasePath("qrc:///res");
-    view.engine()->addImageProvider("drawable",provider)
-
-    /* End of QuickAndroid Initialization */
-
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl(QStringLiteral("qrc:///splash.qml")));
-    view.show();
-
-    return app.exec();
-}
-
-
-```
-
-Import the package within your QML file by :
-
-    import QuickAndroid 0.1
-
 
 Demonstration
 -------------
