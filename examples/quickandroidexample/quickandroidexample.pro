@@ -10,12 +10,12 @@ RESOURCES += qml.qrc
 # Additional import path used to resolve QML modules in Qt Creator's code model
 # QML_IMPORT_PATH += ../..
 
-include(../../quickandroid.pri)
-
 android {
     QT += androidextras
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
 }
+
+include(../../quickandroid.pri)
 
 # Default rules for deployment.
 include(deployment.pri)

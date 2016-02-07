@@ -27,19 +27,34 @@ SOURCES += \
     $$PWD/qaqmltypes.cpp \
     $$PWD/qaimagewriter.cpp
 
+QuickAndroidJavaDir = $$PWD/java
+
 android {
     QT += androidextras
 
+    isEmpty(ANDROID_PACKAGE_SOURCE_DIR) {
+        message(ANDROID_PACKAGE_SOURCE_DIR is not defined)
+    }
+
+    # For project without using gradle
     QA_JAVASRC.path = /src/quickandroid
     QA_JAVASRC.files += $$PWD/java/quickandroid/SystemDispatcher.java \
                         $$PWD/java/quickandroid/QuickAndroidActivity.java \
                         $$PWD/java/quickandroid/ImagePicker.java
 
     INSTALLS += QA_JAVASRC
+
+    # For project built with gradle
+    exists($$ANDROID_PACKAGE_SOURCE_DIR/gradle.properties) {
+        GradleProperties.input = $$PWD/gradle.properties.in
+        GradleProperties.output = $$ANDROID_PACKAGE_SOURCE_DIR/gradle.properties
+        QMAKE_SUBSTITUTES += GradleProperties
+    }
 }
 
 DISTFILES += \
     $$PWD/java/quickandroid/SystemDispatcher.java \
     $$PWD/java/quickandroid/QuickAndroidActivity.java \
-    $$PWD/java/quickandroid/ImagePicker.java
+    $$PWD/java/quickandroid/ImagePicker.java \
+    $$PWD/gradle.properties.in
 
