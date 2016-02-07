@@ -90,8 +90,9 @@ Apache License 2.0
 TODO
 ----
 
-v0.1.6
- 1. Ink
+v0.1.7
+ 1. Migrate to build with gradle
+ 2. Raise min Qt version requirement to 5.5.1
 
 v1.0 
  1. Switch
