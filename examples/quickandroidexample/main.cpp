@@ -50,5 +50,7 @@ int main(int argc, char *argv[])
     Automator* automator = new Automator();
     automator->start();
 
+    qDebug() << "Start QuickAndroid Example Program";
+
     return app.exec();
 }

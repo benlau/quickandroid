@@ -154,13 +154,7 @@ public class SystemDispatcher {
             try {
                 listener.onDispatched(name,message);
             } catch (Exception e) {
-                if (e.getMessage() == null) {
-                    StringWriter errors = new StringWriter();
-                    e.printStackTrace(new PrintWriter(errors));
-                    Log.d(TAG,errors.toString());
-                } else {
-                    Log.d(TAG,e.getMessage());
-                }
+                Log.d(TAG, Log.getStackTraceString(e));
             }
         }
 
