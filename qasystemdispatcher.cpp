@@ -20,6 +20,9 @@ QString QASystemDispatcher::ACTIVITY_RESULT_MESSAGE = "Activity.onActivityResult
 #define DISPATCH_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 #define EMIT_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 
+static QVariantMap createVariantMap(jobject data);
+static jobject createHashMap(const QVariantMap &data);
+
 static QVariant convertToQVariant(QAndroidJniObject value) {
     QVariant v;
     if (!value.isValid())
@@ -31,6 +34,7 @@ static QVariant convertToQVariant(QAndroidJniObject value) {
     jclass jclass_of_integer = env->FindClass("java/lang/Integer");
     jclass jclass_of_boolean = env->FindClass("java/lang/Boolean");
     jclass jclass_of_list = env->FindClass("java/util/List");
+    jclass jclass_of_map = env->FindClass("java/util/Map");
 
     if (env->IsInstanceOf(value.object<jobject>(),jclass_of_boolean)) {
         v = QVariant::fromValue<bool>(value.callMethod<jboolean>("booleanValue","()Z"));
@@ -38,6 +42,8 @@ static QVariant convertToQVariant(QAndroidJniObject value) {
         v = value.callMethod<jint>("intValue","()I");
     } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_string)) {
         v = value.toString();
+    } else if (env->IsInstanceOf(value.object<jobject>(), jclass_of_map)) {
+        v = createVariantMap(value.object<jobject>());
     } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_list)) {
         QVariantList list;
         int count = value.callMethod<jint>("size","()I");
@@ -128,17 +134,19 @@ static jobject convertToJObject(QVariant v) {
         res = env->NewObject(integerClass,integerConstructor,v.toInt());
     } else if (v.type() == QVariant::Bool) {
         res = env->NewObject(booleanClass,booleanConstructor,v.toBool());
+    } else if (v.type() == QVariant::Map) {
+        res = createHashMap(v.toMap());
     } else  if (v.type() == QVariant::List){
         QVariantList list = v.value<QVariantList>();
         jclass arrayListClass = env->FindClass("java/util/ArrayList");
         jmethodID init = env->GetMethodID(arrayListClass, "<init>", "(I)V");
-        jobject res = env->NewObject( arrayListClass, init, list.size());
+        res = env->NewObject( arrayListClass, init, list.size());
 
         jmethodID add = env->GetMethodID( arrayListClass, "add",
                     "(Ljava/lang/Object;)Z");
 
         for (int i = 0 ; i < list.size() ; i++) {
-            env->CallObjectMethod(res,add,convertToJObject(list.at(i)));
+            env->CallBooleanMethod(res,add,convertToJObject(list.at(i)));
         }
     } else {
         qWarning() << "QASystemDispatcher: Non-supported data type - " <<  v.type();
