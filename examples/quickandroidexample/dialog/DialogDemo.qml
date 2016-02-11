@@ -33,6 +33,6 @@ Page {
         }
         z: 20
 
-        rejectButtonText: "OK"
+        acceptButtonText: "OK"
     }
 }

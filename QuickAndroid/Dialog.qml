@@ -101,7 +101,7 @@ FocusScope {
         MouseArea {
             anchors.fill: parent
             enabled: isOpened
-            onClicked: done(1);
+            onClicked: done(0);
         }
 
         Paper {
