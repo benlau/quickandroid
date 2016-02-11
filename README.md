@@ -88,7 +88,11 @@ TODO
 
 v0.1.7
  1. Migrate to build with gradle
- 2. Raise min Qt version requirement to 5.5.1
+ 2. Upgrade min Qt version requirement to 5.5.1
+
+v0.1.8
+ 1. Upgrade min Qt version requirement to 5.6
+ 2. Depreate to use A.dp as measurement unit
 
 v1.0 
  1. Switch
