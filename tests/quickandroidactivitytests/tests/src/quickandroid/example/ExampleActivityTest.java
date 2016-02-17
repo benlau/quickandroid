@@ -232,15 +232,17 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         };
         SystemDispatcher.addListener(listener);
 
-        SystemDispatcher.onActivityResult(73,99,null);
+        SystemDispatcher.onActivityResult(73, 99, null);
         sleep(500);
 
         assertTrue(lastPayload != null);
+        assertEquals(SystemDispatcher.ACTIVITY_RESULT_MESSAGE, lastPayload.name);
+
         assertTrue(lastPayload.message.containsKey("requestCode"));
         assertTrue(lastPayload.message.containsKey("resultCode"));
         assertTrue(lastPayload.message.containsKey("data"));
 
-        assertEquals((int) (Integer) lastPayload.message.get("requestCode") ,73);
+        assertEquals((int) (Integer) lastPayload.message.get("requestCode"), 73);
         assertEquals((int) (Integer) lastPayload.message.get("resultCode") ,99);
 
         SystemDispatcher.removeListener(listener);
@@ -250,7 +252,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
     public void testHashTableOverflow() {
         ArrayList list = new ArrayList();
 
-        int count = 50;
+        int count = 100;
 
         for (int i = 0 ; i < count ; i++) {
             HashMap map = new HashMap();
@@ -267,6 +269,10 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void onDispatched(String name , Map message) {
+
+                if (!name.equals("Automater::response")) {
+                    return;
+                }
                 Payload payload = new Payload();
                 payload.name = name;
                 payload.message = message;
@@ -277,6 +283,8 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
 
         SystemDispatcher.addListener(listener);
         SystemDispatcher.dispatch("Automater::echo", message);
+
+        sleep(500);
 
         assertTrue(lastPayload != null);
         assertTrue(lastPayload.message.containsKey("list"));

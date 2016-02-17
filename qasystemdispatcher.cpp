@@ -109,8 +109,9 @@ static QVariantMap createVariantMap(jobject data) {
 
         QVariant v = convertToQVariant(value);
 
-        if (v.isNull())
+        if (v.isNull()) {
             continue;
+        }
 
         res[k] = v;
     }
@@ -126,7 +127,6 @@ static QVariantMap createVariantMap(jobject data) {
     env->DeleteLocalRef(jobject_of_iterator);
     env->DeleteLocalRef(jclass_of_iterator);
 
-    // Delete local reference
     return res;
 }
 
@@ -164,7 +164,9 @@ static jobject convertToJObject(QVariant v) {
                     "(Ljava/lang/Object;)Z");
 
         for (int i = 0 ; i < list.size() ; i++) {
-            env->CallBooleanMethod(res,add,convertToJObject(list.at(i)));
+            jobject item = convertToJObject(list.at(i));
+            env->CallBooleanMethod(res,add, item);
+            env->DeleteLocalRef(item);
         }
 
         env->DeleteLocalRef(arrayListClass);
@@ -196,7 +198,6 @@ static jobject createHashMap(const QVariantMap &data) {
     while (iter.hasNext()) {
         iter.next();
 
-//        qDebug() << iter.key() << iter.value();
         QString key = iter.key();
         jstring jkey = env->NewStringUTF(key.toLocal8Bit().data());
         QVariant v = iter.value();
@@ -208,12 +209,15 @@ static jobject createHashMap(const QVariantMap &data) {
 
         env->CallObjectMethod(hashMap,put,jkey,item);
         env->DeleteLocalRef(item);
+        env->DeleteLocalRef(jkey);
      }
 
     if (env->ExceptionOccurred()) {
         env->ExceptionDescribe();
         env->ExceptionClear();
     }
+
+    env->DeleteLocalRef(mapClass);
 
     return hashMap;
 }
@@ -272,6 +276,9 @@ void QASystemDispatcher::dispatch(QString type, QVariantMap message)
     QAndroidJniObject::callStaticMethod<void>(JCLASS_Name, "dispatch",
                                               DISPATCH_SIGNATURE,
                                               jType,jData);
+    env->DeleteLocalRef(jType);
+    env->DeleteLocalRef(jData);
+
 #else
     static bool dispatching = false;
     static QQueue<QPair<QString,QVariantMap> > queue;
