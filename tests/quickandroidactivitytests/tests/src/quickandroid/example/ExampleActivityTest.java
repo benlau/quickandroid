@@ -252,7 +252,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
     public void testHashTableOverflow() {
         ArrayList list = new ArrayList();
 
-        int count = 100;
+        int count = 600;
 
         for (int i = 0 ; i < count ; i++) {
             HashMap map = new HashMap();

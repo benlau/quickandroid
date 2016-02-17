@@ -102,12 +102,15 @@ static QVariantMap createVariantMap(jobject data) {
     jmethodID nextMethod = env->GetMethodID(jclass_of_iterator, "next", "()Ljava/lang/Object;");
 
     while (env->CallBooleanMethod(jobject_of_iterator, hasNextMethod) ) {
-        QAndroidJniObject entry = env->CallObjectMethod(jobject_of_iterator,nextMethod);
+        jobject jEntry = env->CallObjectMethod(jobject_of_iterator,nextMethod);
+        QAndroidJniObject entry = QAndroidJniObject(jEntry);
         QAndroidJniObject key = entry.callObjectMethod("getKey","()Ljava/lang/Object;");
         QAndroidJniObject value = entry.callObjectMethod("getValue","()Ljava/lang/Object;");
         QString k = key.toString();
 
         QVariant v = convertToQVariant(value);
+
+        env->DeleteLocalRef(jEntry);
 
         if (v.isNull()) {
             continue;
