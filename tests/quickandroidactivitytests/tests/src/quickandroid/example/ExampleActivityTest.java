@@ -140,10 +140,12 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void onDispatched(String type , Map message) {
-                Log.v(TAG,"testDispatchTypes - onDispatched:" + type);
-                if (!type.equals("Automater::response")) 
+                Log.v(TAG,"testDispatchTypes - onDispatched: " + type);
+
+                if (!type.equals("Automater::response")) {
                     return;
-                
+                }
+
                 Payload payload = new Payload();
                 payload.name = type;
                 payload.message = message;
@@ -220,6 +222,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void onDispatched(String name , Map message) {
+
                 Payload payload = new Payload();
                 payload.name = name;
                 payload.message = message;
@@ -230,6 +233,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         SystemDispatcher.addListener(listener);
 
         SystemDispatcher.onActivityResult(73,99,null);
+        sleep(500);
 
         assertTrue(lastPayload != null);
         assertTrue(lastPayload.message.containsKey("requestCode"));
@@ -246,7 +250,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
     public void testHashTableOverflow() {
         ArrayList list = new ArrayList();
 
-        int count = 30;
+        int count = 50;
 
         for (int i = 0 ; i < count ; i++) {
             HashMap map = new HashMap();

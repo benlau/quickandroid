@@ -134,9 +134,6 @@ static jobject convertToJObject(QVariant v) {
     jobject res = 0;
     QAndroidJniEnvironment env;
 
-    jclass booleanClass = env->FindClass("java/lang/Boolean");
-    jmethodID booleanConstructor = env->GetMethodID(booleanClass,"<init>","(Z)V");
-
     if (v.type() == QVariant::String) {
         QString str = v.toString();
         res = env->NewStringUTF(str.toLocal8Bit().data());
@@ -145,8 +142,16 @@ static jobject convertToJObject(QVariant v) {
         jmethodID integerConstructor = env->GetMethodID(integerClass, "<init>", "(I)V");
 
         res = env->NewObject(integerClass,integerConstructor,v.toInt());
+
+        env->DeleteLocalRef(integerClass);
     } else if (v.type() == QVariant::Bool) {
+        jclass booleanClass = env->FindClass("java/lang/Boolean");
+        jmethodID booleanConstructor = env->GetMethodID(booleanClass,"<init>","(Z)V");
+
         res = env->NewObject(booleanClass,booleanConstructor,v.toBool());
+
+        env->DeleteLocalRef(booleanClass);
+
     } else if (v.type() == QVariant::Map) {
         res = createHashMap(v.toMap());
     } else  if (v.type() == QVariant::List){
@@ -161,6 +166,8 @@ static jobject convertToJObject(QVariant v) {
         for (int i = 0 ; i < list.size() ; i++) {
             env->CallBooleanMethod(res,add,convertToJObject(list.at(i)));
         }
+
+        env->DeleteLocalRef(arrayListClass);
     } else {
         qWarning() << "QASystemDispatcher: Non-supported data type - " <<  v.type();
     }
@@ -195,10 +202,12 @@ static jobject createHashMap(const QVariantMap &data) {
         QVariant v = iter.value();
         jobject item = convertToJObject(v);
 
-        if (item == 0)
+        if (item == 0) {
             continue;
+        }
 
         env->CallObjectMethod(hashMap,put,jkey,item);
+        env->DeleteLocalRef(item);
      }
 
     if (env->ExceptionOccurred()) {
@@ -213,12 +222,16 @@ static void jniEmit(JNIEnv* env,jobject object,jstring name,jobject data) {
     Q_UNUSED(object);
     QString str = env->GetStringUTFChars(name, 0);
 
+
     QVariantMap map;
 
-    if (data != 0)
+    if (data != 0) {
         map = createVariantMap(data);
-    if (m_instance.isNull())
+    }
+
+    if (m_instance.isNull()) {
         return;
+    }
 
     QMetaObject::invokeMethod(m_instance.data(),"dispatched",Qt::AutoConnection,
                               Q_ARG(QString, str),
