@@ -243,6 +243,48 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
 
     }
 
+    public void testHashTableOverflow() {
+        ArrayList list = new ArrayList();
+
+        int count = 18;
+
+        for (int i = 0 ; i < count ; i++) {
+            HashMap map = new HashMap();
+            map.put("value1", 1);
+            map.put("value2", true);
+            map.put("value3", "value3");
+
+            list.add(map);
+        }
+
+        HashMap message = new HashMap();
+        message.put("list", list);
+
+        SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
+
+            public void onDispatched(String name , Map message) {
+                Payload payload = new Payload();
+                payload.name = name;
+                payload.message = message;
+
+                lastPayload = payload;
+            }
+        };
+
+        SystemDispatcher.addListener(listener);
+        SystemDispatcher.dispatch("Automater::echo", message);
+
+        assertTrue(lastPayload != null);
+        assertTrue(lastPayload.message.containsKey("list"));
+
+        List retList = (List) lastPayload.message.get("list");
+
+        assertEquals(retList.size() , count);
+
+        SystemDispatcher.removeListener(listener);
+
+    }
+
     private void sleep(int timeout) {
         try {
             Thread.sleep(timeout);
