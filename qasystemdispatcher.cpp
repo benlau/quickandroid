@@ -25,8 +25,9 @@ static jobject createHashMap(const QVariantMap &data);
 
 static QVariant convertToQVariant(QAndroidJniObject value) {
     QVariant v;
-    if (!value.isValid())
+    if (!value.isValid()) {
         return v;
+    }
 
     QAndroidJniEnvironment env;
 
@@ -53,6 +54,12 @@ static QVariant convertToQVariant(QAndroidJniObject value) {
         }
         v = list;
     }
+
+    env->DeleteLocalRef(jclass_of_string);
+    env->DeleteLocalRef(jclass_of_integer);
+    env->DeleteLocalRef(jclass_of_boolean);
+    env->DeleteLocalRef(jclass_of_list);
+    env->DeleteLocalRef(jclass_of_map);
 
     return v;
 }
@@ -112,6 +119,12 @@ static QVariantMap createVariantMap(jobject data) {
         env->ExceptionDescribe();
         env->ExceptionClear();
     }
+
+    env->DeleteLocalRef(jclass_of_hashmap);
+    env->DeleteLocalRef(jobject_of_entryset);
+    env->DeleteLocalRef(jclass_of_set);
+    env->DeleteLocalRef(jobject_of_iterator);
+    env->DeleteLocalRef(jclass_of_iterator);
 
     // Delete local reference
     return res;

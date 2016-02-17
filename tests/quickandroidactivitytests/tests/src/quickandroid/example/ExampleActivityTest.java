@@ -246,7 +246,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
     public void testHashTableOverflow() {
         ArrayList list = new ArrayList();
 
-        int count = 18;
+        int count = 30;
 
         for (int i = 0 ; i < count ; i++) {
             HashMap map = new HashMap();
