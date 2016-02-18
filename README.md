@@ -81,7 +81,7 @@ If you have any question, please feel free to ask.
 SystemDispatcher
 ----------------
 
-Automatic type convension
+Automatic type convertion
 
 | Qt           | Java    |
 |--------------|---------|
