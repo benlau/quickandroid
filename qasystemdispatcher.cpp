@@ -227,8 +227,10 @@ static jobject createHashMap(const QVariantMap &data) {
 
 static void jniEmit(JNIEnv* env,jobject object,jstring name,jobject data) {
     Q_UNUSED(object);
-    QString str = env->GetStringUTFChars(name, 0);
+    Q_UNUSED(env);
 
+    QAndroidJniObject tmp(name);
+    QString str = tmp.toString();
 
     QVariantMap map;
 
