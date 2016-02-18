@@ -78,6 +78,19 @@ Class Reference (Under Construction)
 
 If you have any question, please feel free to ask.
 
+SystemDispatcher
+----------------
+
+Automatic type convension
+
+| Qt           | Java    |
+|--------------|---------|
+| int          | int     |
+| bool         | boolean |
+| QString      | String  |
+| QVariantList | List<T> |
+| QVariantMap  | Map<T>  |
+
 License
 -------
 
