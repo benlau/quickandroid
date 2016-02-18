@@ -13,10 +13,6 @@ Features
   1. Load image resource from Android resource style file tree. (e.g drawable-xxxhdpi)
   2. Tint image at load time
   3. Choose the best image according to current resolution automatically.
- 1. Unified “Drawable” component
-  1. A single component that supports color , image , QML component, simulated nine patch image as input source
-  1. Auto scale image to fit current screen resolution
-  1. Derived StateListDrawable for animated drawable like button
  1. Messege queue between C++/Qt and Java/Android code
   1. Auto conversion between C++ and Java data type. No need to write in JNI.
  1. Theme / Style Engine
@@ -65,46 +61,6 @@ Installation Instruction
 
     include(quickandroid/quickandroid.pri) # You should modify the path by yourself
 
-Initalization
--------------
-
-```
-
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQuickView>
-#include "quickandroid.h"
-
-int main(int argc, char *argv[])
-{
-    QGuiApplication app(argc, argv);
-
-    QQuickView view;
-
-    /* QuickAndroid Initialization */
-    view.engine()->addImportPath("qrc:///"); // Add QuickAndroid into the import path
-    
-    // Setup "drawable" image provider
-    QADrawableProvider* provider = new QADrawableProvider();
-    provider->setBasePath("qrc:///res");
-    view.engine()->addImageProvider("drawable",provider)
-
-    /* End of QuickAndroid Initialization */
-
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl(QStringLiteral("qrc:///splash.qml")));
-    view.show();
-
-    return app.exec();
-}
-
-
-```
-
-Import the package within your QML file by :
-
-    import QuickAndroid 0.1
-
 
 Demonstration
 -------------
@@ -130,8 +86,13 @@ Apache License 2.0
 TODO
 ----
 
-v0.1.6
- 1. Ink
+v0.1.7
+ 1. Migrate to build with gradle
+ 2. Upgrade min Qt version requirement to 5.5.1
+
+v0.1.8
+ 1. Upgrade min Qt version requirement to 5.6
+ 2. Depreate to use A.dp as measurement unit
 
 v1.0 
  1. Switch
@@ -162,7 +123,13 @@ Q. Any library for ...?
 1. Sharing
  1. [bdentino/Qtino.SharingKit](https://github.com/bdentino/Qtino.SharingKit)
 
+Q. How to create splash screen for Android?
+
+See [Complete Guide to Making a Splash Screen for your QML Android Application — Medium](https://medium.com/@benlaud/complete-guide-to-make-a-splash-screen-for-your-qml-android-application-567ca3bc70af#.z9biu3sfp)
+
 Related Projects
  1. [benlau/quickpromise](https://github.com/benlau/quickpromise) - Promise library for QML
  2. [benlau/quickflux](https://github.com/benlau/quickflux) - Message Dispatcher / Queue solution for QML
+ 3. [benlau/quickcross](https://github.com/benlau/quickcross) - QML Cross Platform Utility Library
+ 4. [benlau/qsyncable](https://github.com/benlau/qsyncable) - Synchronize data between models
 
