@@ -141,8 +141,10 @@ Q. How to create splash screen for Android?
 See [Complete Guide to Making a Splash Screen for your QML Android Application — Medium](https://medium.com/@benlaud/complete-guide-to-make-a-splash-screen-for-your-qml-android-application-567ca3bc70af#.z9biu3sfp)
 
 Related Projects
- 1. [benlau/quickpromise](https://github.com/benlau/quickpromise) - Promise library for QML
- 2. [benlau/quickflux](https://github.com/benlau/quickflux) - Message Dispatcher / Queue solution for QML
- 3. [benlau/quickcross](https://github.com/benlau/quickcross) - QML Cross Platform Utility Library
- 4. [benlau/qsyncable](https://github.com/benlau/qsyncable) - Synchronize data between models
+----------------
 
+ 1. [benlau/quickpromise](https://github.com/benlau/quickpromise) - Promise library for QML
+ 2. [benlau/quickcross](https://github.com/benlau/quickcross) - QML Cross Platform Utility Library
+ 3. [benlau/qsyncable](https://github.com/benlau/qsyncable) - Synchronize data between models
+ 4. [benlau/testable](https://github.com/benlau/testable) - QML Unit Test Utilities
+ 5. [benlau/qtci](https://github.com/benlau/qtci) -  A set of scripts to install Qt in Linux command line environment (e.g travis)
