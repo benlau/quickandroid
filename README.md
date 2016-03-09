@@ -143,8 +143,9 @@ See [Complete Guide to Making a Splash Screen for your QML Android Application â
 Related Projects
 ----------------
 
+ 1. [benlau/quickflux](https://github.com/benlau/quickflux) - Message Dispatcher / Queue solution for QML
  1. [benlau/quickpromise](https://github.com/benlau/quickpromise) - Promise library for QML
- 2. [benlau/quickcross](https://github.com/benlau/quickcross) - QML Cross Platform Utility Library
- 3. [benlau/qsyncable](https://github.com/benlau/qsyncable) - Synchronize data between models
- 4. [benlau/testable](https://github.com/benlau/testable) - QML Unit Test Utilities
- 5. [benlau/qtci](https://github.com/benlau/qtci) -  A set of scripts to install Qt in Linux command line environment (e.g travis)
+ 1. [benlau/quickcross](https://github.com/benlau/quickcross) - QML Cross Platform Utility Library
+ 1. [benlau/qsyncable](https://github.com/benlau/qsyncable) - Synchronize data between models
+ 1. [benlau/testable](https://github.com/benlau/testable) - QML Unit Test Utilities
+ 1. [benlau/qtci](https://github.com/benlau/qtci) -  A set of scripts to install Qt in Linux command line environment (e.g travis)
