@@ -23,19 +23,15 @@ static QJSValue timerProvider(QQmlEngine* engine , QJSEngine *scriptEngine) {
     return value;
 }
 
-class QAQmlTypes {
+static void regiserQmlTypes() {
+    // QADevice is a exception. Won't register by QAQmlTypes.
 
-public:
-    QAQmlTypes() {
-        // QADevice is a exception. Won't register by QAQmlTypes.
+    qmlRegisterSingletonType<QASystemDispatcherProxy>("QuickAndroid", 0, 1,
+                                                      "SystemDispatcher", systemDispatcherProvider);
+    qmlRegisterType<QALine>("QuickAndroid.Private",0,1,"Line");
+    qmlRegisterType<QAMouseSensor>("QuickAndroid.Private",0,1,"MouseSensor");
+    qmlRegisterSingletonType("QuickAndroid.Private", 0, 1, "TimerUtils", timerProvider);
+    qmlRegisterType<QAImageWriter>("QuickAndroid.Private",0,1,"ImageWriter");
+}
 
-        qmlRegisterSingletonType<QASystemDispatcherProxy>("QuickAndroid", 0, 1,
-                                                          "SystemDispatcher", systemDispatcherProvider);
-        qmlRegisterType<QALine>("QuickAndroid.Private",0,1,"Line");
-        qmlRegisterType<QAMouseSensor>("QuickAndroid.Private",0,1,"MouseSensor");
-        qmlRegisterSingletonType("QuickAndroid.Private", 0, 1, "TimerUtils", timerProvider);
-        qmlRegisterType<QAImageWriter>("QuickAndroid.Private",0,1,"ImageWriter");
-    }
-};
-
-static QAQmlTypes registerHelper;
+Q_COREAPP_STARTUP_FUNCTION(regiserQmlTypes)

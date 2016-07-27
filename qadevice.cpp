@@ -78,10 +78,7 @@ static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
     return device;
 }
 
-class QADeviceRegisterHelper {
-
-public:
-    QADeviceRegisterHelper() {
+static void init() {
 
 #ifdef Q_OS_ANDROID
         QAndroidJniObject activity = QAndroidJniObject::callStaticObjectMethod("org/qtproject/qt5/android/QtNative", "activity", "()Landroid/app/Activity;");
@@ -100,9 +97,7 @@ public:
         m_isTablet = (screenLayout & SCREENLAYOUT_SIZE_MASK) >= SCREENLAYOUT_SIZE_LARGE;
 #endif
 
-        qmlRegisterSingletonType<QADevice>("QuickAndroid", 0, 1, "Device", provider);
-    }
-};
+    qmlRegisterSingletonType<QADevice>("QuickAndroid", 0, 1, "Device", provider);
+}
 
-static QADeviceRegisterHelper registerHelper;
-
+Q_COREAPP_STARTUP_FUNCTION(init)
