@@ -1,6 +1,7 @@
 #include <QObject>
 #include <QtQml>
 #include <QSysInfo>
+#include <QGuiApplication>
 #include "qadevice.h"
 #include "qadrawableprovider.h"
 
@@ -86,6 +87,12 @@ static void init() {
         QAndroidJniObject metrics = resource.callObjectMethod("getDisplayMetrics","()Landroid/util/DisplayMetrics;");
         m_dp = metrics.getField<float>("density");
         m_dpi = metrics.getField<int>("densityDpi");
+
+        QGuiApplication *app = qobject_cast<QGuiApplication*>(QGuiApplication::instance());
+        if (app->testAttribute(Qt::AA_EnableHighDpiScaling)) {
+            m_dp = m_dp / app->devicePixelRatio();
+            m_dpi = m_dpi / app->devicePixelRatio();
+        }
 
         /* Is Tablet. Experimental code */
 
