@@ -37,3 +37,4 @@ tests/quickandroidactivitytests/tests/gen/*
 *.properties
 .build
 .gradle
+*.iml

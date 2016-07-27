@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 16
+    compileSdkVersion 18
     buildToolsVersion "23.0.2"
 
     defaultConfig {
@@ -32,10 +32,4 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile fileTree(dir: qt5AndroidDir + "/../../../jar", include: ['*.jar'])
-}
-
-task list << {
-
-    println(qt5AndroidDir + "/../../../jar");
-
 }
