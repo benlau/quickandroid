@@ -36,21 +36,13 @@ android {
         message(ANDROID_PACKAGE_SOURCE_DIR is not defined)
     }
 
-    # For project without using gradle
+    # For project not using gradle
     QA_JAVASRC.path = /src/quickandroid
-    QA_JAVASRC.files += $$PWD/java/quickandroid/src/main/java/quickandroid/SystemDispatcher.java \
-                        $$PWD/java/quickandroid/src/main/java/quickandroid/QuickAndroidActivity.java \
-                        $$PWD/java/quickandroid/src/main/java/quickandroid/ImagePicker.java
+    QA_JAVASRC.files += $$PWD/java/quickandroid/SystemDispatcher.java \
+                        $$PWD/java/quickandroid/QuickAndroidActivity.java \
+                        $$PWD/java/quickandroid/ImagePicker.java
 
-    #For "ant" only, if gradle is enabled, it will be ignored.
     INSTALLS += QA_JAVASRC
-
-    # For project built with gradle
-#    exists($$ANDROID_PACKAGE_SOURCE_DIR/gradle.properties) {
-#        GradleProperties.input = $$PWD/gradle.properties.in
-#        GradleProperties.output = $$ANDROID_PACKAGE_SOURCE_DIR/gradle.properties
-#        QMAKE_SUBSTITUTES += GradleProperties
-#    }
 }
 
 DISTFILES += \

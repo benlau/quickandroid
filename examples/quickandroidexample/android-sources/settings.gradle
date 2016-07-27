@@ -1,2 +1,0 @@
-include ':quickandroid'
-project(':quickandroid').projectDir = new File('../../../java/quickandroid')
