@@ -1,5 +1,6 @@
 #include <QtQml>
 #include "qaline.h"
+#include "qaunits.h"
 #include "qamousesensor.h"
 #include "qatimer.h"
 #include "priv/qasystemdispatcherproxy.h"
@@ -23,11 +24,25 @@ static QJSValue timerProvider(QQmlEngine* engine , QJSEngine *scriptEngine) {
     return value;
 }
 
+template <typename T>
+static QObject* provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
+    Q_UNUSED(engine);
+    Q_UNUSED(scriptEngine);
+
+    T* object = new T();
+
+    return object;
+}
+
 static void regiserQmlTypes() {
     // QADevice is a exception. Won't register by QAQmlTypes.
 
     qmlRegisterSingletonType<QASystemDispatcherProxy>("QuickAndroid", 0, 1,
                                                       "SystemDispatcher", systemDispatcherProvider);
+
+    qmlRegisterSingletonType<QAUnits>("QuickAndroid", 0, 1,
+                                      "Units", provider<QAUnits>);
+
     qmlRegisterType<QALine>("QuickAndroid.Private",0,1,"Line");
     qmlRegisterType<QAMouseSensor>("QuickAndroid.Private",0,1,"MouseSensor");
     qmlRegisterSingletonType("QuickAndroid.Private", 0, 1, "TimerUtils", timerProvider);

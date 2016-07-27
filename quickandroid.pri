@@ -13,7 +13,8 @@ HEADERS += \
     $$PWD/qamousesensor.h \
     $$PWD/qatimer.h \
     $$PWD/qaline.h \
-    $$PWD/qaimagewriter.h
+    $$PWD/qaimagewriter.h \
+    $$PWD/qaunits.h
 
 SOURCES += \
     $$PWD/quickandroid.cpp \
@@ -25,7 +26,8 @@ SOURCES += \
     $$PWD/qatimer.cpp \
     $$PWD/qaline.cpp \
     $$PWD/qaqmltypes.cpp \
-    $$PWD/qaimagewriter.cpp
+    $$PWD/qaimagewriter.cpp \
+    $$PWD/qaunits.cpp
 
 QuickAndroidJavaDir = $$PWD/java
 
