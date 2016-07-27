@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 16
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 18
+        targetSdkVersion 18
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+
+            java.srcDirs = ['src/main/java', qt5AndroidDir + '/src']
+
+            aidl.srcDirs = [qt5AndroidDir + '/src', 'src', 'aidl']
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: qt5AndroidDir + "/../../../jar", include: ['*.jar'])
+}
+
+task list << {
+
+    println(qt5AndroidDir + "/../../../jar");
+
+}

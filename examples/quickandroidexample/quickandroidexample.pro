@@ -23,7 +23,14 @@ include(deployment.pri)
 DISTFILES += \
     android-sources/AndroidManifest.xml \
     android-sources/src/quickandroid/example/ExampleService.java \
-    README.md
+    README.md \
+    android-sources/gradle/wrapper/gradle-wrapper.jar \
+    android-sources/gradlew \
+    android-sources/res/values/libs.xml \
+    android-sources/build.gradle \
+    android-sources/gradle/wrapper/gradle-wrapper.properties \
+    android-sources/gradlew.bat \
+    android-sources/settings.gradle
 
 HEADERS += \
     automator.h \
