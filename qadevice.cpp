@@ -1,6 +1,7 @@
 #include <QObject>
 #include <QtQml>
 #include <QSysInfo>
+#include <QGuiApplication>
 #include "qadevice.h"
 #include "qadrawableprovider.h"
 
@@ -78,10 +79,7 @@ static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
     return device;
 }
 
-class QADeviceRegisterHelper {
-
-public:
-    QADeviceRegisterHelper() {
+static void init() {
 
 #ifdef Q_OS_ANDROID
         QAndroidJniObject activity = QAndroidJniObject::callStaticObjectMethod("org/qtproject/qt5/android/QtNative", "activity", "()Landroid/app/Activity;");
@@ -89,6 +87,14 @@ public:
         QAndroidJniObject metrics = resource.callObjectMethod("getDisplayMetrics","()Landroid/util/DisplayMetrics;");
         m_dp = metrics.getField<float>("density");
         m_dpi = metrics.getField<int>("densityDpi");
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
+        QGuiApplication *app = qobject_cast<QGuiApplication*>(QGuiApplication::instance());
+        if (app->testAttribute(Qt::AA_EnableHighDpiScaling)) {
+            m_dp = m_dp / app->devicePixelRatio();
+            m_dpi = m_dpi / app->devicePixelRatio();
+        }
+#endif
 
         /* Is Tablet. Experimental code */
 
@@ -100,9 +106,7 @@ public:
         m_isTablet = (screenLayout & SCREENLAYOUT_SIZE_MASK) >= SCREENLAYOUT_SIZE_LARGE;
 #endif
 
-        qmlRegisterSingletonType<QADevice>("QuickAndroid", 0, 1, "Device", provider);
-    }
-};
+    qmlRegisterSingletonType<QADevice>("QuickAndroid", 0, 1, "Device", provider);
+}
 
-static QADeviceRegisterHelper registerHelper;
-
+Q_COREAPP_STARTUP_FUNCTION(init)

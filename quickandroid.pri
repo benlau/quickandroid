@@ -13,7 +13,8 @@ HEADERS += \
     $$PWD/qamousesensor.h \
     $$PWD/qatimer.h \
     $$PWD/qaline.h \
-    $$PWD/qaimagewriter.h
+    $$PWD/qaimagewriter.h \
+    $$PWD/qaunits.h
 
 SOURCES += \
     $$PWD/quickandroid.cpp \
@@ -25,11 +26,19 @@ SOURCES += \
     $$PWD/qatimer.cpp \
     $$PWD/qaline.cpp \
     $$PWD/qaqmltypes.cpp \
-    $$PWD/qaimagewriter.cpp
+    $$PWD/qaimagewriter.cpp \
+    $$PWD/qaunits.cpp
+
+QuickAndroidJavaDir = $$PWD/java
 
 android {
     QT += androidextras
 
+    isEmpty(ANDROID_PACKAGE_SOURCE_DIR) {
+        message(ANDROID_PACKAGE_SOURCE_DIR is not defined)
+    }
+
+    # For project not using gradle
     QA_JAVASRC.path = /src/quickandroid
     QA_JAVASRC.files += $$PWD/java/quickandroid/SystemDispatcher.java \
                         $$PWD/java/quickandroid/QuickAndroidActivity.java \
@@ -41,5 +50,6 @@ android {
 DISTFILES += \
     $$PWD/java/quickandroid/SystemDispatcher.java \
     $$PWD/java/quickandroid/QuickAndroidActivity.java \
-    $$PWD/java/quickandroid/ImagePicker.java
+    $$PWD/java/quickandroid/ImagePicker.java \
+    $$PWD/gradle.properties.in
 

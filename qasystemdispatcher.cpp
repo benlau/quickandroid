@@ -20,10 +20,14 @@ QString QASystemDispatcher::ACTIVITY_RESULT_MESSAGE = "Activity.onActivityResult
 #define DISPATCH_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 #define EMIT_SIGNATURE "(Ljava/lang/String;Ljava/util/Map;)V"
 
+static QVariantMap createVariantMap(jobject data);
+static jobject createHashMap(const QVariantMap &data);
+
 static QVariant convertToQVariant(QAndroidJniObject value) {
     QVariant v;
-    if (!value.isValid())
+    if (!value.isValid()) {
         return v;
+    }
 
     QAndroidJniEnvironment env;
 
@@ -31,6 +35,7 @@ static QVariant convertToQVariant(QAndroidJniObject value) {
     jclass jclass_of_integer = env->FindClass("java/lang/Integer");
     jclass jclass_of_boolean = env->FindClass("java/lang/Boolean");
     jclass jclass_of_list = env->FindClass("java/util/List");
+    jclass jclass_of_map = env->FindClass("java/util/Map");
 
     if (env->IsInstanceOf(value.object<jobject>(),jclass_of_boolean)) {
         v = QVariant::fromValue<bool>(value.callMethod<jboolean>("booleanValue","()Z"));
@@ -38,6 +43,8 @@ static QVariant convertToQVariant(QAndroidJniObject value) {
         v = value.callMethod<jint>("intValue","()I");
     } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_string)) {
         v = value.toString();
+    } else if (env->IsInstanceOf(value.object<jobject>(), jclass_of_map)) {
+        v = createVariantMap(value.object<jobject>());
     } else if (env->IsInstanceOf(value.object<jobject>(),jclass_of_list)) {
         QVariantList list;
         int count = value.callMethod<jint>("size","()I");
@@ -47,6 +54,12 @@ static QVariant convertToQVariant(QAndroidJniObject value) {
         }
         v = list;
     }
+
+    env->DeleteLocalRef(jclass_of_string);
+    env->DeleteLocalRef(jclass_of_integer);
+    env->DeleteLocalRef(jclass_of_boolean);
+    env->DeleteLocalRef(jclass_of_list);
+    env->DeleteLocalRef(jclass_of_map);
 
     return v;
 }
@@ -89,15 +102,19 @@ static QVariantMap createVariantMap(jobject data) {
     jmethodID nextMethod = env->GetMethodID(jclass_of_iterator, "next", "()Ljava/lang/Object;");
 
     while (env->CallBooleanMethod(jobject_of_iterator, hasNextMethod) ) {
-        QAndroidJniObject entry = env->CallObjectMethod(jobject_of_iterator,nextMethod);
+        jobject jEntry = env->CallObjectMethod(jobject_of_iterator,nextMethod);
+        QAndroidJniObject entry = QAndroidJniObject(jEntry);
         QAndroidJniObject key = entry.callObjectMethod("getKey","()Ljava/lang/Object;");
         QAndroidJniObject value = entry.callObjectMethod("getValue","()Ljava/lang/Object;");
         QString k = key.toString();
 
         QVariant v = convertToQVariant(value);
 
-        if (v.isNull())
+        env->DeleteLocalRef(jEntry);
+
+        if (v.isNull()) {
             continue;
+        }
 
         res[k] = v;
     }
@@ -107,16 +124,18 @@ static QVariantMap createVariantMap(jobject data) {
         env->ExceptionClear();
     }
 
-    // Delete local reference
+    env->DeleteLocalRef(jclass_of_hashmap);
+    env->DeleteLocalRef(jobject_of_entryset);
+    env->DeleteLocalRef(jclass_of_set);
+    env->DeleteLocalRef(jobject_of_iterator);
+    env->DeleteLocalRef(jclass_of_iterator);
+
     return res;
 }
 
 static jobject convertToJObject(QVariant v) {
     jobject res = 0;
     QAndroidJniEnvironment env;
-
-    jclass booleanClass = env->FindClass("java/lang/Boolean");
-    jmethodID booleanConstructor = env->GetMethodID(booleanClass,"<init>","(Z)V");
 
     if (v.type() == QVariant::String) {
         QString str = v.toString();
@@ -126,20 +145,34 @@ static jobject convertToJObject(QVariant v) {
         jmethodID integerConstructor = env->GetMethodID(integerClass, "<init>", "(I)V");
 
         res = env->NewObject(integerClass,integerConstructor,v.toInt());
+
+        env->DeleteLocalRef(integerClass);
     } else if (v.type() == QVariant::Bool) {
+        jclass booleanClass = env->FindClass("java/lang/Boolean");
+        jmethodID booleanConstructor = env->GetMethodID(booleanClass,"<init>","(Z)V");
+
         res = env->NewObject(booleanClass,booleanConstructor,v.toBool());
+
+        env->DeleteLocalRef(booleanClass);
+
+    } else if (v.type() == QVariant::Map) {
+        res = createHashMap(v.toMap());
     } else  if (v.type() == QVariant::List){
         QVariantList list = v.value<QVariantList>();
         jclass arrayListClass = env->FindClass("java/util/ArrayList");
         jmethodID init = env->GetMethodID(arrayListClass, "<init>", "(I)V");
-        jobject res = env->NewObject( arrayListClass, init, list.size());
+        res = env->NewObject( arrayListClass, init, list.size());
 
         jmethodID add = env->GetMethodID( arrayListClass, "add",
                     "(Ljava/lang/Object;)Z");
 
         for (int i = 0 ; i < list.size() ; i++) {
-            env->CallObjectMethod(res,add,convertToJObject(list.at(i)));
+            jobject item = convertToJObject(list.at(i));
+            env->CallBooleanMethod(res,add, item);
+            env->DeleteLocalRef(item);
         }
+
+        env->DeleteLocalRef(arrayListClass);
     } else {
         qWarning() << "QASystemDispatcher: Non-supported data type - " <<  v.type();
     }
@@ -168,16 +201,18 @@ static jobject createHashMap(const QVariantMap &data) {
     while (iter.hasNext()) {
         iter.next();
 
-//        qDebug() << iter.key() << iter.value();
         QString key = iter.key();
         jstring jkey = env->NewStringUTF(key.toLocal8Bit().data());
         QVariant v = iter.value();
         jobject item = convertToJObject(v);
 
-        if (item == 0)
+        if (item == 0) {
             continue;
+        }
 
         env->CallObjectMethod(hashMap,put,jkey,item);
+        env->DeleteLocalRef(item);
+        env->DeleteLocalRef(jkey);
      }
 
     if (env->ExceptionOccurred()) {
@@ -185,19 +220,27 @@ static jobject createHashMap(const QVariantMap &data) {
         env->ExceptionClear();
     }
 
+    env->DeleteLocalRef(mapClass);
+
     return hashMap;
 }
 
 static void jniEmit(JNIEnv* env,jobject object,jstring name,jobject data) {
     Q_UNUSED(object);
-    QString str = env->GetStringUTFChars(name, 0);
+    Q_UNUSED(env);
+
+    QAndroidJniObject tmp(name);
+    QString str = tmp.toString();
 
     QVariantMap map;
 
-    if (data != 0)
+    if (data != 0) {
         map = createVariantMap(data);
-    if (m_instance.isNull())
+    }
+
+    if (m_instance.isNull()) {
         return;
+    }
 
     QMetaObject::invokeMethod(m_instance.data(),"dispatched",Qt::AutoConnection,
                               Q_ARG(QString, str),
@@ -238,6 +281,9 @@ void QASystemDispatcher::dispatch(QString type, QVariantMap message)
     QAndroidJniObject::callStaticMethod<void>(JCLASS_Name, "dispatch",
                                               DISPATCH_SIGNATURE,
                                               jType,jData);
+    env->DeleteLocalRef(jType);
+    env->DeleteLocalRef(jData);
+
 #else
     static bool dispatching = false;
     static QQueue<QPair<QString,QVariantMap> > queue;

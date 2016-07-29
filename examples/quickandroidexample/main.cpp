@@ -32,7 +32,12 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void*) {
 
 int main(int argc, char *argv[])
 {
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+
     QGuiApplication app(argc, argv);
+
 
     QQmlApplicationEngine engine;
 
@@ -49,6 +54,8 @@ int main(int argc, char *argv[])
     /* Testing Code. Not needed for regular project */
     Automator* automator = new Automator();
     automator->start();
+
+    qDebug() << "Start QuickAndroid Example Program";
 
     return app.exec();
 }

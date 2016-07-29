@@ -7,6 +7,8 @@ Item {
 
     property color color : Constants.black12
 
+    property real minRadius: 24 * A.dp
+
     property real maxRadius : Math.max(rippleSurface.width,rippleSurface.height)
 
     function tap(x,y) {
@@ -67,7 +69,7 @@ Item {
                 target: ripple
                 property: "radius"
                 duration: 500
-                from: 0
+                from: minRadius
                 to: maxRadius
                 easing.type: Easing.OutQuad
             }

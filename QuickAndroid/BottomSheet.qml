@@ -7,21 +7,72 @@
  */
 
 import QtQuick 2.0
+/* Quick Android Project
+   Author: Ben Lau
+   License: Apache-2.0
+   Web: https://github.com/benlau/quickandroid
+*/
+
 import QtQuick.Controls 1.2
 import QuickAndroid 0.1
 import "./drawable"
 
+
+/*!
+   \qmltype BottomSheet
+   \inqmlmodule QuickAndroid 0.1
+   \brief Bottom Sheet Component
+ */
+
+
 Item {
     id: bottomSheet
 
+    /*!
+      \qmlproperty bool isOpened
+
+      This property indicatr is the bottom sheet opened.
+     */
+
     property bool isOpened: false
+
+    /*! \qmlproperty Item content
+
+        The internal item that contains the Items to be shown in BottomSheet.
+     */
+
     default property alias content : dragArea.children
+
+    /*! \qmlproperty Paper paper
+
+       This property hold the background paper of BottomSheet
+
+       User may modify the style by manipulate this property
+     */
+
     property alias paper: paper
+
+
+    /*! \qmlperoperty bool darkBackground
+
+    This property indicate will BottomSheet create a dark mask on the background while opened.
+     */
+
     property bool darkBackground: true
+
+    /*! \qmlmethod void open()
+
+      Open the bottom sheet
+     */
 
     function open() {
         isOpened = true;
     }
+
+    /*! \qmlmethod void close()
+
+      Close the bottom sheet
+     */
 
     function close() {
         isOpened = false;

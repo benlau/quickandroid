@@ -28,6 +28,13 @@ html
 # QtCreator
 
 *.autosave
+.idea
 
 tests/quickandroidactivitytests/tests/bin/*
 tests/quickandroidactivitytests/tests/gen/*
+
+#Android
+*.properties
+.build
+.gradle
+*.iml

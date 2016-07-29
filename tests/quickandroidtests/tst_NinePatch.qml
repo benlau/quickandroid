@@ -10,7 +10,7 @@ Rectangle {
 
     Drawable {
         id : menuDropDown
-        source : "drawable/MenuDropdownPanelHoloLight.qml"
+        source : Qt.resolvedUrl("./drawable/MenuDropdownPanelHoloLight.qml")
     }
 
     Rectangle {
@@ -32,7 +32,6 @@ Rectangle {
             compare(menuDropDown.fillArea.y,8);
             compare(menuDropDown.fillArea.width,48);
             compare(menuDropDown.fillArea.height,16);
-            //            wait(60000);
         }
     }
 

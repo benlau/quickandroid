@@ -1,5 +1,4 @@
 package quickandroid;
-import quickandroid.SystemDispatcher;
 import org.qtproject.qt5.android.QtNative;
 import android.content.Intent;
 import android.util.Log;
@@ -9,13 +8,11 @@ import android.net.Uri;
 import java.util.HashMap;
 import android.database.Cursor;
 import android.provider.MediaStore;
-import android.provider.MediaStore.Images;
-import android.content.ContentValues;
+
 import java.text.SimpleDateFormat;
 import java.io.File;
 import java.util.Date;
 import android.os.Environment;
-import android.os.Handler;
 import android.content.ClipData;
 import java.util.List;
 import java.util.ArrayList;

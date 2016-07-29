@@ -1,7 +1,6 @@
 package quickandroid;
-import quickandroid.SystemDispatcher;
 import org.qtproject.qt5.android.QtNative;
-import java.util.HashMap;
+
 import android.content.Intent;
 
 /** An alternative Activity class for Qt applicaiton.

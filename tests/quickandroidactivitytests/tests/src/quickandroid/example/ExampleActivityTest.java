@@ -140,10 +140,12 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void onDispatched(String type , Map message) {
-                Log.v(TAG,"testDispatchTypes - onDispatched:" + type);
-                if (!type.equals("Automater::response")) 
+                Log.v(TAG,"testDispatchTypes - onDispatched: " + type);
+
+                if (!type.equals("Automater::response")) {
                     return;
-                
+                }
+
                 Payload payload = new Payload();
                 payload.name = type;
                 payload.message = message;
@@ -159,7 +161,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         message.put("field2",10);
         message.put("field3",true);
         message.put("field4",false);
-        
+      
         List field5 = new ArrayList(3);
         field5.add(23);
         field5.add(true);
@@ -167,6 +169,13 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         message.put("field5",field5);
         field5 = new ArrayList(10);
 
+        Map field6 = new HashMap();
+        field6.put("sfield1", "value1");
+        field6.put("sfield2", 10);
+        field6.put("sfield3", true);
+        field6.put("sfield4", false);
+        message.put("field6", field6);
+ 
         assertTrue(lastPayload == null);
 
         SystemDispatcher.dispatch("Automater::echo",message);
@@ -178,6 +187,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         assertTrue(lastPayload.message.containsKey("field3"));
         assertTrue(lastPayload.message.containsKey("field4"));
         assertTrue(lastPayload.message.containsKey("field5"));
+        assertTrue(lastPayload.message.containsKey("field6"));
 
         String field1 = (String)  lastPayload.message.get("field1");
         assertTrue(field1.equals("value1"));
@@ -193,9 +203,17 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
   
         List list = (List) lastPayload.message.get("field5");
         assertEquals(list.size(),3);
-        assertEquals((Integer) list.get(0), 23));
-        assertEquals((Boolean) list.get(1), true));
-        assertEquals( ((String) list.get(0).equals("stringValue"))));
+        assertEquals(list.get(0), 23);
+        assertEquals(list.get(1), true);
+        assertTrue((((String) list.get(2)).equals("stringValue")));
+
+        Map map = (Map) lastPayload.message.get("field6");
+        assertTrue(map.containsKey("sfield1"));
+        assertTrue(((String) map.get("sfield1")).equals("value1"));
+        assertTrue(map.containsKey("sfield2"));
+        assertEquals(map.get("sfield2"), 10);
+        assertTrue(map.containsKey("sfield3"));
+        assertTrue(map.containsKey("sfield4"));
         
         SystemDispatcher.removeListener(listener);
     }
@@ -204,6 +222,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void onDispatched(String name , Map message) {
+
                 Payload payload = new Payload();
                 payload.name = name;
                 payload.message = message;
@@ -213,15 +232,66 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         };
         SystemDispatcher.addListener(listener);
 
-        SystemDispatcher.onActivityResult(73,99,null);
+        SystemDispatcher.onActivityResult(73, 99, null);
+        sleep(500);
 
         assertTrue(lastPayload != null);
+        assertEquals(SystemDispatcher.ACTIVITY_RESULT_MESSAGE, lastPayload.name);
+
         assertTrue(lastPayload.message.containsKey("requestCode"));
         assertTrue(lastPayload.message.containsKey("resultCode"));
         assertTrue(lastPayload.message.containsKey("data"));
 
-        assertEquals((int) (Integer) lastPayload.message.get("requestCode") ,73);
+        assertEquals((int) (Integer) lastPayload.message.get("requestCode"), 73);
         assertEquals((int) (Integer) lastPayload.message.get("resultCode") ,99);
+
+        SystemDispatcher.removeListener(listener);
+
+    }
+
+    public void testHashTableOverflow() {
+        ArrayList list = new ArrayList();
+
+        int count = 600;
+
+        for (int i = 0 ; i < count ; i++) {
+            HashMap map = new HashMap();
+            map.put("value1", 1);
+            map.put("value2", true);
+            map.put("value3", "value3");
+
+            list.add(map);
+        }
+
+        HashMap message = new HashMap();
+        message.put("list", list);
+
+        SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
+
+            public void onDispatched(String name , Map message) {
+
+                if (!name.equals("Automater::response")) {
+                    return;
+                }
+                Payload payload = new Payload();
+                payload.name = name;
+                payload.message = message;
+
+                lastPayload = payload;
+            }
+        };
+
+        SystemDispatcher.addListener(listener);
+        SystemDispatcher.dispatch("Automater::echo", message);
+
+        sleep(500);
+
+        assertTrue(lastPayload != null);
+        assertTrue(lastPayload.message.containsKey("list"));
+
+        List retList = (List) lastPayload.message.get("list");
+
+        assertEquals(retList.size() , count);
 
         SystemDispatcher.removeListener(listener);
 
