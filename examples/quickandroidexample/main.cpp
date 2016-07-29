@@ -32,7 +32,10 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void*) {
 
 int main(int argc, char *argv[])
 {
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+
     QGuiApplication app(argc, argv);
 
 

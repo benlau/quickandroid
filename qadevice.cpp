@@ -88,11 +88,13 @@ static void init() {
         m_dp = metrics.getField<float>("density");
         m_dpi = metrics.getField<int>("densityDpi");
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
         QGuiApplication *app = qobject_cast<QGuiApplication*>(QGuiApplication::instance());
         if (app->testAttribute(Qt::AA_EnableHighDpiScaling)) {
             m_dp = m_dp / app->devicePixelRatio();
             m_dpi = m_dpi / app->devicePixelRatio();
         }
+#endif
 
         /* Is Tablet. Experimental code */
 
