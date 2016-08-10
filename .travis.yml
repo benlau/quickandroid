@@ -16,9 +16,10 @@ script:
     - qmake
     - make
     - ls
-    - ./quickandroidcpptests
+    - QT_QPA_PLATFORM=minimal ./quickandroidcpptests
     - cd ../quickandroidtests
     - qmake
     - make
     - ls
-    - ./quickandroidtests
+    - QT_QPA_PLATFORM=minimal ./quickandroidtests
+
