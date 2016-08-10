@@ -111,8 +111,6 @@ void QuickAndroidTests::loading()
 
 void QuickAndroidTests::runExample()
 {
-
-    QQuickView view;
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:///");
 
@@ -147,9 +145,6 @@ void QuickAndroidTests::runExample()
     }
 
     wait(1000);
-
-    QList<QQmlError> errors = view.errors();
-    QVERIFY(errors.size() == 0);
 }
 
 void QuickAndroidTests::drawableProvider()
