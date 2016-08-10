@@ -4,6 +4,9 @@ env:
 compiler:
   - gcc
 before_install:
+    - sudo apt-get update -qq
+    - dpkg -l | grep mesa
+    - apt-cache search mesa
     - git clone https://github.com/benlau/qtci/
     - source qtci/path.env
     - qt-5.5.1
