@@ -38,13 +38,26 @@ android {
         message(ANDROID_PACKAGE_SOURCE_DIR is not defined)
     }
 
-    # For project not using gradle
-    QA_JAVASRC.path = /src/quickandroid
-    QA_JAVASRC.files += $$PWD/java/quickandroid/SystemDispatcher.java \
-                        $$PWD/java/quickandroid/QuickAndroidActivity.java \
-                        $$PWD/java/quickandroid/ImagePicker.java
+    QuickAndroidJavaSource += $$PWD/java/quickandroid/SystemDispatcher.java \
+                   $$PWD/java/quickandroid/QuickAndroidActivity.java \
+                   $$PWD/java/quickandroid/ImagePicker.java
 
-    INSTALLS += QA_JAVASRC
+    equals(QA_ADD_JAVA_SRC, true) {
+
+        QA_JAVASRC.commands = $$QMAKE_MKDIR $$ANDROID_PACKAGE_SOURCE_DIR/src/quickandroid; \
+                    $$QMAKE_COPY $$QuickAndroidJavaSource $$ANDROID_PACKAGE_SOURCE_DIR/src/quickandroid
+
+        all.depends += QA_JAVASRC
+
+        QMAKE_EXTRA_TARGETS += all QA_JAVASRC
+
+    } else {
+        # For project not using gradle
+        QA_JAVASRC.path = /src/quickandroid
+        QA_JAVASRC.files += $$QuickAndroidJavaSource
+        INSTALLS += QA_JAVASRC
+    }
+
 }
 
 DISTFILES += \
