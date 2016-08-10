@@ -4,15 +4,13 @@ env:
 compiler:
   - gcc
 before_install:
-    - sudo add-apt-repository --yes ppa:beineri/opt-qt542
-    - sudo apt-get update -qq
-    - apt-cache search qt5
-    - sudo apt-get install -qq qt54quickcontrols  qt54declarative qt54script qt54graphicaleffects
-    - dpkg -l | grep mesa
+    - git clone https://github.com/benlau/qtci/
+    - source qtci/path.env
+    - qt-5.5.1
     - sh -e /etc/init.d/xvfb start
 
 script:
-    - source /opt/qt54/bin/qt54-env.sh 
+    - source qt-5.5.1.env
     - cd tests/quickandroidcpptests
     - qmake
     - make
