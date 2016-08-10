@@ -8,18 +8,19 @@ before_install:
     - sudo apt-get update -qq
     - apt-cache search qt5
     - sudo apt-get install -qq qt54quickcontrols  qt54declarative qt54script qt54graphicaleffects
-
+    - dpkg -l | grep mesa
     - sh -e /etc/init.d/xvfb start
+
 script:
     - source /opt/qt54/bin/qt54-env.sh 
     - cd tests/quickandroidcpptests
     - qmake
     - make
     - ls
-    - QT_QPA_PLATFORM=minimal ./quickandroidcpptests
+    - ./quickandroidcpptests
     - cd ../quickandroidtests
     - qmake
     - make
     - ls
-    - QT_QPA_PLATFORM=minimal ./quickandroidtests
+    - ./quickandroidtests
 
