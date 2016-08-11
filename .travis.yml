@@ -7,7 +7,7 @@ before_install:
     - sudo apt-get update -qq
     - dpkg -l | grep mesa
     - apt-cache search mesa
-    - sudo apt-get install --force-yes -qq libegl1-mesa-drivers libegl1-mesa-drivers-dbg
+    - sudo apt-get install --force-yes -qq libegl1-mesa-drivers libegl1-mesa-drivers-dbg mesa-utils 
     - dpkg -l | grep mesa
     - git clone https://github.com/benlau/qtci/
     - source qtci/path.env
