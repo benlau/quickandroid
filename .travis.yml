@@ -17,7 +17,7 @@ before_install:
     - sleep 3
 
 script:
-    - xvfb-run -a glxinfo
+    - glxinfo
     - source qt-5.5.1.env
     - cd tests/quickandroidcpptests
     - qmake
