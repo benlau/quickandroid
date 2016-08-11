@@ -12,10 +12,11 @@ before_install:
     - git clone https://github.com/benlau/qtci/
     - source qtci/path.env
     - qt-5.5.1
+    - cat /etc/init.d/xvfb 
     - sh -e /etc/init.d/xvfb start
 
 script:
-    - xvfb-run glxinfo
+    - xvfb-run -a glxinfo
     - source qt-5.5.1.env
     - cd tests/quickandroidcpptests
     - qmake
