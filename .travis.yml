@@ -23,7 +23,7 @@ script:
     - qmake
     - make
     - ls
-    - ./quickandroidcpptests
+    - QT_LOGGING_RULES=qt.qpa.gl=true ./quickandroidcpptests
     - cd ../quickandroidtests
     - qmake
     - make
