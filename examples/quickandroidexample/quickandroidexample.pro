@@ -15,7 +15,6 @@ android {
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
 }
 
-QA_ADD_JAVA_SRC = true
 include(../../quickandroid.pri)
 
 # Default rules for deployment.
