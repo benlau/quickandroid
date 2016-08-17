@@ -51,6 +51,5 @@ android {
 DISTFILES += \
     $$PWD/java/quickandroid/SystemDispatcher.java \
     $$PWD/java/quickandroid/QuickAndroidActivity.java \
-    $$PWD/java/quickandroid/ImagePicker.java \
-    $$PWD/gradle.properties.in
+    $$PWD/java/quickandroid/ImagePicker.java
 
