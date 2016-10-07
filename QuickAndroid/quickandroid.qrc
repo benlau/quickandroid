@@ -102,5 +102,6 @@
         <file>Ink.qml</file>
         <file>Private/RippleSurface.qml</file>
         <file>Private/incubator.js</file>
+        <file>Toast.qml</file>
     </qresource>
 </RCC>
