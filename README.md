@@ -37,7 +37,7 @@ Utility Components
     InverseMouseArea, RectToRectMatrix, SystemDispatcher, MouseSensor
 
 Installation Instruction (qpm)
-==============================
+------------------------------
 
 For user who are already using qpm from [qpm.io](https://qpm.io)
 
@@ -60,6 +60,10 @@ Installation Instruction
 
     include(quickandroid/quickandroid.pri) # You should modify the path by yourself
 
+Java Setup Guide
+----------------
+
+In order to get native components like image picker, you need to setup the Java environment according to this guide [quickandroid/java-setup-guide.md at master · benlau/quickandroid](https://github.com/benlau/quickandroid/blob/master/docs/java-setup-guide.md)
 
 Demonstration
 -------------
