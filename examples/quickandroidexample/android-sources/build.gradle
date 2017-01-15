@@ -1,3 +1,29 @@
+
+// Obtain androidPackageSourceDir
+// androidPackageSourceDir is the absolute path of the folder containing build.gradle and AndroidManifests.xml
+// This code also works with androiddeployqt.
+
+import groovy.json.JsonSlurper
+
+String getAndroidPackageSourceDir() {
+    String res = System.getProperty("user.dir");
+
+    FileTree tree = fileTree(dir: res + '/..').include('android*deployment-settings.json');
+
+    if (tree.size() > 0) {
+        String json = tree[0];
+        def inputFile = new File(json);
+        def InputJSON = new JsonSlurper().parseText(inputFile.text);
+        res = InputJSON["android-package-source-directory"]
+    }
+
+    return res;
+}
+
+String androidPackageSourceDir = getAndroidPackageSourceDir();
+println("ANDROID_PACKAGE_SOURCE_DIRECTORY:" + androidPackageSourceDir);
+// End of obtain androidPackageSourceDir
+
 buildscript {
     repositories {
         jcenter()
@@ -41,7 +67,8 @@ android {
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = [qt5AndroidDir + '/src', 'src', 'java', '../../../java/quickandroid']
+            java.srcDirs = [qt5AndroidDir + '/src', 'src', 'java',
+                            androidPackageSourceDir + '/../../../java']
             aidl.srcDirs = [qt5AndroidDir + '/src', 'src', 'aidl']
             res.srcDirs = [qt5AndroidDir + '/res', 'res']
             resources.srcDirs = ['src']

@@ -38,18 +38,18 @@ android {
         message(ANDROID_PACKAGE_SOURCE_DIR is not defined)
     }
 
+    QuickAndroidJavaSource += $$PWD/java/quickandroid/SystemDispatcher.java \
+                   $$PWD/java/quickandroid/QuickAndroidActivity.java \
+                   $$PWD/java/quickandroid/ImagePicker.java
+
     # For project not using gradle
     QA_JAVASRC.path = /src/quickandroid
-    QA_JAVASRC.files += $$PWD/java/quickandroid/SystemDispatcher.java \
-                        $$PWD/java/quickandroid/QuickAndroidActivity.java \
-                        $$PWD/java/quickandroid/ImagePicker.java
-
+    QA_JAVASRC.files += $$QuickAndroidJavaSource
     INSTALLS += QA_JAVASRC
 }
 
 DISTFILES += \
     $$PWD/java/quickandroid/SystemDispatcher.java \
     $$PWD/java/quickandroid/QuickAndroidActivity.java \
-    $$PWD/java/quickandroid/ImagePicker.java \
-    $$PWD/gradle.properties.in
+    $$PWD/java/quickandroid/ImagePicker.java
 
