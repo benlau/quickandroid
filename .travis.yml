@@ -1,32 +1,46 @@
-language : cpp
+language : android
+addons:
+  apt:
+    packages:
+    - p7zip
+android:
+  components:
+    - build-tools-23.0.2
+    - android-19
+    - extra-google-google_play_services
 env:
   - DISPLAY=:99.0
 compiler:
   - gcc
 before_install:
-    - sudo apt-get update -qq
-    - dpkg -l | grep mesa
-    - apt-cache search mesa
-    - sudo apt-get install --force-yes -qq libegl1-mesa-drivers libegl1-mesa-drivers-dbg mesa-utils 
-    - dpkg -l | grep mesa
+    - wget -c https://services.gradle.org/distributions/gradle-2.9-bin.zip
+    - unzip -qq gradle-2.9-bin.zip
+    - export GRADLE_HOME=$PWD/gradle-2.9
+    - export PATH=$GRADLE_HOME/bin:$PATH
+    - gradle --version
     - git clone https://github.com/benlau/qtci/
     - source qtci/path.env
-    - qt-5.5.1
-    - cat /etc/init.d/xvfb 
-    - /usr/bin/Xvfb :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset &
-    - sleep 3
+    - qt-5.5.1-android-travis
 
 script:
-    - xvfb-run -a glxinfo
-    - source qt-5.5.1.env
-    - cd tests/quickandroidcpptests
-    - qmake
-    - make
-    - ls
-    - ./quickandroidcpptests
-    - cd ../quickandroidtests
-    - qmake
-    - make
-    - ls
-    - ./quickandroidtests
-
+    - ls 
+    - source qt-5.5.1-android-travis.env
+    - export ROOT_DIR=`pwd`
+    - ls $ANDROID_SDK_ROOT/build-tools
+    - cd tests/quickandroidactivitytests
+    - mkdir -p build
+    - cd build
+    - build-android-gradle-project ../../../examples/quickandroidexample/quickandroidexample.pro
+    - sed -i "s/com.android.application/com.android.library/g" android-build/build.gradle
+    - cat android-build/build.gradle
+    - find . -name "*.apk"
+    - cp ./android-build/build/outputs/apk/android-build-debug.apk output.apk
+    - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+    - emulator -avd test -no-audio -no-window &
+    - android-wait-for-emulator
+    - adb shell input keyevent 82 &
+    - cd -
+    - export ANDROID_HOME=$ANDROID_SDK_ROOT
+    - ./run-tests.sh
+    - ls tests
+    

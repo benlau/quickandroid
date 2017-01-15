@@ -1,0 +1,2 @@
+include ":example"
+project(":example").projectDir = new File("../build/android-build");
