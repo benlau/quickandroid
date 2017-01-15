@@ -1,6 +1,7 @@
 package quickandroid;
 
 import android.app.Activity;
+import android.util.Log;
 import java.util.Map;
 
 import org.qtproject.qt5.android.QtNative;
