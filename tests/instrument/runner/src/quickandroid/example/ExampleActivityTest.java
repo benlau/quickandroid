@@ -1,19 +1,18 @@
 package quickandroid.example;
 
+import android.app.Activity;
+import android.app.Instrumentation;
+import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
-import quickandroid.SystemDispatcher;
-import java.util.Map;
-import android.content.Intent;
-import android.test.ActivityTestCase;
-import android.app.Instrumentation;
-import android.app.Activity;
-import java.util.Queue;
-import java.util.LinkedList;
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import quickandroid.QuickAndroidActivity;
+import quickandroid.SystemDispatcher;
 
 /**
  * This is a simple framework for a test of an Application.  See
@@ -30,7 +29,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
     private static String TAG = "ActivityTest";
 
     public ExampleActivityTest() {
-        super("quickandroid", QuickAndroidActivity.class);
+        super(QuickAndroidActivity.class);
     }
 
     private static boolean launched = false;
@@ -140,7 +139,7 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
             public void onDispatched(String type , Map message) {
-                Log.v(TAG,"testDispatchTypes - onDispatched: " + type);
+                Log.v(TAG,"testDispatchTypes - received: " + type);
 
                 if (!type.equals("Automater::response")) {
                     return;
@@ -219,12 +218,16 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
     }
 
     public void testOnActivityResult() {
+        Log.v(TAG,"testOnActivityResult");
+        startActivity();
+
         SystemDispatcher.Listener listener = new SystemDispatcher.Listener() {
 
-            public void onDispatched(String name , Map message) {
+            public void onDispatched(String type , Map message) {
+                Log.v(TAG,"testOnActivityResult - received: " + type);
 
                 Payload payload = new Payload();
-                payload.name = name;
+                payload.name = type;
                 payload.message = message;
 
                 lastPayload = payload;
@@ -232,8 +235,10 @@ public class ExampleActivityTest extends ActivityInstrumentationTestCase2<QuickA
         };
         SystemDispatcher.addListener(listener);
 
+        SystemDispatcher.dispatch("ping");
+
         SystemDispatcher.onActivityResult(73, 99, null);
-        sleep(500);
+        sleep(1500);
 
         assertTrue(lastPayload != null);
         assertEquals(SystemDispatcher.ACTIVITY_RESULT_MESSAGE, lastPayload.name);

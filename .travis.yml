@@ -3,6 +3,8 @@ addons:
   apt:
     packages:
     - p7zip
+    - coreutils
+    - realpath
 android:
   components:
     - build-tools-23.0.2
@@ -23,24 +25,36 @@ before_install:
     - qt-5.5.1-android-travis
 
 script:
-    - ls 
-    - source qt-5.5.1-android-travis.env
     - export ROOT_DIR=`pwd`
+    - KEYSTORE=dev.keystore
+    - KEYPASS=123456
+    - BUILD_DIR=$ROOT_DIR/tests/instrument/build
+    - mkdir -p $BUILD_DIR
+    - ls 
+    - keytool -genkey -v -alias alias_name -keyalg RSA -keysize 2048 -validity 10000 -dname "cn=localhost, ou=oss, o=Continuent, c=HK"  -storepass $KEYPASS -keypass $KEYPASS -keystore $KEYSTORE
+    - source qt-5.5.1-android-travis.env
     - ls $ANDROID_SDK_ROOT/build-tools
-    - cd tests/quickandroidactivitytests
-    - mkdir -p build
-    - cd build
-    - build-android-gradle-project ../../../examples/quickandroidexample/quickandroidexample.pro
+    - cd $BUILD_DIR
+    - build-android-gradle-project ${ROOT_DIR}/tests/instrument/activity/activity.pro
     - sed -i "s/com.android.application/com.android.library/g" android-build/build.gradle
-    - cat android-build/build.gradle
-    - find . -name "*.apk"
+    - cat android-build/gradle.properties 
     - cp ./android-build/build/outputs/apk/android-build-debug.apk output.apk
     - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
     - emulator -avd test -no-audio -no-window &
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
-    - cd -
     - export ANDROID_HOME=$ANDROID_SDK_ROOT
-    - ./run-tests.sh
-    - ls tests
+    - adb install -r output.apk
+    - cd $ROOT_DIR/tests/instrument/runner
+    - ls
+    - ./gradlew -q assembleDebug
+    - find . -name "*.apk"
+    - adb install -r ./build/outputs/apk/runner-debug.apk
+    - adb shell am instrument -w quickandroid.example.tests/android.test.InstrumentationTestRunner 2>&1 | tee instrument.log
+    - adb logcat -d > log.txt
+    - sed -i "/dalvikvm/d" log.txt
+    - tail -n 1000 log.txt
+    - OK=`cat instrument.log | grep -G "^OK" | wc -l`
+    - echo $OK
+    - if [ $OK -eq 0 ]; then echo "Test failure found"; exit 1; fi
     

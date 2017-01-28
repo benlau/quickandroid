@@ -20,7 +20,7 @@ void Automator::start()
 
 void Automator::onDispatched(QString name, QVariantMap message)
 {
-    qDebug() << "Automator::onDispatched" << name;
+    qDebug() << "Automator::receive" << name;
     if (name == "Automater::echo") {
         QASystemDispatcher::instance()->dispatch("Automater::response",message);
     }
