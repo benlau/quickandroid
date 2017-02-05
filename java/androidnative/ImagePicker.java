@@ -1,4 +1,4 @@
-package quickandroid;
+package androidnative;
 import org.qtproject.qt5.android.QtNative;
 import android.content.Intent;
 import android.util.Log;
@@ -23,11 +23,11 @@ public class ImagePicker {
     public static final int PICK_IMAGE_ACTION = 0x245285a3;
     public static final int TAKE_PHOTO_ACTION = 0x29fe8748;
 
-    public static final String PICK_IMAGE_MESSAGE = "quickandroid.ImagePicker.pickImage";
-    public static final String TAKE_PHOTO_MESSAGE = "quickandroid.ImagePicker.takePhoto";
-    public static final String CHOSEN_MESSAGE = "quickandroid.ImagePicker.chosen";
+    public static final String PICK_IMAGE_MESSAGE = "androidnative.ImagePicker.pickImage";
+    public static final String TAKE_PHOTO_MESSAGE = "androidnative.ImagePicker.takePhoto";
+    public static final String CHOSEN_MESSAGE = "androidnative.ImagePicker.chosen";
 
-    private static final String TAG = "quickandroid.ImagePicker";
+    private static final String TAG = "androidnative.ImagePicker";
 
     private static Uri mPhotoUri;
     private static Boolean broadcast = false;

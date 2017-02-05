@@ -1,4 +1,4 @@
-package quickandroid;
+package androidnative;
 import org.qtproject.qt5.android.QtNative;
 
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package quickandroid;
+package androidnative;
 
 import android.app.Activity;
 import android.widget.Toast;

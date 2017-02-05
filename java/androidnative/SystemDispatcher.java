@@ -1,5 +1,5 @@
 // Author:  Ben Lau (https://github.com/benlau)
-package quickandroid;
+package androidnative;
 import android.app.Activity;
 import org.qtproject.qt5.android.QtNative;
 import java.lang.String;
@@ -104,11 +104,11 @@ public class SystemDispatcher {
         }
     }
 
-    public static String ACTIVITY_RESUME_MESSAGE = "quickandroid.Activity.onResume";
+    public static String ACTIVITY_RESUME_MESSAGE = "androidnative.Activity.onResume";
 
-    public static String ACTIVITY_RESULT_MESSAGE = "quickandroid.Activity.onActivityResult";
+    public static String ACTIVITY_RESULT_MESSAGE = "androidnative.Activity.onActivityResult";
 
-    public static String SYSTEM_DISPATCHER_LOAD_CLASS_MESSAGE = "quickandroid.SystemDispatcher.loadClass";
+    public static String SYSTEM_DISPATCHER_LOAD_CLASS_MESSAGE = "androidnative.SystemDispatcher.loadClass";
 
     /** A helper function to dispatch a massage when onResume is invoked in the Activity class
      */

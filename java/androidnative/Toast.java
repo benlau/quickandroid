@@ -1,4 +1,4 @@
-package quickandroid;
+package androidnative;
 
 import android.app.Activity;
 import android.util.Log;
@@ -7,9 +7,9 @@ import java.util.Map;
 import org.qtproject.qt5.android.QtNative;
 
 public class Toast {
-    public static final String TOAST_MESSAGE = "quickandroid.Toast.showToast";
+    public static final String TOAST_MESSAGE = "androidnative.Toast.showToast";
 
-    private static final String TAG = "quickandroid.Toast";
+    private static final String TAG = "androidnative.Toast";
 
     static {
         SystemDispatcher.addListener(new SystemDispatcher.Listener() {

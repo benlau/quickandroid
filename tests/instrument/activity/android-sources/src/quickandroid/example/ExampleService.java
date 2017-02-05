@@ -1,5 +1,5 @@
 package quickandroid.example;
-import quickandroid.SystemDispatcher;
+import androidnative.SystemDispatcher;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.util.Log;

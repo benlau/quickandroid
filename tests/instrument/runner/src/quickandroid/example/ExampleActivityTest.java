@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import quickandroid.QuickAndroidActivity;
-import quickandroid.SystemDispatcher;
+import androidnative.QuickAndroidActivity;
+import androidnative.SystemDispatcher;
 
 /**
  * This is a simple framework for a test of an Application.  See
