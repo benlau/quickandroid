@@ -1,3 +1,6 @@
+>  QuickAndroid will be splitted into multiple projects. One of the fork is AndroidNative.pri. It offer native Java components and system service in a more easy installable way. Site: https://github.com/benlau/androidnative.pri
+
+
 QML Material Design Component and Support Library for Android
 ===========================================================
 
